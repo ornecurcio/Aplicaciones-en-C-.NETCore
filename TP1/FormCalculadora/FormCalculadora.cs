@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FrmMiCalculadora
+namespace FormCalculadora
 {
-    public partial class FrmMiCalculadora : Form
+    public partial class Form1 : Form
     {
-        public FrmMiCalculadora()
+        public Form1()
         {
             InitializeComponent();
         }

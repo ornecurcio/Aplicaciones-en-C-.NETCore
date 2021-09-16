@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\orne_\\source\\repos\\TpS\\TP1\\FrmMiCalculadora\\FrmMiCalculadora.csproj": {}
+    "C:\\Users\\orne_\\source\\repos\\TpS\\TP1\\FormCalculadora\\FormCalculadora.csproj": {}
   },
   "projects": {
-    "C:\\Users\\orne_\\source\\repos\\TpS\\TP1\\FrmMiCalculadora\\FrmMiCalculadora.csproj": {
+    "C:\\Users\\orne_\\source\\repos\\TpS\\TP1\\FormCalculadora\\FormCalculadora.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\orne_\\source\\repos\\TpS\\TP1\\FrmMiCalculadora\\FrmMiCalculadora.csproj",
-        "projectName": "FrmMiCalculadora",
-        "projectPath": "C:\\Users\\orne_\\source\\repos\\TpS\\TP1\\FrmMiCalculadora\\FrmMiCalculadora.csproj",
+        "projectUniqueName": "C:\\Users\\orne_\\source\\repos\\TpS\\TP1\\FormCalculadora\\FormCalculadora.csproj",
+        "projectName": "FormCalculadora",
+        "projectPath": "C:\\Users\\orne_\\source\\repos\\TpS\\TP1\\FormCalculadora\\FormCalculadora.csproj",
         "packagesPath": "C:\\Users\\orne_\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\orne_\\source\\repos\\TpS\\TP1\\FrmMiCalculadora\\obj\\",
+        "outputPath": "C:\\Users\\orne_\\source\\repos\\TpS\\TP1\\FormCalculadora\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FrmMiCalculadora
+namespace FormCalculadora
 {
     static class Program
     {
@@ -17,7 +17,7 @@ namespace FrmMiCalculadora
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmMiCalculadora());
+            Application.Run(new FormCalculadora());
         }
     }
 }
