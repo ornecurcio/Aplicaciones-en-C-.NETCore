@@ -45,6 +45,7 @@ namespace FormCalculadora
             // btnOperar
             // 
             this.btnOperar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnOperar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnOperar.Location = new System.Drawing.Point(3, 166);
             this.btnOperar.Name = "btnOperar";
             this.btnOperar.Size = new System.Drawing.Size(158, 50);
@@ -56,6 +57,7 @@ namespace FormCalculadora
             // btnLimpiar
             // 
             this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnLimpiar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnLimpiar.Location = new System.Drawing.Point(167, 166);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(158, 50);
@@ -67,6 +69,7 @@ namespace FormCalculadora
             // btnCerrar
             // 
             this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnCerrar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCerrar.Location = new System.Drawing.Point(331, 166);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(158, 50);
@@ -78,6 +81,7 @@ namespace FormCalculadora
             // btnConvertirABinario
             // 
             this.btnConvertirABinario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnConvertirABinario.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnConvertirABinario.Location = new System.Drawing.Point(3, 254);
             this.btnConvertirABinario.Name = "btnConvertirABinario";
             this.btnConvertirABinario.Size = new System.Drawing.Size(226, 58);
@@ -89,6 +93,7 @@ namespace FormCalculadora
             // btnConvertirADecimal
             // 
             this.btnConvertirADecimal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnConvertirADecimal.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnConvertirADecimal.Location = new System.Drawing.Point(260, 254);
             this.btnConvertirADecimal.Name = "btnConvertirADecimal";
             this.btnConvertirADecimal.Size = new System.Drawing.Size(226, 58);
@@ -105,6 +110,7 @@ namespace FormCalculadora
             this.txtNumero2.Name = "txtNumero2";
             this.txtNumero2.Size = new System.Drawing.Size(155, 50);
             this.txtNumero2.TabIndex = 5;
+            this.txtNumero2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtNumero1
             // 
@@ -114,16 +120,18 @@ namespace FormCalculadora
             this.txtNumero1.Name = "txtNumero1";
             this.txtNumero1.Size = new System.Drawing.Size(158, 50);
             this.txtNumero1.TabIndex = 6;
+            this.txtNumero1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lstOperaciones
             // 
             this.lstOperaciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.lstOperaciones.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lstOperaciones.ForeColor = System.Drawing.Color.Black;
             this.lstOperaciones.FormattingEnabled = true;
-            this.lstOperaciones.ItemHeight = 15;
+            this.lstOperaciones.ItemHeight = 28;
             this.lstOperaciones.Location = new System.Drawing.Point(495, 18);
             this.lstOperaciones.Name = "lstOperaciones";
-            this.lstOperaciones.Size = new System.Drawing.Size(199, 289);
+            this.lstOperaciones.Size = new System.Drawing.Size(199, 284);
             this.lstOperaciones.TabIndex = 7;
             // 
             // cmbOperador
