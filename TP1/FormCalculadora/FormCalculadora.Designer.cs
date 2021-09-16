@@ -46,9 +46,9 @@ namespace FormCalculadora
             // 
             this.btnOperar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnOperar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnOperar.Location = new System.Drawing.Point(3, 166);
+            this.btnOperar.Location = new System.Drawing.Point(3, 155);
             this.btnOperar.Name = "btnOperar";
-            this.btnOperar.Size = new System.Drawing.Size(158, 50);
+            this.btnOperar.Size = new System.Drawing.Size(181, 47);
             this.btnOperar.TabIndex = 0;
             this.btnOperar.Text = "Operar";
             this.btnOperar.UseVisualStyleBackColor = false;
@@ -58,9 +58,9 @@ namespace FormCalculadora
             // 
             this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnLimpiar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnLimpiar.Location = new System.Drawing.Point(167, 166);
+            this.btnLimpiar.Location = new System.Drawing.Point(191, 155);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(158, 50);
+            this.btnLimpiar.Size = new System.Drawing.Size(181, 47);
             this.btnLimpiar.TabIndex = 1;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = false;
@@ -70,9 +70,9 @@ namespace FormCalculadora
             // 
             this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnCerrar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCerrar.Location = new System.Drawing.Point(331, 166);
+            this.btnCerrar.Location = new System.Drawing.Point(378, 155);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(158, 50);
+            this.btnCerrar.Size = new System.Drawing.Size(181, 47);
             this.btnCerrar.TabIndex = 2;
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseVisualStyleBackColor = false;
@@ -82,9 +82,9 @@ namespace FormCalculadora
             // 
             this.btnConvertirABinario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnConvertirABinario.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnConvertirABinario.Location = new System.Drawing.Point(3, 254);
+            this.btnConvertirABinario.Location = new System.Drawing.Point(3, 237);
             this.btnConvertirABinario.Name = "btnConvertirABinario";
-            this.btnConvertirABinario.Size = new System.Drawing.Size(226, 58);
+            this.btnConvertirABinario.Size = new System.Drawing.Size(258, 54);
             this.btnConvertirABinario.TabIndex = 3;
             this.btnConvertirABinario.Text = "Convertir a Binario";
             this.btnConvertirABinario.UseVisualStyleBackColor = false;
@@ -94,9 +94,9 @@ namespace FormCalculadora
             // 
             this.btnConvertirADecimal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnConvertirADecimal.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnConvertirADecimal.Location = new System.Drawing.Point(260, 254);
+            this.btnConvertirADecimal.Location = new System.Drawing.Point(297, 237);
             this.btnConvertirADecimal.Name = "btnConvertirADecimal";
-            this.btnConvertirADecimal.Size = new System.Drawing.Size(226, 58);
+            this.btnConvertirADecimal.Size = new System.Drawing.Size(258, 54);
             this.btnConvertirADecimal.TabIndex = 4;
             this.btnConvertirADecimal.Text = "Convertir a Decimal ";
             this.btnConvertirADecimal.UseVisualStyleBackColor = false;
@@ -106,9 +106,9 @@ namespace FormCalculadora
             // 
             this.txtNumero2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.txtNumero2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtNumero2.Location = new System.Drawing.Point(331, 92);
+            this.txtNumero2.Location = new System.Drawing.Point(378, 86);
             this.txtNumero2.Name = "txtNumero2";
-            this.txtNumero2.Size = new System.Drawing.Size(155, 50);
+            this.txtNumero2.Size = new System.Drawing.Size(177, 50);
             this.txtNumero2.TabIndex = 5;
             this.txtNumero2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -116,9 +116,9 @@ namespace FormCalculadora
             // 
             this.txtNumero1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.txtNumero1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtNumero1.Location = new System.Drawing.Point(3, 92);
+            this.txtNumero1.Location = new System.Drawing.Point(3, 86);
             this.txtNumero1.Name = "txtNumero1";
-            this.txtNumero1.Size = new System.Drawing.Size(158, 50);
+            this.txtNumero1.Size = new System.Drawing.Size(180, 50);
             this.txtNumero1.TabIndex = 6;
             this.txtNumero1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -129,9 +129,9 @@ namespace FormCalculadora
             this.lstOperaciones.ForeColor = System.Drawing.Color.Black;
             this.lstOperaciones.FormattingEnabled = true;
             this.lstOperaciones.ItemHeight = 28;
-            this.lstOperaciones.Location = new System.Drawing.Point(495, 18);
+            this.lstOperaciones.Location = new System.Drawing.Point(566, 17);
             this.lstOperaciones.Name = "lstOperaciones";
-            this.lstOperaciones.Size = new System.Drawing.Size(199, 284);
+            this.lstOperaciones.Size = new System.Drawing.Size(227, 256);
             this.lstOperaciones.TabIndex = 7;
             // 
             // cmbOperador
@@ -145,18 +145,17 @@ namespace FormCalculadora
             "-",
             "/",
             "*"});
-            this.cmbOperador.Location = new System.Drawing.Point(190, 92);
+            this.cmbOperador.Location = new System.Drawing.Point(217, 86);
             this.cmbOperador.Name = "cmbOperador";
-            this.cmbOperador.Size = new System.Drawing.Size(121, 51);
+            this.cmbOperador.Size = new System.Drawing.Size(138, 51);
             this.cmbOperador.TabIndex = 8;
-            this.cmbOperador.SelectedIndexChanged += new System.EventHandler(this.cmbOperador_SelectedIndexChanged);
             // 
             // lblResultado
             // 
             this.lblResultado.AutoSize = true;
             this.lblResultado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.lblResultado.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblResultado.Location = new System.Drawing.Point(358, 47);
+            this.lblResultado.Location = new System.Drawing.Point(409, 44);
             this.lblResultado.Name = "lblResultado";
             this.lblResultado.Size = new System.Drawing.Size(128, 28);
             this.lblResultado.TabIndex = 9;
@@ -164,10 +163,10 @@ namespace FormCalculadora
             // 
             // FormCalculadora
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(697, 319);
+            this.ClientSize = new System.Drawing.Size(797, 298);
             this.Controls.Add(this.lblResultado);
             this.Controls.Add(this.cmbOperador);
             this.Controls.Add(this.lstOperaciones);
@@ -178,12 +177,13 @@ namespace FormCalculadora
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnOperar);
+            this.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormCalculadora";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calculadora de Ornela Curcio del curso 2°A";
-            this.TransparencyKey = System.Drawing.Color.White;
+            this.TransparencyKey = System.Drawing.Color.Black;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCalculadora_FormClosing);
             this.Load += new System.EventHandler(this.FormCalculadora_Load);
             this.ResumeLayout(false);

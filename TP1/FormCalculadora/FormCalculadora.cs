@@ -45,7 +45,8 @@ namespace FormCalculadora
         private void btnOperar_Click(object sender, EventArgs e)
         {
             double resultado = Operar(txtNumero1.Text, txtNumero2.Text, cmbOperador.Text);
-            lstOperaciones.Items.Add(txtNumero1.Text + cmbOperador.Text + txtNumero2.Text + "=" + resultado.ToString());
+            lstOperaciones.Items.Add(txtNumero1.Text + cmbOperador.Text + 
+                                     txtNumero2.Text + "=" + resultado.ToString());
             lblResultado.Text = resultado.ToString();
         }
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -65,13 +66,7 @@ namespace FormCalculadora
         private void btnConvertirADecimal_Click(object sender, EventArgs e)
         {
             Operando numero = new Operando();
-            lblResultado.Text = numero.BinarioDecimal(lblResultado.Text);
-            
-        }
-
-        private void cmbOperador_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            lblResultado.Text = numero.BinarioDecimal(lblResultado.Text);   
         }
     }
 }
