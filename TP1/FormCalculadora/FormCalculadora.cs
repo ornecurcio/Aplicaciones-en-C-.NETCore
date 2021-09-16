@@ -29,7 +29,6 @@ namespace FormCalculadora
             Operando operador2 = new Operando(numero2);
             char.TryParse(operador, out char auxOperador);
             return Calculadora.Operar(operador1, operador2, auxOperador);
-
         }
         private void FormCalculadora_Load(object sender, EventArgs e)
         {
@@ -42,29 +41,21 @@ namespace FormCalculadora
             {
                 e.Cancel = true;
             }
-            else
-            {
-                MessageBox.Show("Adios");
-            }
         }
-
         private void btnOperar_Click(object sender, EventArgs e)
         {
             double resultado = Operar(txtNumero1.Text, txtNumero2.Text, cmbOperador.Text);
             lstOperaciones.Items.Add(txtNumero1.Text + cmbOperador.Text + txtNumero2.Text + "=" + resultado.ToString());
             lblResultado.Text = resultado.ToString();
         }
-
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             Limpiar();
         }
-
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void btnConvertirABinario_Click(object sender, EventArgs e)
         {
             Operando numero = new Operando();
@@ -76,6 +67,11 @@ namespace FormCalculadora
             Operando numero = new Operando();
             lblResultado.Text = numero.BinarioDecimal(lblResultado.Text);
             
+        }
+
+        private void cmbOperador_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
