@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entidades", "Entidades\Entidades.csproj", "{984542B8-1E6F-4496-BE86-0A1C95BCF974}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormCalculadora", "FormCalculadora\FormCalculadora.csproj", "{A0376712-F266-451A-B87E-55FD71D80C5F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiCalculadora", "FormCalculadora\MiCalculadora.csproj", "{A0376712-F266-451A-B87E-55FD71D80C5F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
