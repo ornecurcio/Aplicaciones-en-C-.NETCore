@@ -46,7 +46,7 @@ namespace FormCalculadora
             // 
             this.btnOperar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnOperar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnOperar.Location = new System.Drawing.Point(3, 155);
+            this.btnOperar.Location = new System.Drawing.Point(3, 164);
             this.btnOperar.Name = "btnOperar";
             this.btnOperar.Size = new System.Drawing.Size(181, 47);
             this.btnOperar.TabIndex = 4;
@@ -58,7 +58,7 @@ namespace FormCalculadora
             // 
             this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnLimpiar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnLimpiar.Location = new System.Drawing.Point(191, 155);
+            this.btnLimpiar.Location = new System.Drawing.Point(191, 164);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(181, 47);
             this.btnLimpiar.TabIndex = 5;
@@ -70,7 +70,7 @@ namespace FormCalculadora
             // 
             this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnCerrar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCerrar.Location = new System.Drawing.Point(378, 155);
+            this.btnCerrar.Location = new System.Drawing.Point(378, 164);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(181, 47);
             this.btnCerrar.TabIndex = 6;
@@ -94,7 +94,7 @@ namespace FormCalculadora
             // 
             this.btnConvertirADecimal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnConvertirADecimal.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnConvertirADecimal.Location = new System.Drawing.Point(297, 237);
+            this.btnConvertirADecimal.Location = new System.Drawing.Point(301, 237);
             this.btnConvertirADecimal.Name = "btnConvertirADecimal";
             this.btnConvertirADecimal.Size = new System.Drawing.Size(258, 54);
             this.btnConvertirADecimal.TabIndex = 8;
@@ -108,7 +108,7 @@ namespace FormCalculadora
             this.txtNumero2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtNumero2.Location = new System.Drawing.Point(378, 86);
             this.txtNumero2.Name = "txtNumero2";
-            this.txtNumero2.Size = new System.Drawing.Size(177, 50);
+            this.txtNumero2.Size = new System.Drawing.Size(181, 50);
             this.txtNumero2.TabIndex = 3;
             this.txtNumero2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -129,9 +129,9 @@ namespace FormCalculadora
             this.lstOperaciones.ForeColor = System.Drawing.Color.Black;
             this.lstOperaciones.FormattingEnabled = true;
             this.lstOperaciones.ItemHeight = 28;
-            this.lstOperaciones.Location = new System.Drawing.Point(565, 86);
+            this.lstOperaciones.Location = new System.Drawing.Point(565, 7);
             this.lstOperaciones.Name = "lstOperaciones";
-            this.lstOperaciones.Size = new System.Drawing.Size(227, 200);
+            this.lstOperaciones.Size = new System.Drawing.Size(227, 284);
             this.lstOperaciones.TabIndex = 10;
             // 
             // cmbOperador
@@ -145,24 +145,24 @@ namespace FormCalculadora
             "-",
             "/",
             "*"});
-            this.cmbOperador.Location = new System.Drawing.Point(217, 86);
+            this.cmbOperador.Location = new System.Drawing.Point(215, 85);
             this.cmbOperador.Name = "cmbOperador";
-            this.cmbOperador.Size = new System.Drawing.Size(138, 51);
+            this.cmbOperador.Size = new System.Drawing.Size(142, 51);
             this.cmbOperador.TabIndex = 2;
+            this.cmbOperador.SelectedIndexChanged += new System.EventHandler(this.cmbOperador_SelectedIndexChanged);
             // 
             // lblResultado
             // 
             this.lblResultado.AutoEllipsis = true;
-            this.lblResultado.AutoSize = true;
             this.lblResultado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.lblResultado.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblResultado.Location = new System.Drawing.Point(427, 46);
+            this.lblResultado.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblResultado.Location = new System.Drawing.Point(3, 9);
             this.lblResultado.Name = "lblResultado";
-            this.lblResultado.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblResultado.Size = new System.Drawing.Size(128, 28);
+            this.lblResultado.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblResultado.Size = new System.Drawing.Size(556, 41);
             this.lblResultado.TabIndex = 9;
             this.lblResultado.Text = "Resultado";
-            this.lblResultado.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblResultado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // FormCalculadora
             // 

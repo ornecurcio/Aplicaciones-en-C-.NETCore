@@ -89,7 +89,7 @@ namespace Entidades
                 {
                     string auxStr = letra.ToString();
                     double.TryParse(auxStr, out double auxDigit);
-                    auxNum += (auxNum * Math.Pow(2, auxPotencias));
+                    auxNum += (auxDigit * Math.Pow(2, auxPotencias));
                     auxPotencias--;
                 }
                 int auxEnt = (int)Math.Abs(auxNum);
@@ -120,10 +120,7 @@ namespace Entidades
             }
             return "Valor Invalido";
         }
-
         #endregion
-
-
     }
 
 }

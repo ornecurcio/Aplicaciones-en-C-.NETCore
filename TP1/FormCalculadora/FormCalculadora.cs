@@ -17,11 +17,14 @@ namespace FormCalculadora
         {
             InitializeComponent();
         }
+        bool hayBinario = false; 
         private void Limpiar()
         {
             txtNumero1.Clear();
             txtNumero2.Clear();
             cmbOperador.SelectedIndex = 0;
+            lblResultado.Text=default;
+            hayBinario = false;
         }
         private static double Operar(string numero1, string numero2, string operador)
         {
@@ -59,13 +62,26 @@ namespace FormCalculadora
         }
         private void btnConvertirABinario_Click(object sender, EventArgs e)
         {
-            Operando numero = new Operando();
-            lblResultado.Text = numero.DecimalBinario(lblResultado.Text);
+            if (!hayBinario)
+            {
+                Operando numero = new Operando();
+                lblResultado.Text = numero.DecimalBinario(lblResultado.Text);
+                hayBinario = true;
+            }
         }
         private void btnConvertirADecimal_Click(object sender, EventArgs e)
         {
-            Operando numero = new Operando();
-            lblResultado.Text = numero.BinarioDecimal(lblResultado.Text);   
+            if (hayBinario)
+            {
+                Operando numero = new Operando();
+                lblResultado.Text = numero.BinarioDecimal(lblResultado.Text);
+                hayBinario = false; 
+            }
+        }
+
+        private void cmbOperador_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
