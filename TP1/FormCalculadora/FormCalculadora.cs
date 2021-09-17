@@ -62,7 +62,6 @@ namespace FormCalculadora
             Operando numero = new Operando();
             lblResultado.Text = numero.DecimalBinario(lblResultado.Text);
         }
-
         private void btnConvertirADecimal_Click(object sender, EventArgs e)
         {
             Operando numero = new Operando();
