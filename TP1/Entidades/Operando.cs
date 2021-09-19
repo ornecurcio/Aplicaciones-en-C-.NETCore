@@ -99,7 +99,7 @@ namespace Entidades
         }
         public string DecimalBinario(double numero) 
         {
-            string binarioStr = "";
+            string binarioStr = string.Empty;
             int numAbs = (int)Math.Abs(numero);
             if (numAbs == 0) 
             {
