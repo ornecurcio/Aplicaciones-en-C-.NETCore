@@ -63,10 +63,20 @@ namespace FormCalculadora
                 txtNumero2.Text.All(char.IsDigit) && !string.IsNullOrWhiteSpace(txtNumero2.Text))
             {
                 double resultado = Operar(txtNumero1.Text, txtNumero2.Text, cmbOperador.Text);
-                lstOperaciones.Items.Add(txtNumero1.Text + cmbOperador.Text + txtNumero2.Text
-                                          + "=" + resultado.ToString());
-                lblResultado.Text = resultado.ToString();
-                btnConvertirABinario.Enabled = true; 
+                if (resultado != double.MinValue)
+                {
+                    lstOperaciones.Items.Add(txtNumero1.Text + cmbOperador.Text + txtNumero2.Text
+                                             + "=" + resultado.ToString());
+                    lblResultado.Text = resultado.ToString();
+                    btnConvertirABinario.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("La division por cero no es valida", "Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                    Limpiar();
+                }
+                
             }
             else
             {
