@@ -40,7 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Marcas-Tamanios.cs" />
     <Compile Include="Suv.cs" />
     <Compile Include="Ciclomotor.cs" />
     <Compile Include="Taller.cs" />
