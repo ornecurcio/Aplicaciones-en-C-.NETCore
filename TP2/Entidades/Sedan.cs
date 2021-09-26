@@ -55,7 +55,7 @@ namespace Entidades
         /// Muestra los datos del sedan en un string
         /// </summary>
         /// <returns></returns>
-        public override sealed string Mostrar()
+        public override string Mostrar()
         {
             StringBuilder sb = new StringBuilder();
 
