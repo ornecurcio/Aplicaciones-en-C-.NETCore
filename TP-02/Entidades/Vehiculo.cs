@@ -62,10 +62,12 @@ namespace Entidades
             StringBuilder sb = new StringBuilder();
             if (!(p is null))
             {
+                sb.AppendLine($"{p.GetType().Name.ToUpper()}"); 
                 sb.AppendLine($"CHASIS: {p.chasis}");
                 sb.AppendLine($"MARCA : {p.marca}");
                 sb.AppendLine($"COLOR : {p.color}");
                 sb.AppendLine("---------------------");
+                sb.AppendLine($"TAMAÑO: {p.Tamanio}"); 
             }
             return sb.ToString();
         }
@@ -104,10 +106,13 @@ namespace Entidades
         {
             return !(v1==v2);
         }
-
         public override bool Equals(object obj)
         {
-            return base.Equals(obj);
+            return obj.GetType() == this.GetType();
+        }
+        public override int GetHashCode()
+        {
+            return (chasis).GetHashCode();
         }
     }
 }
