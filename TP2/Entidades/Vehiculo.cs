@@ -19,11 +19,13 @@ namespace Entidades
         {
             Chico, Mediano, Grande
         };
+
         #region Atributos
         private string chasis;
         private EMarca marca;
         private ConsoleColor color;
         #endregion
+
         #region Propiedades
         /// <summary>
         /// ReadOnly: Retornará el tamaño
@@ -45,6 +47,8 @@ namespace Entidades
             this.color = color;
         }
         #endregion
+
+        #region Metodos
         /// <summary>
         /// Publica todos los datos del Vehiculo.
         /// </summary>
@@ -53,6 +57,9 @@ namespace Entidades
         {
             return (string)this;
         }
+        #endregion
+
+        #region Sobrecargas
         /// <summary>
         /// Sobrecarga, casteo explicito a string
         /// </summary>
@@ -106,13 +113,6 @@ namespace Entidades
         {
             return !(v1==v2);
         }
-        public override bool Equals(object obj)
-        {
-            return obj.GetType() == this.GetType();
-        }
-        public override int GetHashCode()
-        {
-            return (chasis).GetHashCode();
-        }
+        #endregion
     }
 }

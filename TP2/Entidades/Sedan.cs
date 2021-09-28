@@ -13,6 +13,7 @@ namespace Entidades
         #region Atributo
         ETipo tipo;
         #endregion
+
         #region Constructores
         /// <summary>
         /// Constructor por defecto, TIPO será CuatroPuertas
@@ -22,8 +23,7 @@ namespace Entidades
         /// <param name="color"></param>
         public Sedan(EMarca marca, string chasis, ConsoleColor color) 
                      :this(marca, chasis, color, ETipo.CuatroPuertas)
-        {
-            this.tipo = ETipo.CuatroPuertas;
+        {   
         }
         /// <summary>
         /// Constructor instanciando todos los parametros
@@ -33,11 +33,12 @@ namespace Entidades
         /// <param name="color">el color del sedan</param>
         /// <param name="tipo">el tipo de sedan</param>
         public Sedan(EMarca marca, string chasis, ConsoleColor color, ETipo tipo)
-                            : base(chasis, marca, color)
+                     : base(chasis, marca, color)
         {
             this.tipo = tipo;
         }
         #endregion
+
         #region Propiedad
         /// <summary>
         /// Sedan son 'Mediano'
@@ -50,6 +51,7 @@ namespace Entidades
             }
         }
         #endregion
+
         #region Metodos
         /// <summary>
         /// Muestra los datos del sedan en un string
