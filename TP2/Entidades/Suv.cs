@@ -37,7 +37,7 @@ namespace Entidades
         /// Muestra los datos de la SUV en un string
         /// </summary>
         /// <returns></returns>
-        public override string Mostrar()
+        public override sealed string Mostrar()
         {
             StringBuilder sb = new StringBuilder();
 
