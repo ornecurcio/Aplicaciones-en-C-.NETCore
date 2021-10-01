@@ -11,14 +11,24 @@ namespace Entidades
     /// </summary>
     public abstract class Vehiculo
     {
+        #region Enumerados
         public enum EMarca
         {
-            Chevrolet, Ford, Renault, Toyota, BMW, Honda, HarleyDavidson
-        };
+            Chevrolet, 
+            Ford, 
+            Renault, 
+            Toyota, 
+            BMW, 
+            Honda, 
+            HarleyDavidson
+        }
         public enum ETamanio
         {
-            Chico, Mediano, Grande
-        };
+            Chico, 
+            Mediano, 
+            Grande
+        }
+        #endregion
 
         #region Atributos
         private string chasis;

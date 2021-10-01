@@ -13,8 +13,11 @@ namespace Entidades
     {
         public enum ETipo
         {
-            Ciclomotor, Sedan, SUV, Todos
-        };
+            Ciclomotor,
+            Sedan, 
+            SUV, 
+            Todos
+        }
 
         #region Atributos
         private int espacioDisponible;

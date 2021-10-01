@@ -9,7 +9,14 @@ namespace Entidades
 {
    public class Sedan : Vehiculo
     {
-        public enum ETipo { CuatroPuertas, CincoPuertas };
+        #region Enumerados
+        public enum ETipo 
+        { 
+            CuatroPuertas, 
+            CincoPuertas 
+        }
+        #endregion
+
         #region Atributo
         ETipo tipo;
         #endregion
