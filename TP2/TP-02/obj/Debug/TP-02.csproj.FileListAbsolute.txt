@@ -31,3 +31,13 @@ C:\Users\orne_\source\repos\TpS\TP-02\TP-02\bin\Debug\Entidades.dll
 C:\Users\orne_\source\repos\TpS\TP-02\TP-02\bin\Debug\Entidades.pdb
 C:\Users\orne_\source\repos\TpS\TP-02\TP-02\obj\Debug\TP-02.csproj.CopyComplete
 C:\Users\orne_\source\repos\TpS\TP-02\TP-02\obj\Debug\TP-02.pdb
+C:\Users\orne_\source\repos\TpS\TP2\TP-02\bin\Debug\TP-02.exe.config
+C:\Users\orne_\source\repos\TpS\TP2\TP-02\bin\Debug\TP-02.exe
+C:\Users\orne_\source\repos\TpS\TP2\TP-02\bin\Debug\TP-02.pdb
+C:\Users\orne_\source\repos\TpS\TP2\TP-02\bin\Debug\Entidades.dll
+C:\Users\orne_\source\repos\TpS\TP2\TP-02\bin\Debug\Entidades.pdb
+C:\Users\orne_\source\repos\TpS\TP2\TP-02\obj\Debug\TP-02.csproj.AssemblyReference.cache
+C:\Users\orne_\source\repos\TpS\TP2\TP-02\obj\Debug\TP-02.csproj.CoreCompileInputs.cache
+C:\Users\orne_\source\repos\TpS\TP2\TP-02\obj\Debug\TP-02.csproj.CopyComplete
+C:\Users\orne_\source\repos\TpS\TP2\TP-02\obj\Debug\TP-02.exe
+C:\Users\orne_\source\repos\TpS\TP2\TP-02\obj\Debug\TP-02.pdb

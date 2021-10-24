@@ -11,6 +11,7 @@ namespace Entidades
     /// </summary>
     public sealed class Taller
     {
+        #region 
         public enum ETipo
         {
             Ciclomotor,
@@ -18,7 +19,7 @@ namespace Entidades
             SUV, 
             Todos
         }
-
+        #endregion
         #region Atributos
         private int espacioDisponible;
         private List<Vehiculo> vehiculos;
@@ -123,8 +124,7 @@ namespace Entidades
         /// <returns></returns>
         public static Taller operator -(Taller taller, Vehiculo vehiculo)
         {
-            if (!(taller is null) && !(vehiculo is null) &&
-                  taller.vehiculos.Count < taller.espacioDisponible)
+            if (!(taller is null) && !(vehiculo is null)) //&& taller.vehiculos.Count < taller.espacioDisponible
             {
                 foreach (Vehiculo v in taller.vehiculos)
                 {
