@@ -116,6 +116,7 @@ namespace Formulario
             this.cmbPatologia.Name = "cmbPatologia";
             this.cmbPatologia.Size = new System.Drawing.Size(218, 23);
             this.cmbPatologia.TabIndex = 12;
+            this.cmbPatologia.SelectedIndexChanged += new System.EventHandler(this.cmbPatologia_SelectedIndexChanged);
             // 
             // FrmCargarProcedimiento
             // 

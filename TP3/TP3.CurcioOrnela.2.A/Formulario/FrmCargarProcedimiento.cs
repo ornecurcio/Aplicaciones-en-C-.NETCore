@@ -35,9 +35,7 @@ namespace Formulario
                 foreach (Cirujano item in Hospital.Cirujanos)
                 {
                     cmbApellidoNombre.Items.Add(new{Text = item.Apellido + ", "+ item.Nombre}); 
-                }
-                
-                
+                } 
             }
             else
             {
@@ -46,13 +44,34 @@ namespace Formulario
                 cmbRol.Visible = false;
                 foreach (Paciente item in Hospital.Pacientes)
                 {
-                    cmbApellidoNombre.Items.Add(new String[] { $"{item.Apellido}, {item.Nombre}" });
+                    cmbApellidoNombre.Items.Add(new { Text = item.Apellido + ", " + item.Nombre });
                 }
             }
             cmbPatologia.DataSource = Enum.GetValues(typeof(EPatologia));
             cmbProcedimiento.Enabled = false;
+
         }
 
-        
+        private void cmbPatologia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbProcedimiento.Enabled = true; 
+            switch (cmbApellidoNombre.Text)
+            {
+                case "Columna":
+                    cmbProcedimiento.Items.AddRange(new String[] { "RAFI", "Artrodecis", "Osteotomia", "Yeso" }); 
+                    break;
+                case "MiembroSuperior":
+                    cmbProcedimiento.Items.AddRange(new String[] { "RAFI", "Artrodecis", "Osteotomia", "Yeso", "ReduccionCerrada", "Osteodesis" });
+                    break;
+                case "MiembroInferior":
+                    cmbProcedimiento.Items.AddRange(new String[] { "RAFI", "Artrodecis", "Osteotomia", "Yeso", "ReduccionCerrada", "Osteodesis" });
+                    break;
+                case "Pelvis":
+                    cmbProcedimiento.Items.AddRange(new String[] { "Artrodecis", "Osteotomia", "Yeso" });
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }
