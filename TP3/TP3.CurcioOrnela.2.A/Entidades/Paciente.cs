@@ -27,5 +27,19 @@ namespace Entidades
         {
             this.patologia = patologia; 
         }
+        public static bool operator ==(Paciente a, Paciente b)
+        {
+            if(a is not null && b is not null && a.Dni == b.Dni)
+            {
+                return true; 
+            }
+            return false; 
+        }
+        public static bool operator !=(Paciente a, Paciente b)
+        {
+            return !(a == b); 
+        }
+        
+        // sobrecarga de == paciente en dni. 
     }
 }

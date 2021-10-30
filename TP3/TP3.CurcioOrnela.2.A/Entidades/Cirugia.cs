@@ -10,7 +10,7 @@ namespace Entidades
     {
         private List<Cirujano> cirujanos;
         private Paciente paciente;
-        private Dictionary<EPatologia, string> procedimientos;
+        private Dictionary<EPatologia, EProcedimiento> procedimientos;
         private Estadistica estadistica;
         private DateTime fecha;
 
@@ -28,7 +28,7 @@ namespace Entidades
                 }
             }
         }
-        public Dictionary<EPatologia, string>Procedimientos
+        public Dictionary<EPatologia, EProcedimiento>Procedimientos
         {
             get
             {
@@ -73,6 +73,15 @@ namespace Entidades
             {
                 this.fecha = value;
             }
+        }
+
+        public Cirugia(Paciente paciente, Estadistica estadistica, DateTime fecha, List<Cirujano> cirujanos, Dictionary<EPatologia, EProcedimiento> procedimientos)
+        {
+            this.paciente = paciente;
+            this.estadistica = estadistica;
+            this.fecha = fecha;
+            this.cirujanos = cirujanos;
+            this.procedimientos = procedimientos; 
         }
 
     }
