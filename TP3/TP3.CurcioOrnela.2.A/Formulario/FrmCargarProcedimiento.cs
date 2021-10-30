@@ -18,7 +18,7 @@ namespace Formulario
         {
             InitializeComponent();
         }
-        public FrmCargarProcedimiento(bool esMedico)
+        public FrmCargarProcedimiento(bool esMedico):this()
         {
             this.esMedico = esMedico; 
         }
@@ -28,19 +28,29 @@ namespace Formulario
             if(esMedico)
             {
                 lblPersona.Text = "Cirujano";
+               
                 lblRol.Text = "Rol"; 
                 cmbRol.DataSource = Enum.GetValues(typeof(ERol));
+                
+                foreach (Cirujano item in Hospital.Cirujanos)
+                {
+                    cmbApellidoNombre.Items.Add(new{Text = item.Apellido + ", "+ item.Nombre}); 
+                }
+                
                 
             }
             else
             {
                 lblPersona.Text = "Paciente";
                 lblRol.Visible = false;
-                cmbRol.Visible = false; 
+                cmbRol.Visible = false;
+                foreach (Paciente item in Hospital.Pacientes)
+                {
+                    cmbApellidoNombre.Items.Add(new String[] { $"{item.Apellido}, {item.Nombre}" });
+                }
             }
             cmbPatologia.DataSource = Enum.GetValues(typeof(EPatologia));
             cmbProcedimiento.Enabled = false;
-
         }
 
         

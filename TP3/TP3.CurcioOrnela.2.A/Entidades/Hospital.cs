@@ -46,23 +46,23 @@ namespace Entidades
             cirujanos.Add(new Cirujano("Daniel", "Villena", 22963307, ERol.Cirujano));
             cirujanos.Add(new Cirujano("Daniel", "Villena", 22963307, ERol.Ayudante));
 
-            procedimientos.Add(EPatologia.Columna, EProcedimiento.RAFI);
-            procedimientos.Add(EPatologia.Columna, EProcedimiento.Artrodecis);
-            procedimientos.Add(EPatologia.Columna, EProcedimiento.Osteotomia);
-            procedimientos.Add(EPatologia.Columna, EProcedimiento.Yeso);
-            procedimientos.Add(EPatologia.Pelvis, EProcedimiento.Osteotomia);
-            procedimientos.Add(EPatologia.Pelvis, EProcedimiento.Artrodecis);
-            procedimientos.Add(EPatologia.Pelvis, EProcedimiento.Yeso);
-            procedimientos.Add(EPatologia.MiembroInferior, EProcedimiento.RAFI);
-            procedimientos.Add(EPatologia.MiembroInferior, EProcedimiento.Artrodecis);
-            procedimientos.Add(EPatologia.MiembroInferior, EProcedimiento.Osteotomia);
-            procedimientos.Add(EPatologia.MiembroInferior, EProcedimiento.ReduccionCerrada);
-            procedimientos.Add(EPatologia.MiembroInferior, EProcedimiento.Yeso); 
-            procedimientos.Add(EPatologia.MiembroSuperior, EProcedimiento.RAFI);
-            procedimientos.Add(EPatologia.MiembroSuperior, EProcedimiento.Artrodecis);
-            procedimientos.Add(EPatologia.MiembroSuperior, EProcedimiento.Osteotomia);
-            procedimientos.Add(EPatologia.MiembroSuperior, EProcedimiento.ReduccionCerrada);
-            procedimientos.Add(EPatologia.MiembroSuperior, EProcedimiento.Yeso);
+            //procedimientos.Add(EPatologia.Columna, EProcedimiento.RAFI);
+            //procedimientos.Add(EPatologia.Columna, EProcedimiento.Artrodecis);
+            //procedimientos.Add(EPatologia.Columna, EProcedimiento.Osteotomia);
+            //procedimientos.Add(EPatologia.Columna, EProcedimiento.Yeso);
+            //procedimientos.Add(EPatologia.Pelvis, EProcedimiento.Osteotomia);
+            //procedimientos.Add(EPatologia.Pelvis, EProcedimiento.Artrodecis);
+            //procedimientos.Add(EPatologia.Pelvis, EProcedimiento.Yeso);
+            //procedimientos.Add(EPatologia.MiembroInferior, EProcedimiento.RAFI);
+            //procedimientos.Add(EPatologia.MiembroInferior, EProcedimiento.Artrodecis);
+            //procedimientos.Add(EPatologia.MiembroInferior, EProcedimiento.Osteotomia);
+            //procedimientos.Add(EPatologia.MiembroInferior, EProcedimiento.ReduccionCerrada);
+            //procedimientos.Add(EPatologia.MiembroInferior, EProcedimiento.Yeso); 
+            //procedimientos.Add(EPatologia.MiembroSuperior, EProcedimiento.RAFI);
+            //procedimientos.Add(EPatologia.MiembroSuperior, EProcedimiento.Artrodecis);
+            //procedimientos.Add(EPatologia.MiembroSuperior, EProcedimiento.Osteotomia);
+            //procedimientos.Add(EPatologia.MiembroSuperior, EProcedimiento.ReduccionCerrada);
+            //procedimientos.Add(EPatologia.MiembroSuperior, EProcedimiento.Yeso);
 
         }
         public static List<Paciente> Pacientes

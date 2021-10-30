@@ -81,7 +81,7 @@ namespace Formulario
             this.cmbApellidoNombre.FormattingEnabled = true;
             this.cmbApellidoNombre.Location = new System.Drawing.Point(80, 70);
             this.cmbApellidoNombre.Name = "cmbApellidoNombre";
-            this.cmbApellidoNombre.Size = new System.Drawing.Size(121, 23);
+            this.cmbApellidoNombre.Size = new System.Drawing.Size(218, 23);
             this.cmbApellidoNombre.TabIndex = 6;
             // 
             // cmbRol
@@ -89,7 +89,7 @@ namespace Formulario
             this.cmbRol.FormattingEnabled = true;
             this.cmbRol.Location = new System.Drawing.Point(80, 126);
             this.cmbRol.Name = "cmbRol";
-            this.cmbRol.Size = new System.Drawing.Size(121, 23);
+            this.cmbRol.Size = new System.Drawing.Size(218, 23);
             this.cmbRol.TabIndex = 7;
             // 
             // cmbProcedimiento
@@ -97,7 +97,7 @@ namespace Formulario
             this.cmbProcedimiento.FormattingEnabled = true;
             this.cmbProcedimiento.Location = new System.Drawing.Point(80, 248);
             this.cmbProcedimiento.Name = "cmbProcedimiento";
-            this.cmbProcedimiento.Size = new System.Drawing.Size(121, 23);
+            this.cmbProcedimiento.Size = new System.Drawing.Size(218, 23);
             this.cmbProcedimiento.TabIndex = 10;
             // 
             // lblPatologia
@@ -114,7 +114,7 @@ namespace Formulario
             this.cmbPatologia.FormattingEnabled = true;
             this.cmbPatologia.Location = new System.Drawing.Point(80, 181);
             this.cmbPatologia.Name = "cmbPatologia";
-            this.cmbPatologia.Size = new System.Drawing.Size(121, 23);
+            this.cmbPatologia.Size = new System.Drawing.Size(218, 23);
             this.cmbPatologia.TabIndex = 12;
             // 
             // FrmCargarProcedimiento
