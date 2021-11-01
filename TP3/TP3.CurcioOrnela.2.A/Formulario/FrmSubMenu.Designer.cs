@@ -31,7 +31,6 @@ namespace Formulario
         {
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnVer = new System.Windows.Forms.Button();
-            this.btnVolver = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnAgregarNuevo = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -54,15 +53,6 @@ namespace Formulario
             this.btnVer.UseVisualStyleBackColor = true;
             this.btnVer.Click += new System.EventHandler(this.btnVer_Click);
             // 
-            // btnVolver
-            // 
-            this.btnVolver.Location = new System.Drawing.Point(51, 233);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(134, 23);
-            this.btnVolver.TabIndex = 2;
-            this.btnVolver.Text = "Volver a Menu";
-            this.btnVolver.UseVisualStyleBackColor = true;
-            // 
             // btnSalir
             // 
             this.btnSalir.Location = new System.Drawing.Point(360, 233);
@@ -71,6 +61,7 @@ namespace Formulario
             this.btnSalir.TabIndex = 3;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnAgregarNuevo
             // 
@@ -87,9 +78,9 @@ namespace Formulario
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(495, 281);
+            this.ControlBox = false;
             this.Controls.Add(this.btnAgregarNuevo);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnVer);
             this.Controls.Add(this.btnAgregar);
             this.MaximizeBox = false;
@@ -106,7 +97,6 @@ namespace Formulario
 
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnVer;
-        private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnAgregarNuevo;
     }

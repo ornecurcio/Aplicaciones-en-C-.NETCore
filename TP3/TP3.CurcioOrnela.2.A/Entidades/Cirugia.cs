@@ -8,31 +8,48 @@ namespace Entidades
 {
     public class Cirugia
     {
-        private List<Cirujano> cirujanos;
+        private Cirujano cirujano;
         private Paciente paciente;
-        private Dictionary<EPatologia, EProcedimiento> procedimientos;
+        private EPatologia patologia;
+        private EProcedimiento procedimiento; 
         private Estadistica estadistica;
         private DateTime fecha;
 
-        public List<Cirujano> Cirujanos
+        public Cirujano Cirujano
         {
             get
             {
-                return this.cirujanos; 
+                return this.cirujano; 
             }
             set
             {
                 if(value is not null)
                 {
-                    this.cirujanos = value; 
+                    this.cirujano = value; 
                 }
             }
         }
-        public Dictionary<EPatologia, EProcedimiento>Procedimientos
+        public Cirugia(Paciente paciente, Estadistica estadistica, DateTime fecha, Cirujano cirujano, EPatologia patologia, EProcedimiento procedimiento)
+        {
+            this.paciente = paciente;
+            this.estadistica = estadistica;
+            this.fecha = fecha;
+            this.cirujano = cirujano;
+            this.patologia = patologia; 
+            this.procedimiento = procedimiento;
+        }
+        public EProcedimiento Procedimiento
         {
             get
             {
-                return this.procedimientos; 
+                return this.procedimiento; 
+            }
+        }
+        public EPatologia Patologia
+        {
+            get
+            {
+                return this.patologia;
             }
         }
         public Paciente Paciente
@@ -75,14 +92,7 @@ namespace Entidades
             }
         }
 
-        public Cirugia(Paciente paciente, Estadistica estadistica, DateTime fecha, List<Cirujano> cirujanos, Dictionary<EPatologia, EProcedimiento> procedimientos)
-        {
-            this.paciente = paciente;
-            this.estadistica = estadistica;
-            this.fecha = fecha;
-            this.cirujanos = cirujanos;
-            this.procedimientos = procedimientos; 
-        }
+       
 
     }
 }

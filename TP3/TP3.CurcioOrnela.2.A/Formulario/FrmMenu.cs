@@ -38,24 +38,25 @@ namespace Formulario
             subMenu.ShowDialog();
         }
 
- 
+
         private void lblAgregarPaciente_Click(object sender, EventArgs e)
         {
             esMedico = false;
             FrmIngresoDatos ingresoDatos = new FrmIngresoDatos(esMedico);
-            ingresoDatos.ShowDialog(); 
+            ingresoDatos.ShowDialog();
         }
 
-        private void lblAgregarCirujano_Click(object sender, EventArgs e)
+            private void lblAgregarCirujano_Click(object sender, EventArgs e)
         {
             esMedico = true;
-            FrmSubMenu subMenu = new FrmSubMenu(esMedico);
-            subMenu.ShowDialog();
+            FrmIngresoDatos ingresoDatos = new FrmIngresoDatos(esMedico);
+            ingresoDatos.ShowDialog();
         }
 
         private void btnEstadistica_Click(object sender, EventArgs e)
         {
-
+            FrmEstadistica estadistica = new FrmEstadistica(esMedico, true);
+            estadistica.ShowDialog();
         }
     }
 }

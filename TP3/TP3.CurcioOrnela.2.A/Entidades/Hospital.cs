@@ -10,12 +10,14 @@ namespace Entidades
     {
         private static List<Paciente> pacientes;
         private static List<Cirujano> cirujanos;
+        private static List<Cirugia> cirugias; 
         private static Dictionary<EPatologia, EProcedimiento> procedimientos;
 
         static Hospital()
         {
             pacientes = new List<Paciente>();
             cirujanos = new List<Cirujano>();
+            cirugias = new List<Cirugia>(); 
             procedimientos = new Dictionary<EPatologia, EProcedimiento>();
 
             pacientes.Add(new Paciente("Lucas", "Rodriguez", 35699823, EPatologia.Columna));
@@ -45,6 +47,8 @@ namespace Entidades
             cirujanos.Add(new Cirujano("Noelia", "Gonzalez", 33203790, ERol.Ayudante));
             cirujanos.Add(new Cirujano("Daniel", "Villena", 22963307, ERol.Cirujano));
             cirujanos.Add(new Cirujano("Daniel", "Villena", 22963307, ERol.Ayudante));
+
+            //cirugias.Add(new Cirugia())
 
             //procedimientos.Add(EPatologia.Columna, EProcedimiento.RAFI);
             //procedimientos.Add(EPatologia.Columna, EProcedimiento.Artrodecis);
@@ -77,6 +81,13 @@ namespace Entidades
             get
             {
                 return cirujanos;
+            }
+        }
+        public static List<Cirugia> Cirugias
+        {
+            get
+            {
+                return cirugias;
             }
         }
         public static bool CargarCirujanos(Cirujano aux)

@@ -37,6 +37,7 @@ namespace Formulario
                  {
                     Hospital.CargarPacientes(new Paciente(txtNombre.Text, txtApellido.Text, double.Parse(txtDni.Text), auxP)); 
                  }
+                this.Close(); 
             }
             else
             {
@@ -47,11 +48,12 @@ namespace Formulario
 
         private void FrmIngresoDatos_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("¿Esta seguro desea salir?", "Salir", MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question) == DialogResult.No)
-            {
-                e.Cancel = true;
-            }
+            //if (MessageBox.Show("¿Esta seguro desea salir?", "Salir", MessageBoxButtons.YesNo,
+            //    MessageBoxIcon.Question) == DialogResult.No)
+            //{
+            //    e.Cancel = true;
+            //}
+            //this.Close(); 
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

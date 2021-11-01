@@ -45,7 +45,7 @@ namespace Formulario
 
         private void btnVer_Click(object sender, EventArgs e)
         {
-            FrmEstadistica estadistica = new FrmEstadistica(esMedico);
+            FrmEstadistica estadistica = new FrmEstadistica(esMedico, false);
             estadistica.ShowDialog(); 
         }
 
@@ -55,6 +55,9 @@ namespace Formulario
             ingresoDatos.ShowDialog(); 
         }
 
-      
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close(); 
+        }
     }
 }

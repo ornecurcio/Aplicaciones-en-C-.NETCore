@@ -39,6 +39,9 @@ namespace Entidades
         {
             return !(a == b);
         }
-
+        public override string ToString()
+        {
+            return this.Apellido +", "+this.Nombre + ". "+this.Rol;
+        }
     }
 }

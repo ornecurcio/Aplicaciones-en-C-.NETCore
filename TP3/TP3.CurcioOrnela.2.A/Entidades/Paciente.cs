@@ -39,7 +39,11 @@ namespace Entidades
         {
             return !(a == b); 
         }
-        
+
         // sobrecarga de == paciente en dni. 
+        public override string ToString()
+        {
+            return this.Apellido + ", " + this.Nombre + ". " + this.Dni;
+        }
     }
 }
