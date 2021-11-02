@@ -19,7 +19,7 @@ namespace Entidades
         }
         public static void SerializarAJason<T>(string ruta, T obj) where T : class
         {
-            JsonSerializerOptions jsonSerializerOptions = new JsonSerializerOptions{ Converters = {new JsonStringEnumConverter()} };
+            JsonSerializerOptions jsonSerializerOptions = new JsonSerializerOptions();//{ Converters = {new JsonStringEnumConverter()} };
             jsonSerializerOptions.WriteIndented = true;
             
             string objetoJson = JsonSerializer.Serialize(obj, jsonSerializerOptions);
