@@ -6,15 +6,23 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class Cirugia
+    public class Cirugia: ICirugia
     {
         private Cirujano cirujano;
         private Paciente paciente;
         private EPatologia patologia;
         private EProcedimiento procedimiento; 
-        private Estadistica estadistica;
         private DateTime fecha;
-
+        
+        public Cirugia(Paciente paciente, DateTime fecha, Cirujano cirujano, 
+                       EPatologia patologia, EProcedimiento procedimiento)
+        {
+            this.paciente = paciente;
+            this.fecha = fecha;
+            this.cirujano = cirujano;
+            this.patologia = patologia;
+            this.procedimiento = procedimiento;
+        }
         public Cirujano Cirujano
         {
             get
@@ -29,20 +37,16 @@ namespace Entidades
                 }
             }
         }
-        public Cirugia(Paciente paciente, Estadistica estadistica, DateTime fecha, Cirujano cirujano, EPatologia patologia, EProcedimiento procedimiento)
-        {
-            this.paciente = paciente;
-            this.estadistica = estadistica;
-            this.fecha = fecha;
-            this.cirujano = cirujano;
-            this.patologia = patologia; 
-            this.procedimiento = procedimiento;
-        }
+       
         public EProcedimiento Procedimiento
         {
             get
             {
                 return this.procedimiento; 
+            }
+            set
+            {
+                this.procedimiento = value; 
             }
         }
         public EPatologia Patologia
@@ -50,6 +54,10 @@ namespace Entidades
             get
             {
                 return this.patologia;
+            }
+            set
+            {
+                this.patologia = value; 
             }
         }
         public Paciente Paciente
@@ -66,20 +74,6 @@ namespace Entidades
                 }
             }
         }
-        public Estadistica Estadistica
-        {
-            get
-            {
-                return this.estadistica;
-            }
-            set
-            {
-                if (value is not null)
-                {
-                    this.estadistica = value;
-                }
-            }
-        }
         public DateTime Fecha
         {
             get
@@ -91,8 +85,18 @@ namespace Entidades
                 this.fecha = value;
             }
         }
+        public bool PrepararCirugia()
+        {
+            if(this.paciente is not null && this.cirujano is not null)
+            {
+                return true; 
+            }
+            else
+            {
+                return false; 
+            }
+        }
 
-       
 
     }
 }

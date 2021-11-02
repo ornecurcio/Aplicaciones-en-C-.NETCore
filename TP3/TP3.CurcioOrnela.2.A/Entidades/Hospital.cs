@@ -10,20 +10,19 @@ namespace Entidades
     {
         private static List<Paciente> pacientes;
         private static List<Cirujano> cirujanos;
-        private static List<Cirugia> cirugias; 
-        private static Dictionary<EPatologia, EProcedimiento> procedimientos;
-
+        private static List<Cirugia> cirugias;
+        private static Estadistica estadistica; 
+        
         static Hospital()
         {
             pacientes = new List<Paciente>();
             cirujanos = new List<Cirujano>();
             cirugias = new List<Cirugia>(); 
-            procedimientos = new Dictionary<EPatologia, EProcedimiento>();
 
             pacientes.Add(new Paciente("Lucas", "Rodriguez", 35699823, EPatologia.Columna));
             pacientes.Add(new Paciente("Mauricio", "Cerizza", 36688159, EPatologia.MiembroInferior));
             pacientes.Add(new Paciente("Federico", "Davila", 34195299, EPatologia.MiembroSuperior));
-            pacientes.Add(new Paciente("Gaston", "Argibay", 33737302, EPatologia.Columna));
+            pacientes.Add(new Paciente("Esteban", "Prieto", 37737302, EPatologia.Columna));
             pacientes.Add(new Paciente("Dario", "Cuda", 23060221, EPatologia.Pelvis));
             pacientes.Add(new Paciente("Maximiliano", "Neiner", 25974068, EPatologia.Pelvis));
             pacientes.Add(new Paciente("Marcos", "Araya", 16123988, EPatologia.MiembroSuperior));
@@ -32,6 +31,7 @@ namespace Entidades
             pacientes.Add(new Paciente("Mauricio", "Davila", 28056659, EPatologia.MiembroSuperior));
             pacientes.Add(new Paciente("Marcos", "Russo", 24271133, EPatologia.MiembroSuperior));
             pacientes.Add(new Paciente("Martin", "Isusi", 36155955, EPatologia.MiembroInferior));
+            pacientes.Add(new Paciente("Escudero", "Yanina", 23159922, EPatologia.MiembroSuperior));
 
             cirujanos.Add(new Cirujano("Ornela", "Curcio", 34707599, ERol.Cirujano));
             cirujanos.Add(new Cirujano("Ornela", "Curcio", 34707599, ERol.Ayudante));
@@ -48,25 +48,12 @@ namespace Entidades
             cirujanos.Add(new Cirujano("Daniel", "Villena", 22963307, ERol.Cirujano));
             cirujanos.Add(new Cirujano("Daniel", "Villena", 22963307, ERol.Ayudante));
 
-            //cirugias.Add(new Cirugia())
-
-            //procedimientos.Add(EPatologia.Columna, EProcedimiento.RAFI);
-            //procedimientos.Add(EPatologia.Columna, EProcedimiento.Artrodecis);
-            //procedimientos.Add(EPatologia.Columna, EProcedimiento.Osteotomia);
-            //procedimientos.Add(EPatologia.Columna, EProcedimiento.Yeso);
-            //procedimientos.Add(EPatologia.Pelvis, EProcedimiento.Osteotomia);
-            //procedimientos.Add(EPatologia.Pelvis, EProcedimiento.Artrodecis);
-            //procedimientos.Add(EPatologia.Pelvis, EProcedimiento.Yeso);
-            //procedimientos.Add(EPatologia.MiembroInferior, EProcedimiento.RAFI);
-            //procedimientos.Add(EPatologia.MiembroInferior, EProcedimiento.Artrodecis);
-            //procedimientos.Add(EPatologia.MiembroInferior, EProcedimiento.Osteotomia);
-            //procedimientos.Add(EPatologia.MiembroInferior, EProcedimiento.ReduccionCerrada);
-            //procedimientos.Add(EPatologia.MiembroInferior, EProcedimiento.Yeso); 
-            //procedimientos.Add(EPatologia.MiembroSuperior, EProcedimiento.RAFI);
-            //procedimientos.Add(EPatologia.MiembroSuperior, EProcedimiento.Artrodecis);
-            //procedimientos.Add(EPatologia.MiembroSuperior, EProcedimiento.Osteotomia);
-            //procedimientos.Add(EPatologia.MiembroSuperior, EProcedimiento.ReduccionCerrada);
-            //procedimientos.Add(EPatologia.MiembroSuperior, EProcedimiento.Yeso);
+            cirugias.Add(new Cirugia(pacientes[0], new DateTime(2020, 5, 12),cirujanos[0], EPatologia.Columna, EProcedimiento.Yeso));
+            cirugias.Add(new Cirugia(pacientes[1], new DateTime(2020, 12, 24),cirujanos[3], EPatologia.MiembroInferior, EProcedimiento.RAFI));
+            cirugias.Add(new Cirugia(pacientes[2], new DateTime(2020, 8, 1), cirujanos[7], EPatologia.MiembroSuperior, EProcedimiento.Osteodesis));
+            cirugias.Add(new Cirugia(pacientes[3], new DateTime(2020, 2, 5), cirujanos[0], EPatologia.Columna, EProcedimiento.Artrodecis));
+            cirugias.Add(new Cirugia(pacientes[4], new DateTime(2020, 10, 6), cirujanos[6], EPatologia.Pelvis, EProcedimiento.Osteotomia));
+            cirugias.Add(new Cirugia(pacientes[5], new DateTime(2020, 11, 17), cirujanos[13], EPatologia.Pelvis, EProcedimiento.Yeso));
 
         }
         public static List<Paciente> Pacientes
@@ -114,24 +101,6 @@ namespace Entidades
                 }
             }
             return false; 
-            // if(aux!=listaPaciente)
-            //listaPaciente.Add(aux)
         }
-        //public static void CargarProcedimientos()
-        //{ 
-            
-        //}
-        //public static bool operator ==(Hospital a, Paciente b)
-        //{
-        //    if (a is not null && b is not null)
-        //    {
-        //        foreach (Paciente item in a.Pacientes)
-        //        {
-
-        //        }
-        //    }
-        //    return false;
-        //}
-
     }
 }

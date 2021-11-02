@@ -6,10 +6,15 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class Cirujano:Persona
+    public class Cirujano:Persona, ICirugia
     {
         private ERol rol;
-
+        private Estadistica estadistica; 
+        public Cirujano(string nombre, string apellido, double dni, ERol rol)
+                       : base(nombre, apellido, dni)
+        {
+            this.rol = rol;
+        }
         public ERol Rol
         {
             get
@@ -21,11 +26,19 @@ namespace Entidades
                 this.rol = value;
             }
         }
-
-        public Cirujano(string nombre, string apellido, double dni, ERol rol)
-                        : base(nombre, apellido, dni)
+        public Estadistica Estadistica
         {
-            this.rol = rol;
+            get
+            {
+                return this.estadistica; 
+            }
+            set
+            {
+                if(value is not null)
+                {
+                    this.estadistica = value; 
+                }
+            }
         }
         public static bool operator ==(Cirujano a, Cirujano b)
         {
@@ -42,6 +55,17 @@ namespace Entidades
         public override string ToString()
         {
             return this.Apellido +", "+this.Nombre + ". "+this.Rol;
+        }
+        public bool PrepararCirugia()
+        {
+            if (this is not null)
+            {
+                return true;
+            }
+            else
+            {
+                return false; 
+            }
         }
     }
 }

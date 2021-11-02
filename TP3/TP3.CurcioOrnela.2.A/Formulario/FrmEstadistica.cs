@@ -32,7 +32,7 @@ namespace Formulario
             {
                 foreach (Cirujano item in Hospital.Cirujanos)
                 {
-                    cmbTotalCirugias.Items.Add(new { Text = item.Apellido + ", " + item.Nombre });
+                    cmbTotalCirugias.Items.Add(item);
                     txtTotalCirugias.Visible = false;
                     txtCirugiaXPatologia.Visible = false;
                     txtCirugiaXProcedimiento.Visible = false; 
@@ -42,7 +42,7 @@ namespace Formulario
             {
                 foreach (Paciente item in Hospital.Pacientes)
                 {
-                    cmbTotalCirugias.Items.Add(new { Text = item.Apellido + ", " + item.Nombre + item.Dni});
+                    cmbTotalCirugias.Items.Add(item);
                     txtTotalCirugias.Visible = false;
                     txtCirugiaXPatologia.Visible = false;
                     txtCirugiaXProcedimiento.Visible = false;

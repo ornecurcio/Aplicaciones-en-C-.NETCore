@@ -10,12 +10,14 @@ namespace Entidades
     {
         private int cantCirugiaCirujano;
         private int cantCirugiaAyudante;
-        private int cantCirugiaPaciente;
         private int cantColumna;
         private int cantMiembroSuperior;
         private int cantMiembroInferior;
         private int cantPelvis;
 
+        public Estadistica()
+        {
+        }
         public int CantCirugiaCirujano
         {
             get
@@ -28,13 +30,6 @@ namespace Entidades
             get
             {
                 return this.cantCirugiaAyudante;
-            }
-        }
-        public int CantCirugiaPaciente
-        {
-            get
-            {
-                return this.cantCirugiaPaciente;
             }
         }
         public int CantColumna
@@ -66,9 +61,8 @@ namespace Entidades
             }
         }
 
-        public Estadistica()
-        { }
-        public void Actualizar(EPatologia patologia)
+       
+        public void ActualizarPatologia(EPatologia patologia)
         {
             switch (patologia)
             {
@@ -84,8 +78,18 @@ namespace Entidades
                 case EPatologia.Pelvis:
                     this.cantPelvis++; 
                     break;
-                default:
+            }
+        }
+        public void ActualizarRol(ERol rol)
+        {
+            switch (rol)
+            {
+                case ERol.Cirujano:
+                    this.cantCirugiaCirujano++;
                     break;
+                case ERol.Ayudante:
+                    this.cantCirugiaAyudante++;
+                    break; 
             }
         }
     }

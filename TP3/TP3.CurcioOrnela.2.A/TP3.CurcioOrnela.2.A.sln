@@ -5,7 +5,11 @@ VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entidades", "Entidades\Entidades.csproj", "{03F26017-48B2-4AD3-8288-CB8700FC6ACD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Formulario", "Formulario\Formulario.csproj", "{4B97E9E6-7F57-45B8-B57F-F02C2D6CE467}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Formulario", "Formulario\Formulario.csproj", "{4B97E9E6-7F57-45B8-B57F-F02C2D6CE467}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consola.Hospital", "Consola.Hospital\Consola.Hospital.csproj", "{00712F1B-91E1-491E-BB27-ED0B3F66C2F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProjectTP3", "TestProjectTP3\TestProjectTP3.csproj", "{DD83F219-9A07-4AFA-8B45-31F62FC43919}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{4B97E9E6-7F57-45B8-B57F-F02C2D6CE467}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B97E9E6-7F57-45B8-B57F-F02C2D6CE467}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B97E9E6-7F57-45B8-B57F-F02C2D6CE467}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00712F1B-91E1-491E-BB27-ED0B3F66C2F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00712F1B-91E1-491E-BB27-ED0B3F66C2F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00712F1B-91E1-491E-BB27-ED0B3F66C2F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00712F1B-91E1-491E-BB27-ED0B3F66C2F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD83F219-9A07-4AFA-8B45-31F62FC43919}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD83F219-9A07-4AFA-8B45-31F62FC43919}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD83F219-9A07-4AFA-8B45-31F62FC43919}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD83F219-9A07-4AFA-8B45-31F62FC43919}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

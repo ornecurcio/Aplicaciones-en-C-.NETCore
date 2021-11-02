@@ -39,6 +39,7 @@ namespace Formulario
             this.lblPatologia = new System.Windows.Forms.Label();
             this.cmbPatologia = new System.Windows.Forms.ComboBox();
             this.lblAgregarNuevo = new System.Windows.Forms.Label();
+            this.lblAgregarNuevo2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblPersona
@@ -130,11 +131,22 @@ namespace Formulario
             this.lblAgregarNuevo.Text = "Agregar Nuevo";
             this.lblAgregarNuevo.Click += new System.EventHandler(this.lblAgregarNuevo_Click);
             // 
+            // lblAgregarNuevo2
+            // 
+            this.lblAgregarNuevo2.AutoSize = true;
+            this.lblAgregarNuevo2.Location = new System.Drawing.Point(211, 109);
+            this.lblAgregarNuevo2.Name = "lblAgregarNuevo2";
+            this.lblAgregarNuevo2.Size = new System.Drawing.Size(87, 15);
+            this.lblAgregarNuevo2.TabIndex = 14;
+            this.lblAgregarNuevo2.Text = "Agregar Nuevo";
+            this.lblAgregarNuevo2.Click += new System.EventHandler(this.lblAgregarNuevo2_Click);
+            // 
             // FrmCargarProcedimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(399, 375);
+            this.Controls.Add(this.lblAgregarNuevo2);
             this.Controls.Add(this.lblAgregarNuevo);
             this.Controls.Add(this.cmbPatologia);
             this.Controls.Add(this.lblPatologia);
@@ -167,5 +179,6 @@ namespace Formulario
         private System.Windows.Forms.Label lblPatologia;
         private System.Windows.Forms.ComboBox cmbPatologia;
         private System.Windows.Forms.Label lblAgregarNuevo;
+        private System.Windows.Forms.Label lblAgregarNuevo2;
     }
 }

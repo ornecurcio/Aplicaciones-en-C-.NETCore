@@ -52,8 +52,7 @@ namespace Formulario
                 foreach (Cirujano item in Hospital.Cirujanos)
                 {
                     cmbPacientevsCirujano.Items.Add(item); 
-                }
-                
+                }   
             }
             cmbPatologia.DataSource = Enum.GetValues(typeof(EPatologia));
             cmbProcedimiento.Enabled = false;
@@ -81,9 +80,8 @@ namespace Formulario
                         cmbProcedimiento.Items.AddRange(new String[] { "RAFI", "Artrodecis", "Osteotomia", "Yeso", "ReduccionCerrada", "Osteodesis" });
                         break;
                     case "Pelvis":
+                        cmbProcedimiento.Items.Clear();
                         cmbProcedimiento.Items.AddRange(new String[] { "Artrodecis", "Osteotomia", "Yeso" });
-                        break;
-                    default:
                         break;
                 }
             }
@@ -91,25 +89,31 @@ namespace Formulario
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if(esMedico && cmbApellidoNombre.CanSelect && cmbPatologia.CanSelect 
-                        && cmbPacientevsCirujano.CanSelect && cmbProcedimiento.CanSelect)
+            if(cmbApellidoNombre.CanSelect && cmbPatologia.CanSelect 
+               && cmbPacientevsCirujano.CanSelect && cmbProcedimiento.CanSelect)
             {
-                Cirugia aux = new Cirugia((Paciente)cmbApellidoNombre.SelectedItem, new Estadistica(), DateTime.Now, (Cirujano)cmbPacientevsCirujano.SelectedItem, 
-                //Hospital.Cirugias.Add(aux); 
-                //this.Close(); 
+                Enum.TryParse(cmbPatologia.Text, out EPatologia auxP);
+                Enum.TryParse(cmbProcedimiento.Text, out EProcedimiento auxPr);
+                Cirugia aux = new Cirugia((Paciente)cmbPacientevsCirujano.SelectedItem, DateTime.Now, (Cirujano)cmbApellidoNombre.SelectedItem, auxP, auxPr);
+                Hospital.Cirugias.Add(aux); 
+                this.Close(); 
             }
-            
             else
             {
                 MessageBox.Show("Seleccione una opcion de cada casilla", "Error", MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
-            }
-            
+            }  
         }
 
         private void lblAgregarNuevo_Click(object sender, EventArgs e)
         {
             FrmIngresoDatos ingresoDatos = new FrmIngresoDatos(esMedico);
+            ingresoDatos.ShowDialog();
+        }
+
+        private void lblAgregarNuevo2_Click(object sender, EventArgs e)
+        {
+            FrmIngresoDatos ingresoDatos = new FrmIngresoDatos(!esMedico);
             ingresoDatos.ShowDialog();
         }
     }

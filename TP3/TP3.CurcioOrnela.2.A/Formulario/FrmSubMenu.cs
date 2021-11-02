@@ -34,7 +34,7 @@ namespace Formulario
             else
             {
                 btnAgregar.Text = "Agregar 1 cirugia a Paciente";
-                btnVer.Text = "Ver estadistica de 1 Paciente";
+                btnVer.Text = "Ver Historial de 1 Paciente";
             }
         }
         private void btnAgregar_Click(object sender, EventArgs e)
