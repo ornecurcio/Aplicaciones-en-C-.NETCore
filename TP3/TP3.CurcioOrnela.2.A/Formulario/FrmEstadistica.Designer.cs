@@ -83,6 +83,7 @@ namespace Formulario
             this.cmbCirugiaXProcedimiento.Name = "cmbCirugiaXProcedimiento";
             this.cmbCirugiaXProcedimiento.Size = new System.Drawing.Size(205, 23);
             this.cmbCirugiaXProcedimiento.TabIndex = 4;
+           
             // 
             // cmbCirugiaXPatologia
             // 
@@ -91,6 +92,7 @@ namespace Formulario
             this.cmbCirugiaXPatologia.Name = "cmbCirugiaXPatologia";
             this.cmbCirugiaXPatologia.Size = new System.Drawing.Size(205, 23);
             this.cmbCirugiaXPatologia.TabIndex = 5;
+            this.cmbCirugiaXPatologia.SelectedIndexChanged += new System.EventHandler(this.cmbCirugiaXPatologia_SelectedIndexChanged);
             // 
             // btnVer
             // 

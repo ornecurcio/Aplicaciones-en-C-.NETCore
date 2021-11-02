@@ -105,7 +105,7 @@ namespace Formulario
                 {
                     aux = new Cirugia((Paciente)cmbApellidoNombre.SelectedItem, DateTime.Now, (Cirujano)cmbPacientevsCirujano.SelectedItem, auxP, auxPr);
                 }
-                Hospital.Cirugias.Add(aux); 
+                Hospital.CargarCirugia(aux);  
                 this.Close(); 
             }
             else
@@ -118,13 +118,20 @@ namespace Formulario
         private void lblAgregarNuevo_Click(object sender, EventArgs e)
         {
             FrmIngresoDatos ingresoDatos = new FrmIngresoDatos(esMedico);
-            ingresoDatos.ShowDialog();
+            if(ingresoDatos.ShowDialog()==DialogResult.OK)
+            {
+                this.Close(); 
+            }
+
         }
 
         private void lblAgregarNuevo2_Click(object sender, EventArgs e)
         {
             FrmIngresoDatos ingresoDatos = new FrmIngresoDatos(!esMedico);
-            ingresoDatos.ShowDialog();
+            if (ingresoDatos.ShowDialog() == DialogResult.OK)
+            {
+                this.Close();
+            }
         }
     }
 }

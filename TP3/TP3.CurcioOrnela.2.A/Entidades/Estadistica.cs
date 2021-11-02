@@ -14,6 +14,12 @@ namespace Entidades
         private int cantMiembroSuperior;
         private int cantMiembroInferior;
         private int cantPelvis;
+        private int cantRAFI;
+        private int cantReduccionCerrada;
+        private int cantOsteotomia;
+        private int cantArtrodecis;
+        private int cantOsteodesis; 
+        private int cantYeso;
 
         public Estadistica()
         {
@@ -24,12 +30,20 @@ namespace Entidades
             {
                 return this.cantCirugiaCirujano;
             }
+            set
+            {
+                this.cantCirugiaCirujano = value; 
+            }
         }
         public int CantCirugiaAyudante
         {
             get
             {
                 return this.cantCirugiaAyudante;
+            }
+            set
+            {
+                this.cantCirugiaAyudante = value;
             }
         }
         public int CantColumna
@@ -38,12 +52,20 @@ namespace Entidades
             {
                 return this.cantColumna;
             }
+            set
+            {
+                this.cantColumna = value;
+            }
         }
         public int CantMiembroSuperior
         {
             get
             {
                 return this.cantMiembroSuperior;
+            }
+            set
+            {
+                this.cantMiembroSuperior = value;
             }
         }
         public int CantMiembroInferior
@@ -52,6 +74,10 @@ namespace Entidades
             {
                 return this.cantMiembroInferior;
             }
+            set
+            {
+                this.cantMiembroInferior = value;
+            }
         }
         public int CantPelvis
         {
@@ -59,9 +85,77 @@ namespace Entidades
             {
                 return this.cantPelvis;
             }
+            set
+            {
+                this.cantPelvis = value;
+            }
         }
-
-       
+        public int CantRAFI
+        {
+            get
+            {
+                return this.cantRAFI;
+            }
+            set
+            {
+                this.cantRAFI = value;
+            }
+        }
+        public int CantReduccionCerrada
+        {
+            get
+            {
+                return this.cantReduccionCerrada;
+            }
+            set
+            {
+                this.cantReduccionCerrada = value;
+            }
+        }
+        public int CantOsteotomia
+        {
+            get
+            {
+                return this.cantOsteotomia;
+            }
+            set
+            {
+                this.cantOsteotomia = value;
+            }
+        }
+        public int CantArtrodecis
+        {
+            get
+            {
+                return this.cantArtrodecis;
+            }
+            set
+            {
+                this.cantArtrodecis = value;
+            }
+        }
+        public int CantOsteodesis 
+        {
+            get
+            {
+                return this.cantOsteodesis;
+            }
+            set
+            {
+                this.cantOsteodesis = value;
+            }
+        }
+        public int CantYeso
+        {
+            get
+            {
+                return this.cantYeso;
+            }
+            set
+            {
+                this.cantYeso = value;
+            }
+        }
         public void ActualizarPatologia(EPatologia patologia)
         {
             switch (patologia)
@@ -90,6 +184,32 @@ namespace Entidades
                 case ERol.Ayudante:
                     this.cantCirugiaAyudante++;
                     break; 
+            }
+        }
+        public void ActualizarProcedimiento(EProcedimiento procedimiento)
+
+        {
+            switch (procedimiento)
+            {
+                case EProcedimiento.Artrodecis:
+                    this.cantArtrodecis++;
+                    break;
+                case EProcedimiento.RAFI:
+                    this.cantRAFI++;
+                    break;
+                case EProcedimiento.Osteotomia:
+                    this.cantOsteotomia++;
+                    break;
+                case EProcedimiento.Osteodesis:
+                    this.CantOsteodesis++;
+                    break;
+                case EProcedimiento.ReduccionCerrada:
+                    this.cantReduccionCerrada++;
+                    break;
+                case EProcedimiento.Yeso:
+                    this.cantYeso++;
+                    break;
+
             }
         }
     }
