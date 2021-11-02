@@ -1,0 +1,100 @@
+[
+  {
+    "Rol": "Cirujano",
+    "Estadistica": null,
+    "Nombre": "Ornela",
+    "Apellido": "Curcio",
+    "Dni": 34707599
+  },
+  {
+    "Rol": "Ayudante",
+    "Estadistica": null,
+    "Nombre": "Ornela",
+    "Apellido": "Curcio",
+    "Dni": 34707599
+  },
+  {
+    "Rol": "Cirujano",
+    "Estadistica": null,
+    "Nombre": "Juan Pablo",
+    "Apellido": "Albarracin",
+    "Dni": 14237825
+  },
+  {
+    "Rol": "Ayudante",
+    "Estadistica": null,
+    "Nombre": "Juan Pablo",
+    "Apellido": "Albarracin",
+    "Dni": 14237825
+  },
+  {
+    "Rol": "Cirujano",
+    "Estadistica": null,
+    "Nombre": "Natalia",
+    "Apellido": "Acorintti",
+    "Dni": 33963306
+  },
+  {
+    "Rol": "Ayudante",
+    "Estadistica": null,
+    "Nombre": "Natalia",
+    "Apellido": "Acorintti",
+    "Dni": 33963306
+  },
+  {
+    "Rol": "Cirujano",
+    "Estadistica": null,
+    "Nombre": "Juan",
+    "Apellido": "Peralta",
+    "Dni": 32980534
+  },
+  {
+    "Rol": "Ayudante",
+    "Estadistica": null,
+    "Nombre": "Juan",
+    "Apellido": "Peralta",
+    "Dni": 32980534
+  },
+  {
+    "Rol": "Cirujano",
+    "Estadistica": null,
+    "Nombre": "Lucia",
+    "Apellido": "Guidali",
+    "Dni": 33203789
+  },
+  {
+    "Rol": "Ayudante",
+    "Estadistica": null,
+    "Nombre": "Lucia",
+    "Apellido": "Guidali",
+    "Dni": 33203789
+  },
+  {
+    "Rol": "Cirujano",
+    "Estadistica": null,
+    "Nombre": "Noelia",
+    "Apellido": "Gonzalez",
+    "Dni": 33203790
+  },
+  {
+    "Rol": "Ayudante",
+    "Estadistica": null,
+    "Nombre": "Noelia",
+    "Apellido": "Gonzalez",
+    "Dni": 33203790
+  },
+  {
+    "Rol": "Cirujano",
+    "Estadistica": null,
+    "Nombre": "Daniel",
+    "Apellido": "Villena",
+    "Dni": 22963307
+  },
+  {
+    "Rol": "Ayudante",
+    "Estadistica": null,
+    "Nombre": "Daniel",
+    "Apellido": "Villena",
+    "Dni": 22963307
+  }
+]

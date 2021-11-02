@@ -94,7 +94,17 @@ namespace Formulario
             {
                 Enum.TryParse(cmbPatologia.Text, out EPatologia auxP);
                 Enum.TryParse(cmbProcedimiento.Text, out EProcedimiento auxPr);
-                Cirugia aux = new Cirugia((Paciente)cmbPacientevsCirujano.SelectedItem, DateTime.Now, (Cirujano)cmbApellidoNombre.SelectedItem, auxP, auxPr);
+                Cirugia aux = null; 
+                if (esMedico)
+                {
+                    aux = new Cirugia((Paciente)cmbPacientevsCirujano.SelectedItem, DateTime.Now, (Cirujano)cmbApellidoNombre.SelectedItem, auxP, auxPr);
+                    ((Cirujano)cmbApellidoNombre.SelectedItem).Estadistica.ActualizarPatologia(auxP); 
+                    
+                }
+                else
+                {
+                    aux = new Cirugia((Paciente)cmbApellidoNombre.SelectedItem, DateTime.Now, (Cirujano)cmbPacientevsCirujano.SelectedItem, auxP, auxPr);
+                }
                 Hospital.Cirugias.Add(aux); 
                 this.Close(); 
             }

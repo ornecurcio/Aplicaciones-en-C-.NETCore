@@ -1,0 +1,110 @@
+[
+  {
+    "Cirujano": {
+      "Rol": "Cirujano",
+      "Estadistica": null,
+      "Nombre": "Ornela",
+      "Apellido": "Curcio",
+      "Dni": 34707599
+    },
+    "Procedimiento": "Yeso",
+    "Patologia": "Columna",
+    "Paciente": {
+      "Patologia": "Columna",
+      "Nombre": "Lucas",
+      "Apellido": "Rodriguez",
+      "Dni": 35699823
+    },
+    "Fecha": "2020-05-12T00:00:00"
+  },
+  {
+    "Cirujano": {
+      "Rol": "Ayudante",
+      "Estadistica": null,
+      "Nombre": "Juan Pablo",
+      "Apellido": "Albarracin",
+      "Dni": 14237825
+    },
+    "Procedimiento": "RAFI",
+    "Patologia": "MiembroInferior",
+    "Paciente": {
+      "Patologia": "MiembroInferior",
+      "Nombre": "Mauricio",
+      "Apellido": "Cerizza",
+      "Dni": 36688159
+    },
+    "Fecha": "2020-12-24T00:00:00"
+  },
+  {
+    "Cirujano": {
+      "Rol": "Ayudante",
+      "Estadistica": null,
+      "Nombre": "Juan",
+      "Apellido": "Peralta",
+      "Dni": 32980534
+    },
+    "Procedimiento": "Osteodesis",
+    "Patologia": "MiembroSuperior",
+    "Paciente": {
+      "Patologia": "MiembroSuperior",
+      "Nombre": "Federico",
+      "Apellido": "Davila",
+      "Dni": 34195299
+    },
+    "Fecha": "2020-08-01T00:00:00"
+  },
+  {
+    "Cirujano": {
+      "Rol": "Cirujano",
+      "Estadistica": null,
+      "Nombre": "Ornela",
+      "Apellido": "Curcio",
+      "Dni": 34707599
+    },
+    "Procedimiento": "Artrodecis",
+    "Patologia": "Columna",
+    "Paciente": {
+      "Patologia": "Columna",
+      "Nombre": "Esteban",
+      "Apellido": "Prieto",
+      "Dni": 37737302
+    },
+    "Fecha": "2020-02-05T00:00:00"
+  },
+  {
+    "Cirujano": {
+      "Rol": "Cirujano",
+      "Estadistica": null,
+      "Nombre": "Juan",
+      "Apellido": "Peralta",
+      "Dni": 32980534
+    },
+    "Procedimiento": "Osteotomia",
+    "Patologia": "Pelvis",
+    "Paciente": {
+      "Patologia": "Pelvis",
+      "Nombre": "Dario",
+      "Apellido": "Cuda",
+      "Dni": 23060221
+    },
+    "Fecha": "2020-10-06T00:00:00"
+  },
+  {
+    "Cirujano": {
+      "Rol": "Ayudante",
+      "Estadistica": null,
+      "Nombre": "Daniel",
+      "Apellido": "Villena",
+      "Dni": 22963307
+    },
+    "Procedimiento": "Yeso",
+    "Patologia": "Pelvis",
+    "Paciente": {
+      "Patologia": "Pelvis",
+      "Nombre": "Maximiliano",
+      "Apellido": "Neiner",
+      "Dni": 25974068
+    },
+    "Fecha": "2020-11-17T00:00:00"
+  }
+]
