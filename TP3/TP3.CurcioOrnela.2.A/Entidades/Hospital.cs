@@ -137,8 +137,8 @@ namespace Entidades
             {
                 Hospital.Estadistica.ActualizarPatologia(item.Patologia);
                 item.Cirujano.Estadistica.ActualizarPatologia(item.Patologia);
-                Hospital.Estadistica.ActualizarProcedimiento(item.Procedimiento);
-                item.Cirujano.Estadistica.ActualizarProcedimiento(item.Procedimiento); 
+                //Hospital.Estadistica.ActualizarProcedimiento(item.Procedimiento);
+                //item.Cirujano.Estadistica.ActualizarProcedimiento(item.Procedimiento); 
             }
         }
     }

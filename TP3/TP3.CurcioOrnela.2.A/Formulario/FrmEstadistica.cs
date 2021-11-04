@@ -62,7 +62,7 @@ namespace Formulario
 
         private void btnVer_Click(object sender, EventArgs e)
         {
-            FrmMostrarEstadistica mostrarEstadistica = new FrmMostrarEstadistica();
+            FrmMostrarEstadistica mostrarEstadistica = new FrmMostrarEstadistica(servicio);
             mostrarEstadistica.ShowDialog();
         }
 
