@@ -22,6 +22,22 @@ namespace Formulario
         {
             this.esCirujano = esCirujano; 
         }
+        private void FrmIngresoDatos_Load(object sender, EventArgs e)
+        {
+            if (esCirujano)
+            {
+                lblPersona.Text = "CIRUJANO";
+                lblRolPatologia.Text = "Rol";
+                cmbRolPatologia.DataSource = Enum.GetValues(typeof(ERol));
+                esCirujano = true;
+            }
+            else
+            {
+                lblPersona.Text = "PACIENTE";
+                lblRolPatologia.Text = "Patologia";
+                cmbRolPatologia.DataSource = Enum.GetValues(typeof(EPatologia));
+            }
+        }
         private void btnOk_Click(object sender, EventArgs e)
         {
             if(!string.IsNullOrWhiteSpace(txtApellido.Text) && !string.IsNullOrWhiteSpace(txtNombre.Text) 
@@ -30,7 +46,8 @@ namespace Formulario
             {
                  if(esCirujano && Enum.TryParse(cmbRolPatologia.Text, out ERol auxR))
                  {
-                    Hospital.CargarCirujanos(new Cirujano(txtNombre.Text, txtApellido.Text, double.Parse(txtDni.Text), auxR, new Estadistica())); 
+                    Hospital.CargarCirujanos(new Cirujano(txtNombre.Text, txtApellido.Text, double.Parse(txtDni.Text), 
+                                             auxR, new Estadistica())); 
                  }
                  else if(Enum.TryParse(cmbRolPatologia.Text, out EPatologia auxP)) 
                  {
@@ -62,21 +79,6 @@ namespace Formulario
             this.Close(); 
         }
 
-        private void FrmIngresoDatos_Load(object sender, EventArgs e)
-        {
-            if (esCirujano)
-            {
-                lblPersona.Text = "CIRUJANO";
-                lblRolPatologia.Text = "Rol";
-                cmbRolPatologia.DataSource = Enum.GetValues(typeof(ERol));
-                esCirujano = true;
-            }
-            else
-            {
-                lblPersona.Text = "PACIENTE";
-                lblRolPatologia.Text = "Patologia";
-                cmbRolPatologia.DataSource = Enum.GetValues(typeof(EPatologia));
-            }
-        }
+        
     }
 }

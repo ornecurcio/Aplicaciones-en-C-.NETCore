@@ -33,7 +33,7 @@ namespace Formulario
             }
             else
             {
-                btnAgregar.Text = "Agregar 1 cirugia a Paciente";
+                btnAgregar.Text = "Agregar patologia a Paciente";
                 btnVer.Text = "Ver Historial de 1 Paciente";
             }
         }
