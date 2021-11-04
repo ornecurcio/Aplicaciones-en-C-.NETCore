@@ -7,10 +7,10 @@
         "CantCirugiaAyudante": 0,
         "CantColumna": 0,
         "CantMiembroSuperior": 0,
-        "CantMiembroInferior": 0,
+        "CantMiembroInferior": 1,
         "CantPelvis": 0,
         "CantRAFI": 0,
-        "CantReduccionCerrada": 0,
+        "CantReduccionCerrada": 1,
         "CantOsteotomia": 0,
         "CantArtrodecis": 0,
         "CantOsteodesis": 0,
@@ -23,7 +23,11 @@
     "Procedimiento": "Yeso",
     "Patologia": "Columna",
     "Paciente": {
-      "Patologia": "Columna",
+      "Patologia": [
+        "MiembroInferior",
+        "Pelvis",
+        "Columna"
+      ],
       "Nombre": "Lucas",
       "Apellido": "Rodriguez",
       "Dni": 35699823
@@ -54,7 +58,11 @@
     "Procedimiento": "RAFI",
     "Patologia": "MiembroInferior",
     "Paciente": {
-      "Patologia": "MiembroInferior",
+      "Patologia": [
+        "MiembroInferior",
+        "Pelvis",
+        "Columna"
+      ],
       "Nombre": "Mauricio",
       "Apellido": "Cerizza",
       "Dni": 36688159
@@ -85,7 +93,11 @@
     "Procedimiento": "Osteodesis",
     "Patologia": "MiembroSuperior",
     "Paciente": {
-      "Patologia": "MiembroSuperior",
+      "Patologia": [
+        "MiembroInferior",
+        "Pelvis",
+        "Columna"
+      ],
       "Nombre": "Federico",
       "Apellido": "Davila",
       "Dni": 34195299
@@ -100,10 +112,10 @@
         "CantCirugiaAyudante": 0,
         "CantColumna": 0,
         "CantMiembroSuperior": 0,
-        "CantMiembroInferior": 0,
+        "CantMiembroInferior": 1,
         "CantPelvis": 0,
         "CantRAFI": 0,
-        "CantReduccionCerrada": 0,
+        "CantReduccionCerrada": 1,
         "CantOsteotomia": 0,
         "CantArtrodecis": 0,
         "CantOsteodesis": 0,
@@ -116,7 +128,11 @@
     "Procedimiento": "Artrodecis",
     "Patologia": "Columna",
     "Paciente": {
-      "Patologia": "Columna",
+      "Patologia": [
+        "MiembroInferior",
+        "Pelvis",
+        "Columna"
+      ],
       "Nombre": "Esteban",
       "Apellido": "Prieto",
       "Dni": 37737302
@@ -147,7 +163,11 @@
     "Procedimiento": "Osteotomia",
     "Patologia": "Pelvis",
     "Paciente": {
-      "Patologia": "Pelvis",
+      "Patologia": [
+        "MiembroInferior",
+        "Pelvis",
+        "Columna"
+      ],
       "Nombre": "Dario",
       "Apellido": "Cuda",
       "Dni": 23060221
@@ -178,12 +198,51 @@
     "Procedimiento": "Yeso",
     "Patologia": "Pelvis",
     "Paciente": {
-      "Patologia": "Pelvis",
+      "Patologia": [
+        "MiembroInferior",
+        "Pelvis",
+        "Columna"
+      ],
       "Nombre": "Maximiliano",
       "Apellido": "Neiner",
       "Dni": 25974068
     },
     "Fecha": "2020-11-17T00:00:00"
+  },
+  {
+    "Cirujano": {
+      "Rol": "Ayudante",
+      "Estadistica": {
+        "CantCirugiaCirujano": 0,
+        "CantCirugiaAyudante": 0,
+        "CantColumna": 0,
+        "CantMiembroSuperior": 0,
+        "CantMiembroInferior": 1,
+        "CantPelvis": 0,
+        "CantRAFI": 0,
+        "CantReduccionCerrada": 1,
+        "CantOsteotomia": 0,
+        "CantArtrodecis": 0,
+        "CantOsteodesis": 0,
+        "CantYeso": 0
+      },
+      "Nombre": "Ornela",
+      "Apellido": "Curcio",
+      "Dni": 34707599
+    },
+    "Procedimiento": "ReduccionCerrada",
+    "Patologia": "MiembroInferior",
+    "Paciente": {
+      "Patologia": [
+        "MiembroInferior",
+        "Pelvis",
+        "Columna"
+      ],
+      "Nombre": "Maximiliano",
+      "Apellido": "Neiner",
+      "Dni": 25974068
+    },
+    "Fecha": "2021-11-04T17:37:46.4917616-03:00"
   },
   {
     "Cirujano": {
@@ -193,11 +252,11 @@
         "CantCirugiaAyudante": 0,
         "CantColumna": 0,
         "CantMiembroSuperior": 0,
-        "CantMiembroInferior": 0,
-        "CantPelvis": 1,
+        "CantMiembroInferior": 1,
+        "CantPelvis": 0,
         "CantRAFI": 0,
-        "CantReduccionCerrada": 0,
-        "CantOsteotomia": 1,
+        "CantReduccionCerrada": 1,
+        "CantOsteotomia": 0,
         "CantArtrodecis": 0,
         "CantOsteodesis": 0,
         "CantYeso": 0
@@ -206,14 +265,53 @@
       "Apellido": "Curcio",
       "Dni": 34707599
     },
-    "Procedimiento": "Osteotomia",
-    "Patologia": "Pelvis",
+    "Procedimiento": "ReduccionCerrada",
+    "Patologia": "MiembroSuperior",
     "Paciente": {
-      "Patologia": "Pelvis",
-      "Nombre": "Maximiliano",
-      "Apellido": "Neiner",
-      "Dni": 25974068
+      "Patologia": [
+        "MiembroInferior",
+        "Pelvis",
+        "Columna"
+      ],
+      "Nombre": "Federico",
+      "Apellido": "Davila",
+      "Dni": 34195299
     },
-    "Fecha": "2021-11-04T15:13:37.6040718-03:00"
+    "Fecha": "2021-11-04T17:38:02.8191854-03:00"
+  },
+  {
+    "Cirujano": {
+      "Rol": "Cirujano",
+      "Estadistica": {
+        "CantCirugiaCirujano": 0,
+        "CantCirugiaAyudante": 0,
+        "CantColumna": 0,
+        "CantMiembroSuperior": 0,
+        "CantMiembroInferior": 1,
+        "CantPelvis": 0,
+        "CantRAFI": 0,
+        "CantReduccionCerrada": 0,
+        "CantOsteotomia": 0,
+        "CantArtrodecis": 1,
+        "CantOsteodesis": 0,
+        "CantYeso": 0
+      },
+      "Nombre": "Juan Pablo",
+      "Apellido": "Albarracin",
+      "Dni": 14237825
+    },
+    "Procedimiento": "Artrodecis",
+    "Patologia": "MiembroInferior",
+    "Paciente": {
+      "Patologia": [
+        "MiembroInferior",
+        "Pelvis",
+        "Columna"
+      ],
+      "Nombre": "Federico",
+      "Apellido": "Davila",
+      "Dni": 34195299
+    },
+    "Fecha": "2021-11-04T17:40:24.6662476-03:00"
   }
 ]
