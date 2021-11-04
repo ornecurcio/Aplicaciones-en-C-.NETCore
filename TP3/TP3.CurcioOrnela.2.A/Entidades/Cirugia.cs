@@ -6,23 +6,36 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class Cirugia: ICirugia
+    public class Cirugia//: ICirugia
     {
         private Cirujano cirujano;
         private Paciente paciente;
         private EPatologia patologia;
         private EProcedimiento procedimiento; 
         private DateTime fecha;
+        //private bool realizoCirugia; 
         
         public Cirugia(Paciente paciente, DateTime fecha, Cirujano cirujano, 
-                       EPatologia patologia, EProcedimiento procedimiento)
+                       EPatologia patologia, EProcedimiento procedimiento) //, bool realizoCirugia)
         {
             this.paciente = paciente;
             this.fecha = fecha;
             this.cirujano = cirujano;
             this.patologia = patologia;
             this.procedimiento = procedimiento;
+            //this.realizoCirugia = realizoCirugia; 
         }
+        //public bool RealizoCirugia
+        //{
+        //    get
+        //    {
+        //        return this.realizoCirugia; 
+        //    }
+        //    set
+        //    {
+        //        this.realizoCirugia = value; 
+        //    }
+        //}
         public Cirujano Cirujano
         {
             get
@@ -85,18 +98,5 @@ namespace Entidades
                 this.fecha = value;
             }
         }
-        public bool PrepararCirugia()
-        {
-            if(this.paciente is not null && this.cirujano is not null)
-            {
-                return true; 
-            }
-            else
-            {
-                return false; 
-            }
-        }
-
-
     }
 }

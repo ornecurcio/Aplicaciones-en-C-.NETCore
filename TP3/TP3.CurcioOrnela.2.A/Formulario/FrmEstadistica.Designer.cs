@@ -58,6 +58,7 @@ namespace Formulario
             this.lblCirugiasXPatologia.Size = new System.Drawing.Size(124, 15);
             this.lblCirugiasXPatologia.TabIndex = 1;
             this.lblCirugiasXPatologia.Text = "Cirugias por Patologia";
+            this.lblCirugiasXPatologia.Click += new System.EventHandler(this.lblCirugiasXPatologia_Click);
             // 
             // lblCirugiaXProcedimiento
             // 
@@ -67,6 +68,7 @@ namespace Formulario
             this.lblCirugiaXProcedimiento.Size = new System.Drawing.Size(147, 15);
             this.lblCirugiaXProcedimiento.TabIndex = 2;
             this.lblCirugiaXProcedimiento.Text = "Cirugia por Procedimiento";
+            this.lblCirugiaXProcedimiento.Click += new System.EventHandler(this.lblCirugiaXProcedimiento_Click);
             // 
             // cmbTotalCirugias
             // 
@@ -75,6 +77,7 @@ namespace Formulario
             this.cmbTotalCirugias.Name = "cmbTotalCirugias";
             this.cmbTotalCirugias.Size = new System.Drawing.Size(205, 23);
             this.cmbTotalCirugias.TabIndex = 3;
+            this.cmbTotalCirugias.SelectedIndexChanged += new System.EventHandler(this.cmbTotalCirugias_SelectedIndexChanged);
             // 
             // cmbCirugiaXProcedimiento
             // 
@@ -83,7 +86,7 @@ namespace Formulario
             this.cmbCirugiaXProcedimiento.Name = "cmbCirugiaXProcedimiento";
             this.cmbCirugiaXProcedimiento.Size = new System.Drawing.Size(205, 23);
             this.cmbCirugiaXProcedimiento.TabIndex = 4;
-           
+            this.cmbCirugiaXProcedimiento.SelectedIndexChanged += new System.EventHandler(this.cmbCirugiaXProcedimiento_SelectedIndexChanged);
             // 
             // cmbCirugiaXPatologia
             // 

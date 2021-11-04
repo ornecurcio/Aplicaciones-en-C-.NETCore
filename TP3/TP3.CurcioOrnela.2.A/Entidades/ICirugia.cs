@@ -8,6 +8,12 @@ namespace Entidades
 {
     public interface ICirugia
     {
-        public bool PrepararCirugia(); 
+        public bool RealizoCirugia
+        {
+            get;
+            set; 
+        }
+
+        
     }
 }
