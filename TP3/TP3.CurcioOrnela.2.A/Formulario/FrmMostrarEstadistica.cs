@@ -24,12 +24,24 @@ namespace Formulario
         }
         public FrmMostrarEstadistica(bool esServicio):this()
         {
-            this.esServicio = esServicio; 
+            this.esServicio = esServicio;
+            if (esServicio && Hospital.Cirugias.Count > 0)
+            {
+                dataEstadistica.DataSource = null;
+                dataEstadistica.DataSource = Hospital.Cirugias;
+                dataEstadistica.Columns[4].DefaultCellStyle.Format = "dd/MM/yyyy";
+            }
         }
         public FrmMostrarEstadistica(bool esServicio, EPatologia patologia) : this()
         {
             this.esServicio = esServicio;
-            this.patologia = patologia; 
+            this.patologia = patologia;
+            if (esServicio && Hospital.Cirugias.Count > 0)
+            {
+                dataEstadistica.DataSource = null;
+                dataEstadistica.DataSource = Hospital.Cirugias;
+                dataEstadistica.Columns[4].DefaultCellStyle.Format = "dd/MM/yyyy";
+            }
         }
         public FrmMostrarEstadistica(bool esServicio, EProcedimiento procedimiento) : this()
         {
@@ -49,12 +61,7 @@ namespace Formulario
 
         private void FrmMostrarEstadistica_Load(object sender, EventArgs e)
         {
-            if(esServicio && Hospital.Cirugias.Count>0)
-            {
-                dataEstadistica.DataSource = null;
-                dataEstadistica.DataSource = Hospital.Cirugias;
-                dataEstadistica.Columns[4].DefaultCellStyle.Format = "dd/MM/yyyy";
-            }
+            
         }
 
        
