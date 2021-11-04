@@ -30,13 +30,16 @@ namespace Formulario
         {     
             if(esMedico)
             {
-                foreach (Cirujano item in Hospital.Cirujanos)
-                {
-                    cmbTotalCirugias.Items.Add(item);
-                    txtTotalCirugias.Visible = false;
-                    txtCirugiaXPatologia.Visible = false;
-                    txtCirugiaXProcedimiento.Visible = false; 
-                }
+                cmbTotalCirugias.DataSource = null; 
+                cmbTotalCirugias.DataSource = Hospital.Cirujanos;
+                //foreach (Cirujano item in Hospital.Cirujanos)
+                //{
+                //    cmbTotalCirugias.Items.Add(item);
+                    
+                //}
+                txtTotalCirugias.Visible = false;
+                txtCirugiaXPatologia.Visible = false;
+                txtCirugiaXProcedimiento.Visible = false;
             }
             //else 
             //{

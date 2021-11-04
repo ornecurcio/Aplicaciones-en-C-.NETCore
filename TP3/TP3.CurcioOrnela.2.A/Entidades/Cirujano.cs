@@ -10,10 +10,11 @@ namespace Entidades
     {
         private ERol rol;
         private Estadistica estadistica; 
-        public Cirujano(string nombre, string apellido, double dni, ERol rol)
+        public Cirujano(string nombre, string apellido, double dni, ERol rol, Estadistica estadistica)
                        : base(nombre, apellido, dni)
         {
             this.rol = rol;
+            this.estadistica = estadistica; 
         }
         public ERol Rol
         {

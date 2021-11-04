@@ -8,24 +8,27 @@ namespace Entidades
 {
     public class Paciente : Persona
     {
-        private EPatologia patologia;
+        //private EPatologia patologia;
+        private List<EPatologia> patologias; 
 
-        public EPatologia Patologia
+        public List<EPatologia> Patologia
         {
             get
             {
-                return this.patologia; 
+                return this.patologias; 
             }
             set
             {
-                this.patologia = value; 
+                this.patologias = value; 
             }
         }
 
-        public Paciente(string nombre, string apellido, double dni, EPatologia patologia)
+        public Paciente():this("sin nombre", "sin apellido", 0, new List<EPatologia>())
+        { }
+        public Paciente(string nombre, string apellido, double dni, List<EPatologia> patologia)
                         :base(nombre, apellido, dni)
         {
-            this.patologia = patologia; 
+            this.patologias = patologia; 
         }
         public static bool operator ==(Paciente a, Paciente b)
         {

@@ -28,31 +28,40 @@ namespace Formulario
             if(esMedico)
             {
                 lblPersona.Text = "Cirujano";
-                foreach (Cirujano item in Hospital.Cirujanos)
-                {
-                    cmbApellidoNombre.Items.Add(item);
-                }
+                cmbApellidoNombre.DataSource = null; 
+                cmbApellidoNombre.DataSource = Hospital.Cirujanos; 
+                //foreach (Cirujano item in Hospital.Cirujanos)
+                //{
+                //    cmbApellidoNombre.Items.Add(item);
+                //}
                 lblPacientevsCirujano.Text = "Paciente";
-                foreach (Paciente item in Hospital.Pacientes)
-                {
-                    //cmbApellidoNombre.Items.Add(new { Text = item.Apellido + ", " + item.Nombre });
-                    cmbPacientevsCirujano.Items.Add(item);
-                }
+                cmbPacientevsCirujano.DataSource = null; 
+                cmbPacientevsCirujano.DataSource = Hospital.Pacientes; 
+                //foreach (Paciente item in Hospital.Pacientes)
+                //{
+                //    //cmbApellidoNombre.Items.Add(new { Text = item.Apellido + ", " + item.Nombre });
+                //    cmbPacientevsCirujano.Items.Add(item);
+
+                //}
             }
             else
             {
                 lblPersona.Text = "Paciente";
-                foreach (Paciente item in Hospital.Pacientes)
-                {
-                    //cmbApellidoNombre.Items.Add(new { Text = item.Apellido + ", " + item.Nombre });
-                    cmbApellidoNombre.Items.Add(item);
-                }
+                cmbPacientevsCirujano.DataSource = null; 
+                cmbApellidoNombre.DataSource = Hospital.Pacientes; 
+                //foreach (Paciente item in Hospital.Pacientes)
+                //{
+                //    //cmbApellidoNombre.Items.Add(new { Text = item.Apellido + ", " + item.Nombre });
+                //    cmbApellidoNombre.Items.Add(item);
+                //}
 
                 lblPacientevsCirujano.Text = "Cirujano";
-                foreach (Cirujano item in Hospital.Cirujanos)
-                {
-                    cmbPacientevsCirujano.Items.Add(item); 
-                }   
+                cmbPacientevsCirujano.DataSource = null; 
+                cmbPacientevsCirujano.DataSource = Hospital.Cirujanos; 
+                //foreach (Cirujano item in Hospital.Cirujanos)
+                //{
+                //    cmbPacientevsCirujano.Items.Add(item); 
+                //}   
             }
             cmbPatologia.DataSource = Enum.GetValues(typeof(EPatologia));
             cmbProcedimiento.Enabled = false;
@@ -97,9 +106,12 @@ namespace Formulario
                 Cirugia aux = null; 
                 if (esMedico)
                 {
+                    //aux = new Cirugia(cmbPacientevsCirujano.SelectedItem, DateTime.Now, cmbApellidoNombre.SelectedItem, auxP, auxPr);
+                    //((Cirujano)cmbApellidoNombre.SelectedItem).Estadistica.ActualizarPatologia(auxP);
                     aux = new Cirugia((Paciente)cmbPacientevsCirujano.SelectedItem, DateTime.Now, (Cirujano)cmbApellidoNombre.SelectedItem, auxP, auxPr);
-                    ((Cirujano)cmbApellidoNombre.SelectedItem).Estadistica.ActualizarPatologia(auxP); 
-                    
+                    ((Cirujano)cmbApellidoNombre.SelectedItem).Estadistica.ActualizarPatologia(auxP);
+                    ((Cirujano)cmbApellidoNombre.SelectedItem).Estadistica.ActualizarProcedimiento(auxPr);
+
                 }
                 else
                 {
