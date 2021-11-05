@@ -163,6 +163,18 @@ namespace Entidades
             }
             return cirugiasXProcedimiento;
         }
+        public static List<Cirugia> CirugiasXCirujano(Cirujano cirujano)
+        {
+            List<Cirugia> cirugiasXCirujano = new List<Cirugia>();
+            foreach (Cirugia item in Hospital.cirugias)
+            {
+                if (item.Cirujano == cirujano)
+                {
+                    cirugiasXCirujano.Add(item);
+                }
+            }
+            return cirugiasXCirujano;
+        }
         public static List<Cirugia> CirugiasXProcedimientoYCirujano(EProcedimiento procedimiento, Cirujano cirujano)
         {
             List<Cirugia> cirugiasXProcedimientoYCirujano = new List<Cirugia>();

@@ -42,6 +42,11 @@ namespace Formulario
                 cirugias = Hospital.CirugiasXProcedimiento(procedimiento);
             }
         }
+        public FrmMostrarEstadistica(Cirujano cirujano) : this()
+        {
+            lblDescripcion.Text = $"Cirugias de {cirujano}";
+            cirugias = Hospital.CirugiasXCirujano(cirujano);
+        }
         public FrmMostrarEstadistica(Cirujano cirujano, EPatologia patologia) : this()
         {
             lblDescripcion.Text = $"Cirugias de {cirujano} de {patologia}";
@@ -65,8 +70,10 @@ namespace Formulario
 
         private void btnExportar_Click(object sender, EventArgs e)
         {
-            string ruta = Serializacion.GenerarRuta(lblDescripcion.Text);
-            Serializacion.SerializarAJason(ruta, cirugias); 
+            string ruta = Serializacion.GenerarRuta(lblDescripcion.Text+".json");
+            Serializacion.SerializarAJason(ruta, cirugias);
+            MessageBox.Show("Archivo generado con exito", "Exito", MessageBoxButtons.OK,MessageBoxIcon.Information);
+            this.Close(); 
         }
     }
 }

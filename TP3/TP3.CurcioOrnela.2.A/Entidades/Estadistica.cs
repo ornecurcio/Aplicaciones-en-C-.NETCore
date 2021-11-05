@@ -164,7 +164,7 @@ namespace Entidades
                     this.cantColumna++; 
                     break;
                 case EPatologia.MiembroSuperior:
-                    this.cantMiembroInferior++; 
+                    this.cantMiembroSuperior++; 
                     break;
                 case EPatologia.MiembroInferior:
                     this.cantMiembroInferior++; 

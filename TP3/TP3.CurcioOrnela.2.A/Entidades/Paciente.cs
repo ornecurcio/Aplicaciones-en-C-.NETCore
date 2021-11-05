@@ -8,7 +8,6 @@ namespace Entidades
 {
     public class Paciente : Persona
     {
-        //private EPatologia patologia;
         private List<EPatologia> patologias; 
 
         public List<EPatologia> Patologia

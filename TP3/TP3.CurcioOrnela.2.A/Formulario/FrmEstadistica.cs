@@ -18,14 +18,12 @@ namespace Formulario
         public FrmEstadistica()
         {
             InitializeComponent();
-
         }
         public FrmEstadistica(bool esMedico, bool servicio) : this()
         {
             this.esMedico = esMedico;
             this.servicio = servicio;
         }
-
         private void FrmEstadistica_Load(object sender, EventArgs e)
         {
             if (esMedico)
@@ -59,13 +57,27 @@ namespace Formulario
             cmbCirugiaXPatologia.Enabled = false;
             cmbCirugiaXProcedimiento.Enabled = false;
         }
-
-        private void btnVer_Click(object sender, EventArgs e)
+        private void lblTotalCirugias_Click(object sender, EventArgs e)
         {
-            FrmMostrarEstadistica mostrarEstadistica = new FrmMostrarEstadistica(servicio);
-            mostrarEstadistica.ShowDialog();
+            cmbCirugiaXPatologia.Enabled = false;
+            cmbCirugiaXProcedimiento.Enabled = false;
         }
-
+        private void cmbTotalCirugias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbTotalCirugias.CanSelect)
+            {
+                int aux = ((Cirujano)cmbTotalCirugias.SelectedItem).Estadistica.CantColumna +
+                 ((Cirujano)cmbTotalCirugias.SelectedItem).Estadistica.CantMiembroSuperior +
+                 ((Cirujano)cmbTotalCirugias.SelectedItem).Estadistica.CantMiembroInferior +
+                 ((Cirujano)cmbTotalCirugias.SelectedItem).Estadistica.CantPelvis;
+                txtTotalCirugias.Text = aux.ToString();
+            }
+        }
+        private void lblCirugiasXPatologia_Click(object sender, EventArgs e)
+        {
+            cmbCirugiaXPatologia.Enabled = true;
+            cmbCirugiaXProcedimiento.Enabled = false;
+        }
         private void cmbCirugiaXPatologia_SelectedIndexChanged(object sender, EventArgs e)
         {
             EPatologia aux;
@@ -111,12 +123,6 @@ namespace Formulario
 
                 }
             }
-        }
-
-        private void lblCirugiasXPatologia_Click(object sender, EventArgs e)
-        {
-            cmbCirugiaXPatologia.Enabled = true;
-            cmbCirugiaXProcedimiento.Enabled = false;
         }
 
         private void lblCirugiaXProcedimiento_Click(object sender, EventArgs e)
@@ -183,16 +189,42 @@ namespace Formulario
                 }
             }
         }
-
-        private void cmbTotalCirugias_SelectedIndexChanged(object sender, EventArgs e)
+        
+        private void btnVer_Click(object sender, EventArgs e)
         {
-            if (cmbTotalCirugias.CanSelect)
+            EProcedimiento auxPr;
+            EPatologia auxP; 
+            if (!cmbTotalCirugias.Visible && !cmbCirugiaXPatologia.Enabled && !cmbCirugiaXProcedimiento.Enabled)
             {
-                int aux = ((Cirujano)cmbTotalCirugias.SelectedItem).Estadistica.CantColumna+
-                 ((Cirujano)cmbTotalCirugias.SelectedItem).Estadistica.CantMiembroSuperior +
-                 ((Cirujano)cmbTotalCirugias.SelectedItem).Estadistica.CantMiembroInferior +
-                 ((Cirujano)cmbTotalCirugias.SelectedItem).Estadistica.CantPelvis;
-                txtTotalCirugias.Text = aux.ToString(); 
+                FrmMostrarEstadistica mostrarEstadistica = new FrmMostrarEstadistica(servicio);
+                mostrarEstadistica.ShowDialog();
+            }
+            if (!cmbTotalCirugias.Visible && cmbCirugiaXPatologia.CanSelect && !cmbCirugiaXProcedimiento.Enabled 
+                && Enum.TryParse(cmbCirugiaXPatologia.Text, out auxP))
+            {
+                FrmMostrarEstadistica mostrarEstadistica = new FrmMostrarEstadistica(servicio,auxP);
+                mostrarEstadistica.ShowDialog();
+            }
+            if (!cmbTotalCirugias.Visible && !cmbCirugiaXPatologia.Enabled && cmbCirugiaXProcedimiento.CanSelect
+                && Enum.TryParse(cmbCirugiaXProcedimiento.Text, out auxPr))
+            {
+                FrmMostrarEstadistica mostrarEstadistica = new FrmMostrarEstadistica(servicio, auxPr);
+                mostrarEstadistica.ShowDialog();
+            }
+            if (cmbTotalCirugias.CanSelect && !cmbCirugiaXPatologia.Enabled && !cmbCirugiaXProcedimiento.Enabled)
+            {
+                FrmMostrarEstadistica mostrarEstadistica = new FrmMostrarEstadistica((Cirujano)cmbTotalCirugias.SelectedItem);
+                mostrarEstadistica.ShowDialog();
+            }
+            if (cmbTotalCirugias.CanSelect && cmbCirugiaXPatologia.CanSelect && Enum.TryParse(cmbCirugiaXPatologia.Text, out auxP))
+            {
+                FrmMostrarEstadistica mostrarEstadistica = new FrmMostrarEstadistica((Cirujano)cmbTotalCirugias.SelectedItem, auxP);
+                mostrarEstadistica.ShowDialog();
+            }
+            if (cmbTotalCirugias.CanSelect && cmbCirugiaXProcedimiento.CanSelect && Enum.TryParse(cmbCirugiaXProcedimiento.Text, out auxPr))
+            {
+                FrmMostrarEstadistica mostrarEstadistica = new FrmMostrarEstadistica((Cirujano)cmbTotalCirugias.SelectedItem, auxPr);
+                mostrarEstadistica.ShowDialog();
             }
         }
     }

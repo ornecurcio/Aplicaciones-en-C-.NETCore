@@ -49,6 +49,7 @@ namespace Formulario
             this.lblTotalCirugias.Size = new System.Drawing.Size(78, 15);
             this.lblTotalCirugias.TabIndex = 0;
             this.lblTotalCirugias.Text = "Total Cirugias";
+            this.lblTotalCirugias.Click += new System.EventHandler(this.lblTotalCirugias_Click);
             // 
             // lblCirugiasXPatologia
             // 
