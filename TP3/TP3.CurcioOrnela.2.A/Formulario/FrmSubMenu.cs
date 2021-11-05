@@ -34,7 +34,7 @@ namespace Formulario
             else
             {
                 btnAgregar.Text = "Agregar patologia a Paciente";
-                btnVer.Text = "Ver Historial de 1 Paciente";
+                btnVer.Text = "Ver pacientes por Patologia";
             }
         }
         private void btnAgregar_Click(object sender, EventArgs e)

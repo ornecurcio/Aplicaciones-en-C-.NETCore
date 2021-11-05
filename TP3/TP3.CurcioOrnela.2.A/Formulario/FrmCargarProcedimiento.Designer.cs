@@ -31,7 +31,7 @@ namespace Formulario
         {
             this.lblPersona = new System.Windows.Forms.Label();
             this.lblPacientevsCirujano = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblProcedimiento = new System.Windows.Forms.Label();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.cmbApellidoNombre = new System.Windows.Forms.ComboBox();
             this.cmbPacientevsCirujano = new System.Windows.Forms.ComboBox();
@@ -60,14 +60,14 @@ namespace Formulario
             this.lblPacientevsCirujano.TabIndex = 1;
             this.lblPacientevsCirujano.Text = "Rol";
             // 
-            // label5
+            // lblProcedimiento
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(80, 221);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(85, 15);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Procedimiento";
+            this.lblProcedimiento.AutoSize = true;
+            this.lblProcedimiento.Location = new System.Drawing.Point(80, 221);
+            this.lblProcedimiento.Name = "lblProcedimiento";
+            this.lblProcedimiento.Size = new System.Drawing.Size(85, 15);
+            this.lblProcedimiento.TabIndex = 4;
+            this.lblProcedimiento.Text = "Procedimiento";
             // 
             // btnAceptar
             // 
@@ -86,6 +86,7 @@ namespace Formulario
             this.cmbApellidoNombre.Name = "cmbApellidoNombre";
             this.cmbApellidoNombre.Size = new System.Drawing.Size(218, 23);
             this.cmbApellidoNombre.TabIndex = 6;
+            this.cmbApellidoNombre.SelectedIndexChanged += new System.EventHandler(this.cmbApellidoNombre_SelectedIndexChanged);
             // 
             // cmbPacientevsCirujano
             // 
@@ -154,7 +155,7 @@ namespace Formulario
             this.Controls.Add(this.cmbPacientevsCirujano);
             this.Controls.Add(this.cmbApellidoNombre);
             this.Controls.Add(this.btnAceptar);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lblProcedimiento);
             this.Controls.Add(this.lblPacientevsCirujano);
             this.Controls.Add(this.lblPersona);
             this.MaximizeBox = false;
@@ -171,7 +172,7 @@ namespace Formulario
 
         private System.Windows.Forms.Label lblPersona;
         private System.Windows.Forms.Label lblPacientevsCirujano;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblProcedimiento;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.ComboBox cmbApellidoNombre;
         private System.Windows.Forms.ComboBox cmbPacientevsCirujano;
