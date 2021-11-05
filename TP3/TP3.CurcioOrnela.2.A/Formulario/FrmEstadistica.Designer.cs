@@ -145,6 +145,7 @@ namespace Formulario
             this.Controls.Add(this.lblCirugiasXPatologia);
             this.Controls.Add(this.lblTotalCirugias);
             this.Name = "FrmEstadistica";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmEstadistica";
             this.Load += new System.EventHandler(this.FrmEstadistica_Load);
             this.ResumeLayout(false);
