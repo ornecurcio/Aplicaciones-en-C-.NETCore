@@ -1,8 +1,6 @@
 [
   {
     "Patologia": [
-      "MiembroInferior",
-      "Pelvis",
       "Columna"
     ],
     "Nombre": "Lucas",
@@ -11,9 +9,7 @@
   },
   {
     "Patologia": [
-      "MiembroInferior",
-      "Pelvis",
-      "Columna"
+      "MiembroInferior"
     ],
     "Nombre": "Mauricio",
     "Apellido": "Cerizza",
@@ -31,8 +27,6 @@
   },
   {
     "Patologia": [
-      "MiembroInferior",
-      "Pelvis",
       "Columna"
     ],
     "Nombre": "Esteban",
@@ -41,9 +35,7 @@
   },
   {
     "Patologia": [
-      "MiembroInferior",
-      "Pelvis",
-      "Columna"
+      "MiembroSuperior"
     ],
     "Nombre": "Dario",
     "Apellido": "Cuda",
@@ -61,23 +53,11 @@
   },
   {
     "Patologia": [
-      "MiembroInferior",
-      "Pelvis",
-      "Columna"
+      "MiembroSuperior"
     ],
     "Nombre": "Marcos",
     "Apellido": "Araya",
     "Dni": 16123988
-  },
-  {
-    "Patologia": [
-      "MiembroInferior",
-      "Pelvis",
-      "Columna"
-    ],
-    "Nombre": "Florencia",
-    "Apellido": "Cuda",
-    "Dni": 38165629
   },
   {
     "Patologia": [
@@ -91,7 +71,6 @@
   },
   {
     "Patologia": [
-      "MiembroInferior",
       "Pelvis",
       "Columna"
     ],
@@ -101,8 +80,7 @@
   },
   {
     "Patologia": [
-      "MiembroInferior",
-      "Pelvis",
+      "MiembroSuperior",
       "Columna"
     ],
     "Nombre": "Marcos",
@@ -111,8 +89,6 @@
   },
   {
     "Patologia": [
-      "MiembroInferior",
-      "Pelvis",
       "Columna"
     ],
     "Nombre": "Martin",
@@ -121,12 +97,19 @@
   },
   {
     "Patologia": [
-      "MiembroInferior",
-      "Pelvis",
-      "Columna"
+      "MiembroSuperior"
     ],
     "Nombre": "Escudero",
     "Apellido": "Yanina",
     "Dni": 23159922
+  },
+  {
+    "Patologia": [
+      "MiembroInferior",
+      "MiembroSuperior"
+    ],
+    "Nombre": "Florencia",
+    "Apellido": "Cuda",
+    "Dni": 38165629
   }
 ]

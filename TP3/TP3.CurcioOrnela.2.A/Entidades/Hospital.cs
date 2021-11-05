@@ -114,7 +114,21 @@ namespace Entidades
             }
             return false;
         }
-
+        public static bool ActualizarPaciente(Paciente aux)
+        {
+            foreach (Paciente item in Pacientes)
+            {
+                if (aux == item)
+                {
+                    Pacientes.Remove(item);
+                    Pacientes.Add(aux); 
+                    string ruta = Serializacion.GenerarRuta("Pacientes.json");
+                    Serializacion.SerializarAJason(ruta, pacientes);
+                    return true;
+                }
+            }
+            return false;
+        }
         public static bool CargarPacientes(Paciente aux)
         {
             foreach (Paciente item in Pacientes)

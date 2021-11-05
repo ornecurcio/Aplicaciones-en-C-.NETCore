@@ -25,46 +25,80 @@ namespace Formulario
 
         private void FrmCargarProcedimiento_Load(object sender, EventArgs e)
         {
-            if(esMedico)
+            //if(esMedico)
+            //{
+            //    lblPersona.Text = "Cirujano";
+            //    cmbApellidoNombre.DataSource = null; 
+            //    cmbApellidoNombre.DataSource = Hospital.Cirujanos; 
+            //    lblPacientevsCirujano.Text = "Paciente";
+            //    cmbPacientevsCirujano.DataSource = null; 
+            //    cmbPacientevsCirujano.DataSource = Hospital.Pacientes;
+
+            //}
+            //else
+            //{
+            //    lblPersona.Text = "Paciente";
+            //    cmbPacientevsCirujano.DataSource = null; 
+            //    cmbApellidoNombre.DataSource = Hospital.Pacientes;
+            //    lblAgregarNuevo2.Visible = false; 
+            //    lblPacientevsCirujano.Visible = false;
+            //    cmbPacientevsCirujano.Visible = false;
+            //    lblProcedimiento.Visible = false;
+            //    cmbProcedimiento.Visible = false; 
+
+            //}
+            //cmbProcedimiento.Enabled = false;
+            //cmbPatologia.DataSource = Enum.GetValues(typeof(EPatologia));
+            if (esMedico)
             {
                 lblPersona.Text = "Cirujano";
-                cmbApellidoNombre.DataSource = null; 
-                cmbApellidoNombre.DataSource = Hospital.Cirujanos; 
+                cmbApellidoNombre.DataSource = null;
+                cmbApellidoNombre.DataSource = Hospital.Cirujanos;
                 lblPacientevsCirujano.Text = "Paciente";
-                cmbPacientevsCirujano.DataSource = null; 
+                cmbPacientevsCirujano.DataSource = null;
                 cmbPacientevsCirujano.DataSource = Hospital.Pacientes;
-                
+                cmbPatologia.DataSource = Hospital.Pacientes[0].Patologia;
             }
             else
             {
                 lblPersona.Text = "Paciente";
-                cmbPacientevsCirujano.DataSource = null; 
+                cmbPacientevsCirujano.DataSource = null;
                 cmbApellidoNombre.DataSource = Hospital.Pacientes;
-                lblAgregarNuevo2.Visible = false; 
+                lblAgregarNuevo2.Visible = false;
                 lblPacientevsCirujano.Visible = false;
                 cmbPacientevsCirujano.Visible = false;
                 lblProcedimiento.Visible = false;
-                cmbProcedimiento.Visible = false; 
+                cmbProcedimiento.Visible = false;
 
+                ActualizarCmbPatologia(Hospital.Pacientes[0]);
             }
             cmbProcedimiento.Enabled = false;
-            cmbPatologia.DataSource = Enum.GetValues(typeof(EPatologia));
         }
         private void cmbApellidoNombre_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(!esMedico && cmbApellidoNombre.CanSelect)
+            if(!esMedico)
             {
-                //foreach (EPatologia item in ((Paciente)cmbApellidoNombre.SelectedItem).Patologia)
-                //{
-                //    cmbPatologia.Items.Remove(item);
-                //}
+                Paciente aux = (Paciente)cmbApellidoNombre.SelectedItem;
 
-                for (int i = 0; i < ((Paciente)cmbApellidoNombre.SelectedItem).Patologia.Count; i++)
-                {
-                    cmbPatologia.Items.Remove(); 
-
-                }
+                ActualizarCmbPatologia(aux);
             }
+            
+            //Paciente aux = (Paciente)cmbApellidoNombre.SelectedItem;
+
+            //List<Paciente> lista = Hospital.Pacientes;
+            //List<EPatologia> diferente = new List<EPatologia>();
+
+            //foreach (EPatologia item in Enum.GetValues(typeof(EPatologia)))
+            //{
+            //    if (!aux.Patologia.Exists((x) => item == x))
+            //    {
+            //        diferente.Add(item);
+            //    }
+            //}
+
+            //cmbPatologia.DataSource = null;
+            //cmbPatologia.DataSource = diferente;
+
         }
         private void cmbPatologia_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -107,7 +141,15 @@ namespace Formulario
                 ((Cirujano)cmbApellidoNombre.SelectedItem).Estadistica.ActualizarProcedimiento(auxPr);
                 Hospital.CargarCirugia(aux);
 
-                this.Close(); 
+                this.Close();
+            }
+            else if(!esMedico && cmbApellidoNombre.CanSelect && cmbPatologia.CanSelect && 
+                     Enum.TryParse(cmbPatologia.Text, out EPatologia auxP))
+            {
+                Paciente aux = (Paciente)cmbApellidoNombre.SelectedItem;
+                aux.Patologia.Add(auxP);
+                Hospital.ActualizarPaciente(aux); 
+                this.Close();
             }
             else
             {
@@ -132,6 +174,27 @@ namespace Formulario
             }
         }
 
-        
+        private void cmbPacientevsCirujano_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (esMedico)
+            {
+                Paciente aux = (Paciente)cmbPacientevsCirujano.SelectedItem;
+                cmbPatologia.DataSource = null;
+                cmbPatologia.DataSource = aux.Patologia;
+            }
+        }
+        private void ActualizarCmbPatologia(Paciente paciente)
+        {
+            List<EPatologia> diferente = new List<EPatologia>();
+            foreach (EPatologia item in Enum.GetValues(typeof(EPatologia)))
+            {
+                if (!paciente.Patologia.Exists((x) => item == x))
+                {
+                    diferente.Add(item);
+                }
+            }
+            cmbPatologia.DataSource = null;
+            cmbPatologia.DataSource = diferente;
+        }
     }
 }

@@ -95,6 +95,7 @@ namespace Formulario
             this.cmbPacientevsCirujano.Name = "cmbPacientevsCirujano";
             this.cmbPacientevsCirujano.Size = new System.Drawing.Size(218, 23);
             this.cmbPacientevsCirujano.TabIndex = 7;
+            this.cmbPacientevsCirujano.SelectedIndexChanged += new System.EventHandler(this.cmbPacientevsCirujano_SelectedIndexChanged);
             // 
             // cmbProcedimiento
             // 
