@@ -30,7 +30,7 @@ namespace Formulario
         private void InitializeComponent()
         {
             this.dataEstadistica = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblDescripcion = new System.Windows.Forms.Label();
             this.btnExportar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataEstadistica)).BeginInit();
             this.SuspendLayout();
@@ -49,15 +49,15 @@ namespace Formulario
             this.dataEstadistica.Size = new System.Drawing.Size(776, 371);
             this.dataEstadistica.TabIndex = 0;
             // 
-            // label1
+            // lblDescripcion
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 24);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Descripcion";
+            this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDescripcion.Location = new System.Drawing.Point(12, 9);
+            this.lblDescripcion.Name = "lblDescripcion";
+            this.lblDescripcion.Size = new System.Drawing.Size(133, 24);
+            this.lblDescripcion.TabIndex = 1;
+            this.lblDescripcion.Text = "Descripcion";
             // 
             // btnExportar
             // 
@@ -67,6 +67,7 @@ namespace Formulario
             this.btnExportar.TabIndex = 2;
             this.btnExportar.Text = "Exportar a Json";
             this.btnExportar.UseVisualStyleBackColor = true;
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
             // 
             // FrmMostrarEstadistica
             // 
@@ -74,7 +75,7 @@ namespace Formulario
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnExportar);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.dataEstadistica);
             this.Name = "FrmMostrarEstadistica";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -89,7 +90,7 @@ namespace Formulario
         #endregion
 
         private System.Windows.Forms.DataGridView dataEstadistica;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Button btnExportar;
     }
 }

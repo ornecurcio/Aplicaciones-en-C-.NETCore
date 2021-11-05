@@ -13,57 +13,60 @@ namespace Formulario
 {
     public partial class FrmMostrarEstadistica : Form
     {
-        bool esServicio;
-        EPatologia patologia;
-        EProcedimiento procedimiento;
-        Cirujano cirujano = null; 
-
+        List<Cirugia> cirugias = new List<Cirugia>(); 
         public FrmMostrarEstadistica()
         {
             InitializeComponent();
         }
         public FrmMostrarEstadistica(bool esServicio):this()
         {
-            this.esServicio = esServicio;
-            if (esServicio && Hospital.Cirugias.Count > 0)
+            lblDescripcion.Text = "Cirugias Totales";
+            if (esServicio)
             {
-                dataEstadistica.DataSource = null;
-                dataEstadistica.DataSource = Hospital.Cirugias;
-                dataEstadistica.Columns[4].DefaultCellStyle.Format = "dd/MM/yyyy";
-            }
+                cirugias = Hospital.Cirugias;
+            } 
         }
         public FrmMostrarEstadistica(bool esServicio, EPatologia patologia) : this()
         {
-            this.esServicio = esServicio;
-            this.patologia = patologia;
-            if (esServicio && Hospital.Cirugias.Count > 0)
+            lblDescripcion.Text = $"Cirugias de {patologia}"; 
+            if (esServicio)
             {
-                dataEstadistica.DataSource = null;
-                dataEstadistica.DataSource = Hospital.Cirugias;
-                dataEstadistica.Columns[4].DefaultCellStyle.Format = "dd/MM/yyyy";
+                cirugias = Hospital.CirugiasXPatologia(patologia);
             }
         }
         public FrmMostrarEstadistica(bool esServicio, EProcedimiento procedimiento) : this()
         {
-            this.esServicio = esServicio;
-            this.procedimiento = procedimiento;
+            lblDescripcion.Text = $"Cirugias de {procedimiento}";
+            if (esServicio && Hospital.Cirugias.Count > 0)
+            {
+                cirugias = Hospital.CirugiasXProcedimiento(procedimiento);
+            }
         }
         public FrmMostrarEstadistica(Cirujano cirujano, EPatologia patologia) : this()
         {
-            this.cirujano = cirujano;
-            this.patologia = patologia;
+            lblDescripcion.Text = $"Cirugias de {cirujano} de {patologia}";
+            cirugias = Hospital.CirugiasXPatologiaYCirujano(patologia,cirujano);
+
         }
         public FrmMostrarEstadistica(Cirujano cirujano, EProcedimiento procedimiento) : this()
         {
-            this.cirujano = cirujano;
-            this.procedimiento = procedimiento;
+            lblDescripcion.Text = $"Cirugias de {cirujano} de {procedimiento}";
+            cirugias = Hospital.CirugiasXProcedimientoYCirujano(procedimiento, cirujano);
         }
-
         private void FrmMostrarEstadistica_Load(object sender, EventArgs e)
         {
-            
+            if (cirugias.Count > 0)
+            {
+                dataEstadistica.DataSource = null;
+                dataEstadistica.DataSource = cirugias;
+                dataEstadistica.Columns[4].DefaultCellStyle.Format = "dd/MM/yyyy";
+            }
         }
 
-       
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+            string ruta = Serializacion.GenerarRuta(lblDescripcion.Text);
+            Serializacion.SerializarAJason(ruta, cirugias); 
+        }
     }
 }

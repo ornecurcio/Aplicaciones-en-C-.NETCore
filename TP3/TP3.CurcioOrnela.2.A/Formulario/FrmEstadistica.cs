@@ -188,11 +188,11 @@ namespace Formulario
         {
             if (cmbTotalCirugias.CanSelect)
             {
-                //int aux = ((Cirujano)cmbTotalCirugias.SelectedItem).Estadistica.CantColumna)  +
-                //          ((Cirujano)cmbTotalCirugias.SelectedItem).Estadistica.CantMiembroSuperior) +
-                //          ((Cirujano)cmbTotalCirugias.SelectedItem).Estadistica.CantMiembroInferior) +
-                //          ((Cirujano)cmbTotalCirugias.SelectedItem).Estadistica.CantPelvis);
-                txtTotalCirugias.Text = "0";// aux.ToString(); 
+                int aux = ((Cirujano)cmbTotalCirugias.SelectedItem).Estadistica.CantColumna+
+                 ((Cirujano)cmbTotalCirugias.SelectedItem).Estadistica.CantMiembroSuperior +
+                 ((Cirujano)cmbTotalCirugias.SelectedItem).Estadistica.CantMiembroInferior +
+                 ((Cirujano)cmbTotalCirugias.SelectedItem).Estadistica.CantPelvis;
+                txtTotalCirugias.Text = aux.ToString(); 
             }
         }
     }

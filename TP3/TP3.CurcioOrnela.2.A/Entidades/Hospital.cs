@@ -20,8 +20,6 @@ namespace Entidades
             cirugias = new List<Cirugia>();
             estadistica = new Estadistica();
 
-            
-
             string ruta = Serializacion.GenerarRuta("Pacientes.json");
             //Serializacion.SerializarAJason(ruta, pacientes);
             //ruta = Serializacion.GenerarRuta("Cirujanos.json");
@@ -140,6 +138,54 @@ namespace Entidades
                 //Hospital.Estadistica.ActualizarProcedimiento(item.Procedimiento);
                 //item.Cirujano.Estadistica.ActualizarProcedimiento(item.Procedimiento); 
             }
+        }
+        public static List<Cirugia> CirugiasXPatologia(EPatologia patologia)
+        {
+            List<Cirugia> cirugiasXPatologia = new List<Cirugia>();
+            foreach (Cirugia item in Hospital.cirugias)
+            {
+                if(item.Patologia == patologia)
+                {
+                    cirugiasXPatologia.Add(item); 
+                }
+            }
+            return cirugiasXPatologia; 
+        }
+        public static List<Cirugia> CirugiasXProcedimiento(EProcedimiento procedimiento)
+        {
+            List<Cirugia> cirugiasXProcedimiento = new List<Cirugia>();
+            foreach (Cirugia item in Hospital.cirugias)
+            {
+                if (item.Procedimiento == procedimiento)
+                {
+                    cirugiasXProcedimiento.Add(item);
+                }
+            }
+            return cirugiasXProcedimiento;
+        }
+        public static List<Cirugia> CirugiasXProcedimientoYCirujano(EProcedimiento procedimiento, Cirujano cirujano)
+        {
+            List<Cirugia> cirugiasXProcedimientoYCirujano = new List<Cirugia>();
+            foreach (Cirugia item in Hospital.cirugias)
+            {
+                if (item.Procedimiento == procedimiento && item.Cirujano==cirujano)
+                {
+                    cirugiasXProcedimientoYCirujano.Add(item);
+                }
+            }
+            return cirugiasXProcedimientoYCirujano;
+        }
+        public static List<Cirugia> CirugiasXPatologiaYCirujano(EPatologia patologia, Cirujano cirujano)
+        {
+            List<Cirugia> cirugiasXPatologiaYCirujano = new List<Cirugia>();
+            foreach (Cirugia item in Hospital.cirugias)
+            {
+                if (item.Patologia == patologia && item.Cirujano == cirujano)
+                {
+                    cirugiasXPatologiaYCirujano.Add(item);
+                }
+            }
+            return cirugiasXPatologiaYCirujano;
         }
     }
 }
