@@ -79,6 +79,6 @@ namespace Formulario
             this.Close(); 
         }
 
-        
+       
     }
 }

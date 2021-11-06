@@ -45,16 +45,17 @@ namespace Formulario
             // lblPersona
             // 
             this.lblPersona.AutoSize = true;
-            this.lblPersona.Location = new System.Drawing.Point(199, 19);
+            this.lblPersona.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPersona.Location = new System.Drawing.Point(12, 9);
             this.lblPersona.Name = "lblPersona";
-            this.lblPersona.Size = new System.Drawing.Size(49, 15);
+            this.lblPersona.Size = new System.Drawing.Size(85, 22);
             this.lblPersona.TabIndex = 0;
             this.lblPersona.Text = "Persona";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(57, 48);
+            this.label2.Location = new System.Drawing.Point(12, 48);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 15);
             this.label2.TabIndex = 1;
@@ -63,7 +64,7 @@ namespace Formulario
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(334, 48);
+            this.label3.Location = new System.Drawing.Point(12, 84);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 15);
             this.label3.TabIndex = 2;
@@ -72,7 +73,7 @@ namespace Formulario
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(199, 100);
+            this.label1.Location = new System.Drawing.Point(12, 126);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(27, 15);
             this.label1.TabIndex = 3;
@@ -80,28 +81,28 @@ namespace Formulario
             // 
             // txtDni
             // 
-            this.txtDni.Location = new System.Drawing.Point(140, 118);
+            this.txtDni.Location = new System.Drawing.Point(99, 118);
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(146, 23);
             this.txtDni.TabIndex = 4;
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(306, 66);
+            this.txtApellido.Location = new System.Drawing.Point(99, 84);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(100, 23);
             this.txtApellido.TabIndex = 5;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(33, 66);
+            this.txtNombre.Location = new System.Drawing.Point(99, 48);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(100, 23);
             this.txtNombre.TabIndex = 6;
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(369, 236);
+            this.btnOk.Location = new System.Drawing.Point(211, 236);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 7;
@@ -111,7 +112,7 @@ namespace Formulario
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(33, 236);
+            this.btnCancel.Location = new System.Drawing.Point(12, 236);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 8;
@@ -122,7 +123,7 @@ namespace Formulario
             // cmbRolPatologia
             // 
             this.cmbRolPatologia.FormattingEnabled = true;
-            this.cmbRolPatologia.Location = new System.Drawing.Point(152, 177);
+            this.cmbRolPatologia.Location = new System.Drawing.Point(99, 164);
             this.cmbRolPatologia.Name = "cmbRolPatologia";
             this.cmbRolPatologia.Size = new System.Drawing.Size(121, 23);
             this.cmbRolPatologia.TabIndex = 9;
@@ -130,7 +131,7 @@ namespace Formulario
             // lblRolPatologia
             // 
             this.lblRolPatologia.AutoSize = true;
-            this.lblRolPatologia.Location = new System.Drawing.Point(179, 159);
+            this.lblRolPatologia.Location = new System.Drawing.Point(12, 167);
             this.lblRolPatologia.Name = "lblRolPatologia";
             this.lblRolPatologia.Size = new System.Drawing.Size(79, 15);
             this.lblRolPatologia.TabIndex = 10;
@@ -140,8 +141,9 @@ namespace Formulario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(477, 271);
+            this.ClientSize = new System.Drawing.Size(304, 271);
             this.ControlBox = false;
             this.Controls.Add(this.lblRolPatologia);
             this.Controls.Add(this.cmbRolPatologia);

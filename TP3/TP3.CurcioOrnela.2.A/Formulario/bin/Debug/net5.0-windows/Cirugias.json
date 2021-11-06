@@ -552,5 +552,73 @@
       "Dni": 36688159
     },
     "Fecha": "2021-11-06T06:39:20.1504175-03:00"
+  },
+  {
+    "Cirujano": {
+      "Rol": "Cirujano",
+      "Estadistica": {
+        "CantCirugiaCirujano": 0,
+        "CantCirugiaAyudante": 0,
+        "CantColumna": 2,
+        "CantMiembroSuperior": 3,
+        "CantMiembroInferior": 1,
+        "CantPelvis": 0,
+        "CantRAFI": 1,
+        "CantReduccionCerrada": 1,
+        "CantOsteotomia": 0,
+        "CantArtrodecis": 1,
+        "CantOsteodesis": 1,
+        "CantYeso": 2
+      },
+      "Nombre": "Ornela",
+      "Apellido": "Curcio",
+      "Dni": 34707599
+    },
+    "Procedimiento": "Osteodesis",
+    "Patologia": "MiembroSuperior",
+    "Paciente": {
+      "Patologia": [
+        "MiembroSuperior",
+        "MiembroInferior"
+      ],
+      "Nombre": "Escudero",
+      "Apellido": "Yanina",
+      "Dni": 23159922
+    },
+    "Fecha": "2021-11-06T07:53:10.854374-03:00"
+  },
+  {
+    "Cirujano": {
+      "Rol": "Cirujano",
+      "Estadistica": {
+        "CantCirugiaCirujano": 0,
+        "CantCirugiaAyudante": 0,
+        "CantColumna": 0,
+        "CantMiembroSuperior": 0,
+        "CantMiembroInferior": 1,
+        "CantPelvis": 0,
+        "CantRAFI": 1,
+        "CantReduccionCerrada": 0,
+        "CantOsteotomia": 0,
+        "CantArtrodecis": 0,
+        "CantOsteodesis": 0,
+        "CantYeso": 0
+      },
+      "Nombre": "Daniel",
+      "Apellido": "Villena",
+      "Dni": 22963307
+    },
+    "Procedimiento": "RAFI",
+    "Patologia": "MiembroInferior",
+    "Paciente": {
+      "Patologia": [
+        "MiembroSuperior",
+        "MiembroInferior"
+      ],
+      "Nombre": "Dario",
+      "Apellido": "Cuda",
+      "Dni": 23060221
+    },
+    "Fecha": "2021-11-06T11:38:36.3449058-03:00"
   }
 ]

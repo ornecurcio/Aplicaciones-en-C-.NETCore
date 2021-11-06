@@ -45,35 +45,39 @@ namespace Formulario
             // lblPersona
             // 
             this.lblPersona.AutoSize = true;
-            this.lblPersona.Location = new System.Drawing.Point(80, 9);
+            this.lblPersona.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPersona.Location = new System.Drawing.Point(12, 9);
             this.lblPersona.Name = "lblPersona";
-            this.lblPersona.Size = new System.Drawing.Size(49, 15);
+            this.lblPersona.Size = new System.Drawing.Size(75, 18);
             this.lblPersona.TabIndex = 0;
             this.lblPersona.Text = "Persona";
             // 
             // lblPacientevsCirujano
             // 
             this.lblPacientevsCirujano.AutoSize = true;
-            this.lblPacientevsCirujano.Location = new System.Drawing.Point(80, 65);
+            this.lblPacientevsCirujano.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPacientevsCirujano.Location = new System.Drawing.Point(12, 65);
             this.lblPacientevsCirujano.Name = "lblPacientevsCirujano";
-            this.lblPacientevsCirujano.Size = new System.Drawing.Size(24, 15);
+            this.lblPacientevsCirujano.Size = new System.Drawing.Size(34, 18);
             this.lblPacientevsCirujano.TabIndex = 1;
             this.lblPacientevsCirujano.Text = "Rol";
             // 
             // lblProcedimiento
             // 
             this.lblProcedimiento.AutoSize = true;
-            this.lblProcedimiento.Location = new System.Drawing.Point(80, 221);
+            this.lblProcedimiento.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblProcedimiento.Location = new System.Drawing.Point(12, 192);
             this.lblProcedimiento.Name = "lblProcedimiento";
-            this.lblProcedimiento.Size = new System.Drawing.Size(85, 15);
+            this.lblProcedimiento.Size = new System.Drawing.Size(124, 18);
             this.lblProcedimiento.TabIndex = 4;
             this.lblProcedimiento.Text = "Procedimiento";
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(312, 340);
+            this.btnAceptar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAceptar.Location = new System.Drawing.Point(160, 251);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptar.Size = new System.Drawing.Size(88, 32);
             this.btnAceptar.TabIndex = 5;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
@@ -82,7 +86,7 @@ namespace Formulario
             // cmbApellidoNombre
             // 
             this.cmbApellidoNombre.FormattingEnabled = true;
-            this.cmbApellidoNombre.Location = new System.Drawing.Point(80, 27);
+            this.cmbApellidoNombre.Location = new System.Drawing.Point(12, 27);
             this.cmbApellidoNombre.Name = "cmbApellidoNombre";
             this.cmbApellidoNombre.Size = new System.Drawing.Size(218, 23);
             this.cmbApellidoNombre.TabIndex = 6;
@@ -91,7 +95,7 @@ namespace Formulario
             // cmbPacientevsCirujano
             // 
             this.cmbPacientevsCirujano.FormattingEnabled = true;
-            this.cmbPacientevsCirujano.Location = new System.Drawing.Point(80, 83);
+            this.cmbPacientevsCirujano.Location = new System.Drawing.Point(12, 83);
             this.cmbPacientevsCirujano.Name = "cmbPacientevsCirujano";
             this.cmbPacientevsCirujano.Size = new System.Drawing.Size(218, 23);
             this.cmbPacientevsCirujano.TabIndex = 7;
@@ -100,7 +104,7 @@ namespace Formulario
             // cmbProcedimiento
             // 
             this.cmbProcedimiento.FormattingEnabled = true;
-            this.cmbProcedimiento.Location = new System.Drawing.Point(80, 248);
+            this.cmbProcedimiento.Location = new System.Drawing.Point(12, 210);
             this.cmbProcedimiento.Name = "cmbProcedimiento";
             this.cmbProcedimiento.Size = new System.Drawing.Size(218, 23);
             this.cmbProcedimiento.TabIndex = 10;
@@ -108,16 +112,17 @@ namespace Formulario
             // lblPatologia
             // 
             this.lblPatologia.AutoSize = true;
-            this.lblPatologia.Location = new System.Drawing.Point(80, 163);
+            this.lblPatologia.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPatologia.Location = new System.Drawing.Point(12, 137);
             this.lblPatologia.Name = "lblPatologia";
-            this.lblPatologia.Size = new System.Drawing.Size(57, 15);
+            this.lblPatologia.Size = new System.Drawing.Size(83, 18);
             this.lblPatologia.TabIndex = 11;
             this.lblPatologia.Text = "Patologia";
             // 
             // cmbPatologia
             // 
             this.cmbPatologia.FormattingEnabled = true;
-            this.cmbPatologia.Location = new System.Drawing.Point(80, 181);
+            this.cmbPatologia.Location = new System.Drawing.Point(12, 155);
             this.cmbPatologia.Name = "cmbPatologia";
             this.cmbPatologia.Size = new System.Drawing.Size(218, 23);
             this.cmbPatologia.TabIndex = 12;
@@ -126,7 +131,7 @@ namespace Formulario
             // lblAgregarNuevo
             // 
             this.lblAgregarNuevo.AutoSize = true;
-            this.lblAgregarNuevo.Location = new System.Drawing.Point(211, 53);
+            this.lblAgregarNuevo.Location = new System.Drawing.Point(143, 53);
             this.lblAgregarNuevo.Name = "lblAgregarNuevo";
             this.lblAgregarNuevo.Size = new System.Drawing.Size(87, 15);
             this.lblAgregarNuevo.TabIndex = 13;
@@ -136,7 +141,7 @@ namespace Formulario
             // lblAgregarNuevo2
             // 
             this.lblAgregarNuevo2.AutoSize = true;
-            this.lblAgregarNuevo2.Location = new System.Drawing.Point(211, 109);
+            this.lblAgregarNuevo2.Location = new System.Drawing.Point(143, 109);
             this.lblAgregarNuevo2.Name = "lblAgregarNuevo2";
             this.lblAgregarNuevo2.Size = new System.Drawing.Size(87, 15);
             this.lblAgregarNuevo2.TabIndex = 14;
@@ -147,7 +152,8 @@ namespace Formulario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(399, 375);
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ClientSize = new System.Drawing.Size(257, 287);
             this.Controls.Add(this.lblAgregarNuevo2);
             this.Controls.Add(this.lblAgregarNuevo);
             this.Controls.Add(this.cmbPatologia);
@@ -162,6 +168,7 @@ namespace Formulario
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmCargarProcedimiento";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cargar Procedimiento";
             this.Load += new System.EventHandler(this.FrmCargarProcedimiento_Load);
             this.ResumeLayout(false);

@@ -12,7 +12,6 @@ namespace Entidades
         private static List<Cirujano> cirujanos;
         private static List<Cirugia> cirugias;
         private static Estadistica estadistica; 
-        
         static Hospital()
         {
             pacientes = new List<Paciente>();
@@ -27,14 +26,12 @@ namespace Entidades
             //ruta = Serializacion.GenerarRuta("Cirugias.json");
             //Serializacion.SerializarAJason(ruta, cirugias);
             //string rutaAlt = Environment.CurrentDirectory;
-
             pacientes = Serializacion.DeserealizarDesdeJson<List<Paciente>>(ruta);
             ruta = Serializacion.GenerarRuta("Cirujanos.json");
             cirujanos = Serializacion.DeserealizarDesdeJson<List<Cirujano>>(ruta);
             ruta = Serializacion.GenerarRuta("Cirugias.json");
             cirugias = Serializacion.DeserealizarDesdeJson<List<Cirugia>>(ruta);
-            Hospital.ActualizarEstadistica(cirugias, cirujanos); 
-
+            Hospital.ActualizarEstadistica(cirugias);  
         }
         public static List<Paciente> Pacientes
         {
@@ -143,15 +140,14 @@ namespace Entidades
             }
             return false; 
         }
-        public static void ActualizarEstadistica(List<Cirugia>cirugias, List<Cirujano>cirujanos)
+        public static void ActualizarEstadistica(List<Cirugia>cirugias)
         {
             foreach (Cirugia item in cirugias)
             {
                 Hospital.Estadistica.ActualizarPatologia(item.Patologia);
-                item.Cirujano.Estadistica.ActualizarPatologia(item.Patologia);
-                //Hospital.Estadistica.ActualizarProcedimiento(item.Procedimiento);
-                //item.Cirujano.Estadistica.ActualizarProcedimiento(item.Procedimiento); 
+                Hospital.Estadistica.ActualizarProcedimiento(item.Procedimiento);
             }
+           
         }
         public static List<Cirugia> CirugiasXPatologia(EPatologia patologia)
         {

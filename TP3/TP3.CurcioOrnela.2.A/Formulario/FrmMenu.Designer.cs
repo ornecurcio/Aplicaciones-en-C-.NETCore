@@ -29,7 +29,7 @@ namespace Formulario
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.btnPaciente = new System.Windows.Forms.Button();
             this.btnMenuCirujano = new System.Windows.Forms.Button();
             this.btnEstadistica = new System.Windows.Forms.Button();
@@ -37,49 +37,58 @@ namespace Formulario
             this.lblAgregarCirujano = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // lblTitulo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(302, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(211, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Servicio de Ortopedia y Traumatologia ";
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTitulo.ForeColor = System.Drawing.Color.Blue;
+            this.lblTitulo.Location = new System.Drawing.Point(166, 38);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(465, 28);
+            this.lblTitulo.TabIndex = 0;
+            this.lblTitulo.Text = "Servicio de Ortopedia y Traumatologia ";
             // 
             // btnPaciente
             // 
+            this.btnPaciente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnPaciente.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnPaciente.Location = new System.Drawing.Point(108, 112);
             this.btnPaciente.Name = "btnPaciente";
             this.btnPaciente.Size = new System.Drawing.Size(234, 106);
             this.btnPaciente.TabIndex = 1;
             this.btnPaciente.Text = "Menu Paciente";
-            this.btnPaciente.UseVisualStyleBackColor = true;
+            this.btnPaciente.UseVisualStyleBackColor = false;
             this.btnPaciente.Click += new System.EventHandler(this.btnPaciente_Click);
             // 
             // btnMenuCirujano
             // 
+            this.btnMenuCirujano.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnMenuCirujano.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnMenuCirujano.Location = new System.Drawing.Point(459, 112);
             this.btnMenuCirujano.Name = "btnMenuCirujano";
             this.btnMenuCirujano.Size = new System.Drawing.Size(212, 106);
             this.btnMenuCirujano.TabIndex = 2;
             this.btnMenuCirujano.Text = "Menu Cirujano";
-            this.btnMenuCirujano.UseVisualStyleBackColor = true;
+            this.btnMenuCirujano.UseVisualStyleBackColor = false;
             this.btnMenuCirujano.Click += new System.EventHandler(this.btnMenuCirujano_Click);
             // 
             // btnEstadistica
             // 
+            this.btnEstadistica.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnEstadistica.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnEstadistica.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnEstadistica.Location = new System.Drawing.Point(108, 282);
             this.btnEstadistica.Name = "btnEstadistica";
             this.btnEstadistica.Size = new System.Drawing.Size(563, 129);
             this.btnEstadistica.TabIndex = 3;
             this.btnEstadistica.Text = "Estadisticas";
-            this.btnEstadistica.UseVisualStyleBackColor = true;
+            this.btnEstadistica.UseVisualStyleBackColor = false;
             this.btnEstadistica.Click += new System.EventHandler(this.btnEstadistica_Click);
             // 
             // lblAgregarPaciente
             // 
             this.lblAgregarPaciente.AutoSize = true;
-            this.lblAgregarPaciente.Location = new System.Drawing.Point(131, 221);
+            this.lblAgregarPaciente.Location = new System.Drawing.Point(119, 221);
             this.lblAgregarPaciente.Name = "lblAgregarPaciente";
             this.lblAgregarPaciente.Size = new System.Drawing.Size(97, 15);
             this.lblAgregarPaciente.TabIndex = 4;
@@ -100,13 +109,14 @@ namespace Formulario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.lblAgregarCirujano);
             this.Controls.Add(this.lblAgregarPaciente);
             this.Controls.Add(this.btnEstadistica);
             this.Controls.Add(this.btnMenuCirujano);
             this.Controls.Add(this.btnPaciente);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTitulo);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
@@ -120,7 +130,7 @@ namespace Formulario
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Button btnPaciente;
         private System.Windows.Forms.Button btnMenuCirujano;
         private System.Windows.Forms.Button btnEstadistica;

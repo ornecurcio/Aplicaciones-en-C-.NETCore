@@ -13,15 +13,13 @@ namespace Formulario
     public partial class Form1 : Form
     {
         bool esMedico;
-        
         public Form1()
         {
             InitializeComponent();
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            lblTitulo.Text = "Servicio de Ortopedia y Traumatologia\nHospital Casa Cuna"; 
         }
 
         private void btnPaciente_Click(object sender, EventArgs e)
@@ -38,15 +36,13 @@ namespace Formulario
             subMenu.ShowDialog();
         }
 
-
         private void lblAgregarPaciente_Click(object sender, EventArgs e)
         {
             esMedico = false;
             FrmIngresoDatos ingresoDatos = new FrmIngresoDatos(esMedico);
             ingresoDatos.ShowDialog();
         }
-
-            private void lblAgregarCirujano_Click(object sender, EventArgs e)
+        private void lblAgregarCirujano_Click(object sender, EventArgs e)
         {
             esMedico = true;
             FrmIngresoDatos ingresoDatos = new FrmIngresoDatos(esMedico);
