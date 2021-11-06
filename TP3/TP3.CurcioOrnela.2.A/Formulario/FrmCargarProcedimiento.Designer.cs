@@ -29,6 +29,7 @@ namespace Formulario
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCargarProcedimiento));
             this.lblPersona = new System.Windows.Forms.Label();
             this.lblPacientevsCirujano = new System.Windows.Forms.Label();
             this.lblProcedimiento = new System.Windows.Forms.Label();
@@ -165,11 +166,11 @@ namespace Formulario
             this.Controls.Add(this.lblProcedimiento);
             this.Controls.Add(this.lblPacientevsCirujano);
             this.Controls.Add(this.lblPersona);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmCargarProcedimiento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cargar Procedimiento";
             this.Load += new System.EventHandler(this.FrmCargarProcedimiento_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

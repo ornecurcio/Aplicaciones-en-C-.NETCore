@@ -29,6 +29,7 @@ namespace Formulario
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMostrarEstadistica));
             this.dataEstadistica = new System.Windows.Forms.DataGridView();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.btnExportar = new System.Windows.Forms.Button();
@@ -61,25 +62,30 @@ namespace Formulario
             // 
             // btnExportar
             // 
-            this.btnExportar.Location = new System.Drawing.Point(564, 418);
+            this.btnExportar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnExportar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnExportar.Location = new System.Drawing.Point(592, 418);
             this.btnExportar.Name = "btnExportar";
-            this.btnExportar.Size = new System.Drawing.Size(196, 23);
+            this.btnExportar.Size = new System.Drawing.Size(196, 28);
             this.btnExportar.TabIndex = 2;
             this.btnExportar.Text = "Exportar a Json";
-            this.btnExportar.UseVisualStyleBackColor = true;
+            this.btnExportar.UseVisualStyleBackColor = false;
             this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
             // 
             // FrmMostrarEstadistica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.dataEstadistica);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimizeBox = false;
             this.Name = "FrmMostrarEstadistica";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmMostrarEstadistica";
+            this.Text = "Estadistica";
             this.Load += new System.EventHandler(this.FrmMostrarEstadistica_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataEstadistica)).EndInit();
             this.ResumeLayout(false);

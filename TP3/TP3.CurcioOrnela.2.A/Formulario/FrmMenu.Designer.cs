@@ -29,6 +29,7 @@ namespace Formulario
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnPaciente = new System.Windows.Forms.Button();
             this.btnMenuCirujano = new System.Windows.Forms.Button();
@@ -117,6 +118,7 @@ namespace Formulario
             this.Controls.Add(this.btnMenuCirujano);
             this.Controls.Add(this.btnPaciente);
             this.Controls.Add(this.lblTitulo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
