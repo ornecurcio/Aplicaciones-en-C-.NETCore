@@ -22,48 +22,26 @@ namespace Formulario
         {
             this.esMedico = esMedico; 
         }
-
         private void FrmCargarProcedimiento_Load(object sender, EventArgs e)
         {
-            //if(esMedico)
-            //{
-            //    lblPersona.Text = "Cirujano";
-            //    cmbApellidoNombre.DataSource = null; 
-            //    cmbApellidoNombre.DataSource = Hospital.Cirujanos; 
-            //    lblPacientevsCirujano.Text = "Paciente";
-            //    cmbPacientevsCirujano.DataSource = null; 
-            //    cmbPacientevsCirujano.DataSource = Hospital.Pacientes;
-
-            //}
-            //else
-            //{
-            //    lblPersona.Text = "Paciente";
-            //    cmbPacientevsCirujano.DataSource = null; 
-            //    cmbApellidoNombre.DataSource = Hospital.Pacientes;
-            //    lblAgregarNuevo2.Visible = false; 
-            //    lblPacientevsCirujano.Visible = false;
-            //    cmbPacientevsCirujano.Visible = false;
-            //    lblProcedimiento.Visible = false;
-            //    cmbProcedimiento.Visible = false; 
-
-            //}
-            //cmbProcedimiento.Enabled = false;
-            //cmbPatologia.DataSource = Enum.GetValues(typeof(EPatologia));
             if (esMedico)
             {
                 lblPersona.Text = "Cirujano";
-                cmbApellidoNombre.DataSource = null;
-                cmbApellidoNombre.DataSource = Hospital.Cirujanos;
+                MetodosFormulario.CargarCmb(cmbApellidoNombre, Hospital.Cirujanos); 
+                //cmbApellidoNombre.DataSource = null;
+                //cmbApellidoNombre.DataSource = Hospital.Cirujanos;
                 lblPacientevsCirujano.Text = "Paciente";
-                cmbPacientevsCirujano.DataSource = null;
-                cmbPacientevsCirujano.DataSource = Hospital.Pacientes;
+                MetodosFormulario.CargarCmb(cmbPacientevsCirujano, Hospital.Pacientes); 
+                //cmbPacientevsCirujano.DataSource = null;
+                //cmbPacientevsCirujano.DataSource = Hospital.Pacientes;
                 cmbPatologia.DataSource = Hospital.Pacientes[0].Patologia;
             }
             else
             {
                 lblPersona.Text = "Paciente";
-                cmbPacientevsCirujano.DataSource = null;
-                cmbApellidoNombre.DataSource = Hospital.Pacientes;
+                MetodosFormulario.CargarCmb(cmbApellidoNombre, Hospital.Pacientes);
+                //cmbPacientevsCirujano.DataSource = null;
+                //cmbApellidoNombre.DataSource = Hospital.Pacientes;
                 lblAgregarNuevo2.Visible = false;
                 lblPacientevsCirujano.Visible = false;
                 cmbPacientevsCirujano.Visible = false;
@@ -79,26 +57,8 @@ namespace Formulario
             if(!esMedico)
             {
                 Paciente aux = (Paciente)cmbApellidoNombre.SelectedItem;
-
                 ActualizarCmbPatologia(aux);
             }
-            
-            //Paciente aux = (Paciente)cmbApellidoNombre.SelectedItem;
-
-            //List<Paciente> lista = Hospital.Pacientes;
-            //List<EPatologia> diferente = new List<EPatologia>();
-
-            //foreach (EPatologia item in Enum.GetValues(typeof(EPatologia)))
-            //{
-            //    if (!aux.Patologia.Exists((x) => item == x))
-            //    {
-            //        diferente.Add(item);
-            //    }
-            //}
-
-            //cmbPatologia.DataSource = null;
-            //cmbPatologia.DataSource = diferente;
-
         }
         private void cmbPatologia_SelectedIndexChanged(object sender, EventArgs e)
         {

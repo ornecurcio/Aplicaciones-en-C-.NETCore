@@ -82,7 +82,6 @@ namespace Formulario
             {
                 dataEstadistica.DataSource = null;
                 dataEstadistica.DataSource = pacientes;
-
             }
         }
 

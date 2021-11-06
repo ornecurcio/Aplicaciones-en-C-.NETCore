@@ -97,19 +97,20 @@
   },
   {
     "Patologia": [
-      "MiembroSuperior"
-    ],
-    "Nombre": "Escudero",
-    "Apellido": "Yanina",
-    "Dni": 23159922
-  },
-  {
-    "Patologia": [
       "MiembroInferior",
       "MiembroSuperior"
     ],
     "Nombre": "Florencia",
     "Apellido": "Cuda",
     "Dni": 38165629
+  },
+  {
+    "Patologia": [
+      "MiembroSuperior",
+      "MiembroInferior"
+    ],
+    "Nombre": "Escudero",
+    "Apellido": "Yanina",
+    "Dni": 23159922
   }
 ]

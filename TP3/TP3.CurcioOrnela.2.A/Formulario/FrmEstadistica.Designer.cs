@@ -54,6 +54,7 @@ namespace Formulario
             // lblCirugiasXPatologia
             // 
             this.lblCirugiasXPatologia.AutoSize = true;
+            this.lblCirugiasXPatologia.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
             this.lblCirugiasXPatologia.Location = new System.Drawing.Point(40, 145);
             this.lblCirugiasXPatologia.Name = "lblCirugiasXPatologia";
             this.lblCirugiasXPatologia.Size = new System.Drawing.Size(124, 15);
@@ -64,6 +65,7 @@ namespace Formulario
             // lblCirugiaXProcedimiento
             // 
             this.lblCirugiaXProcedimiento.AutoSize = true;
+            this.lblCirugiaXProcedimiento.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
             this.lblCirugiaXProcedimiento.Location = new System.Drawing.Point(30, 291);
             this.lblCirugiaXProcedimiento.Name = "lblCirugiaXProcedimiento";
             this.lblCirugiaXProcedimiento.Size = new System.Drawing.Size(147, 15);

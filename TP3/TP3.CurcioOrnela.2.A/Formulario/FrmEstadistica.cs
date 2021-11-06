@@ -11,7 +11,7 @@ using Entidades;
 
 namespace Formulario
 {
-    public partial class FrmEstadistica : Form
+    public partial class FrmEstadistica : Form, ICargarCmb
     {
         bool esMedico;
         bool servicio;
@@ -28,38 +28,26 @@ namespace Formulario
         {
             if(esMedico)
             {
-                cmbTotalCirugias.DataSource = null;
-                cmbTotalCirugias.DataSource = Hospital.Cirujanos;
-                txtTotalCirugias.Visible = true;
-                txtCirugiaXPatologia.Enabled = false;
-                txtCirugiaXProcedimiento.Enabled = false;
+                this.LoadInicial();
+                MetodosFormulario.CargarCmb(cmbTotalCirugias, Hospital.Cirujanos);                
+                //cmbTotalCirugias.DataSource = null;
+                //cmbTotalCirugias.DataSource = Hospital.Cirujanos;
+                txtTotalCirugias.Visible = true; 
+            }
+            else if (servicio)
+            {
+                this.LoadInicial(); 
+                cmbTotalCirugias.Visible = false;
+                txtTotalCirugias.Text = Hospital.Cirugias.Count.ToString();
+                txtTotalCirugias.Enabled = false; 
             }
             else
             {
                 lblCirugiasXPatologia.Text = "Pacientes por Patologia";
-                cmbCirugiaXPatologia.Visible = true;
-                cmbCirugiaXPatologia.Enabled = true; 
-                txtTotalCirugias.Visible = false;
-                txtCirugiaXPatologia.Visible = false;
-                txtCirugiaXProcedimiento.Visible = false;
-                cmbTotalCirugias.Visible = false;
-                lblTotalCirugias.Visible = false;
-                lblCirugiaXProcedimiento.Visible = false;
-                cmbCirugiaXProcedimiento.Visible = false; 
+                this.LoadPaciente(); 
             }
-            if (servicio)
-            {
-                cmbTotalCirugias.Visible = false;
-                txtCirugiaXPatologia.Enabled = false;
-                txtCirugiaXProcedimiento.Enabled = false;
-                txtTotalCirugias.Text = Hospital.Cirugias.Count.ToString();
-                txtTotalCirugias.Enabled = false;
-            }
-            cmbCirugiaXPatologia.DataSource = Enum.GetValues(typeof(EPatologia));
-            cmbCirugiaXProcedimiento.DataSource = Enum.GetValues(typeof(EProcedimiento));
-            cmbCirugiaXPatologia.Enabled = false;
-            cmbCirugiaXProcedimiento.Enabled = false;
         }
+       
         private void lblTotalCirugias_Click(object sender, EventArgs e)
         {
             cmbCirugiaXPatologia.Enabled = false;
@@ -78,6 +66,7 @@ namespace Formulario
         }
         private void lblCirugiasXPatologia_Click(object sender, EventArgs e)
         {
+            cmbCirugiaXPatologia.DataSource = Enum.GetValues(typeof(EPatologia));
             cmbCirugiaXPatologia.Enabled = true;
             cmbCirugiaXProcedimiento.Enabled = false;
         }
@@ -123,7 +112,6 @@ namespace Formulario
                             txtCirugiaXPatologia.Text = ((Cirujano)cmbTotalCirugias.SelectedItem).Estadistica.CantPelvis.ToString();
                             break;
                     }
-
                 }
             }
         }
@@ -131,9 +119,9 @@ namespace Formulario
         private void lblCirugiaXProcedimiento_Click(object sender, EventArgs e)
         {
             cmbCirugiaXProcedimiento.Enabled = true;
-            cmbCirugiaXPatologia.Enabled = false; 
+            cmbCirugiaXPatologia.Enabled = false;
+            cmbCirugiaXProcedimiento.DataSource = Enum.GetValues(typeof(EProcedimiento));
         }
-
         private void cmbCirugiaXProcedimiento_SelectedIndexChanged(object sender, EventArgs e)
         {
             EProcedimiento aux;
@@ -197,20 +185,22 @@ namespace Formulario
         {
             EProcedimiento auxPr;
             EPatologia auxP; 
-            //if (!cmbTotalCirugias.Visible && !cmbCirugiaXPatologia.Enabled && !cmbCirugiaXProcedimiento.Enabled)
-            if(servicio)
+            if (!cmbTotalCirugias.Visible && !cmbCirugiaXPatologia.Enabled && !cmbCirugiaXProcedimiento.Enabled)
+            //if(servicio)
             {
                 FrmMostrarEstadistica mostrarEstadistica = new FrmMostrarEstadistica(servicio);
                 mostrarEstadistica.ShowDialog();
             }
-            //if (!cmbTotalCirugias.Visible && cmbCirugiaXPatologia.CanSelect && !cmbCirugiaXProcedimiento.Enabled 
-              if(servicio  && Enum.TryParse(cmbCirugiaXPatologia.Text, out auxP))
+            if (!cmbTotalCirugias.Visible && cmbCirugiaXPatologia.CanSelect && !cmbCirugiaXProcedimiento.Enabled 
+              //if(servicio
+               && Enum.TryParse(cmbCirugiaXPatologia.Text, out auxP))
             {
                 FrmMostrarEstadistica mostrarEstadistica = new FrmMostrarEstadistica(servicio,auxP);
                 mostrarEstadistica.ShowDialog();
             }
-            //if (!cmbTotalCirugias.Visible && !cmbCirugiaXPatologia.Enabled && cmbCirugiaXProcedimiento.CanSelect
-              if(servicio && Enum.TryParse(cmbCirugiaXProcedimiento.Text, out auxPr))
+            if (!cmbTotalCirugias.Visible && !cmbCirugiaXPatologia.Enabled && cmbCirugiaXProcedimiento.CanSelect
+              //if(servicio
+              && Enum.TryParse(cmbCirugiaXProcedimiento.Text, out auxPr))
             {
                 FrmMostrarEstadistica mostrarEstadistica = new FrmMostrarEstadistica(servicio, auxPr);
                 mostrarEstadistica.ShowDialog();
@@ -235,6 +225,27 @@ namespace Formulario
                 FrmMostrarEstadistica mostrarEstadistica = new FrmMostrarEstadistica(auxP);
                 mostrarEstadistica.ShowDialog();
             }
+        }
+        private void LoadPaciente()
+        {
+            cmbCirugiaXPatologia.Visible = true;
+            cmbCirugiaXPatologia.Enabled = true;
+            txtTotalCirugias.Visible = false;
+            txtCirugiaXPatologia.Visible = false;
+            txtCirugiaXProcedimiento.Visible = false;
+            cmbTotalCirugias.Visible = false;
+            lblTotalCirugias.Visible = false;
+            lblCirugiaXProcedimiento.Visible = false;
+            cmbCirugiaXProcedimiento.Visible = false;
+        }
+        private void LoadInicial()
+        {
+            cmbCirugiaXPatologia.Enabled = false;
+            txtCirugiaXPatologia.Enabled = false;
+            cmbCirugiaXProcedimiento.Enabled = false;
+            txtCirugiaXProcedimiento.Enabled = false;
+            cmbCirugiaXProcedimiento.DataSource = null;
+            cmbCirugiaXPatologia.DataSource = null;
         }
     }
 }

@@ -55,7 +55,7 @@ namespace Formulario
 
         private void btnEstadistica_Click(object sender, EventArgs e)
         {
-            FrmEstadistica estadistica = new FrmEstadistica(esMedico, true);
+            FrmEstadistica estadistica = new FrmEstadistica(false, true);
             estadistica.ShowDialog();
         }
     }
