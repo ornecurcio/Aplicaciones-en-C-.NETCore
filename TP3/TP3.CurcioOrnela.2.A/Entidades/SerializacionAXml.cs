@@ -13,9 +13,16 @@ namespace Entidades
     {
         public string GenerarRuta(string titulo)
         {
-            string rutaAlt = AppDomain.CurrentDomain.BaseDirectory;
-            string rutaArchivo = Path.Combine(rutaAlt, titulo);
-            return rutaArchivo;
+            try
+            {
+                string rutaAlt = AppDomain.CurrentDomain.BaseDirectory;
+                string rutaArchivo = Path.Combine(rutaAlt, titulo);
+                return rutaArchivo;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("No se puedo generar la ruta", ex);
+            }
         }
         //public void SerializarAXmlLista<T>(string ruta, List<T> obj) where T :class
         public static void SerializarAXmlLista(string ruta, T obj) 
@@ -31,7 +38,7 @@ namespace Entidades
             }
             catch (Exception ex)
             {
-                throw new Exception("No se pudo serializar a Xml",ex);
+                throw new ExceptionSerializacion(ex);
             }
             finally
             {
@@ -41,13 +48,7 @@ namespace Entidades
                 }
             }
         }
-        /// <summary>
-        /// Lee un archivo y lo guarda como dato generico
-        /// </summary>
-        /// <param name="archivo">Es el nombre del archivo que se va a leer</param>
-        /// <param name="datos">Donde se van a almacenar los datos leidos</param>
-        /// <returns>True en caso exitoso, de lo contrario lanzara ArchivosException</returns>
-        /// 
+   
         //public T DeserealizarXml<T>(string ruta)where T:class
         public static T DeserealizarXml(string ruta) 
         {
@@ -62,7 +63,7 @@ namespace Entidades
             }
             catch (Exception ex)
             {
-                throw new Exception("No se pudo deserealizar Xml",ex);
+                throw new ExceptionSerializacion(ex);
             }
             finally
             {
