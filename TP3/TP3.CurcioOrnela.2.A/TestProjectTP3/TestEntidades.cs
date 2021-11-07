@@ -9,10 +9,6 @@ namespace TestProjectTP3
     public class TestEntidades
     {
         [TestMethod]
-        public void TestMethod1()
-        {
-        }
-        [TestMethod]
         public void VerificarIgualdadPacientes_Ok()
         {
             //Arrange
@@ -120,18 +116,18 @@ namespace TestProjectTP3
 
             //Assert
         }
-        //[TestMethod]
-        //public void ValidarMetodoCargarCirujano_NodebeAgregarlo()
-        //{
-        //    //Arrange
-        //    Cirujano c1 = new Cirujano("Ornela", "Curcio", 34707599, ERol.Cirujano, new Estadistica());
+        [TestMethod]
+        public void ValidarMetodoCargarCirujano_NodebeAgregarlo()
+        {
+            //Arrange
+            Cirujano c1 = new Cirujano("Ornela", "Curcio", 34707599, ERol.Cirujano, new Estadistica());
 
-        //    //Act
-        //    bool rta = Hospital.CargarCirujanos(c1); 
+            //Act
+            bool rta = Hospital.CargarCirujanos(c1);
 
-        //    //Assert
-        //    Assert.IsFalse(rta);
-        //}
+            //Assert
+            Assert.IsFalse(rta);
+        }
         [TestMethod]
         public void ValidarMetodoActualizarPaciente_DebeDarFalse()
         {
@@ -144,61 +140,7 @@ namespace TestProjectTP3
             //Assert
             Assert.IsFalse(rta);
         }
-        //[TestMethod]
-        //public void AgregarVinos_Ok()
-        //{
-        //    //Arrange
-        //    Vinoteca v = new Vinoteca(3);
-        //    Vino v1 = new Vino(ETipoVino.Merlot, EBodega.Zuccardi);
-        //    Vino v2 = new Vino(ETipoVino.Merlot, EBodega.Rippon);
-        //    int espacioLibreEsperado = 1;
-        //    int espacioLibre = 0;
-
-        //    //Act
-        //    v += v1;
-        //    v += v2;
-
-        //    espacioLibre = v.EspacioLibre;
-
-        //    //Assert
-        //    Assert.AreEqual(espacioLibre, espacioLibreEsperado);
-        //}
-
-        //[TestMethod]
-        //public void AgregarVinos_Falla()
-        //{
-        //    //Arrange
-        //    Vinoteca v = new Vinoteca(1);
-        //    Vino v1 = new Vino(ETipoVino.Merlot, EBodega.Zuccardi);
-        //    Vino v2 = new Vino(ETipoVino.Merlot, EBodega.Rippon);
-
-        //    //Act
-        //    try
-        //    {
-        //        v += v1;
-        //        v += v2;
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        //Assert
-        //        Assert.IsInstanceOfType(e, typeof(VinotecaLlenaException));
-        //    }
-
-        //}
-
-        //[TestMethod]
-        //[ExpectedException(typeof(VinotecaLlenaException))]
-        //public void AgregarVinos_Exception()
-        //{
-        //    //Arrange
-        //    Vinoteca v = new Vinoteca(1);
-        //    Vino v1 = new Vino(ETipoVino.Merlot, EBodega.Zuccardi);
-        //    Vino v2 = new Vino(ETipoVino.Merlot, EBodega.Rippon);
-
-        //    //Act
-        //    v += v1;
-        //    v += v2;
-        //}
+        
     }
 }
 

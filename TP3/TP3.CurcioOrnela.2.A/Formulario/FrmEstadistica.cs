@@ -191,7 +191,7 @@ namespace Formulario
                 FrmMostrarEstadistica mostrarEstadistica = new FrmMostrarEstadistica(servicio);
                 mostrarEstadistica.ShowDialog();
             }
-            if (!cmbTotalCirugias.Visible && cmbCirugiaXPatologia.CanSelect && !cmbCirugiaXProcedimiento.Enabled 
+            if (servicio && !cmbTotalCirugias.Visible && cmbCirugiaXPatologia.CanSelect  && !cmbCirugiaXProcedimiento.Enabled 
               //if(servicio
                && Enum.TryParse(cmbCirugiaXPatologia.Text, out auxP))
             {
@@ -229,7 +229,7 @@ namespace Formulario
         private void LoadPaciente()
         {
             cmbCirugiaXPatologia.Visible = true;
-            cmbCirugiaXPatologia.Enabled = true;
+            cmbCirugiaXPatologia.Enabled = false;
             txtTotalCirugias.Visible = false;
             txtCirugiaXPatologia.Visible = false;
             txtCirugiaXProcedimiento.Visible = false;

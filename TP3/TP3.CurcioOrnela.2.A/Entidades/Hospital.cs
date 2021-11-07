@@ -128,11 +128,10 @@ namespace Entidades
             {
                 foreach (Cirujano item in cirujanos)
                 {
-                    if (aux == item)
+                    if (item==aux)
                     {
-                        break; 
+                        return false;
                     }
-
                 }
                 cirujanos.Add(aux);
                 SerializarCirujanos();
