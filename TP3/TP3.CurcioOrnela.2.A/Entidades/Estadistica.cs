@@ -8,8 +8,6 @@ namespace Entidades
 {
     public class Estadistica
     {
-        //private int cantCirugiaCirujano;
-        //private int cantCirugiaAyudante;
         private int cantColumna;
         private int cantMiembroSuperior;
         private int cantMiembroInferior;
@@ -24,28 +22,7 @@ namespace Entidades
         public Estadistica()
         {
         }
-        //public int CantCirugiaCirujano
-        //{
-        //    get
-        //    {
-        //        return this.cantCirugiaCirujano;
-        //    }
-        //    set
-        //    {
-        //        this.cantCirugiaCirujano = value; 
-        //    }
-        //}
-        //public int CantCirugiaAyudante
-        //{
-        //    get
-        //    {
-        //        return this.cantCirugiaAyudante;
-        //    }
-        //    set
-        //    {
-        //        this.cantCirugiaAyudante = value;
-        //    }
-        //}
+      
         public int CantColumna
         {
             get
@@ -174,18 +151,7 @@ namespace Entidades
                     break;
             }
         }
-        //public void ActualizarRol(ERol rol)
-        //{
-        //    switch (rol)
-        //    {
-        //        case ERol.Cirujano:
-        //            this.cantCirugiaCirujano++;
-        //            break;
-        //        case ERol.Ayudante:
-        //            this.cantCirugiaAyudante++;
-        //            break; 
-        //    }
-        //}
+    
         public void ActualizarProcedimiento(EProcedimiento procedimiento)
 
         {

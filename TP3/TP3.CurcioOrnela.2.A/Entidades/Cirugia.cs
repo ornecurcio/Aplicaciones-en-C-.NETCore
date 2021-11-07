@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class Cirugia//: ICirugia
+    public class Cirugia
     {
         private Cirujano cirujano;
         private Paciente paciente;
         private EPatologia patologia;
         private EProcedimiento procedimiento; 
         private DateTime fecha;
-        //private bool realizoCirugia; 
         
+        public Cirugia()
+        { }
         public Cirugia(Paciente paciente, DateTime fecha, Cirujano cirujano, 
                        EPatologia patologia, EProcedimiento procedimiento) //, bool realizoCirugia)
         {
@@ -23,19 +24,9 @@ namespace Entidades
             this.cirujano = cirujano;
             this.patologia = patologia;
             this.procedimiento = procedimiento;
-            //this.realizoCirugia = realizoCirugia; 
+           
         }
-        //public bool RealizoCirugia
-        //{
-        //    get
-        //    {
-        //        return this.realizoCirugia; 
-        //    }
-        //    set
-        //    {
-        //        this.realizoCirugia = value; 
-        //    }
-        //}
+      
         public Cirujano Cirujano
         {
             get

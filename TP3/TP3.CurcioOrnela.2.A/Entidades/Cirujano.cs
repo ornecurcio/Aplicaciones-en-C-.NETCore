@@ -6,30 +6,18 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class Cirujano:Persona //, ICirugia
+    public class Cirujano:Persona 
     {
         private ERol rol;
         private Estadistica estadistica;
-        //private bool realizoCirugia; 
+        public Cirujano():base()
+        { }
         public Cirujano(string nombre, string apellido, double dni, ERol rol, Estadistica estadistica) //, bool realizoCirugia)
                        : base(nombre, apellido, dni)
         {
             this.rol = rol;
             this.estadistica = estadistica;
-            //this.realizoCirugia = realizoCirugia; 
         }
-        //public bool RealizoCirugia
-        //{
-        //    get
-        //    {
-        //        return this.realizoCirugia; 
-        //    }
-        //    set
-        //    {
-        //        this.realizoCirugia = value;
-        //    }
-        //}
-
         public ERol Rol
         {
             get

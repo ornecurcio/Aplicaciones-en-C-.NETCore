@@ -87,15 +87,24 @@ namespace Formulario
 
         private void btnExportar_Click(object sender, EventArgs e)
         {
-            string ruta = SerializacionAJason.GenerarRuta(lblDescripcion.Text+".json");
+            string ruta = SerializacionAXml.GenerarRuta(lblDescripcion.Text + ".xml"); 
             if(pacientes is not null)
             {
-                SerializacionAJason.SerializarAJason(ruta, pacientes);
+                SerializacionAXml.SerializarAXmlLista(ruta, pacientes); 
             }
             else
             {
-                SerializacionAJason.SerializarAJason(ruta, cirugias);
+                SerializacionAXml.SerializarAXmlLista(ruta, cirugias); 
             }
+            //string ruta = SerializacionAJason.GenerarRuta(lblDescripcion.Text+".json");
+            //if(pacientes is not null)
+            //{
+            //    SerializacionAJason.SerializarAJason(ruta, pacientes);
+            //}
+            //else
+            //{
+            //    SerializacionAJason.SerializarAJason(ruta, cirugias);
+            //}
             
             MessageBox.Show("Archivo generado con exito", "Exito", MessageBoxButtons.OK,MessageBoxIcon.Information);
             this.Close(); 

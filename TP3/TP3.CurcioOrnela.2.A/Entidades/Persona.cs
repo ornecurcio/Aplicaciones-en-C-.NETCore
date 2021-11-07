@@ -7,8 +7,16 @@ namespace Entidades
     {
         private string nombre;
         private string apellido;
-        private double dni; 
+        private double dni;
 
+        public Persona()
+        { }
+        public Persona(string nombre, string apellido, double dni)
+        {
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.dni = dni;
+        }
         public string Nombre
         {
             get 
@@ -51,11 +59,6 @@ namespace Entidades
                 }
             }
         }
-        public Persona(string nombre, string apellido, double dni)
-        {
-            this.nombre = nombre;
-            this.apellido = apellido;
-            this.dni = dni; 
-        }
+        
     }
 }

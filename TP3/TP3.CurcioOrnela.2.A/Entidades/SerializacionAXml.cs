@@ -17,7 +17,8 @@ namespace Entidades
             string rutaArchivo = Path.Combine(rutaAlt, titulo);
             return rutaArchivo;
         }
-        public static void SerializarAXml<T>(string ruta, T obj) where T :class
+        public static void SerializarAXmlLista<T>(string ruta, List<T> obj) where T :class
+            
         {
             XmlTextWriter xmlWriter = null;
             XmlSerializer serializador = null;
@@ -25,7 +26,7 @@ namespace Entidades
             {
                 xmlWriter = new XmlTextWriter(ruta, Encoding.UTF8);
                 xmlWriter.Formatting = Formatting.Indented;
-                serializador = new XmlSerializer(typeof(T));
+                serializador = new XmlSerializer(typeof(List<T>));
                 serializador.Serialize(xmlWriter, obj);
             }
             catch (Exception ex)
