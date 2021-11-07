@@ -1,6 +1,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Entidades;
-using System.Collections.Generic; 
+using System.Collections.Generic;
+using System.IO;
+using System.Text.Json; 
 namespace TestProjectTP3
 {
     [TestClass]
@@ -106,7 +108,18 @@ namespace TestProjectTP3
             //Assert
             Assert.IsNotNull(c);
         }
+        [TestMethod]
+        [ExpectedException(typeof(SerializacionException))]
+        public void ValidaExepcion()
+        {
+            //Arrange
+            string ruta = "algun lado";
+            object algo = new object();
+            //Act
+            SerializacionAJason.SerializarAJason(ruta, algo); 
 
+            //Assert
+        }
         //[TestMethod]
         //public void ValidarMetodoCargarCirujano_NodebeAgregarlo()
         //{

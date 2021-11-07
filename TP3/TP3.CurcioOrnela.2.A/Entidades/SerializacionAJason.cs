@@ -38,7 +38,7 @@ namespace Entidades
             }
             catch(Exception ex)
             {
-                throw new ExceptionSerializacion(ex); 
+                throw new SerializacionException(ex); 
             }
         }
         public static T DeserealizarDesdeJson<T>(string ruta) where T : class
@@ -55,7 +55,7 @@ namespace Entidades
             }
             catch (Exception ex)
             {
-                throw new ExceptionSerializacion(ex);
+                throw new SerializacionException(ex);
             }
         }
     }

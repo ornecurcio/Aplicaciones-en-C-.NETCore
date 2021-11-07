@@ -38,7 +38,7 @@ namespace Entidades
             }
             catch (Exception ex)
             {
-                throw new ExceptionSerializacion(ex);
+                throw new SerializacionException(ex);
             }
             finally
             {
@@ -63,7 +63,7 @@ namespace Entidades
             }
             catch (Exception ex)
             {
-                throw new ExceptionSerializacion(ex);
+                throw new SerializacionException(ex);
             }
             finally
             {
