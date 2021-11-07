@@ -2,17 +2,15 @@
   {
     "Rol": "Cirujano",
     "Estadistica": {
-      "CantCirugiaCirujano": 0,
-      "CantCirugiaAyudante": 0,
       "CantColumna": 2,
-      "CantMiembroSuperior": 2,
+      "CantMiembroSuperior": 3,
       "CantMiembroInferior": 1,
       "CantPelvis": 0,
       "CantRAFI": 1,
       "CantReduccionCerrada": 1,
       "CantOsteotomia": 0,
       "CantArtrodecis": 1,
-      "CantOsteodesis": 0,
+      "CantOsteodesis": 1,
       "CantYeso": 2
     },
     "Nombre": "Ornela",
@@ -22,18 +20,16 @@
   {
     "Rol": "Ayudante",
     "Estadistica": {
-      "CantCirugiaCirujano": 0,
-      "CantCirugiaAyudante": 0,
-      "CantColumna": 0,
-      "CantMiembroSuperior": 0,
+      "CantColumna": 1,
+      "CantMiembroSuperior": 1,
       "CantMiembroInferior": 1,
       "CantPelvis": 0,
       "CantRAFI": 0,
       "CantReduccionCerrada": 1,
       "CantOsteotomia": 0,
-      "CantArtrodecis": 0,
+      "CantArtrodecis": 1,
       "CantOsteodesis": 0,
-      "CantYeso": 0
+      "CantYeso": 1
     },
     "Nombre": "Ornela",
     "Apellido": "Curcio",
@@ -42,8 +38,6 @@
   {
     "Rol": "Cirujano",
     "Estadistica": {
-      "CantCirugiaCirujano": 0,
-      "CantCirugiaAyudante": 0,
       "CantColumna": 0,
       "CantMiembroSuperior": 0,
       "CantMiembroInferior": 2,
@@ -62,8 +56,6 @@
   {
     "Rol": "Ayudante",
     "Estadistica": {
-      "CantCirugiaCirujano": 0,
-      "CantCirugiaAyudante": 0,
       "CantColumna": 0,
       "CantMiembroSuperior": 0,
       "CantMiembroInferior": 1,
@@ -82,8 +74,6 @@
   {
     "Rol": "Cirujano",
     "Estadistica": {
-      "CantCirugiaCirujano": 0,
-      "CantCirugiaAyudante": 0,
       "CantColumna": 0,
       "CantMiembroSuperior": 1,
       "CantMiembroInferior": 1,
@@ -102,8 +92,6 @@
   {
     "Rol": "Ayudante",
     "Estadistica": {
-      "CantCirugiaCirujano": 0,
-      "CantCirugiaAyudante": 0,
       "CantColumna": 0,
       "CantMiembroSuperior": 0,
       "CantMiembroInferior": 0,
@@ -122,8 +110,6 @@
   {
     "Rol": "Cirujano",
     "Estadistica": {
-      "CantCirugiaCirujano": 0,
-      "CantCirugiaAyudante": 0,
       "CantColumna": 0,
       "CantMiembroSuperior": 0,
       "CantMiembroInferior": 0,
@@ -142,8 +128,6 @@
   {
     "Rol": "Ayudante",
     "Estadistica": {
-      "CantCirugiaCirujano": 0,
-      "CantCirugiaAyudante": 0,
       "CantColumna": 0,
       "CantMiembroSuperior": 1,
       "CantMiembroInferior": 0,
@@ -162,8 +146,6 @@
   {
     "Rol": "Cirujano",
     "Estadistica": {
-      "CantCirugiaCirujano": 0,
-      "CantCirugiaAyudante": 0,
       "CantColumna": 0,
       "CantMiembroSuperior": 0,
       "CantMiembroInferior": 1,
@@ -182,8 +164,6 @@
   {
     "Rol": "Ayudante",
     "Estadistica": {
-      "CantCirugiaCirujano": 0,
-      "CantCirugiaAyudante": 0,
       "CantColumna": 0,
       "CantMiembroSuperior": 0,
       "CantMiembroInferior": 0,
@@ -202,8 +182,6 @@
   {
     "Rol": "Cirujano",
     "Estadistica": {
-      "CantCirugiaCirujano": 0,
-      "CantCirugiaAyudante": 0,
       "CantColumna": 1,
       "CantMiembroSuperior": 0,
       "CantMiembroInferior": 0,
@@ -222,8 +200,6 @@
   {
     "Rol": "Ayudante",
     "Estadistica": {
-      "CantCirugiaCirujano": 0,
-      "CantCirugiaAyudante": 0,
       "CantColumna": 0,
       "CantMiembroSuperior": 0,
       "CantMiembroInferior": 0,
@@ -242,18 +218,16 @@
   {
     "Rol": "Cirujano",
     "Estadistica": {
-      "CantCirugiaCirujano": 0,
-      "CantCirugiaAyudante": 0,
       "CantColumna": 0,
       "CantMiembroSuperior": 0,
-      "CantMiembroInferior": 0,
+      "CantMiembroInferior": 2,
       "CantPelvis": 0,
-      "CantRAFI": 0,
+      "CantRAFI": 1,
       "CantReduccionCerrada": 0,
       "CantOsteotomia": 0,
       "CantArtrodecis": 0,
       "CantOsteodesis": 0,
-      "CantYeso": 0
+      "CantYeso": 1
     },
     "Nombre": "Daniel",
     "Apellido": "Villena",
@@ -262,8 +236,6 @@
   {
     "Rol": "Ayudante",
     "Estadistica": {
-      "CantCirugiaCirujano": 0,
-      "CantCirugiaAyudante": 0,
       "CantColumna": 0,
       "CantMiembroSuperior": 0,
       "CantMiembroInferior": 0,

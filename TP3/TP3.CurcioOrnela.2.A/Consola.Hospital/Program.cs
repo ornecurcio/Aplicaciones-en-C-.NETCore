@@ -1,5 +1,6 @@
 ﻿using System;
-using Entidades; 
+using Entidades;
+using System.Collections.Generic; 
 
 namespace Consola.Hospital
 {
@@ -7,7 +8,9 @@ namespace Consola.Hospital
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Cirujano cirujano = new Cirujano("Ornela", "Curcio", 34707599, ERol.Cirujano, new Estadistica()); 
+            
+          
         }
     }
 }

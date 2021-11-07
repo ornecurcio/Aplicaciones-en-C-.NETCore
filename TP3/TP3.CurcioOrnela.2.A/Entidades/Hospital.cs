@@ -11,39 +11,40 @@ namespace Entidades
         private static List<Paciente> pacientes;
         private static List<Cirujano> cirujanos;
         private static List<Cirugia> cirugias;
-        private static Estadistica estadistica; 
+        private static Estadistica estadistica;
         static Hospital()
         {
-            pacientes = new List<Paciente>();
-            cirujanos = new List<Cirujano>();
-            cirugias = new List<Cirugia>();
-            estadistica = new Estadistica();
+            try
+            {
+                pacientes = new List<Paciente>();
+                cirujanos = new List<Cirujano>();
+                cirugias = new List<Cirugia>();
+                estadistica = new Estadistica();
 
-            string ruta = Serializacion.GenerarRuta("Pacientes.json");
-            //Serializacion.SerializarAJason(ruta, pacientes);
-            //ruta = Serializacion.GenerarRuta("Cirujanos.json");
-            //Serializacion.SerializarAJason(ruta, cirujanos);
-            //ruta = Serializacion.GenerarRuta("Cirugias.json");
-            //Serializacion.SerializarAJason(ruta, cirugias);
-            //string rutaAlt = Environment.CurrentDirectory;
-            pacientes = Serializacion.DeserealizarDesdeJson<List<Paciente>>(ruta);
-            ruta = Serializacion.GenerarRuta("Cirujanos.json");
-            cirujanos = Serializacion.DeserealizarDesdeJson<List<Cirujano>>(ruta);
-            ruta = Serializacion.GenerarRuta("Cirugias.json");
-            cirugias = Serializacion.DeserealizarDesdeJson<List<Cirugia>>(ruta);
-            Hospital.ActualizarEstadistica(cirugias);  
+                string ruta = SerializacionAJason.GenerarRuta("Pacientes.json");
+                pacientes = SerializacionAJason.DeserealizarDesdeJson<List<Paciente>>(ruta);
+                ruta = SerializacionAJason.GenerarRuta("Cirujanos.json");
+                cirujanos = SerializacionAJason.DeserealizarDesdeJson<List<Cirujano>>(ruta);
+                ruta = SerializacionAJason.GenerarRuta("Cirugias.json");
+                cirugias = SerializacionAJason.DeserealizarDesdeJson<List<Cirugia>>(ruta);
+                Hospital.ActualizarEstadistica(cirugias);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("No se pudo cargar Hospital", ex);
+            }
         }
         public static List<Paciente> Pacientes
         {
             get
             {
-                return pacientes; 
+                return pacientes;
             }
             set
             {
-                if(value is not null)
+                if (value is not null)
                 {
-                    pacientes = value; 
+                    pacientes = value;
                 }
             }
         }
@@ -79,23 +80,47 @@ namespace Entidades
         {
             get
             {
-                return estadistica; 
+                return estadistica;
             }
             set
             {
-                if(value is not null)
+                if (value is not null)
                 {
-                    estadistica = value; 
+                    estadistica = value;
                 }
             }
         }
+
+        public static void SerializarPacientes()
+        {
+            string ruta = SerializacionAJason.GenerarRuta("Pacientes.json");
+            SerializacionAJason.SerializarAJason(ruta, pacientes);
+        }
+        public static void SerializarCirugias()
+        {
+            string ruta = SerializacionAJason.GenerarRuta("Cirugias.json");
+            SerializacionAJason.SerializarAJason(ruta, cirugias);
+        }
+        public static void SerializarCirujanos()
+        {
+            string ruta = SerializacionAJason.GenerarRuta("Cirujanos.json");
+            SerializacionAJason.SerializarAJason(ruta, cirujanos);
+        } 
+        
         public static void CargarCirugia(Cirugia aux)
         {
-            cirugias.Add(aux);
-            estadistica.ActualizarPatologia(aux.Patologia);
-            estadistica.ActualizarRol(aux.Cirujano.Rol);
-            string ruta = Serializacion.GenerarRuta("Cirugias.json");
-            Serializacion.SerializarAJason(ruta, cirugias);
+            try
+            {
+                cirugias.Add(aux);
+                estadistica.ActualizarPatologia(aux.Patologia);
+                estadistica.ActualizarProcedimiento(aux.Procedimiento);
+                SerializarCirugias();
+                SerializarCirujanos(); 
+            }
+            catch(Exception ex)
+            {
+                throw new Exception("Fallo en cargar cirugia", ex); 
+            }
         }
         public static bool CargarCirujanos(Cirujano aux)
         {
@@ -104,8 +129,7 @@ namespace Entidades
                 if (aux != item)
                 {
                     cirujanos.Add(aux);
-                    string ruta = Serializacion.GenerarRuta("Cirujanos.json");
-                    Serializacion.SerializarAJason(ruta, cirujanos);
+                    SerializarCirujanos(); 
                     return true;
                 }
             }
@@ -118,9 +142,8 @@ namespace Entidades
                 if (aux == item)
                 {
                     Pacientes.Remove(item);
-                    Pacientes.Add(aux); 
-                    string ruta = Serializacion.GenerarRuta("Pacientes.json");
-                    Serializacion.SerializarAJason(ruta, pacientes);
+                    Pacientes.Add(aux);
+                    SerializarPacientes(); 
                     return true;
                 }
             }
@@ -133,8 +156,7 @@ namespace Entidades
                 if(aux!=item)
                 {
                     Pacientes.Add(aux);
-                    string ruta = Serializacion.GenerarRuta("Pacientes.json");
-                    Serializacion.SerializarAJason(ruta, pacientes);
+                    SerializarPacientes(); 
                     return true;
                 }
             }
@@ -161,6 +183,7 @@ namespace Entidades
             }
             return cirugiasXPatologia; 
         }
+        
         public static List<Cirugia> CirugiasXProcedimiento(EProcedimiento procedimiento)
         {
             List<Cirugia> cirugiasXProcedimiento = new List<Cirugia>();

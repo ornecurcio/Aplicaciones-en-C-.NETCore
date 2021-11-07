@@ -87,14 +87,14 @@ namespace Formulario
 
         private void btnExportar_Click(object sender, EventArgs e)
         {
-            string ruta = Serializacion.GenerarRuta(lblDescripcion.Text+".json");
+            string ruta = SerializacionAJason.GenerarRuta(lblDescripcion.Text+".json");
             if(pacientes is not null)
             {
-                Serializacion.SerializarAJason(ruta, pacientes);
+                SerializacionAJason.SerializarAJason(ruta, pacientes);
             }
             else
             {
-                Serializacion.SerializarAJason(ruta, cirugias);
+                SerializacionAJason.SerializarAJason(ruta, cirugias);
             }
             
             MessageBox.Show("Archivo generado con exito", "Exito", MessageBoxButtons.OK,MessageBoxIcon.Information);

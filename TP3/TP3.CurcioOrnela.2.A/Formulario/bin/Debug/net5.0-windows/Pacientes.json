@@ -27,14 +27,6 @@
   },
   {
     "Patologia": [
-      "Columna"
-    ],
-    "Nombre": "Esteban",
-    "Apellido": "Prieto",
-    "Dni": 37737302
-  },
-  {
-    "Patologia": [
       "MiembroInferior",
       "Pelvis",
       "Columna"
@@ -113,5 +105,14 @@
     "Nombre": "Dario",
     "Apellido": "Cuda",
     "Dni": 23060221
+  },
+  {
+    "Patologia": [
+      "Columna",
+      "MiembroInferior"
+    ],
+    "Nombre": "Esteban",
+    "Apellido": "Prieto",
+    "Dni": 37737302
   }
 ]
