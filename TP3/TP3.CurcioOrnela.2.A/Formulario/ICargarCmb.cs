@@ -10,19 +10,10 @@ namespace Formulario
 {
     public interface ICargarCmb
     {
-        void CargarCmb<T>(ComboBox d, List<T> lista)
-            where T : class
-        {
-            d.DataSource = null;
-            if (lista.Count > 0)
-            {
-                d.DataSource = lista;
-                //if (typeof(T) == typeof(Cirugia))
-                //{
-                //    //d.Columns[4].DefaultCellStyle.Format = "dd/MM/yyyy";
-                       
-                //}
-            }
-        }
+        void CargarCmbLista<T>(ComboBox d, List<T> lista)
+            where T : class;
+        void CargarCmbEnum<T>(ComboBox d, T enu) 
+            where T : Enum;  
+        
     }
 }

@@ -11,7 +11,7 @@ using Entidades;
 
 namespace Formulario
 {
-    public partial class FrmCargarProcedimiento : Form
+    public partial class FrmCargarProcedimiento : Form, ICargarCmb
     {
         bool esMedico; 
         public FrmCargarProcedimiento()
@@ -27,21 +27,15 @@ namespace Formulario
             if (esMedico)
             {
                 lblPersona.Text = "Cirujano";
-                MetodosFormulario.CargarCmb(cmbApellidoNombre, Hospital.Cirujanos); 
-                //cmbApellidoNombre.DataSource = null;
-                //cmbApellidoNombre.DataSource = Hospital.Cirujanos;
+                CargarCmbLista(cmbApellidoNombre, Hospital.Cirujanos); 
                 lblPacientevsCirujano.Text = "Paciente";
-                MetodosFormulario.CargarCmb(cmbPacientevsCirujano, Hospital.Pacientes); 
-                //cmbPacientevsCirujano.DataSource = null;
-                //cmbPacientevsCirujano.DataSource = Hospital.Pacientes;
+                CargarCmbLista(cmbPacientevsCirujano, Hospital.Pacientes); 
                 cmbPatologia.DataSource = Hospital.Pacientes[0].Patologia;
             }
             else
             {
                 lblPersona.Text = "Paciente";
-                MetodosFormulario.CargarCmb(cmbApellidoNombre, Hospital.Pacientes);
-                //cmbPacientevsCirujano.DataSource = null;
-                //cmbApellidoNombre.DataSource = Hospital.Pacientes;
+                CargarCmbLista(cmbApellidoNombre, Hospital.Pacientes);
                 lblAgregarNuevo2.Visible = false;
                 lblPacientevsCirujano.Visible = false;
                 cmbPacientevsCirujano.Visible = false;
@@ -94,9 +88,10 @@ namespace Formulario
             {
                 Enum.TryParse(cmbPatologia.Text, out EPatologia auxP);
                 Enum.TryParse(cmbProcedimiento.Text, out EProcedimiento auxPr);
+                
                 Cirugia aux = null; 
-               
-                aux = new Cirugia((Paciente)cmbPacientevsCirujano.SelectedItem, DateTime.Now, (Cirujano)cmbApellidoNombre.SelectedItem, auxP, auxPr);
+                aux = new Cirugia((Paciente)cmbPacientevsCirujano.SelectedItem, DateTime.Now, 
+                                  (Cirujano)cmbApellidoNombre.SelectedItem, auxP, auxPr);
                 ((Cirujano)cmbApellidoNombre.SelectedItem).Estadistica.ActualizarPatologia(auxP);
                 ((Cirujano)cmbApellidoNombre.SelectedItem).Estadistica.ActualizarProcedimiento(auxPr);
                 Hospital.CargarCirugia(aux);
@@ -139,6 +134,7 @@ namespace Formulario
             if (esMedico)
             {
                 Paciente aux = (Paciente)cmbPacientevsCirujano.SelectedItem;
+                //CargarCmbLista(cmbPatologia, aux.Patologia); 
                 cmbPatologia.DataSource = null;
                 cmbPatologia.DataSource = aux.Patologia;
             }
@@ -153,8 +149,22 @@ namespace Formulario
                     diferente.Add(item);
                 }
             }
+           // CargarCmbLista(cmbPatologia, diferente); 
             cmbPatologia.DataSource = null;
             cmbPatologia.DataSource = diferente;
+        }
+
+        public void CargarCmbLista<T>(ComboBox d, List<T> lista) where T : class
+        {
+            if (lista is not null && lista.Count > 0)
+            {
+                d.DataSource = lista;
+            }
+        }
+
+        void ICargarCmb.CargarCmbEnum<T>(ComboBox d, T enu)
+        {
+            d.DataSource = Enum.GetValues(typeof(T));
         }
     }
 }

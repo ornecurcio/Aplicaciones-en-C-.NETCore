@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entidades", "Entidades\Enti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Formulario", "Formulario\Formulario.csproj", "{4B97E9E6-7F57-45B8-B57F-F02C2D6CE467}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consola.Hospital", "Consola.Hospital\Consola.Hospital.csproj", "{00712F1B-91E1-491E-BB27-ED0B3F66C2F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsolaTp3", "Consola.Hospital\ConsolaTp3.csproj", "{00712F1B-91E1-491E-BB27-ED0B3F66C2F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProjectTP3", "TestProjectTP3\TestProjectTP3.csproj", "{DD83F219-9A07-4AFA-8B45-31F62FC43919}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProjectTP3", "TestProjectTP3\TestProjectTP3.csproj", "{DD83F219-9A07-4AFA-8B45-31F62FC43919}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

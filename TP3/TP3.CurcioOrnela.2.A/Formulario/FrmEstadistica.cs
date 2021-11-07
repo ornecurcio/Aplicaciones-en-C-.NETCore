@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Entidades; 
+using Entidades;
 
 namespace Formulario
 {
@@ -26,28 +26,29 @@ namespace Formulario
         }
         private void FrmEstadistica_Load(object sender, EventArgs e)
         {
-            if(esMedico)
+            if (esMedico)
             {
                 this.LoadInicial();
-                MetodosFormulario.CargarCmb(cmbTotalCirugias, Hospital.Cirujanos);                
+                CargarCmbLista(cmbTotalCirugias, Hospital.Cirujanos);
+                //MetodosFormulario.CargarCmb(cmbTotalCirugias, Hospital.Cirujanos);                
                 //cmbTotalCirugias.DataSource = null;
                 //cmbTotalCirugias.DataSource = Hospital.Cirujanos;
-                txtTotalCirugias.Visible = true; 
+                txtTotalCirugias.Visible = true;
             }
             else if (servicio)
             {
-                this.LoadInicial(); 
+                this.LoadInicial();
                 cmbTotalCirugias.Visible = false;
                 txtTotalCirugias.Text = Hospital.Cirugias.Count.ToString();
-                txtTotalCirugias.Enabled = false; 
+                txtTotalCirugias.Enabled = false;
             }
             else
             {
                 lblCirugiasXPatologia.Text = "Pacientes por Patologia";
-                this.LoadPaciente(); 
+                this.LoadPaciente();
             }
         }
-       
+
         private void lblTotalCirugias_Click(object sender, EventArgs e)
         {
             cmbCirugiaXPatologia.Enabled = false;
@@ -66,6 +67,7 @@ namespace Formulario
         }
         private void lblCirugiasXPatologia_Click(object sender, EventArgs e)
         {
+            //ICargarCmb.CargarCmbEnum<EPatologia>(cmbCirugiaXPatologia, EPatologia pat); 
             cmbCirugiaXPatologia.DataSource = Enum.GetValues(typeof(EPatologia));
             cmbCirugiaXPatologia.Enabled = true;
             cmbCirugiaXProcedimiento.Enabled = false;
@@ -180,22 +182,20 @@ namespace Formulario
                 }
             }
         }
-        
+
         private void btnVer_Click(object sender, EventArgs e)
         {
             EProcedimiento auxPr;
-            EPatologia auxP; 
-            if (!cmbTotalCirugias.Visible && !cmbCirugiaXPatologia.Enabled && !cmbCirugiaXProcedimiento.Enabled)
-            //if(servicio)
+            EPatologia auxP;
+            if (servicio && !cmbTotalCirugias.Visible && !cmbCirugiaXPatologia.Enabled && !cmbCirugiaXProcedimiento.Enabled)
             {
                 FrmMostrarEstadistica mostrarEstadistica = new FrmMostrarEstadistica(servicio);
                 mostrarEstadistica.ShowDialog();
             }
-            if (servicio && !cmbTotalCirugias.Visible && cmbCirugiaXPatologia.CanSelect  && !cmbCirugiaXProcedimiento.Enabled 
-              //if(servicio
+            if (servicio && !cmbTotalCirugias.Visible && cmbCirugiaXPatologia.CanSelect && !cmbCirugiaXProcedimiento.Enabled
                && Enum.TryParse(cmbCirugiaXPatologia.Text, out auxP))
             {
-                FrmMostrarEstadistica mostrarEstadistica = new FrmMostrarEstadistica(servicio,auxP);
+                FrmMostrarEstadistica mostrarEstadistica = new FrmMostrarEstadistica(servicio, auxP);
                 mostrarEstadistica.ShowDialog();
             }
             if (!cmbTotalCirugias.Visible && !cmbCirugiaXPatologia.Enabled && cmbCirugiaXProcedimiento.CanSelect
@@ -220,7 +220,7 @@ namespace Formulario
                 FrmMostrarEstadistica mostrarEstadistica = new FrmMostrarEstadistica((Cirujano)cmbTotalCirugias.SelectedItem, auxPr);
                 mostrarEstadistica.ShowDialog();
             }
-            if(!esMedico && !servicio && cmbCirugiaXPatologia.CanSelect && Enum.TryParse(cmbCirugiaXPatologia.Text, out auxP))
+            if (!esMedico && !servicio && cmbCirugiaXPatologia.CanSelect && Enum.TryParse(cmbCirugiaXPatologia.Text, out auxP))
             {
                 FrmMostrarEstadistica mostrarEstadistica = new FrmMostrarEstadistica(auxP);
                 mostrarEstadistica.ShowDialog();
@@ -247,5 +247,19 @@ namespace Formulario
             cmbCirugiaXProcedimiento.DataSource = null;
             cmbCirugiaXPatologia.DataSource = null;
         }
+
+        public void CargarCmbLista<T>(ComboBox d, List<T> lista) where T : class
+        {
+            if (lista is not null && lista.Count > 0)
+            {
+                d.DataSource = lista;
+            }
+        }
+
+        void ICargarCmb.CargarCmbEnum<T>(ComboBox d, T enu)
+        {
+            d.DataSource = Enum.GetValues(typeof(T));
+        }
     }
 }
+
