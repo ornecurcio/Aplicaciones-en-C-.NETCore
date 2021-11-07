@@ -45,7 +45,11 @@ namespace Entidades
         }
         public static bool operator ==(Cirujano a, Cirujano b)
         {
-            if (a is not null && b is not null && a.Dni == b.Dni && a.Rol==b.Rol)
+            if(a is null && b is null)
+            {
+                return true; 
+            }
+            else if (a is not null && b is not null && a.Dni == b.Dni && a.Rol==b.Rol)
             {
                 return true;
             }
@@ -57,18 +61,8 @@ namespace Entidades
         }
         public override string ToString()
         {
-            return this.Apellido +", "+this.Nombre + ". "+this.Rol;
+            return this.Apellido + ", " + this.Nombre + ". " + this.Rol;
         }
-        public bool PrepararCirugia()
-        {
-            if (this is not null)
-            {
-                return true;
-            }
-            else
-            {
-                return false; 
-            }
-        }
+
     }
 }

@@ -124,14 +124,19 @@ namespace Entidades
         }
         public static bool CargarCirujanos(Cirujano aux)
         {
-            foreach (Cirujano item in cirujanos)
+            if (aux is not null)
             {
-                if (aux != item)
+                foreach (Cirujano item in cirujanos)
                 {
-                    cirujanos.Add(aux);
-                    SerializarCirujanos(); 
-                    return true;
+                    if (aux == item)
+                    {
+                        break; 
+                    }
+
                 }
+                cirujanos.Add(aux);
+                SerializarCirujanos();
+                return true; 
             }
             return false;
         }

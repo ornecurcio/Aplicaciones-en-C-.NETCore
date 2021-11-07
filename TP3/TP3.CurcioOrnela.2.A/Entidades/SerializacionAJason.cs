@@ -53,7 +53,7 @@ namespace Entidades
 
                 return objetoDeserealizado;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception("No se pudo desealizar", ex);
             }

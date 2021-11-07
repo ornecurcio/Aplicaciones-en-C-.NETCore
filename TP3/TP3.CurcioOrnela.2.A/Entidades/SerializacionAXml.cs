@@ -9,16 +9,16 @@ using System.Xml.Serialization;
 
 namespace Entidades
 {
-    public class SerializacionAXml
+    public class SerializacionAXml<T> where T: new()
     {
-        public static string GenerarRuta(string titulo)
+        public string GenerarRuta(string titulo)
         {
             string rutaAlt = AppDomain.CurrentDomain.BaseDirectory;
             string rutaArchivo = Path.Combine(rutaAlt, titulo);
             return rutaArchivo;
         }
-        public static void SerializarAXmlLista<T>(string ruta, List<T> obj) where T :class
-            
+        //public void SerializarAXmlLista<T>(string ruta, List<T> obj) where T :class
+        public static void SerializarAXmlLista(string ruta, T obj) 
         {
             XmlTextWriter xmlWriter = null;
             XmlSerializer serializador = null;
@@ -26,7 +26,7 @@ namespace Entidades
             {
                 xmlWriter = new XmlTextWriter(ruta, Encoding.UTF8);
                 xmlWriter.Formatting = Formatting.Indented;
-                serializador = new XmlSerializer(typeof(List<T>));
+                serializador = new XmlSerializer(typeof(T));
                 serializador.Serialize(xmlWriter, obj);
             }
             catch (Exception ex)
@@ -47,7 +47,9 @@ namespace Entidades
         /// <param name="archivo">Es el nombre del archivo que se va a leer</param>
         /// <param name="datos">Donde se van a almacenar los datos leidos</param>
         /// <returns>True en caso exitoso, de lo contrario lanzara ArchivosException</returns>
-        public static T DeserealizarXml<T>(string ruta)where T:class
+        /// 
+        //public T DeserealizarXml<T>(string ruta)where T:class
+        public static T DeserealizarXml(string ruta) 
         {
             XmlTextReader xmlReader = null;
             XmlSerializer serializador = null;

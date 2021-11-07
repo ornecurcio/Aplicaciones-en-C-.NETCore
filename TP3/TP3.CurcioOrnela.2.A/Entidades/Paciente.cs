@@ -31,7 +31,11 @@ namespace Entidades
         }
         public static bool operator ==(Paciente a, Paciente b)
         {
-            if(a is not null && b is not null && a.Dni == b.Dni)
+            if(a is null && b is null)
+            {
+                return true; 
+            }
+            else if(a is not null && b is not null && a.Dni == b.Dni)
             {
                 return true; 
             }
@@ -42,7 +46,7 @@ namespace Entidades
             return !(a == b); 
         }
 
-        // sobrecarga de == paciente en dni. 
+
         public override string ToString()
         {
             return this.Apellido + ", " + this.Nombre + ". " + this.Dni;

@@ -87,14 +87,14 @@ namespace Formulario
 
         private void btnExportar_Click(object sender, EventArgs e)
         {
-            string ruta = SerializacionAXml.GenerarRuta(lblDescripcion.Text + ".xml"); 
+            string ruta = SerializacionAJason.GenerarRuta(lblDescripcion.Text + ".xml"); 
             if(pacientes is not null)
             {
-                SerializacionAXml.SerializarAXmlLista(ruta, pacientes); 
+                SerializacionAXml<List<Paciente>>.SerializarAXmlLista(ruta, pacientes); 
             }
             else
             {
-                SerializacionAXml.SerializarAXmlLista(ruta, cirugias); 
+                SerializacionAXml<List<Cirugia>>.SerializarAXmlLista(ruta, cirugias); 
             }
             //string ruta = SerializacionAJason.GenerarRuta(lblDescripcion.Text+".json");
             //if(pacientes is not null)

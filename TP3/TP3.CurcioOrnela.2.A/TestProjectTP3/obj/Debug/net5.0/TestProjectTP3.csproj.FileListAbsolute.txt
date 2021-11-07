@@ -97,3 +97,6 @@ C:\Users\orne_\source\repos\TpS\TP3\TP3.CurcioOrnela.2.A\TestProjectTP3\obj\Debu
 C:\Users\orne_\source\repos\TpS\TP3\TP3.CurcioOrnela.2.A\TestProjectTP3\obj\Debug\net5.0\ref\TestProjectTP3.dll
 C:\Users\orne_\source\repos\TpS\TP3\TP3.CurcioOrnela.2.A\TestProjectTP3\obj\Debug\net5.0\TestProjectTP3.pdb
 C:\Users\orne_\source\repos\TpS\TP3\TP3.CurcioOrnela.2.A\TestProjectTP3\obj\Debug\net5.0\TestProjectTP3.genruntimeconfig.cache
+C:\Users\orne_\source\repos\TpS\TP3\TP3.CurcioOrnela.2.A\TestProjectTP3\bin\Debug\net5.0\CoverletSourceRootsMapping
+C:\Users\orne_\source\repos\TpS\TP3\TP3.CurcioOrnela.2.A\TestProjectTP3\bin\Debug\net5.0\Entidades.dll
+C:\Users\orne_\source\repos\TpS\TP3\TP3.CurcioOrnela.2.A\TestProjectTP3\bin\Debug\net5.0\Entidades.pdb
