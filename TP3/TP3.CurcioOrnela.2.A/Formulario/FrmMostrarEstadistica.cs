@@ -13,8 +13,8 @@ namespace Formulario
 {
     public partial class FrmMostrarEstadistica : Form
     {
-        List<Cirugia> cirugias = new List<Cirugia>();
-        List<Paciente> pacientes = new List<Paciente>(); 
+        List<Cirugia> cirugias;
+        List<Paciente> pacientes; 
         public FrmMostrarEstadistica()
         {
             InitializeComponent();

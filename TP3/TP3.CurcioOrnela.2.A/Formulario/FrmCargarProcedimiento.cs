@@ -41,7 +41,6 @@ namespace Formulario
                 cmbPacientevsCirujano.Visible = false;
                 lblProcedimiento.Visible = false;
                 cmbProcedimiento.Visible = false;
-
                 ActualizarCmbPatologia(Hospital.Pacientes[0]);
             }
             cmbProcedimiento.Enabled = false;
