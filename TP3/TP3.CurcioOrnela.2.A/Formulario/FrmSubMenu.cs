@@ -30,11 +30,13 @@ namespace Formulario
             {
                 btnAgregar.Text = "Agregar 1 cirugia a Cirujano";
                 btnVer.Text = "Ver estadistica de 1 Cirujano";
+                this.Text = "SubMenu Cirujano"; 
             }
             else
             {
                 btnAgregar.Text = "Agregar patologia a Paciente";
                 btnVer.Text = "Ver pacientes por Patologia";
+                this.Text = "SubMenu Paciente"; 
             }
         }
         private void btnAgregar_Click(object sender, EventArgs e)

@@ -30,9 +30,6 @@ namespace Formulario
             {
                 this.LoadInicial();
                 CargarCmbLista(cmbTotalCirugias, Hospital.Cirujanos);
-                //MetodosFormulario.CargarCmb(cmbTotalCirugias, Hospital.Cirujanos);                
-                //cmbTotalCirugias.DataSource = null;
-                //cmbTotalCirugias.DataSource = Hospital.Cirujanos;
                 txtTotalCirugias.Visible = true;
             }
             else if (servicio)
@@ -44,8 +41,8 @@ namespace Formulario
             }
             else
             {
-                lblCirugiasXPatologia.Text = "Pacientes por Patologia";
                 this.LoadPaciente();
+                lblCirugiasXPatologia.Text = "Pacientes por Patologia";
             }
         }
 
@@ -67,8 +64,6 @@ namespace Formulario
         }
         private void lblCirugiasXPatologia_Click(object sender, EventArgs e)
         {
-            //CargarCmbEnum<EPatologia>(cmbCirugiaXPatologia, EPatologia.Columna); 
-            //cmbCirugiaXPatologia.DataSource = Enum.GetValues(typeof(EPatologia));
             CargarCmbEnum<Type>(cmbCirugiaXPatologia, typeof(EPatologia));
             cmbCirugiaXPatologia.Enabled = true;
             cmbCirugiaXProcedimiento.Enabled = false;
@@ -124,9 +119,8 @@ namespace Formulario
             cmbCirugiaXProcedimiento.Enabled = true;
             cmbCirugiaXPatologia.Enabled = false;
             CargarCmbEnum<Type>(cmbCirugiaXProcedimiento, typeof(EProcedimiento));
-            
-            //cmbCirugiaXProcedimiento.DataSource = Enum.GetValues(typeof(EProcedimiento));
         }
+
         private void cmbCirugiaXProcedimiento_SelectedIndexChanged(object sender, EventArgs e)
         {
             EProcedimiento aux;

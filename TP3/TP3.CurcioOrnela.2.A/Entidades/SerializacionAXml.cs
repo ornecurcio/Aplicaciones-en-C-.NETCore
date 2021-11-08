@@ -24,6 +24,7 @@ namespace Entidades
                 throw new Exception("No se puedo generar la ruta", ex);
             }
         }
+
         public static void SerializarAXmlLista(string ruta, T obj) 
         {
             XmlTextWriter xmlWriter = null;
@@ -47,6 +48,7 @@ namespace Entidades
                 }
             }
         }
+
         public static T DeserealizarXml(string ruta) 
         {
             XmlTextReader xmlReader = null;

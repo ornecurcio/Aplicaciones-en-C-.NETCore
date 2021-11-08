@@ -88,9 +88,7 @@ namespace Formulario
                 Enum.TryParse(cmbPatologia.Text, out EPatologia auxP);
                 Enum.TryParse(cmbProcedimiento.Text, out EProcedimiento auxPr);
                 
-                Cirugia aux = null; 
-
-                aux = new Cirugia((Paciente)cmbPacientevsCirujano.SelectedItem, DateTime.Now, 
+                Cirugia aux = new Cirugia((Paciente)cmbPacientevsCirujano.SelectedItem, DateTime.Now, 
                                   (Cirujano)cmbApellidoNombre.SelectedItem, auxP, auxPr);
                 ((Cirujano)cmbApellidoNombre.SelectedItem).Estadistica.ActualizarPatologia(auxP);
                 ((Cirujano)cmbApellidoNombre.SelectedItem).Estadistica.ActualizarProcedimiento(auxPr);
@@ -104,6 +102,7 @@ namespace Formulario
                 Paciente aux = (Paciente)cmbApellidoNombre.SelectedItem;
                 aux.Patologia.Add(auxP);
                 Hospital.ActualizarPaciente(aux); 
+
                 this.Close();
             }
             else
@@ -134,7 +133,6 @@ namespace Formulario
             if (esMedico)
             {
                 Paciente aux = (Paciente)cmbPacientevsCirujano.SelectedItem;
-                //CargarCmbLista(cmbPatologia, aux.Patologia); 
                 cmbPatologia.DataSource = null;
                 cmbPatologia.DataSource = aux.Patologia;
             }
@@ -149,7 +147,6 @@ namespace Formulario
                     diferente.Add(item);
                 }
             }
-           // CargarCmbLista(cmbPatologia, diferente); 
             cmbPatologia.DataSource = null;
             cmbPatologia.DataSource = diferente;
         }

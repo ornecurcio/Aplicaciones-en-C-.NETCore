@@ -84,7 +84,7 @@ namespace Formulario
             this.btnExportarAXml.TabIndex = 2;
             this.btnExportarAXml.Text = "Exportar a Xml";
             this.btnExportarAXml.UseVisualStyleBackColor = false;
-            this.btnExportarAXml.Click += new System.EventHandler(this.btnExportar_Click);
+            this.btnExportarAXml.Click += new System.EventHandler(this.btnExportarAXml_Click);
             // 
             // btnExportarAJson
             // 

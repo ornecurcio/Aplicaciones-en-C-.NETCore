@@ -89,25 +89,10 @@ namespace Formulario
             }
         }
 
-
-            //string ruta = SerializacionAJason.GenerarRuta(lblDescripcion.Text + ".xml"); 
-            
-            //if(hayPacientes)
-            //{
-            //    SerializacionAXml<List<Paciente>>.SerializarAXmlLista(ruta, pacientes); 
-            //}
-            //else
-            //{
-            //    SerializacionAXml<List<Cirugia>>.SerializarAXmlLista(ruta, cirugias); 
-            //}   
-            //MessageBox.Show("Archivo generado con exito", "Exito", MessageBoxButtons.OK,MessageBoxIcon.Information);
-            //this.Close(); 
-        
-
         private void btnExportarAJson_Click(object sender, EventArgs e)
         {
             string ruta = SerializacionAJason.GenerarRuta(lblDescripcion.Text + ".json");
-            if (pacientes is not null)
+            if (hayPacientes)
             {
                 SerializacionAJason.SerializarAJason(ruta, pacientes);
             }
@@ -118,6 +103,23 @@ namespace Formulario
 
             MessageBox.Show("Archivo generado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
+        }
+
+        private void btnExportarAXml_Click(object sender, EventArgs e)
+        {
+            string ruta = SerializacionAJason.GenerarRuta(lblDescripcion.Text + ".xml");
+
+            if (hayPacientes)
+            {
+                SerializacionAXml<List<Paciente>>.SerializarAXmlLista(ruta, pacientes);
+            }
+            else
+            {
+                SerializacionAXml<List<Cirugia>>.SerializarAXmlLista(ruta, cirugias);
+            }
+            MessageBox.Show("Archivo generado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
+
         }
     }
 }
