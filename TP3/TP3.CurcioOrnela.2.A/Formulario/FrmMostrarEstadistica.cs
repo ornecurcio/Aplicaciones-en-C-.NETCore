@@ -18,6 +18,8 @@ namespace Formulario
         public FrmMostrarEstadistica()
         {
             InitializeComponent();
+            cirugias = new List<Cirugia>();
+            pacientes = new List<Paciente>();
         }
         public FrmMostrarEstadistica(EPatologia patologia) : this()
         {
