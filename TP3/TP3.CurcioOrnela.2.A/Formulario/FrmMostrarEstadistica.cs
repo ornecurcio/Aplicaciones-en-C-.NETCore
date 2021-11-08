@@ -16,6 +16,7 @@ namespace Formulario
             cirugias = new List<Cirugia>();
             pacientes = new List<Paciente>();
         }
+        //Sobrecarga Constructor recibe una patologia y se mostraran los pacientes que tengan esa patologia
         public FrmMostrarEstadistica(EPatologia patologia) : this()
         {
             lblDescripcion.Text = $"Pacientes por {patologia}";
@@ -28,6 +29,7 @@ namespace Formulario
             }
             hayPacientes = true; 
         }
+        //Sobrecarga, se ingresa desde el hospital y se muestran todas las cirugias
         public FrmMostrarEstadistica(bool esServicio):this()
         {
             lblDescripcion.Text = "Cirugias Totales";
@@ -36,6 +38,7 @@ namespace Formulario
                 cirugias = Hospital.Cirugias;
             } 
         }
+        //Sobrecarga, se ingresa desde el hospital y se muestran las cirugias con esa patologia
         public FrmMostrarEstadistica(bool esServicio, EPatologia patologia) : this()
         {
             if (esServicio)
@@ -44,6 +47,7 @@ namespace Formulario
                 cirugias = Hospital.CirugiasXPatologia(patologia);
             }
         }
+        //Sobrecarga, se ingresa desde el hospital y se muestran las cirugias con ese procedimiento
         public FrmMostrarEstadistica(bool esServicio, EProcedimiento procedimiento) : this()
         {
             lblDescripcion.Text = $"Cirugias de {procedimiento}";
@@ -52,17 +56,19 @@ namespace Formulario
                 cirugias = Hospital.CirugiasXProcedimiento(procedimiento);
             }
         }
+        //Sobrecarga, se selecciona un cirujano y muestra todas las cirugias del mismo
         public FrmMostrarEstadistica(Cirujano cirujano) : this()
         {
             lblDescripcion.Text = $"Cirugias de {cirujano}";
             cirugias = Hospital.CirugiasXCirujano(cirujano);
         }
+        //Sobrecarga, se selecciona un cirujano y se muestra las cirugias con esa patologia
         public FrmMostrarEstadistica(Cirujano cirujano, EPatologia patologia) : this()
         {
             lblDescripcion.Text = $"Cirugias de {cirujano} de {patologia}";
             cirugias = Hospital.CirugiasXPatologiaYCirujano(patologia,cirujano);
-
         }
+        //Sobrecarga, se selecciona un cirujano y se muestra las cirugias con ese procedimiento
         public FrmMostrarEstadistica(Cirujano cirujano, EProcedimiento procedimiento) : this()
         {
             lblDescripcion.Text = $"Cirugias de {cirujano} de {procedimiento}";
@@ -82,7 +88,7 @@ namespace Formulario
                 dataEstadistica.DataSource = pacientes;
             }
         }
-
+        //genera un archivo Json con los filtros aplicados
         private void btnExportarAJson_Click(object sender, EventArgs e)
         {
             string ruta = SerializacionAJason.GenerarRuta(lblDescripcion.Text + ".json");

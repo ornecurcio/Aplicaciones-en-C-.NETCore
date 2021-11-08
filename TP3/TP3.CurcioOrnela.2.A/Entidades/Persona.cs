@@ -7,20 +7,32 @@ namespace Entidades
 {
     [XmlInclude(typeof(Cirujano))]
     [XmlInclude(typeof(Paciente))]
+    
     public abstract class Persona
     {
+        #region Atributo
         private string nombre;
         private string apellido;
         private double dni;
+        #endregion
 
+        #region Constructores
         public Persona()
         { }
+        /// <summary>
+        /// Constructor con parametros
+        /// </summary>
+        /// <param name="nombre">nombre de la persona</param>
+        /// <param name="apellido">apellido de la persona</param>
+        /// <param name="dni">dni de la persona</param>
         public Persona(string nombre, string apellido, double dni)
         {
             this.nombre = nombre;
             this.apellido = apellido;
             this.dni = dni;
         }
+        #endregion
+        #region Propiedades
         public string Nombre
         {
             get 
@@ -63,6 +75,7 @@ namespace Entidades
                 }
             }
         }
-        
+        #endregion
+
     }
 }

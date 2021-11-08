@@ -18,6 +18,7 @@ namespace Formulario
             this.esMedico = esMedico;
             this.servicio = servicio;
         }
+        //Se carga formulario dependiendo si se ingresa para ver estadistica de el Hospital, el medico, o patologias de los pacientes
         private void FrmEstadistica_Load(object sender, EventArgs e)
         {
             if (esMedico)
@@ -45,6 +46,7 @@ namespace Formulario
             cmbCirugiaXPatologia.Enabled = false;
             cmbCirugiaXProcedimiento.Enabled = false;
         }
+        //Si se selecciona un cirujano, se coloca la cantidad de cirugias totales que tiene echas 
         private void cmbTotalCirugias_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbTotalCirugias.CanSelect)
@@ -56,12 +58,15 @@ namespace Formulario
                 txtTotalCirugias.Text = aux.ToString();
             }
         }
+        //Al cliquear se habilita el cmb para seleccionar patologia
         private void lblCirugiasXPatologia_Click(object sender, EventArgs e)
         {
             CargarCmbEnum<Type>(cmbCirugiaXPatologia, typeof(EPatologia));
             cmbCirugiaXPatologia.Enabled = true;
             cmbCirugiaXProcedimiento.Enabled = false;
         }
+        //Al seleccion una patologia se carga la cantidad de cirugias de esa patologia
+        //(totales en el hospital o por cirujano)
         private void cmbCirugiaXPatologia_SelectedIndexChanged(object sender, EventArgs e)
         {
             EPatologia aux;
@@ -107,14 +112,14 @@ namespace Formulario
                 }
             }
         }
-
+        //Al clickear se habilita un cmb para elegir procedimiento
         private void lblCirugiaXProcedimiento_Click(object sender, EventArgs e)
         {
             cmbCirugiaXProcedimiento.Enabled = true;
             cmbCirugiaXPatologia.Enabled = false;
             CargarCmbEnum<Type>(cmbCirugiaXProcedimiento, typeof(EProcedimiento));
         }
-
+        //Al seleccionar un procedimiento se muestra la cantidad de los mismos 
         private void cmbCirugiaXProcedimiento_SelectedIndexChanged(object sender, EventArgs e)
         {
             EProcedimiento aux;
@@ -173,7 +178,8 @@ namespace Formulario
                 }
             }
         }
-
+        //Genera el llamado a un nuevo formulario que mostrara los listados de las cosas
+        //dependiendo de si se muestra la estadistica del cirujano o del hospital o los pacientes
         private void btnVer_Click(object sender, EventArgs e)
         {
             EProcedimiento auxPr;
@@ -217,6 +223,7 @@ namespace Formulario
                 mostrarEstadistica.ShowDialog();
             }
         }
+        //Oculta los cmb de cirujanos y de hospital
         private void LoadPaciente()
         {
             cmbCirugiaXPatologia.Visible = true;
@@ -229,6 +236,7 @@ namespace Formulario
             lblCirugiaXProcedimiento.Visible = false;
             cmbCirugiaXProcedimiento.Visible = false;
         }
+        //Coloca en Eneble son cmb y txt
         private void LoadInicial()
         {
             cmbCirugiaXPatologia.Enabled = false;
@@ -238,7 +246,7 @@ namespace Formulario
             cmbCirugiaXProcedimiento.DataSource = null;
             cmbCirugiaXPatologia.DataSource = null;
         }
-
+        //Aplicacion de interfase, se cargan los cmb en bese a lo que se necesita
         public void CargarCmbLista<T>(ComboBox d, List<T> lista) where T : class
         {
             if (lista is not null && lista.Count > 0)
@@ -246,7 +254,6 @@ namespace Formulario
                 d.DataSource = lista;
             }
         }
-
         public void CargarCmbEnum<T>(ComboBox d, T enu) where T : Type
         {
             d.DataSource = Enum.GetValues(enu);

@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades; 
 
@@ -22,6 +16,8 @@ namespace Formulario
         {
             this.esMedico = esMedico; 
         }
+        //Load formulario si esMedico True carga cmb con cirujanos y cmb con pacientes 
+        // si no es medico carga cmb con paciente y sus patologias
         private void FrmCargarProcedimiento_Load(object sender, EventArgs e)
         {
             if (esMedico)
@@ -45,6 +41,7 @@ namespace Formulario
             }
             cmbProcedimiento.Enabled = false;
         }
+        // Si no es medico al cambiar el cmb actualiza el cmb de patologias del paciente 
         private void cmbApellidoNombre_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(!esMedico)
@@ -53,6 +50,7 @@ namespace Formulario
                 ActualizarCmbPatologia(aux);
             }
         }
+        //dependiendo de la patologia seleccionada se carga el cmb de procedimiento
         private void cmbPatologia_SelectedIndexChanged(object sender, EventArgs e)
         {
             cmbProcedimiento.Enabled = true;
@@ -79,38 +77,7 @@ namespace Formulario
                 }
             }
         }
-
-        private void btnAceptar_Click(object sender, EventArgs e)
-        {
-            if(esMedico && cmbApellidoNombre.CanSelect && cmbPatologia.CanSelect 
-               && cmbPacientevsCirujano.CanSelect && cmbProcedimiento.CanSelect)
-            {
-                Enum.TryParse(cmbPatologia.Text, out EPatologia auxP);
-                Enum.TryParse(cmbProcedimiento.Text, out EProcedimiento auxPr);
-                
-                Cirugia aux = new Cirugia((Paciente)cmbPacientevsCirujano.SelectedItem, DateTime.Now, 
-                                  (Cirujano)cmbApellidoNombre.SelectedItem, auxP, auxPr);
-                ((Cirujano)cmbApellidoNombre.SelectedItem).Estadistica.ActualizarPatologia(auxP);
-                ((Cirujano)cmbApellidoNombre.SelectedItem).Estadistica.ActualizarProcedimiento(auxPr);
-                Hospital.CargarCirugia(aux);
-
-                this.Close();
-            }
-            else if(!esMedico && cmbApellidoNombre.CanSelect && cmbPatologia.CanSelect && 
-                     Enum.TryParse(cmbPatologia.Text, out EPatologia auxP))
-            {
-                Paciente aux = (Paciente)cmbApellidoNombre.SelectedItem;
-                aux.Patologia.Add(auxP);
-                Hospital.ActualizarPaciente(aux); 
-
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Seleccione una opcion de cada casilla", "Error", MessageBoxButtons.OK,
-                MessageBoxIcon.Error);
-            }  
-        }
+        //abre form para ingresar nuevo cirujano
         private void lblAgregarNuevo_Click(object sender, EventArgs e)
         {
             FrmIngresoDatos ingresoDatos = new FrmIngresoDatos(esMedico);
@@ -119,6 +86,7 @@ namespace Formulario
                 this.Close(); 
             }
         }
+        //abre form para ingresar nuevo paciente
         private void lblAgregarNuevo2_Click(object sender, EventArgs e)
         {
             FrmIngresoDatos ingresoDatos = new FrmIngresoDatos(!esMedico);
@@ -127,7 +95,7 @@ namespace Formulario
                 this.Close();
             }
         }
-
+        //Si es medico se carga el combo con las patologias del paciente seleccionado
         private void cmbPacientevsCirujano_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (esMedico)
@@ -137,6 +105,43 @@ namespace Formulario
                 cmbPatologia.DataSource = aux.Patologia;
             }
         }
+        //se chequean los datos ingresados y se genera una instancia de una nueva cirugia 
+        //se agrega la cirugia a la lista de cirugias del Hospital y actualizan las estadisticas
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            if (esMedico && cmbApellidoNombre.CanSelect && cmbPatologia.CanSelect
+               && cmbPacientevsCirujano.CanSelect && cmbProcedimiento.CanSelect)
+            {
+                Enum.TryParse(cmbPatologia.Text, out EPatologia auxP);
+                Enum.TryParse(cmbProcedimiento.Text, out EProcedimiento auxPr);
+
+                Cirugia aux = new Cirugia((Paciente)cmbPacientevsCirujano.SelectedItem, DateTime.Now,
+                                  (Cirujano)cmbApellidoNombre.SelectedItem, auxP, auxPr);
+                ((Cirujano)cmbApellidoNombre.SelectedItem).Estadistica.ActualizarPatologia(auxP);
+                ((Cirujano)cmbApellidoNombre.SelectedItem).Estadistica.ActualizarProcedimiento(auxPr);
+                Hospital.CargarCirugia(aux);
+
+                this.Close();
+            }
+            else if (!esMedico && cmbApellidoNombre.CanSelect && cmbPatologia.CanSelect &&
+                     Enum.TryParse(cmbPatologia.Text, out EPatologia auxP))
+            {
+                Paciente aux = (Paciente)cmbApellidoNombre.SelectedItem;
+                aux.Patologia.Add(auxP);
+                Hospital.ActualizarPaciente(aux);
+
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una opcion de cada casilla", "Error", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+            }
+        }
+        /// <summary>
+        /// Actualiza el cmb de Patologias en base a las patologias del paciente
+        /// </summary>
+        /// <param name="paciente">paciente sobre el que se actualiza la lista</param>
         private void ActualizarCmbPatologia(Paciente paciente)
         {
             List<EPatologia> diferente = new List<EPatologia>();
@@ -150,7 +155,7 @@ namespace Formulario
             cmbPatologia.DataSource = null;
             cmbPatologia.DataSource = diferente;
         }
-
+        // Aplicacion de interfase, se cargan los ComboBox en base a los datos que necesitan ser cargados
         public void CargarCmbLista<T>(ComboBox d, List<T> lista) where T : class
         {
             if (lista is not null && lista.Count > 0)

@@ -228,7 +228,7 @@ namespace Entidades
         /// Genera una lista de cirugias por el patologia operada
         /// </summary>
         /// <param name="patologia">tipo de patologia a filtrar</param>
-        /// <returns>Lista de cirugias</returns>
+        /// <returns>Lista de cirugias con esa patologia</returns>
         public static List<Cirugia> CirugiasXPatologia(EPatologia patologia)
         {
             List<Cirugia> cirugiasXPatologia = new List<Cirugia>();
@@ -241,7 +241,11 @@ namespace Entidades
             }
             return cirugiasXPatologia; 
         }
-        
+        /// <summary>
+        /// Genera una lista de cirugias por procedimiento echo
+        /// </summary>
+        /// <param name="procedimiento">tipo de procedimiento a filtrar</param>
+        /// <returns>Lista de cirugias con el procedimiento echo </returns>
         public static List<Cirugia> CirugiasXProcedimiento(EProcedimiento procedimiento)
         {
             List<Cirugia> cirugiasXProcedimiento = new List<Cirugia>();
@@ -254,6 +258,11 @@ namespace Entidades
             }
             return cirugiasXProcedimiento;
         }
+        /// <summary>
+        /// Genera una lista de cirugias por cirujano
+        /// </summary>
+        /// <param name="cirujano">cirujano que realizo la cirugia</param>
+        /// <returns>Lista de cirugias con ese cirujano</returns>
         public static List<Cirugia> CirugiasXCirujano(Cirujano cirujano)
         {
             List<Cirugia> cirugiasXCirujano = new List<Cirugia>();
@@ -266,6 +275,12 @@ namespace Entidades
             }
             return cirugiasXCirujano;
         }
+        /// <summary>
+        /// Genera lista de cirigia por cirujano y procedimiento
+        /// </summary>
+        /// <param name="procedimiento">Tipo de cirugia echa</param>
+        /// <param name="cirujano">quien hizo la cirugia</param>
+        /// <returns>lista filtrada</returns>
         public static List<Cirugia> CirugiasXProcedimientoYCirujano(EProcedimiento procedimiento, Cirujano cirujano)
         {
             List<Cirugia> cirugiasXProcedimientoYCirujano = new List<Cirugia>();
@@ -278,6 +293,12 @@ namespace Entidades
             }
             return cirugiasXProcedimientoYCirujano;
         }
+        /// <summary>
+        /// Genera lista de cirugia por patologia y cirujano
+        /// </summary>
+        /// <param name="patologia">la patologia a filtrar </param>
+        /// <param name="cirujano">cirujano que realizo</param>
+        /// <returns>Lista filtrada</returns>
         public static List<Cirugia> CirugiasXPatologiaYCirujano(EPatologia patologia, Cirujano cirujano)
         {
             List<Cirugia> cirugiasXPatologiaYCirujano = new List<Cirugia>();

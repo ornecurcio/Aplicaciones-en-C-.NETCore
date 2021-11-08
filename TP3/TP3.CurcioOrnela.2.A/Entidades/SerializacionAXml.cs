@@ -9,22 +9,17 @@ using System.Xml.Serialization;
 
 namespace Entidades
 {
+    /// <summary>
+    /// Clase Generica para escribir y leer un archivo Xml
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class SerializacionAXml<T> where T: new()
     {
-        public string GenerarRuta(string titulo)
-        {
-            try
-            {
-                string rutaAlt = AppDomain.CurrentDomain.BaseDirectory;
-                string rutaArchivo = Path.Combine(rutaAlt, titulo);
-                return rutaArchivo;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("No se puedo generar la ruta", ex);
-            }
-        }
-
+        /// <summary>
+        /// Genera Archivo Xml
+        /// </summary>
+        /// <param name="ruta">donde se guardara el archivo/param>
+        /// <param name="obj">el objeto a serializar</param>
         public static void SerializarAXmlLista(string ruta, T obj) 
         {
             XmlTextWriter xmlWriter = null;
@@ -48,7 +43,11 @@ namespace Entidades
                 }
             }
         }
-
+        /// <summary>
+        /// Deserealiza un archivo Xml
+        /// </summary>
+        /// <param name="ruta">donde esta el archivo</param>
+        /// <returns>el objeto deserealizado</returns>
         public static T DeserealizarXml(string ruta) 
         {
             XmlTextReader xmlReader = null;

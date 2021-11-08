@@ -12,6 +12,11 @@ namespace Entidades
 {
     public class SerializacionAJason 
     {
+        /// <summary>
+        /// Genera un path donde se puede guardar un archivo
+        /// </summary>
+        /// <param name="titulo">que tiene el archivo</param>
+        /// <returns>path donde se encuentra el archivo</returns>
         public static string GenerarRuta(string titulo)
         {
             try
@@ -25,6 +30,12 @@ namespace Entidades
                 throw new Exception("No se puedo generar la ruta", ex); 
             }
         }
+        /// <summary>
+        /// Genera un archivo Json
+        /// </summary>
+        /// <typeparam name="T">objeto generico</typeparam>
+        /// <param name="ruta">donde va a ir el archivo</param>
+        /// <param name="obj">el objeto a serializar</param>
         public static void SerializarAJason<T>(string ruta, T obj) where T : class
         {
             try
@@ -45,6 +56,12 @@ namespace Entidades
                 throw new SerializacionException(ex.Message); 
             }
         }
+        /// <summary>
+        /// Deserealiza un archivo Json
+        /// </summary>
+        /// <typeparam name="T">objeto generico</typeparam>
+        /// <param name="ruta">desde donde se lee el archivo</param>
+        /// <returns>El objeto deserealizado</returns>
         public static T DeserealizarDesdeJson<T>(string ruta) where T : class
         {
             try
