@@ -8,10 +8,14 @@ namespace Entidades
 {
     public static class Hospital
     {
+        #region Atributos
         private static List<Paciente> pacientes;
         private static List<Cirujano> cirujanos;
         private static List<Cirugia> cirugias;
         private static Estadistica estadistica;
+        #endregion
+
+        #region Constructor
         static Hospital()
         {
             try
@@ -34,6 +38,9 @@ namespace Entidades
                 throw new Exception("No se pudo cargar Hospital", ex);
             }
         }
+        #endregion
+
+        #region Propiedades
         public static List<Paciente> Pacientes
         {
             get
@@ -90,23 +97,38 @@ namespace Entidades
                 }
             }
         }
+        #endregion
 
+        #region Metodos
+        /// <summary>
+        /// Serializa a Archivo Json una lista de pacientes
+        /// </summary>
         public static void SerializarPacientes()
         {
             string ruta = SerializacionAJason.GenerarRuta("Pacientes.json");
             SerializacionAJason.SerializarAJason(ruta, pacientes);
         }
+        /// <summary>
+        /// Serializa a Archivo Json una lista de cirugias
+        /// </summary>
         public static void SerializarCirugias()
         {
             string ruta = SerializacionAJason.GenerarRuta("Cirugias.json");
             SerializacionAJason.SerializarAJason(ruta, cirugias);
         }
+        /// <summary>
+        /// Serializa a Archivo Json una lista de cirujanos 
+        /// </summary>
         public static void SerializarCirujanos()
         {
             string ruta = SerializacionAJason.GenerarRuta("Cirujanos.json");
             SerializacionAJason.SerializarAJason(ruta, cirujanos);
         } 
-        
+        /// <summary>
+        /// Carga una nueva cirugia a la lista de cirugias y actualiza la estadistica del cirujano y el htal
+        /// </summary>
+        /// <param name="aux"> cirugia a ser agregada</param>
+        /// <returns>TRUE si se cargo con exito</returns>
         public static bool CargarCirugia(Cirugia aux)
         {
             try
@@ -127,6 +149,11 @@ namespace Entidades
                 throw new Exception("Fallo en cargar cirugia", ex); 
             }
         }
+        /// <summary>
+        /// Agrega un nuevo cirujano a la lista si el mismo no existe 
+        /// </summary>
+        /// <param name="aux"> cirujano a agregar</param>
+        /// <returns>TRUE si se cargo con exito</returns>
         public static bool CargarCirujanos(Cirujano aux)
         {
             if (aux is not null)
@@ -144,6 +171,11 @@ namespace Entidades
             }
             return false;
         }
+        /// <summary>
+        /// Actualiza los datos de un paciente
+        /// </summary>
+        /// <param name="aux">paciente a actualizar</param>
+        /// <returns>TRUE si pudo modificarlo</returns>
         public static bool ActualizarPaciente(Paciente aux)
         {
             foreach (Paciente item in Pacientes)
@@ -158,6 +190,11 @@ namespace Entidades
             }
             return false;
         }
+        /// <summary>
+        /// Agrega un paciente a la lista si el paciente no existe
+        /// </summary>
+        /// <param name="aux">paciente a agregar</param>
+        /// <returns></returns>
         public static bool CargarPacientes(Paciente aux)
         {
             if (aux is not null)
@@ -175,6 +212,10 @@ namespace Entidades
             }
             return false;
         }
+        /// <summary>
+        /// Actualiza la estadistica del hospital al iniciarse el programa
+        /// </summary>
+        /// <param name="cirugias"> listado de cirugias</param>
         public static void ActualizarEstadistica(List<Cirugia>cirugias)
         {
             foreach (Cirugia item in cirugias)
@@ -182,8 +223,12 @@ namespace Entidades
                 Hospital.Estadistica.ActualizarPatologia(item.Patologia);
                 Hospital.Estadistica.ActualizarProcedimiento(item.Procedimiento);
             }
-           
         }
+        /// <summary>
+        /// Genera una lista de cirugias por el patologia operada
+        /// </summary>
+        /// <param name="patologia">tipo de patologia a filtrar</param>
+        /// <returns>Lista de cirugias</returns>
         public static List<Cirugia> CirugiasXPatologia(EPatologia patologia)
         {
             List<Cirugia> cirugiasXPatologia = new List<Cirugia>();
@@ -245,5 +290,6 @@ namespace Entidades
             }
             return cirugiasXPatologiaYCirujano;
         }
+        #endregion
     }
 }

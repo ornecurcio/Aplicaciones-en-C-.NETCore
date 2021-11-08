@@ -8,16 +8,31 @@ namespace Entidades
 {
     public class Cirujano:Persona 
     {
+        #region Atributos
         private ERol rol;
         private Estadistica estadistica;
+        #endregion
+
+        #region Constructores
         public Cirujano():base()
         { }
+        /// <summary>
+        /// Constructor con parametros
+        /// </summary>
+        /// <param name="nombre"> nombre del cirujano</param>
+        /// <param name="apellido">apellido del cirujano</param>
+        /// <param name="dni">dni del cirujano</param>
+        /// <param name="rol">rol del cirujano</param>
+        /// <param name="estadistica">estadistica propia del cirujano</param>
         public Cirujano(string nombre, string apellido, double dni, ERol rol, Estadistica estadistica) //, bool realizoCirugia)
                        : base(nombre, apellido, dni)
         {
             this.rol = rol;
             this.estadistica = estadistica;
         }
+        #endregion
+
+        #region Propiedades
         public ERol Rol
         {
             get
@@ -43,6 +58,15 @@ namespace Entidades
                 }
             }
         }
+        #endregion
+
+        #region Sobrecargas
+        /// <summary>
+        /// Sobrecarga de == ompara si dos cirujanos son iguales por DNI y rol
+        /// </summary>
+        /// <param name="a">cirujano</param>
+        /// <param name="b">cirujano</param>
+        /// <returns></returns>
         public static bool operator ==(Cirujano a, Cirujano b)
         {
             if(a is null && b is null)
@@ -59,10 +83,14 @@ namespace Entidades
         {
             return !(a == b);
         }
+        /// <summary>
+        /// Sobrecarga de metodo ToStrig
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return this.Apellido + ", " + this.Nombre + ". " + this.Rol;
         }
-
+        #endregion
     }
 }

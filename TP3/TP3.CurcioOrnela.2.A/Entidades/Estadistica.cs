@@ -8,6 +8,7 @@ namespace Entidades
 {
     public class Estadistica
     {
+        #region Atributos
         private int cantColumna;
         private int cantMiembroSuperior;
         private int cantMiembroInferior;
@@ -18,11 +19,15 @@ namespace Entidades
         private int cantArtrodecis;
         private int cantOsteodesis; 
         private int cantYeso;
+        #endregion
 
+        #region Constructor
         public Estadistica()
         {
         }
-      
+        #endregion
+
+        #region Propiedades
         public int CantColumna
         {
             get
@@ -133,6 +138,13 @@ namespace Entidades
                 this.cantYeso = value;
             }
         }
+        #endregion
+
+        #region Metodos
+        /// <summary>
+        /// Actualiza contador de la patologia recibida
+        /// </summary>
+        /// <param name="patologia">Tipo de patologia a contabilizar</param>
         public void ActualizarPatologia(EPatologia patologia)
         {
             switch (patologia)
@@ -151,9 +163,11 @@ namespace Entidades
                     break;
             }
         }
-    
+        /// <summary>
+        /// Actualiza contador de procedimiento 
+        /// </summary>
+        /// <param name="procedimiento">Tipo de procedimiento a contabilizar</param>
         public void ActualizarProcedimiento(EProcedimiento procedimiento)
-
         {
             switch (procedimiento)
             {
@@ -175,8 +189,8 @@ namespace Entidades
                 case EProcedimiento.Yeso:
                     this.cantYeso++;
                     break;
-
             }
         }
+        #endregion
     }
 }
