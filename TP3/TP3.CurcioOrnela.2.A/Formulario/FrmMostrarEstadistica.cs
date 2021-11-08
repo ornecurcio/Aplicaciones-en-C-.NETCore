@@ -104,7 +104,7 @@ namespace Formulario
             MessageBox.Show("Archivo generado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
-
+        //Genera Archivo Xml con los filtros aplicados
         private void btnExportarAXml_Click(object sender, EventArgs e)
         {
             string ruta = SerializacionAJason.GenerarRuta(lblDescripcion.Text + ".xml");
