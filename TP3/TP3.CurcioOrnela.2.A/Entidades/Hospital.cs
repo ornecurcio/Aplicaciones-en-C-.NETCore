@@ -107,15 +107,20 @@ namespace Entidades
             SerializacionAJason.SerializarAJason(ruta, cirujanos);
         } 
         
-        public static void CargarCirugia(Cirugia aux)
+        public static bool CargarCirugia(Cirugia aux)
         {
             try
             {
-                cirugias.Add(aux);
-                estadistica.ActualizarPatologia(aux.Patologia);
-                estadistica.ActualizarProcedimiento(aux.Procedimiento);
-                SerializarCirugias();
-                SerializarCirujanos(); 
+                if (aux is not null)
+                {
+                    cirugias.Add(aux);
+                    estadistica.ActualizarPatologia(aux.Patologia);
+                    estadistica.ActualizarProcedimiento(aux.Procedimiento);
+                    SerializarCirugias();
+                    SerializarCirujanos();
+                    return true; 
+                }
+                return false; 
             }
             catch(Exception ex)
             {
@@ -155,16 +160,20 @@ namespace Entidades
         }
         public static bool CargarPacientes(Paciente aux)
         {
-            foreach (Paciente item in Pacientes)
+            if (aux is not null)
             {
-                if(aux!=item)
+                foreach (Paciente item in Pacientes)
                 {
-                    Pacientes.Add(aux);
-                    SerializarPacientes(); 
-                    return true;
+                    if (aux == item)
+                    {
+                        return false;
+                    }
                 }
+                Pacientes.Add(aux);
+                SerializarPacientes();
+                return true;
             }
-            return false; 
+            return false;
         }
         public static void ActualizarEstadistica(List<Cirugia>cirugias)
         {

@@ -90,6 +90,7 @@ namespace Formulario
                 Enum.TryParse(cmbProcedimiento.Text, out EProcedimiento auxPr);
                 
                 Cirugia aux = null; 
+
                 aux = new Cirugia((Paciente)cmbPacientevsCirujano.SelectedItem, DateTime.Now, 
                                   (Cirujano)cmbApellidoNombre.SelectedItem, auxP, auxPr);
                 ((Cirujano)cmbApellidoNombre.SelectedItem).Estadistica.ActualizarPatologia(auxP);
