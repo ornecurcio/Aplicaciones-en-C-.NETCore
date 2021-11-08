@@ -17,16 +17,13 @@ namespace Entidades
       
         public SerializacionException(): this(SerializacionException.mensajeError)
         {
-
         }
         public SerializacionException(string mensaje): base(mensaje)
         {
-
         }
            
         public SerializacionException(Exception innerException): base(SerializacionException.mensajeError, innerException)
         {
-
         }
     }
 }

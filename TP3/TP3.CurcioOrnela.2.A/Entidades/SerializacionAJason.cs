@@ -29,6 +29,10 @@ namespace Entidades
         {
             try
             {
+                if(obj is null)
+                {
+                    throw new Exception("objeto nulo"); 
+                }
                 JsonSerializerOptions jsonSerializerOptions = new JsonSerializerOptions { Converters = { new JsonStringEnumConverter() } };
                 jsonSerializerOptions.WriteIndented = true;
 
@@ -38,7 +42,7 @@ namespace Entidades
             }
             catch(Exception ex)
             {
-                throw new SerializacionException(ex); 
+                throw new SerializacionException(ex.Message); 
             }
         }
         public static T DeserealizarDesdeJson<T>(string ruta) where T : class

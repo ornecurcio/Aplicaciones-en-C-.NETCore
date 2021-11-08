@@ -106,11 +106,11 @@ namespace TestProjectTP3
         }
         [TestMethod]
         [ExpectedException(typeof(SerializacionException))]
-        public void ValidaExepcion()
+        public void ValidarExcepcion()
         {
             //Arrange
-            string ruta = "algun lado";
-            object algo = new object();
+            string ruta = null;
+            object algo = null;
             //Act
             SerializacionAJason.SerializarAJason(ruta, algo); 
 
