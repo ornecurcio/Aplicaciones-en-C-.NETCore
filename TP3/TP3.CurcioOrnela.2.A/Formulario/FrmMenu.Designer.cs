@@ -48,6 +48,7 @@ namespace Formulario
             this.lblTitulo.Size = new System.Drawing.Size(465, 28);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Servicio de Ortopedia y Traumatologia ";
+            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // btnPaciente
             // 

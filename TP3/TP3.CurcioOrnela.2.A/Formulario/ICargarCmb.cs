@@ -13,7 +13,7 @@ namespace Formulario
         void CargarCmbLista<T>(ComboBox d, List<T> lista)
             where T : class;
         void CargarCmbEnum<T>(ComboBox d, T enu) 
-            where T : Enum;  
+            where T : Type;  
         
     }
 }

@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Text;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace Entidades
 {
+    [XmlInclude(typeof(Cirujano))]
+    [XmlInclude(typeof(Paciente))]
     public abstract class Persona
     {
         private string nombre;

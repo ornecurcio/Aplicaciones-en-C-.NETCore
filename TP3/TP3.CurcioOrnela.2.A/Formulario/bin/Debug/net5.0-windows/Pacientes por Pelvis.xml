@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfPaciente xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Paciente>
+    <Nombre>Federico</Nombre>
+    <Apellido>Davila</Apellido>
+    <Dni>34195299</Dni>
+    <Patologia>
+      <EPatologia>MiembroInferior</EPatologia>
+      <EPatologia>Pelvis</EPatologia>
+      <EPatologia>Columna</EPatologia>
+    </Patologia>
+  </Paciente>
+  <Paciente>
+    <Nombre>Maximiliano</Nombre>
+    <Apellido>Neiner</Apellido>
+    <Dni>25974068</Dni>
+    <Patologia>
+      <EPatologia>MiembroInferior</EPatologia>
+      <EPatologia>Pelvis</EPatologia>
+      <EPatologia>Columna</EPatologia>
+    </Patologia>
+  </Paciente>
+  <Paciente>
+    <Nombre>Octavio</Nombre>
+    <Apellido>Villegas</Apellido>
+    <Dni>25524076</Dni>
+    <Patologia>
+      <EPatologia>MiembroInferior</EPatologia>
+      <EPatologia>Pelvis</EPatologia>
+      <EPatologia>Columna</EPatologia>
+    </Patologia>
+  </Paciente>
+  <Paciente>
+    <Nombre>Mauricio</Nombre>
+    <Apellido>Davila</Apellido>
+    <Dni>28056659</Dni>
+    <Patologia>
+      <EPatologia>Pelvis</EPatologia>
+      <EPatologia>Columna</EPatologia>
+    </Patologia>
+  </Paciente>
+</ArrayOfPaciente>

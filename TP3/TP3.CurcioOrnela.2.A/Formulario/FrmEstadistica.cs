@@ -67,8 +67,9 @@ namespace Formulario
         }
         private void lblCirugiasXPatologia_Click(object sender, EventArgs e)
         {
-            CargarCmbEnum<EPatologia>(cmbCirugiaXPatologia, EPatologia.Columna); 
-            cmbCirugiaXPatologia.DataSource = Enum.GetValues(typeof(EPatologia));
+            //CargarCmbEnum<EPatologia>(cmbCirugiaXPatologia, EPatologia.Columna); 
+            //cmbCirugiaXPatologia.DataSource = Enum.GetValues(typeof(EPatologia));
+            CargarCmbEnum<Type>(cmbCirugiaXPatologia, typeof(EPatologia));
             cmbCirugiaXPatologia.Enabled = true;
             cmbCirugiaXProcedimiento.Enabled = false;
         }
@@ -122,7 +123,9 @@ namespace Formulario
         {
             cmbCirugiaXProcedimiento.Enabled = true;
             cmbCirugiaXPatologia.Enabled = false;
-            cmbCirugiaXProcedimiento.DataSource = Enum.GetValues(typeof(EProcedimiento));
+            CargarCmbEnum<Type>(cmbCirugiaXProcedimiento, typeof(EProcedimiento));
+            
+            //cmbCirugiaXProcedimiento.DataSource = Enum.GetValues(typeof(EProcedimiento));
         }
         private void cmbCirugiaXProcedimiento_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -256,9 +259,9 @@ namespace Formulario
             }
         }
 
-        public void CargarCmbEnum<T>(ComboBox d, T enu)where T: Enum
+        public void CargarCmbEnum<T>(ComboBox d, T enu) where T : Type
         {
-            d.DataSource = Enum.GetValues(typeof(T));
+            d.DataSource = Enum.GetValues(enu);
         }
     }
 }

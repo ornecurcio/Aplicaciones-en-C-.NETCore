@@ -14,7 +14,8 @@ namespace Formulario
     public partial class FrmMostrarEstadistica : Form
     {
         List<Cirugia> cirugias;
-        List<Paciente> pacientes; 
+        List<Paciente> pacientes;
+        bool hayPacientes; 
         public FrmMostrarEstadistica()
         {
             InitializeComponent();
@@ -31,6 +32,7 @@ namespace Formulario
                     pacientes.Add(item);
                 }
             }
+            hayPacientes = true; 
         }
         public FrmMostrarEstadistica(bool esServicio):this()
         {
@@ -90,26 +92,33 @@ namespace Formulario
         private void btnExportar_Click(object sender, EventArgs e)
         {
             string ruta = SerializacionAJason.GenerarRuta(lblDescripcion.Text + ".xml"); 
-            if(pacientes is not null)
+            
+            if(hayPacientes)
             {
                 SerializacionAXml<List<Paciente>>.SerializarAXmlLista(ruta, pacientes); 
             }
             else
             {
                 SerializacionAXml<List<Cirugia>>.SerializarAXmlLista(ruta, cirugias); 
-            }
-            //string ruta = SerializacionAJason.GenerarRuta(lblDescripcion.Text+".json");
-            //if(pacientes is not null)
-            //{
-            //    SerializacionAJason.SerializarAJason(ruta, pacientes);
-            //}
-            //else
-            //{
-            //    SerializacionAJason.SerializarAJason(ruta, cirugias);
-            //}
-            
+            }   
             MessageBox.Show("Archivo generado con exito", "Exito", MessageBoxButtons.OK,MessageBoxIcon.Information);
             this.Close(); 
+        }
+
+        private void btnExportarAJson_Click(object sender, EventArgs e)
+        {
+            string ruta = SerializacionAJason.GenerarRuta(lblDescripcion.Text + ".json");
+            if (pacientes is not null)
+            {
+                SerializacionAJason.SerializarAJason(ruta, pacientes);
+            }
+            else
+            {
+                SerializacionAJason.SerializarAJason(ruta, cirugias);
+            }
+
+            MessageBox.Show("Archivo generado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
         }
     }
 }

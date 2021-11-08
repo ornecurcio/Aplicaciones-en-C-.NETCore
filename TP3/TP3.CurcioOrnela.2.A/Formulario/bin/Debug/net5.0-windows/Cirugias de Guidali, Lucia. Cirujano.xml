@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfCirugia xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Cirugia>
+    <Cirujano>
+      <Nombre>Lucia</Nombre>
+      <Apellido>Guidali</Apellido>
+      <Dni>33203789</Dni>
+      <Rol>Cirujano</Rol>
+      <Estadistica>
+        <CantColumna>0</CantColumna>
+        <CantMiembroSuperior>0</CantMiembroSuperior>
+        <CantMiembroInferior>2</CantMiembroInferior>
+        <CantPelvis>0</CantPelvis>
+        <CantRAFI>0</CantRAFI>
+        <CantReduccionCerrada>1</CantReduccionCerrada>
+        <CantOsteotomia>0</CantOsteotomia>
+        <CantArtrodecis>0</CantArtrodecis>
+        <CantOsteodesis>0</CantOsteodesis>
+        <CantYeso>0</CantYeso>
+      </Estadistica>
+    </Cirujano>
+    <Procedimiento>ReduccionCerrada</Procedimiento>
+    <Patologia>MiembroInferior</Patologia>
+    <Paciente>
+      <Nombre>Federico</Nombre>
+      <Apellido>Davila</Apellido>
+      <Dni>34195299</Dni>
+      <Patologia>
+        <EPatologia>MiembroInferior</EPatologia>
+        <EPatologia>Pelvis</EPatologia>
+        <EPatologia>Columna</EPatologia>
+      </Patologia>
+    </Paciente>
+    <Fecha>2021-11-06T06:32:05.7159772-03:00</Fecha>
+  </Cirugia>
+</ArrayOfCirugia>
