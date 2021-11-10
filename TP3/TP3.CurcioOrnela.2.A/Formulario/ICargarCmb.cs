@@ -14,6 +14,5 @@ namespace Formulario
             where T : class;
         void CargarCmbEnum<T>(ComboBox d, T enu) 
             where T : Type;  
-        
     }
 }

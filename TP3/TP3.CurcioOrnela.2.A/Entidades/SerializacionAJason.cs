@@ -45,7 +45,7 @@ namespace Entidades
                     throw new Exception("objeto nulo"); 
                 }
                 JsonSerializerOptions jsonSerializerOptions = new JsonSerializerOptions { Converters = { new JsonStringEnumConverter() } };
-                jsonSerializerOptions.WriteIndented = true;
+                jsonSerializerOptions.WriteIndented = true; 
 
                 string objetoJson = JsonSerializer.Serialize(obj, jsonSerializerOptions);
 

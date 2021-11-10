@@ -65,13 +65,13 @@ namespace Formulario
         //Sobrecarga, se selecciona un cirujano y se muestra las cirugias con esa patologia
         public FrmMostrarEstadistica(Cirujano cirujano, EPatologia patologia) : this()
         {
-            lblDescripcion.Text = $"Cirugias de {cirujano} de {patologia}";
+            lblDescripcion.Text = $"Cirugias de {cirujano} \n{patologia}";
             cirugias = Hospital.CirugiasXPatologiaYCirujano(patologia,cirujano);
         }
         //Sobrecarga, se selecciona un cirujano y se muestra las cirugias con ese procedimiento
         public FrmMostrarEstadistica(Cirujano cirujano, EProcedimiento procedimiento) : this()
         {
-            lblDescripcion.Text = $"Cirugias de {cirujano} de {procedimiento}";
+            lblDescripcion.Text = $"Cirugias de {cirujano} \n{procedimiento}";
             cirugias = Hospital.CirugiasXProcedimientoYCirujano(procedimiento, cirujano);
         }
         private void FrmMostrarEstadistica_Load(object sender, EventArgs e)

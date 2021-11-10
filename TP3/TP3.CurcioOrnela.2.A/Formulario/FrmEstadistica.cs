@@ -18,7 +18,8 @@ namespace Formulario
             this.esMedico = esMedico;
             this.servicio = servicio;
         }
-        //Se carga formulario dependiendo si se ingresa para ver estadistica de el Hospital, el medico, o patologias de los pacientes
+        //Se carga formulario dependiendo si se ingresa para ver estadistica de el Hospital,
+        //el medico, o patologias de los pacientes
         private void FrmEstadistica_Load(object sender, EventArgs e)
         {
             if (esMedico)
@@ -37,7 +38,7 @@ namespace Formulario
             else
             {
                 this.LoadPaciente();
-                lblCirugiasXPatologia.Text = "Pacientes por Patologia";
+                btnPatologias.Text = "Pacientes por Patologia";
             }
         }
 
@@ -59,12 +60,13 @@ namespace Formulario
             }
         }
         //Al cliquear se habilita el cmb para seleccionar patologia
-        private void lblCirugiasXPatologia_Click(object sender, EventArgs e)
+        private void btnPatologias_Click(object sender, EventArgs e)
         {
             CargarCmbEnum<Type>(cmbCirugiaXPatologia, typeof(EPatologia));
             cmbCirugiaXPatologia.Enabled = true;
             cmbCirugiaXProcedimiento.Enabled = false;
         }
+
         //Al seleccion una patologia se carga la cantidad de cirugias de esa patologia
         //(totales en el hospital o por cirujano)
         private void cmbCirugiaXPatologia_SelectedIndexChanged(object sender, EventArgs e)
@@ -113,12 +115,13 @@ namespace Formulario
             }
         }
         //Al clickear se habilita un cmb para elegir procedimiento
-        private void lblCirugiaXProcedimiento_Click(object sender, EventArgs e)
+        private void btnProcedimientos_Click(object sender, EventArgs e)
         {
             cmbCirugiaXProcedimiento.Enabled = true;
             cmbCirugiaXPatologia.Enabled = false;
             CargarCmbEnum<Type>(cmbCirugiaXProcedimiento, typeof(EProcedimiento));
         }
+
         //Al seleccionar un procedimiento se muestra la cantidad de los mismos 
         private void cmbCirugiaXProcedimiento_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -233,7 +236,7 @@ namespace Formulario
             txtCirugiaXProcedimiento.Visible = false;
             cmbTotalCirugias.Visible = false;
             lblTotalCirugias.Visible = false;
-            lblCirugiaXProcedimiento.Visible = false;
+            btnProcedimientos.Visible = false;
             cmbCirugiaXProcedimiento.Visible = false;
         }
         //Coloca en Eneble son cmb y txt
