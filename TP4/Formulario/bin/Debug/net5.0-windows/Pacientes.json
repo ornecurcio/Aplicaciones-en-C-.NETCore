@@ -1,0 +1,131 @@
+[
+  {
+    "Patologia": [
+      "Columna"
+    ],
+    "Nombre": "Lucas",
+    "Apellido": "Rodriguez",
+    "Dni": 35699823, 
+    "Edad": 31
+  },
+  {
+    "Patologia": [
+      "MiembroInferior"
+    ],
+    "Nombre": "Mauricio",
+    "Apellido": "Cerizza",
+    "Dni": 36688159,
+    "Edad": 33
+  },
+  {
+    "Patologia": [
+      "MiembroInferior",
+      "Pelvis",
+      "Columna"
+    ],
+    "Nombre": "Federico",
+    "Apellido": "Davila",
+    "Dni": 34195299,
+    "Edad": 39
+  },
+  {
+    "Patologia": [
+      "MiembroInferior",
+      "Pelvis",
+      "Columna"
+    ],
+    "Nombre": "Maximiliano",
+    "Apellido": "Neiner",
+    "Dni": 25974068,
+    "Edad": 45
+  },
+  {
+    "Patologia": [
+      "MiembroSuperior"
+    ],
+    "Nombre": "Marcos",
+    "Apellido": "Araya",
+    "Dni": 16123988,
+    "Edad": 52
+  },
+  {
+    "Patologia": [
+      "MiembroInferior",
+      "Pelvis",
+      "Columna"
+    ],
+    "Nombre": "Octavio",
+    "Apellido": "Villegas",
+    "Dni": 25524076,
+    "Edad": 58
+  },
+  {
+    "Patologia": [
+      "Pelvis",
+      "Columna"
+    ],
+    "Nombre": "Mauricio",
+    "Apellido": "Davila",
+    "Dni": 28056659,
+    "Edad": 43
+  },
+  {
+    "Patologia": [
+      "MiembroSuperior",
+      "Columna"
+    ],
+    "Nombre": "Marcos",
+    "Apellido": "Russo",
+    "Dni": 24271133,
+    "Edad": 55
+  },
+  {
+    "Patologia": [
+      "Columna"
+    ],
+    "Nombre": "Martin",
+    "Apellido": "Isusi",
+    "Dni": 36155955,
+    "Edad": 37
+  },
+  {
+    "Patologia": [
+      "MiembroInferior",
+      "MiembroSuperior"
+    ],
+    "Nombre": "Florencia",
+    "Apellido": "Cuda",
+    "Dni": 38165629,
+    "Edad": 30
+  },
+  {
+    "Patologia": [
+      "MiembroSuperior",
+      "MiembroInferior"
+    ],
+    "Nombre": "Escudero",
+    "Apellido": "Yanina",
+    "Dni": 23159922,
+    "Edad": 47
+  },
+  {
+    "Patologia": [
+      "MiembroSuperior",
+      "MiembroInferior"
+    ],
+    "Nombre": "Dario",
+    "Apellido": "Cuda",
+    "Dni": 23060221,
+    "Edad": 51
+  },
+  {
+    "Patologia": [
+      "Columna",
+      "MiembroInferior"
+    ],
+    "Nombre": "Esteban",
+    "Apellido": "Prieto",
+    "Dni": 37737302,
+    "Edad": 28
+  }
+]

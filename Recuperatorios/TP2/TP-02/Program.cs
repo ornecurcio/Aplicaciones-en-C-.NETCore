@@ -16,7 +16,7 @@ namespace TP2.Recuperatorio.Curcio.Ornela
             Console.SetWindowSize(Console.LargestWindowWidth / 2, Console.LargestWindowHeight - 2);
 
             // Nombre del alumno
-            Console.Title = "TP2 Ornela Ivana Curcio";
+            Console.Title = "TP2 Recuperatorio Ornela Ivana Curcio";
 
             Taller taller = new Taller(6);
 
