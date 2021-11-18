@@ -36,19 +36,6 @@ namespace Formulario
             subMenu.ShowDialog();
         }
 
-        private void lblAgregarPaciente_Click(object sender, EventArgs e)
-        {
-            esMedico = false;
-            FrmIngresoDatos ingresoDatos = new FrmIngresoDatos(esMedico);
-            ingresoDatos.ShowDialog();
-        }
-        private void lblAgregarCirujano_Click(object sender, EventArgs e)
-        {
-            esMedico = true;
-            FrmIngresoDatos ingresoDatos = new FrmIngresoDatos(esMedico);
-            ingresoDatos.ShowDialog();
-        }
-
         private void btnEstadistica_Click(object sender, EventArgs e)
         {
             FrmEstadistica estadistica = new FrmEstadistica(false, true);
@@ -60,8 +47,20 @@ namespace Formulario
             FrmEstadisticaHospital estadistica = new FrmEstadisticaHospital();
 
             estadistica.Show();
+        }
 
+        private void pacienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            esMedico = false;
+            FrmIngresoDatos ingresoDatos = new FrmIngresoDatos(esMedico);
+            ingresoDatos.ShowDialog();
+        }
 
+        private void cirujanoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            esMedico = true;
+            FrmIngresoDatos ingresoDatos = new FrmIngresoDatos(esMedico);
+            ingresoDatos.ShowDialog();
         }
     }
 }

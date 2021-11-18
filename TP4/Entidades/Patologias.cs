@@ -1,6 +1,6 @@
 ﻿public enum EPatologia
 {
-    Columna,
+    Columna = 1,
     MiembroSuperior,
     MiembroInferior,
     Pelvis,

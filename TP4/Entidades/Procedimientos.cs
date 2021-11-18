@@ -1,6 +1,6 @@
 ﻿public enum EProcedimiento
 {
-    ReduccionCerrada, 
+    ReduccionCerrada=1, 
     RAFI, 
     Osteotomia, 
     Artrodecis, 

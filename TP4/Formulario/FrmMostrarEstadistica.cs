@@ -91,7 +91,7 @@ namespace Formulario
         //genera un archivo Json con los filtros aplicados
         private void btnExportarAJson_Click(object sender, EventArgs e)
         {
-            string ruta = SerializacionAJason.GenerarRuta(lblDescripcion.Text + ".json");
+            string ruta = Archivo.GenerarRuta(lblDescripcion.Text + ".json");
             if (hayPacientes)
             {
                 SerializacionAJason.SerializarAJason(ruta, pacientes);
@@ -107,7 +107,7 @@ namespace Formulario
         //Genera Archivo Xml con los filtros aplicados
         private void btnExportarAXml_Click(object sender, EventArgs e)
         {
-            string ruta = SerializacionAJason.GenerarRuta(lblDescripcion.Text + ".xml");
+            string ruta = Archivo.GenerarRuta(lblDescripcion.Text + ".xml");
 
             if (hayPacientes)
             {

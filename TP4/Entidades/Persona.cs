@@ -20,7 +20,6 @@ namespace Entidades
         #region Constructores
         public Persona()
         {
-           
         }
 
         /// <summary>
@@ -29,7 +28,7 @@ namespace Entidades
         /// <param name="nombre">nombre de la persona</param>
         /// <param name="apellido">apellido de la persona</param>
         /// <param name="dni">dni de la persona</param>
-        public Persona(string nombre, string apellido, double dni, int edad):this()
+        public Persona(string nombre, string apellido, double dni, int edad)
         {
             this.nombre = nombre;
             this.apellido = apellido;

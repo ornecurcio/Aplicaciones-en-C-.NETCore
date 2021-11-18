@@ -24,14 +24,16 @@ namespace Entidades
                 cirujanos = new List<Cirujano>();
                 cirugias = new List<Cirugia>();
                 estadistica = new Estadistica();
+                AccesoDatos datos = new AccesoDatos();
 
-                string ruta = Archivo.GenerarRuta("Pacientes.json");
-                pacientes = SerializacionAJason.DeserealizarDesdeJson<List<Paciente>>(ruta);
-                ruta = Archivo.GenerarRuta("Cirujanos.json");
-                cirujanos = SerializacionAJason.DeserealizarDesdeJson<List<Cirujano>>(ruta);
-                ruta = Archivo.GenerarRuta("Cirugias.json");
-                cirugias = SerializacionAJason.DeserealizarDesdeJson<List<Cirugia>>(ruta);
-                Hospital.ActualizarEstadistica(cirugias);
+                pacientes = datos.ObtenerListaPacientes(); 
+                //string ruta = Archivo.GenerarRuta("Pacientes.json");
+                //pacientes = SerializacionAJason.DeserealizarDesdeJson<List<Paciente>>(ruta);
+                //ruta = Archivo.GenerarRuta("Cirujanos.json");
+                //cirujanos = SerializacionAJason.DeserealizarDesdeJson<List<Cirujano>>(ruta);
+                //ruta = Archivo.GenerarRuta("Cirugias.json");
+                //cirugias = SerializacionAJason.DeserealizarDesdeJson<List<Cirugia>>(ruta);
+                //Hospital.ActualizarEstadistica(cirugias);
             }
             catch (Exception ex)
             {

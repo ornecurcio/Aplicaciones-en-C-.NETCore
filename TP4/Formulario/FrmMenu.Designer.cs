@@ -34,9 +34,12 @@ namespace Formulario
             this.btnPaciente = new System.Windows.Forms.Button();
             this.btnMenuCirujano = new System.Windows.Forms.Button();
             this.btnEstadistica = new System.Windows.Forms.Button();
-            this.lblAgregarPaciente = new System.Windows.Forms.Label();
-            this.lblAgregarCirujano = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.agregarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pacienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cirujanoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -88,26 +91,6 @@ namespace Formulario
             this.btnEstadistica.UseVisualStyleBackColor = false;
             this.btnEstadistica.Click += new System.EventHandler(this.btnEstadistica_Click);
             // 
-            // lblAgregarPaciente
-            // 
-            this.lblAgregarPaciente.AutoSize = true;
-            this.lblAgregarPaciente.Location = new System.Drawing.Point(119, 221);
-            this.lblAgregarPaciente.Name = "lblAgregarPaciente";
-            this.lblAgregarPaciente.Size = new System.Drawing.Size(97, 15);
-            this.lblAgregarPaciente.TabIndex = 4;
-            this.lblAgregarPaciente.Text = "Agregar Paciente";
-            this.lblAgregarPaciente.Click += new System.EventHandler(this.lblAgregarPaciente_Click);
-            // 
-            // lblAgregarCirujano
-            // 
-            this.lblAgregarCirujano.AutoSize = true;
-            this.lblAgregarCirujano.Location = new System.Drawing.Point(475, 221);
-            this.lblAgregarCirujano.Name = "lblAgregarCirujano";
-            this.lblAgregarCirujano.Size = new System.Drawing.Size(97, 15);
-            this.lblAgregarCirujano.TabIndex = 5;
-            this.lblAgregarCirujano.Text = "Agregar Cirujano";
-            this.lblAgregarCirujano.Click += new System.EventHandler(this.lblAgregarCirujano_Click);
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -121,26 +104,61 @@ namespace Formulario
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.agregarToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.TabIndex = 7;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // agregarToolStripMenuItem
+            // 
+            this.agregarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pacienteToolStripMenuItem,
+            this.cirujanoToolStripMenuItem});
+            this.agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
+            this.agregarToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.agregarToolStripMenuItem.Text = "Agregar";
+            // 
+            // pacienteToolStripMenuItem
+            // 
+            this.pacienteToolStripMenuItem.Name = "pacienteToolStripMenuItem";
+            this.pacienteToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.pacienteToolStripMenuItem.Text = "Paciente";
+            this.pacienteToolStripMenuItem.Click += new System.EventHandler(this.pacienteToolStripMenuItem_Click);
+            // 
+            // cirujanoToolStripMenuItem
+            // 
+            this.cirujanoToolStripMenuItem.Name = "cirujanoToolStripMenuItem";
+            this.cirujanoToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.cirujanoToolStripMenuItem.Text = "Cirujano";
+            this.cirujanoToolStripMenuItem.Click += new System.EventHandler(this.cirujanoToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 503);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.lblAgregarCirujano);
-            this.Controls.Add(this.lblAgregarPaciente);
             this.Controls.Add(this.btnEstadistica);
             this.Controls.Add(this.btnMenuCirujano);
             this.Controls.Add(this.btnPaciente);
             this.Controls.Add(this.lblTitulo);
+            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,9 +170,11 @@ namespace Formulario
         private System.Windows.Forms.Button btnPaciente;
         private System.Windows.Forms.Button btnMenuCirujano;
         private System.Windows.Forms.Button btnEstadistica;
-        private System.Windows.Forms.Label lblAgregarPaciente;
-        private System.Windows.Forms.Label lblAgregarCirujano;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem agregarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pacienteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cirujanoToolStripMenuItem;
     }
 }
 

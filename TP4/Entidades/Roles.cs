@@ -1,5 +1,5 @@
 ﻿public enum ERol
 {
-    Cirujano, 
+    Cirujano=1, 
     Ayudante,
 };
