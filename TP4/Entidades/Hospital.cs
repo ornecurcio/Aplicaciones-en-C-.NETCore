@@ -26,12 +26,14 @@ namespace Entidades
                 estadistica = new Estadistica();
                 AccesoDatos datos = new AccesoDatos();
 
-                pacientes = datos.ObtenerListaPacientes(); 
+                pacientes = datos.ObtenerListaPacientes();
+
+                cirujanos = datos.ObtenerListaCirujanos();
                 //string ruta = Archivo.GenerarRuta("Pacientes.json");
                 //pacientes = SerializacionAJason.DeserealizarDesdeJson<List<Paciente>>(ruta);
                 //ruta = Archivo.GenerarRuta("Cirujanos.json");
                 //cirujanos = SerializacionAJason.DeserealizarDesdeJson<List<Cirujano>>(ruta);
-                //ruta = Archivo.GenerarRuta("Cirugias.json");
+                //string ruta = Archivo.GenerarRuta("Cirugias.json");
                 //cirugias = SerializacionAJason.DeserealizarDesdeJson<List<Cirugia>>(ruta);
                 //Hospital.ActualizarEstadistica(cirugias);
             }

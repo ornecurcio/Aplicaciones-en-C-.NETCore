@@ -9,7 +9,13 @@ namespace ConsolaTP3
         static void Main(string[] args)
         {
             AccesoDatos datos = new AccesoDatos();
-            List<Paciente> pacientes = datos.ObtenerListaPacientes(); 
+            List<Paciente> pacientes = datos.ObtenerListaPacientes();
+            List<Cirujano> cirujanos = datos.ObtenerListaCirujanos();
+            List<Cirugia> cirugias = Hospital.Cirugias;
+            foreach (Cirugia item in cirugias)
+            {
+                Console.WriteLine(item.ToString()); 
+            }
 
             //List<EPatologia> patologias = new List<EPatologia>();
             //patologias.Add(EPatologia.Pelvis); 

@@ -123,6 +123,101 @@ namespace Entidades
 
             return lista;
         }
+        public List<Cirujano> ObtenerListaCirujanos()
+        {
+            List<Cirujano> lista = new List<Cirujano>();
+
+            try
+            {
+                comando = new SqlCommand();
+
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = "SELECT * FROM Cirujano INNER JOIN dbo.CirujanoRol ON Cirujano.dni = CirujanoRol.idCirujano " +
+                                       "INNER JOIN Rol ON CirujanoRol.IdRol = Rol.IdRol " +
+                                       "ORDER BY Dni Asc"; 
+                comando.Connection = conexion;
+
+                conexion.Open();
+
+                lector = comando.ExecuteReader();
+
+                while (lector.Read())
+                {
+                        Cirujano item = new Cirujano();
+                        item.Dni = double.Parse(lector["Dni"].ToString());
+                        item.Apellido = lector["Apellido"].ToString();
+                        item.Nombre = lector["Nombre"].ToString();
+                        item.Edad = lector.GetInt32("Edad");
+                        item.Rol = (ERol)Enum.Parse(typeof(ERol), lector["IdRol"].ToString());
+                        lista.Add(item);
+                    
+                }
+
+                lector.Close();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+
+            return lista;
+        }
+        public List<Cirugia> ObtenerListaCirugias()
+        {
+            List<Cirugia> lista = new List<Cirugia>();
+
+            try
+            {
+                comando = new SqlCommand();
+
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = "SELECT * FROM Cirujano INNER JOIN dbo.CirujanoRol ON Cirujano.dni = CirujanoRol.idCirujano " +
+                                       "INNER JOIN Rol ON CirujanoRol.IdRol = Rol.IdRol " +
+                                       "ORDER BY Dni Asc";
+                comando.Connection = conexion;
+
+                conexion.Open();
+
+                lector = comando.ExecuteReader();
+
+                while (lector.Read())
+                {
+                    Cirujano item = new Cirujano();
+                    item.Dni = double.Parse(lector["Dni"].ToString());
+                    item.Apellido = lector["Apellido"].ToString();
+                    item.Nombre = lector["Nombre"].ToString();
+                    item.Edad = lector.GetInt32("Edad");
+                    item.Rol = (ERol)Enum.Parse(typeof(ERol), lector["IdRol"].ToString());
+                    lista.Add(item);
+
+                }
+
+                lector.Close();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+
+            return lista;
+        }
+
         //public List<Paciente> ObtenerListaPlaneta()
         //{
         //    List<Paciente> lista = new List<Paciente>();
@@ -177,7 +272,7 @@ namespace Entidades
 
         #region Insert
 
-        public bool AgregarPlaneta(Paciente param)
+        public bool AgregarPaciente(Paciente param)
         {
             bool rta = true;
 
@@ -216,12 +311,52 @@ namespace Entidades
 
             return rta;
         }
+        public bool AgregarCirugia(Cirugia param)
+        {
+            bool rta = true;
 
+            try
+            {
+                string sql = "INSERT INTO dbo.Cirugia (IdCirujano, IdRol, IdPaciente, IdPatologia, IdProcedimiento, Fecha) " +
+                             "VALUES(" + param.Cirujano.Dni.ToString()+", " +((int)param.Cirujano.Rol).ToString() + ", " + param.Paciente.Dni.ToString() + ", " +
+                          ((int)param.Patologia).ToString() + ", " + ((int)param.Procedimiento).ToString() + ",'" + param.Fecha.ToString("yyyy-MM-dd") + "');";
+
+                comando = new SqlCommand();
+
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = sql;
+                comando.Connection = conexion;
+
+                conexion.Open();
+
+                int filasAfectadas = comando.ExecuteNonQuery();
+
+                if (filasAfectadas == 0)
+                {
+                    rta = false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                rta = false;
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+
+            return rta;
+        }
         #endregion
 
         #region Update
 
-        public bool ModificarPlaneta(Cirujano param)
+        public bool ModificarCirujano(Cirujano param)
         {
             bool rta = true;
 
@@ -235,7 +370,7 @@ namespace Entidades
                 comando.Parameters.AddWithValue("@edad", param.Edad);
                 //comando.Parameters.AddWithValue("@gravedad", param.gravedad);
 
-                string sql = "UPDATE dbo.Paciente ";
+                string sql = "UPDATE dbo.Cirujano ";
                 sql += "SET apellido = @apellido, nombre = @nombre, edad = @edad ";
                 sql += "WHERE dni = @dni";
 
