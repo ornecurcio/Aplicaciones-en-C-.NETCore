@@ -179,9 +179,9 @@ namespace Entidades
                 comando = new SqlCommand();
 
                 comando.CommandType = CommandType.Text;
-                comando.CommandText = "SELECT * FROM Cirujano INNER JOIN dbo.CirujanoRol ON Cirujano.dni = CirujanoRol.idCirujano " +
-                                       "INNER JOIN Rol ON CirujanoRol.IdRol = Rol.IdRol " +
-                                       "ORDER BY Dni Asc";
+                comando.CommandText = "SELECT * FROM CIRUGIA INNER JOIN CIRUJANO " +
+                                      "ON CIRUGIA.IDCIRUJANO = CIRUJANO.DNI INNER JOIN PACIENTE " +
+                                      "ON CIRUGIA.IDPACIENTE = PACIENTE.DNI ORDER BY CIRUGIA.IDCIRUJANO Asc";
                 comando.Connection = conexion;
 
                 conexion.Open();
@@ -191,11 +191,22 @@ namespace Entidades
                 while (lector.Read())
                 {
                     Cirugia item = new Cirugia();
-                    item.Dni = double.Parse(lector["Dni"].ToString());
-                    item.Apellido = lector["Apellido"].ToString();
-                    item.Nombre = lector["Nombre"].ToString();
-                    item.Edad = lector.GetInt32("Edad");
-                    item.Rol = (ERol)Enum.Parse(typeof(ERol), lector["IdRol"].ToString());
+                    item.Cirujano = new Cirujano();
+                    item.Cirujano.Nombre = lector[8].ToString();
+                    item.Cirujano.Apellido = lector[7].ToString(); 
+                    item.Cirujano.Dni = double.Parse(lector["IdCirujano"].ToString());
+                    item.Cirujano.Edad = lector.GetInt32(9);
+                    item.Paciente = new Paciente(); 
+                    item.Paciente.Apellido = lector[11].ToString();
+                    item.Paciente.Nombre = lector[12].ToString();
+                    item.Paciente.Edad = lector.GetInt32(13);
+                    item.Patologia = (EPatologia)Enum.Parse(typeof(EPatologia), lector["IdPatologia"].ToString());
+                    item.Procedimiento = (EProcedimiento)Enum.Parse(typeof(EProcedimiento), lector["IdProcedimiento"].ToString());
+                    item.Fecha = lector.GetDateTime(5); 
+                    //item.Apellido = lector["Apellido"].ToString();
+                    //item.Nombre = lector["Nombre"].ToString();
+                    //item.Edad = lector.GetInt32("Edad");
+                    //item.Rol = (ERol)Enum.Parse(typeof(ERol), lector["IdRol"].ToString());
                     lista.Add(item);
 
                 }
