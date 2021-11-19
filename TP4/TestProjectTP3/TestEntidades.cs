@@ -12,8 +12,8 @@ namespace TestProjectTP3
         public void VerificarIgualdadPacientes_Ok()
         {
             //Arrange
-            Paciente p1 = new Paciente("Martin", "Redrado", 14234678, new List<EPatologia>()); 
-            Paciente p2 = new Paciente("Martin", "Redrado", 14234678, new List<EPatologia>());
+            Paciente p1 = new Paciente("Martin", "Redrado", 14234678,42, new List<EPatologia>()); 
+            Paciente p2 = new Paciente("Martin", "Redrado", 14234678,42, new List<EPatologia>());
 
             //Act
             bool rta = p1 == p2;
@@ -26,8 +26,8 @@ namespace TestProjectTP3
         public void VerificarIgualdadPacientes_Falla()
         {
             //Arrange
-            Paciente p1 = new Paciente("Martin", "Redrado", 14234678, new List<EPatologia>());
-            Paciente p2 = new Paciente("Martin", "Martinez", 13234678, new List<EPatologia>());
+            Paciente p1 = new Paciente("Martin", "Redrado", 14234678,42, new List<EPatologia>());
+            Paciente p2 = new Paciente("Martin", "Martinez", 13234678,42, new List<EPatologia>());
 
             //Act
             bool rta = p1 == p2;
@@ -53,8 +53,8 @@ namespace TestProjectTP3
         public void VerificarIgualdadCirujanos_Ok()
         {
             //Arrange
-            Cirujano c1 = new Cirujano("Ornela", "Curcio", 34707599, ERol.Cirujano, new Estadistica());
-            Cirujano c2 = new Cirujano("Ornela", "Curcio", 34707599, ERol.Cirujano, new Estadistica());
+            Cirujano c1 = new Cirujano("Ornela", "Curcio", 34707599,31, ERol.Cirujano, new Estadistica());
+            Cirujano c2 = new Cirujano("Ornela", "Curcio", 34707599,31, ERol.Cirujano, new Estadistica());
 
             //Act
             bool rta = c1 == c2;
@@ -67,8 +67,8 @@ namespace TestProjectTP3
         public void VerificarIgualdadCirujanos_Falla()
         {
             //Arrange
-            Cirujano c1 = new Cirujano("Ornela", "Curcio", 34707599, ERol.Cirujano, new Estadistica());
-            Cirujano c2 = new Cirujano("Ornela", "Curcio", 34707599, ERol.Ayudante, new Estadistica());
+            Cirujano c1 = new Cirujano("Ornela", "Curcio", 34707599,31, ERol.Cirujano, new Estadistica());
+            Cirujano c2 = new Cirujano("Ornela", "Curcio", 34707599,31, ERol.Ayudante, new Estadistica());
 
             //Act
             bool rta = c1 == c2;
@@ -94,9 +94,9 @@ namespace TestProjectTP3
         public void ValidarInstanciaCirugia()
         {
             //Arrange
-            Cirugia c = new Cirugia(new Paciente("Martin", "Redrado", 14234678, new List<EPatologia>()),
+            Cirugia c = new Cirugia(new Paciente("Martin", "Redrado", 14234678,42, new List<EPatologia>()),
                                     System.DateTime.Now,
-                                    new Cirujano("Ornela", "Curcio", 34707599, ERol.Cirujano, new Estadistica()),
+                                    new Cirujano("Ornela", "Curcio", 34707599,31, ERol.Cirujano, new Estadistica()),
                                     EPatologia.Columna, EProcedimiento.Artrodecis);
 
             //Act
@@ -120,7 +120,7 @@ namespace TestProjectTP3
         public void ValidarMetodoCargarCirujano_NodebeAgregarlo()
         {
             //Arrange
-            Cirujano c1 = new Cirujano("Ornela", "Curcio", 34707599, ERol.Cirujano, new Estadistica());
+            Cirujano c1 = new Cirujano("Ornela", "Curcio", 34707599,31, ERol.Cirujano, new Estadistica());
 
             //Act
             bool rta = Hospital.CargarCirujanos(c1);
@@ -132,7 +132,7 @@ namespace TestProjectTP3
         public void ValidarMetodoActualizarPaciente_DebeDarFalse()
         {
             //Arrange
-            Paciente p1 = new Paciente("Martin", "Redrado", 14234678, new List<EPatologia>());
+            Paciente p1 = new Paciente("Martin", "Redrado", 14234678,42, new List<EPatologia>());
 
             //Act
             bool rta = Hospital.ActualizarPaciente(p1); 
@@ -140,7 +140,18 @@ namespace TestProjectTP3
             //Assert
             Assert.IsFalse(rta);
         }
-        
+        [TestMethod]
+        public void ValidarConexionBaseDatos_DebeDarTrue()
+        {
+            //Arrange
+            AccesoDatos datos = new AccesoDatos(); 
+
+            //Act
+            bool rta = datos.ProbarConexion();
+
+            //Assert
+            Assert.IsTrue(rta);
+        }
     }
 }
 

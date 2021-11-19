@@ -28,7 +28,6 @@ namespace Entidades
 
         public AccesoDatos()
         {
-            // CREO UN OBJETO SQLCONECTION
             conexion = new SqlConnection(AccesoDatos.cadena_conexion);
         }
 
@@ -109,9 +108,9 @@ namespace Entidades
                 lector.Close();
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine(ex.ToString());
+                throw; 
             }
             finally
             {
@@ -196,17 +195,15 @@ namespace Entidades
                     item.Cirujano.Apellido = lector[7].ToString(); 
                     item.Cirujano.Dni = double.Parse(lector["IdCirujano"].ToString());
                     item.Cirujano.Edad = lector.GetInt32(9);
+                    item.Cirujano.Rol = (ERol)Enum.Parse(typeof(ERol), lector["IdRol"].ToString());
                     item.Paciente = new Paciente(); 
+                    item.Paciente.Dni = double.Parse(lector["IdPaciente"].ToString());
                     item.Paciente.Apellido = lector[11].ToString();
                     item.Paciente.Nombre = lector[12].ToString();
                     item.Paciente.Edad = lector.GetInt32(13);
                     item.Patologia = (EPatologia)Enum.Parse(typeof(EPatologia), lector["IdPatologia"].ToString());
                     item.Procedimiento = (EProcedimiento)Enum.Parse(typeof(EProcedimiento), lector["IdProcedimiento"].ToString());
                     item.Fecha = lector.GetDateTime(5); 
-                    //item.Apellido = lector["Apellido"].ToString();
-                    //item.Nombre = lector["Nombre"].ToString();
-                    //item.Edad = lector.GetInt32("Edad");
-                    //item.Rol = (ERol)Enum.Parse(typeof(ERol), lector["IdRol"].ToString());
                     lista.Add(item);
 
                 }
@@ -214,9 +211,9 @@ namespace Entidades
                 lector.Close();
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine(ex.ToString());
+                throw; 
             }
             finally
             {
@@ -229,56 +226,7 @@ namespace Entidades
             return lista;
         }
 
-        //public List<Paciente> ObtenerListaPlaneta()
-        //{
-        //    List<Paciente> lista = new List<Paciente>();
-
-        //    try
-        //    {
-        //        comando = new SqlCommand();
-
-        //        comando.CommandType = CommandType.Text;
-        //        comando.CommandText = "SELECT * FROM dbo.planetas";
-        //        comando.Connection = conexion;
-
-        //        conexion.Open();
-
-        //        lector = comando.ExecuteReader();
-
-        //        while (lector.Read())
-        //        {
-        //            Paciente item = new Paciente();
-
-        //            // ACCEDO POR NOMBRE, POR INDICE O POR GETTER (SEGUN TIPO DE DATO)
-        //            item.Dni = (int)lector[1];
-        //            item.Apellido = lector[2].ToString();
-        //            item.Nombre = lector[3].ToString();
-        //            item.Edad = lector.GetInt32(3);
-        //            EPatologia aux = (EPatologia)Enum.Parse(typeof(EPatologia), lector[4].ToString());
-        //            item.Patologia.Add(aux); 
-
-        //            lista.Add(item);
-        //        }
-
-        //        lector.Close();
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine(ex.ToString());
-        //    }
-        //    finally
-        //    {
-        //        if (conexion.State == ConnectionState.Open)
-        //        {
-        //            conexion.Close();
-        //        }
-        //    }
-
-        //    return lista;
-        //}
-
-
+        
         #endregion
 
         #region Insert
@@ -308,7 +256,7 @@ namespace Entidades
                 }
 
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 rta = false;
             }
@@ -322,6 +270,48 @@ namespace Entidades
 
             return rta;
         }
+
+        public bool AgregarPatologiaPaciente(Paciente param, EPatologia patologia)
+        {
+            bool rta = true;
+
+            try
+            {
+
+                string sql = "INSERT INTO dbo.PacientePatologia (IdPaciente, IdPatologia VALUES(" + param.Dni.ToString() + "," 
+                              + ((int)patologia).ToString() + ")";
+
+                comando = new SqlCommand();
+
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = sql;
+                comando.Connection = conexion;
+
+                conexion.Open();
+
+                int filasAfectadas = comando.ExecuteNonQuery();
+
+                if (filasAfectadas == 0)
+                {
+                    rta = false;
+                }
+
+            }
+            catch (Exception)
+            {
+                rta = false;
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+
+            return rta;
+        }
+
         public bool AgregarCirugia(Cirugia param)
         {
             bool rta = true;
@@ -348,9 +338,89 @@ namespace Entidades
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine(ex.ToString());
+                rta = false;
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+
+            return rta;
+        }
+
+        public bool AgregarCirujano(Cirujano param)
+        {
+            bool rta = true;
+
+            try
+            {
+                string sql = "INSERT INTO dbo.Cirujano (dni, apellido, nombre, edad) VALUES(";
+                sql = sql + " " + param.Dni.ToString() + ",'" + param.Apellido + "', '" + param.Nombre + "'," + param.Edad.ToString() + ")";
+
+                comando = new SqlCommand();
+
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = sql;
+                comando.Connection = conexion;
+
+                conexion.Open();
+
+                int filasAfectadas = comando.ExecuteNonQuery();
+
+                if (filasAfectadas == 0)
+                {
+                    rta = false;
+                }
+
+            }
+            catch (Exception)
+            {
+                rta = false;
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+
+            return rta;
+        }
+
+        public bool AgregarRolCirujano(Cirujano param, ERol rol)
+        {
+            bool rta = true;
+
+            try
+            {
+
+                string sql = "INSERT INTO dbo.PacientePatologia (IdCirujano, IdRol VALUES(" + param.Dni.ToString() + ","
+                              + ((int)rol).ToString() + ")";
+
+                comando = new SqlCommand();
+
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = sql;
+                comando.Connection = conexion;
+
+                conexion.Open();
+
+                int filasAfectadas = comando.ExecuteNonQuery();
+
+                if (filasAfectadas == 0)
+                {
+                    rta = false;
+                }
+
+            }
+            catch (Exception)
+            {
                 rta = false;
             }
             finally
@@ -379,7 +449,6 @@ namespace Entidades
                 comando.Parameters.AddWithValue("@apellido", param.Apellido);
                 comando.Parameters.AddWithValue("@nombre", param.Nombre);
                 comando.Parameters.AddWithValue("@edad", param.Edad);
-                //comando.Parameters.AddWithValue("@gravedad", param.gravedad);
 
                 string sql = "UPDATE dbo.Cirujano ";
                 sql += "SET apellido = @apellido, nombre = @nombre, edad = @edad ";
@@ -399,28 +468,52 @@ namespace Entidades
                 }
 
             }
-            catch (InvalidCastException)
+            catch (Exception)
             {
                 rta = false;
             }
-            catch (System.IO.IOException)
+            finally
             {
-                rta = false;
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
             }
-            catch (ObjectDisposedException)
+
+            return rta;
+        }
+        public bool ModificarPaciente(Paciente param)
+        {
+            bool rta = true;
+
+            try
             {
-                rta = false;
+                comando = new SqlCommand();
+
+                comando.Parameters.AddWithValue("@dni", param.Dni);
+                comando.Parameters.AddWithValue("@apellido", param.Apellido);
+                comando.Parameters.AddWithValue("@nombre", param.Nombre);
+                comando.Parameters.AddWithValue("@edad", param.Edad);
+
+                string sql = "UPDATE dbo.Paciente ";
+                sql += "SET apellido = @apellido, nombre = @nombre, edad = @edad ";
+                sql += "WHERE dni = @dni";
+
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = sql;
+                comando.Connection = conexion;
+
+                conexion.Open();
+
+                int filasAfectadas = comando.ExecuteNonQuery();
+
+                if (filasAfectadas == 0)
+                {
+                    rta = false;
+                }
+
             }
-            catch (InvalidOperationException)
-            {
-                rta = false;
-            }
-            catch (SqlException ex)
-            {
-                Console.WriteLine(ex.Message);
-                rta = false;
-            }
-            catch (Exception e)
+            catch (Exception)
             {
                 rta = false;
             }
@@ -439,7 +532,7 @@ namespace Entidades
 
         #region Delete
 
-        public bool EliminarPlaneta(double dni)
+        public bool EliminarPaciente(double dni)
         {
             bool rta = true;
 

@@ -13,11 +13,7 @@ namespace ConsolaTP3
             List<Paciente> pacientes = Hospital.Pacientes; 
             List<Cirujano> cirujanos = datos.ObtenerListaCirujanos();
             List<Cirugia> cirugias = datos.ObtenerListaCirugias();
-            foreach (Cirugia item in cirugias)
-                {
-                Console.WriteLine(item.ToString()); 
-                }
-
+            
             //List<EPatologia> patologias = new List<EPatologia>();
             //patologias.Add(EPatologia.Pelvis); 
             //// Instancio un paciente
