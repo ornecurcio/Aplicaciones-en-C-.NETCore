@@ -101,7 +101,7 @@ namespace Entidades
                     else
                     {
                         int id = lista.FindIndex((x) => x.Dni == dni); 
-                        EPatologia aux = (EPatologia)Enum.Parse(typeof(EPatologia), lector[6].ToString());
+                        EPatologia aux = (EPatologia)Enum.Parse(typeof(EPatologia), lector["IdPatologia"].ToString());
                         lista[id].Patologia.Add(aux);
                     }
                 }
@@ -190,7 +190,7 @@ namespace Entidades
 
                 while (lector.Read())
                 {
-                    Cirujano item = new Cirujano();
+                    Cirugia item = new Cirugia();
                     item.Dni = double.Parse(lector["Dni"].ToString());
                     item.Apellido = lector["Apellido"].ToString();
                     item.Nombre = lector["Nombre"].ToString();
