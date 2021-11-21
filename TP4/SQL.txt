@@ -1,0 +1,88 @@
+USE [TpFinalCurcioOrnela]
+GO
+
+/****** Object:  Table [dbo].[CirujanoEstadistica]    Script Date: 20/11/2021 11:02:45 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[EstadisticaCirujano](
+	[IdCirujano] [int] NOT NULL,
+	[IdRol] [int] NOT NULL,
+	[Columna] [int] NULL,
+	[MiembroSuperior] [int] NULL,
+	[MiembroInferior] [int] NULL,
+	[Pelvis] [int] NULL,
+	[RAFI] [int] NULL,
+	[ReduccionCerrada] [int] NULL,
+	[Osteotomia] [int] NULL,
+	[Artrodecis] [int] NULL,
+	[Osteodesis] [int] NULL,
+	[Yeso] [int] NULL
+) ON [PRIMARY]
+GO
+Delete from EstadisticaCirujano where IdCirujano = 33963306
+INSERT INTO dbo.Cirujano (dni, apellido, nombre, edad) VALUES( 33963306,'Acorintti', 'Natalia',31) 
+INSERT INTO dbo.EstadisticaCirujano (IdCirujano, IdRol, columna, miembroSuperior, 
+miembroInferior, pelvis, RAFI, ReduccionCerrada, Osteotomia, Artrodecis, Osteodesis, Yeso) 
+VALUES(33963306, 1, 0,0,0,0,0,0,0,0,0,0)
+
+SELECT * FROM dbo.Cirujano INNER JOIN CirujanoRol
+ON Cirujano.dni = CirujanoRol.IdCirujano INNER JOIN EstadisticaCirujano
+On EstadisticaCirujano.IdCirujano = Cirujano.DNI and EstadisticaCirujano.IdRol = CirujanoRol.IdRol
+Order by Cirujano.DNI asc
+
+SELECT * FROM dbo.Cirujano INNER JOIN CirujanoRol ON Cirujano.dni = CirujanoRol.IdCirujano INNER JOIN EstadisticaCirujano On EstadisticaCirujano.IdCirujano = Cirujano.DNI and EstadisticaCirujano.IdRol = CirujanoRol.IdRol 
+Order by Cirujano.DNI asc
+
+SELECT * FROM Cirujano INNER JOIN EstadisticaCirujano
+On EstadisticaCirujano.IdCirujano = Cirujano.DNI 
+Order by EstadisticaCirujano.IdCirujano asc
+
+SELECT * FROM CirujanoRol iNNER JOIN EstadisticaCirujano
+On EstadisticaCirujano.IdCirujano = CirujanoRol.IdCirujano AND EstadisticaCirujano.IdRol = CirujanoRol.IdRol
+Order by EstadisticaCirujano.IdCirujano asc
+
+SELECT TOP (1000) [IdCirujano]
+      ,[IdRol]
+      ,[Columna]
+      ,[MiembroSuperior]
+      ,[MiembroInferior]
+      ,[Pelvis]
+      ,[RAFI]
+      ,[ReduccionCerrada]
+      ,[Osteotomia]
+      ,[Artrodecis]
+      ,[Osteodesis]
+      ,[Yeso]
+  FROM [TpFinalCurcioOrnela].[dbo].[EstadisticaCirujano]
+  DELETE FROM dbo.EstadisticaCirujano WHERE IdCirujano = 34707599 AND IdRol = 1
+  INSERT INTO dbo.EstadisticaCirujano (IdCirujano, IdRol, columna, miembroSuperior, miembroInferior, pelvis, RAFI, ReduccionCerrada, Osteotomia, Artrodecis, Osteodesis, Yeso) 
+  VALUES(34707599,1,0,0,0,0,0,4,0,0,0,0)
+
+  INSERT INTO dbo.EstadisticaCirujano (IdCirujano, IdRol, columna, miembroSuperior, miembroInferior, pelvis, RAFI, ReduccionCerrada, Osteotomia, Artrodecis, Osteodesis, Yeso) 
+  VALUES(14237825,1,0,0,0,0,0,0,0,0,0,0),
+		(22963307,1,0,0,0,0,0,0,0,0,0,0),
+		(33203790,2,0,0,0,0,0,0,0,0,0,0),
+		(33963306,1,0,0,0,0,0,0,0,0,0,0),
+		(33963306,2,0,0,0,0,0,0,0,0,0,0),
+		(34707599,2,0,0,0,0,0,0,0,0,0,0),
+		(34707599,1,0,0,0,0,0,0,0,0,0,0),
+		(32980534,1,0,0,0,0,0,0,0,0,0,0),
+		(33203789,1,0,0,0,0,0,0,0,0,0,0),
+		(33203789,2,0,0,0,0,0,0,0,0,0,0);
+  
+  SELECT * FROM dbo.Cirujano INNER JOIN CirujanoRol
+  ON Cirujano.dni = CirujanoRol.IdCirujano INNER JOIN EstadisticaCirujano
+  On EstadisticaCirujano.IdCirujano = Cirujano.DNI and EstadisticaCirujano.IdRol = CirujanoRol.IdRol
+  Order by Cirujano.DNI asc
+
+14237825	Albarracin	Juan Pablo	58
+22963307	Villena	Daniel	42
+32980534	Peralta	Juan	33
+33203790	Gonzalez	Noelia	32
+33963306	Acorintti	Natalia	31
+34707599	Curcio	Ornela	31
+33203789	Guidali	Lucia	32

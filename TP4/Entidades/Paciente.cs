@@ -11,7 +11,6 @@ namespace Entidades
         #region Atributo
         private List<EPatologia> patologias;
         #endregion
-
         #region Constructor
         public Paciente() : this("sin nombre", "sin apellido", 0,1, new List<EPatologia>())
         { }
@@ -42,6 +41,10 @@ namespace Entidades
             }
         }
         #endregion
+        public void PacienteOperado()
+        {
+            this.patologias = null; 
+        }
 
         #region Sobrecarga
         /// <summary>

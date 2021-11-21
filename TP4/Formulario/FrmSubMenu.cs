@@ -21,13 +21,13 @@ namespace Formulario
 
             if (esMedico)
             {
-                btnAgregar.Text = "Agregar 1 cirugia a Cirujano";
+                btnAgregar.Text = "Agregar 1 cirugia a Cirugias Pendientes";
                 btnVer.Text = "Ver estadistica de 1 Cirujano";
                 this.Text = "SubMenu Cirujano"; 
             }
             else
             {
-                btnAgregar.Text = "Agregar patologia a Paciente";
+                btnAgregar.Text = "Agregar patologia a 1 Paciente";
                 btnVer.Text = "Ver pacientes por Patologia";
                 this.Text = "SubMenu Paciente"; 
             }

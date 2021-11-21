@@ -35,12 +35,6 @@ namespace Formulario
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.btnExportarAXml = new System.Windows.Forms.Button();
             this.btnExportarAJson = new System.Windows.Forms.Button();
-            this.lblTotalCirugias = new System.Windows.Forms.Label();
-            this.lblPatologiaOCirugias = new System.Windows.Forms.Label();
-            this.l = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblTotalMedico = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataEstadistica)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,11 +57,11 @@ namespace Formulario
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataEstadistica.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataEstadistica.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataEstadistica.Location = new System.Drawing.Point(12, 126);
+            this.dataEstadistica.Location = new System.Drawing.Point(12, 51);
             this.dataEstadistica.Name = "dataEstadistica";
             this.dataEstadistica.RowHeadersVisible = false;
             this.dataEstadistica.RowTemplate.Height = 25;
-            this.dataEstadistica.Size = new System.Drawing.Size(932, 337);
+            this.dataEstadistica.Size = new System.Drawing.Size(932, 412);
             this.dataEstadistica.TabIndex = 0;
             // 
             // lblDescripcion
@@ -104,75 +98,12 @@ namespace Formulario
             this.btnExportarAJson.UseVisualStyleBackColor = false;
             this.btnExportarAJson.Click += new System.EventHandler(this.btnExportarAJson_Click);
             // 
-            // lblTotalCirugias
-            // 
-            this.lblTotalCirugias.AutoSize = true;
-            this.lblTotalCirugias.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTotalCirugias.Location = new System.Drawing.Point(501, 8);
-            this.lblTotalCirugias.Name = "lblTotalCirugias";
-            this.lblTotalCirugias.Size = new System.Drawing.Size(197, 22);
-            this.lblTotalCirugias.TabIndex = 4;
-            this.lblTotalCirugias.Text = "Total Cirugias Servicio";
-            // 
-            // lblPatologiaOCirugias
-            // 
-            this.lblPatologiaOCirugias.AutoSize = true;
-            this.lblPatologiaOCirugias.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblPatologiaOCirugias.Location = new System.Drawing.Point(501, 89);
-            this.lblPatologiaOCirugias.Name = "lblPatologiaOCirugias";
-            this.lblPatologiaOCirugias.Size = new System.Drawing.Size(253, 22);
-            this.lblPatologiaOCirugias.TabIndex = 5;
-            this.lblPatologiaOCirugias.Text = "Patologias o Procedimientos";
-            // 
-            // l
-            // 
-            this.l.AutoSize = true;
-            this.l.Location = new System.Drawing.Point(848, 15);
-            this.l.Name = "l";
-            this.l.Size = new System.Drawing.Size(38, 15);
-            this.l.TabIndex = 6;
-            this.l.Text = "label1";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(848, 89);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 15);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "label2";
-            // 
-            // lblTotalMedico
-            // 
-            this.lblTotalMedico.AutoSize = true;
-            this.lblTotalMedico.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTotalMedico.Location = new System.Drawing.Point(501, 49);
-            this.lblTotalMedico.Name = "lblTotalMedico";
-            this.lblTotalMedico.Size = new System.Drawing.Size(191, 22);
-            this.lblTotalMedico.TabIndex = 8;
-            this.lblTotalMedico.Text = "Total Cirugias Medico";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(848, 55);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 15);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "label1";
-            // 
             // FrmMostrarEstadistica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(956, 501);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblTotalMedico);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.l);
-            this.Controls.Add(this.lblPatologiaOCirugias);
-            this.Controls.Add(this.lblTotalCirugias);
             this.Controls.Add(this.btnExportarAJson);
             this.Controls.Add(this.btnExportarAXml);
             this.Controls.Add(this.lblDescripcion);
@@ -195,11 +126,5 @@ namespace Formulario
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Button btnExportarAXml;
         private System.Windows.Forms.Button btnExportarAJson;
-        private System.Windows.Forms.Label lblTotalCirugias;
-        private System.Windows.Forms.Label lblPatologiaOCirugias;
-        private System.Windows.Forms.Label l;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblTotalMedico;
-        private System.Windows.Forms.Label label1;
     }
 }

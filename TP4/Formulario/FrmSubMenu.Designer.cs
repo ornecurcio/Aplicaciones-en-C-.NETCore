@@ -39,7 +39,7 @@ namespace Formulario
             // 
             this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnAgregar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAgregar.Location = new System.Drawing.Point(51, 29);
+            this.btnAgregar.Location = new System.Drawing.Point(51, 98);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(384, 46);
             this.btnAgregar.TabIndex = 0;
@@ -50,7 +50,7 @@ namespace Formulario
             // 
             this.btnVer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnVer.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnVer.Location = new System.Drawing.Point(51, 97);
+            this.btnVer.Location = new System.Drawing.Point(51, 171);
             this.btnVer.Name = "btnVer";
             this.btnVer.Size = new System.Drawing.Size(384, 45);
             this.btnVer.TabIndex = 1;
@@ -73,7 +73,7 @@ namespace Formulario
             // 
             this.btnAgregarNuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnAgregarNuevo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAgregarNuevo.Location = new System.Drawing.Point(51, 169);
+            this.btnAgregarNuevo.Location = new System.Drawing.Point(51, 30);
             this.btnAgregarNuevo.Name = "btnAgregarNuevo";
             this.btnAgregarNuevo.Size = new System.Drawing.Size(384, 40);
             this.btnAgregarNuevo.TabIndex = 4;

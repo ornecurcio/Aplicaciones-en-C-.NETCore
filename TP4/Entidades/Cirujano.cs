@@ -11,11 +11,13 @@ namespace Entidades
         #region Atributos
         private ERol rol;
         private Estadistica estadistica;
+
         #endregion
 
         #region Constructores
-        public Cirujano():base()
-        { }
+        public Cirujano():this("", "", 0, 0, ERol.Cirujano,new Estadistica())
+        {
+        }
         /// <summary>
         /// Constructor con parametros
         /// </summary>

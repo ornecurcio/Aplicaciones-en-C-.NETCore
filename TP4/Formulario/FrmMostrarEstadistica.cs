@@ -35,7 +35,7 @@ namespace Formulario
             lblDescripcion.Text = "Cirugias Totales";
             if (esServicio)
             {
-                cirugias = Hospital.Cirugias;
+                cirugias = Hospital.CirugiasRealizadas;
             } 
         }
         //Sobrecarga, se ingresa desde el hospital y se muestran las cirugias con esa patologia
@@ -51,7 +51,7 @@ namespace Formulario
         public FrmMostrarEstadistica(bool esServicio, EProcedimiento procedimiento) : this()
         {
             lblDescripcion.Text = $"Cirugias de {procedimiento}";
-            if (esServicio && Hospital.Cirugias.Count > 0)
+            if (esServicio && Hospital.CirugiasRealizadas.Count > 0)
             {
                 cirugias = Hospital.CirugiasXProcedimiento(procedimiento);
             }

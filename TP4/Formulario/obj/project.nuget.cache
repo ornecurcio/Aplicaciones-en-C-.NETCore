@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "p02nUxGkgzkEGFNn+u4HmJTdS3+0f15j0thtgLqMDgw4R/Mc0uBU7i8/POFLIGPyDo5i8873Kw1GGVgFho2FiQ==",
+  "dgSpecHash": "dw0S0adase1incoBmApLdjXaGt1JP+EnWanNMEyKgzwINtTzJiVNTZDIa5xzQQVmyR/KHNfSUOytUBOjf3inwQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\orne_\\source\\repos\\TpS\\TP4\\Formulario\\Formulario.csproj",
+  "projectFilePath": "C:\\Users\\orne_\\source\\repos\\Progra y Labo II\\TP4\\Formulario\\Formulario.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\orne_\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\orne_\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

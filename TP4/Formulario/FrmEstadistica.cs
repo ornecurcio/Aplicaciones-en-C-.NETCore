@@ -32,7 +32,7 @@ namespace Formulario
             {
                 this.LoadInicial();
                 cmbTotalCirugias.Visible = false;
-                txtTotalCirugias.Text = Hospital.Cirugias.Count.ToString();
+                txtTotalCirugias.Text = Hospital.CirugiasRealizadas.Count.ToString();
                 txtTotalCirugias.Enabled = false;
             }
             else

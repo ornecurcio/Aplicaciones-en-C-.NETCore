@@ -27,10 +27,12 @@ namespace Formulario
                 lblPacientevsCirujano.Text = "Paciente";
                 CargarCmbLista(cmbPacientevsCirujano, Hospital.Pacientes); 
                 cmbPatologia.DataSource = Hospital.Pacientes[0].Patologia;
+                this.Text = "Agregar Cirugia Pendiente"; 
             }
             else
             {
                 lblPersona.Text = "Paciente";
+                this.Text = "Cargar Patologia"; 
                 CargarCmbLista(cmbApellidoNombre, Hospital.Pacientes);
                 lblAgregarNuevo2.Visible = false;
                 lblPacientevsCirujano.Visible = false;
@@ -60,7 +62,7 @@ namespace Formulario
                 {
                     case "Columna":
                         cmbProcedimiento.Items.Clear(); 
-                        cmbProcedimiento.Items.AddRange(new String[] { "RAFI", "Artrodecis", "Osteotomia", "Yeso" });
+                        cmbProcedimiento.Items.AddRange(new String[] { "Artrodecis", "Osteotomia", "Yeso" });
                         break;
                     case "MiembroSuperior":
                         cmbProcedimiento.Items.Clear();
@@ -72,7 +74,7 @@ namespace Formulario
                         break;
                     case "Pelvis":
                         cmbProcedimiento.Items.Clear();
-                        cmbProcedimiento.Items.AddRange(new String[] { "Artrodecis", "Osteotomia", "Yeso" });
+                        cmbProcedimiento.Items.AddRange(new String[] { "Artrodecis", "Osteotomia"});
                         break;
                 }
             }
@@ -101,11 +103,19 @@ namespace Formulario
             if (esMedico)
             {
                 Paciente aux = (Paciente)cmbPacientevsCirujano.SelectedItem;
-                cmbPatologia.DataSource = null;
-                cmbPatologia.DataSource = aux.Patologia;
+                if(aux.Patologia.Count==0)
+                {
+                    CargarCmbEnum<Type>(cmbPatologia, typeof(EPatologia));
+                }
+                else
+                {
+                    cmbPatologia.DataSource = null;
+                    cmbPatologia.DataSource = aux.Patologia;
+                }
+                
             }
         }
-        //se chequean los datos ingresados y se genera una instancia de una nueva cirugia 
+        //se chequean los datos ingresados y se genera una instancia de una nueva cirugia pendiente
         //se agrega la cirugia a la lista de cirugias del Hospital y actualizan las estadisticas
         private void btnAceptar_Click(object sender, EventArgs e)
         {
@@ -114,12 +124,12 @@ namespace Formulario
             {
                 Enum.TryParse(cmbPatologia.Text, out EPatologia auxP);
                 Enum.TryParse(cmbProcedimiento.Text, out EProcedimiento auxPr);
-
+                //TODO : ARREGLAR ESTADISTICA
                 Cirugia aux = new Cirugia((Paciente)cmbPacientevsCirujano.SelectedItem, DateTime.Now,
                                   (Cirujano)cmbApellidoNombre.SelectedItem, auxP, auxPr);
-                ((Cirujano)cmbApellidoNombre.SelectedItem).Estadistica.ActualizarPatologia(auxP);
-                ((Cirujano)cmbApellidoNombre.SelectedItem).Estadistica.ActualizarProcedimiento(auxPr);
-                Hospital.CargarCirugia(aux);
+               // ((Cirujano)cmbApellidoNombre.SelectedItem).Estadistica.ActualizarPatologia(auxP);
+               // ((Cirujano)cmbApellidoNombre.SelectedItem).Estadistica.ActualizarProcedimiento(auxPr);
+                Hospital.CargarCirugiaPendiente(aux);
 
                 this.Close();
             }
@@ -127,8 +137,8 @@ namespace Formulario
                      Enum.TryParse(cmbPatologia.Text, out EPatologia auxP))
             {
                 Paciente aux = (Paciente)cmbApellidoNombre.SelectedItem;
-                aux.Patologia.Add(auxP);
-                Hospital.ActualizarPaciente(aux);
+                //aux.Patologia.Add(auxP);
+                Hospital.ActualizarPacientePatologia(aux, auxP);
 
                 this.Close();
             }
@@ -163,10 +173,9 @@ namespace Formulario
                 d.DataSource = lista;
             }
         }
-
-        void ICargarCmb.CargarCmbEnum<T>(ComboBox d, T enu)
+        public void CargarCmbEnum<T>(ComboBox d, T enu) where T:Type
         {
-            d.DataSource = Enum.GetValues(typeof(T));
+            d.DataSource = Enum.GetValues(enu);
         }
     }
 }

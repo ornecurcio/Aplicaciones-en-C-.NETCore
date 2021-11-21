@@ -129,35 +129,45 @@ namespace Entidades
             try
             {
                 comando = new SqlCommand();
-
+                string sql = "SELECT * FROM dbo.Cirujano INNER JOIN CirujanoRol " +
+                    "ON Cirujano.dni = CirujanoRol.IdCirujano INNER JOIN EstadisticaCirujano " +
+                    "On EstadisticaCirujano.IdCirujano = Cirujano.DNI and EstadisticaCirujano.IdRol = CirujanoRol.IdRol " +
+                    "Order by Cirujano.DNI asc";
                 comando.CommandType = CommandType.Text;
-                comando.CommandText = "SELECT * FROM Cirujano INNER JOIN dbo.CirujanoRol ON Cirujano.dni = CirujanoRol.idCirujano " +
-                                       "INNER JOIN Rol ON CirujanoRol.IdRol = Rol.IdRol " +
-                                       "ORDER BY Dni Asc"; 
+                comando.CommandText = sql; 
                 comando.Connection = conexion;
 
                 conexion.Open();
 
                 lector = comando.ExecuteReader();
-
+                
                 while (lector.Read())
                 {
-                        Cirujano item = new Cirujano();
-                        item.Dni = double.Parse(lector["Dni"].ToString());
-                        item.Apellido = lector["Apellido"].ToString();
-                        item.Nombre = lector["Nombre"].ToString();
-                        item.Edad = lector.GetInt32("Edad");
-                        item.Rol = (ERol)Enum.Parse(typeof(ERol), lector["IdRol"].ToString());
-                        lista.Add(item);
-                    
+                    Cirujano item = new Cirujano();
+                    item.Dni = double.Parse(lector["DNI"].ToString());
+                    item.Apellido = lector["Apellido"].ToString();
+                    item.Nombre = lector["Nombre"].ToString();
+                    item.Edad = lector.GetInt32("Edad");
+                    item.Rol = (ERol)Enum.Parse(typeof(ERol), lector[5].ToString());
+                    item.Estadistica.CantColumna = lector.GetInt32("Columna");
+                    item.Estadistica.CantMiembroSuperior = lector.GetInt32("MiembroSuperior");
+                    item.Estadistica.CantMiembroInferior = lector.GetInt32("MiembroInferior");
+                    item.Estadistica.CantPelvis = lector.GetInt32("Pelvis");
+                    item.Estadistica.CantArtrodecis = lector.GetInt32("Artrodecis");
+                    item.Estadistica.CantOsteotomia = lector.GetInt32("Osteotomia");
+                    item.Estadistica.CantOsteodesis = lector.GetInt32("Osteodesis");
+                    item.Estadistica.CantRAFI = lector.GetInt32("RAFI");
+                    item.Estadistica.CantYeso = lector.GetInt32("Yeso");
+                    item.Estadistica.CantReduccionCerrada = lector.GetInt32("ReduccionCerrada");
+                    lista.Add(item);  
                 }
 
                 lector.Close();
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine(ex.ToString());
+                throw; 
             }
             finally
             {
@@ -226,11 +236,102 @@ namespace Entidades
             return lista;
         }
 
-        
+
         #endregion
 
         #region Insert
+        public bool ActualizarEstadisticaCirujano(Cirujano param)
+        {
+            bool rta = true;
 
+            try
+            {
+                comando = new SqlCommand();
+
+                comando.Parameters.AddWithValue("@dni", param.Dni);
+                comando.Parameters.AddWithValue("@idRol", param.Rol);
+
+                string sql = "DELETE FROM dbo.EstadisticaCirujano WHERE IdCirujano = @dni AND IdRol = @idRol " +
+                    "INSERT INTO dbo.EstadisticaCirujano (IdCirujano, IdRol, columna, miembroSuperior, miembroInferior, pelvis, " +
+                    "RAFI, ReduccionCerrada, Osteotomia, Artrodecis, Osteodesis, Yeso) " +
+                    "VALUES(" + param.Dni.ToString() +", "+ ((int)param.Rol).ToString()+", " + param.Estadistica.CantColumna.ToString() + "," + param.Estadistica.CantMiembroSuperior.ToString() + "," +
+                              param.Estadistica.CantMiembroInferior.ToString() + "," + param.Estadistica.CantPelvis.ToString() + "," +
+                              param.Estadistica.CantRAFI.ToString() + "," + param.Estadistica.CantReduccionCerrada.ToString() + "," + param.Estadistica.CantOsteotomia.ToString() + "," +
+                              param.Estadistica.CantArtrodecis.ToString() + "," + param.Estadistica.CantOsteodesis.ToString() + "," + param.Estadistica.CantYeso.ToString() + ")";
+
+
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = sql;
+                comando.Connection = conexion;
+
+                conexion.Open();
+
+                int filasAfectadas = comando.ExecuteNonQuery();
+
+                if (filasAfectadas == 0)
+                {
+                    rta = false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message); 
+                rta = false;
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+
+            return rta;
+        }
+        public bool ActualizarEstadisticaHospital(Estadistica param)
+        {
+            bool rta = true;
+
+            try
+            {
+                string sql = "DELETE FROM dbo.EstadisticaHospital INSERT INTO dbo.EstadisticaHospital (columna, miembroSuperior, miembroInferior, pelvis, " +
+                    "RAFI, ReduccionCerrada, Osteotomia, Artrodecis, Osteodesis, Yeso) " +
+                    "VALUES(" + param.CantColumna.ToString() + "," + param.CantMiembroSuperior.ToString() + ","+
+                              param.CantMiembroInferior.ToString() + ","+param.CantPelvis.ToString() + "," + 
+                              param.CantRAFI.ToString() + ","+param.CantReduccionCerrada.ToString() + ","+ param.CantOsteotomia.ToString() + "," +
+                              param.CantArtrodecis.ToString() + ","+ param.CantOsteodesis.ToString() + ","+ param.CantYeso.ToString()+ ")";
+
+                comando = new SqlCommand();
+
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = sql;
+                comando.Connection = conexion;
+
+                conexion.Open();
+
+                int filasAfectadas = comando.ExecuteNonQuery();
+
+                if (filasAfectadas == 0)
+                {
+                    rta = false;
+                }
+
+            }
+            catch (Exception)
+            {
+                rta = false;
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+
+            return rta;
+        }
         public bool AgregarPaciente(Paciente param)
         {
             bool rta = true;
@@ -278,7 +379,7 @@ namespace Entidades
             try
             {
 
-                string sql = "INSERT INTO dbo.PacientePatologia (IdPaciente, IdPatologia VALUES(" + param.Dni.ToString() + "," 
+                string sql = "INSERT INTO dbo.PacientePatologia (IdPaciente, IdPatologia) VALUES(" + param.Dni.ToString() + "," 
                               + ((int)patologia).ToString() + ")";
 
                 comando = new SqlCommand();
@@ -297,8 +398,8 @@ namespace Entidades
                 }
 
             }
-            catch (Exception)
-            {
+            catch (Exception ex)
+            { 
                 rta = false;
             }
             finally
@@ -359,10 +460,19 @@ namespace Entidades
 
             try
             {
-                string sql = "INSERT INTO dbo.Cirujano (dni, apellido, nombre, edad) VALUES(";
-                sql = sql + " " + param.Dni.ToString() + ",'" + param.Apellido + "', '" + param.Nombre + "'," + param.Edad.ToString() + ")";
-
+                
                 comando = new SqlCommand();
+                string sql = 
+                "INSERT INTO dbo.Cirujano (dni, apellido, nombre, edad) VALUES( " + param.Dni.ToString() + ",'" + param.Apellido + 
+                "', '" + param.Nombre + "'," + param.Edad.ToString() + ") INSERT INTO dbo.CirujanoRol (idCirujano, idRol) VALUES(" 
+                + param.Dni.ToString() + ", "+ ((int)param.Rol).ToString() + ") "
+                + "INSERT INTO dbo.EstadisticaCirujano (IdCirujano, IdRol, columna, miembroSuperior, miembroInferior, pelvis, " 
+                + "RAFI, ReduccionCerrada, Osteotomia, Artrodecis, Osteodesis, Yeso) " + "VALUES(" + param.Dni.ToString() + ", " 
+                + ((int)param.Rol).ToString() + ", " + param.Estadistica.CantColumna.ToString() + "," + param.Estadistica.CantMiembroSuperior.ToString() 
+                + "," + param.Estadistica.CantMiembroInferior.ToString() + "," + param.Estadistica.CantPelvis.ToString() + "," 
+                + param.Estadistica.CantRAFI.ToString() + "," + param.Estadistica.CantReduccionCerrada.ToString() + "," + param.Estadistica.CantOsteotomia.ToString() + ","
+                + param.Estadistica.CantArtrodecis.ToString() + "," + param.Estadistica.CantOsteodesis.ToString() + "," + param.Estadistica.CantYeso.ToString() + ")";
+
 
                 comando.CommandType = CommandType.Text;
                 comando.CommandText = sql;

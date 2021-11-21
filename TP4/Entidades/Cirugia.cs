@@ -2,23 +2,29 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Entidades
 {
+    public delegate void DelegadoCirugia(); 
     public class Cirugia
     {
         #region Atributos
+
         private Cirujano cirujano;
         private Paciente paciente;
         private EPatologia patologia;
         private EProcedimiento procedimiento; 
         private DateTime fecha;
+        bool operado; 
+        public event DelegadoCirugia operar; 
         #endregion
-
+       
         #region Constructores
-        public Cirugia()
-        { }
+        public Cirugia():this(new Paciente(),DateTime.Now,new Cirujano(),EPatologia.Columna,EProcedimiento.Artrodecis)
+        {
+        }
         /// <summary>
         /// Constructor con parametros
         /// </summary>
@@ -35,10 +41,15 @@ namespace Entidades
             this.cirujano = cirujano;
             this.patologia = patologia;
             this.procedimiento = procedimiento;
-           
+            operar += paciente.PacienteOperado;
+            operar += CirugiaRealizada;
+            operar += ActualizarEstadisticaHospital;
+            operar += ActulizarEstadisticaCirujano;
+            operar += CargarEnBaseDatos;
+            
         }
         #endregion
-
+        
         #region Propiedades
         public Cirujano Cirujano
         {
@@ -74,6 +85,7 @@ namespace Entidades
             set
             {
                 this.patologia = value; 
+
             }
         }
         public Paciente Paciente
@@ -102,5 +114,37 @@ namespace Entidades
             }
         }
         #endregion
+        public override string ToString()
+        {
+            return $"Paciente: {paciente.Apellido},{paciente.Nombre} -- Cirujano {cirujano.Apellido} -- Patologia: {patologia}";
+        }
+        public void CirugiaRealizada()
+        {
+            this.operado = true;
+            Hospital.CirugiasPendientes.Remove(this); 
+        }
+        
+        public void ActualizarEstadisticaHospital()
+        {
+            Hospital.Estadistica.ActualizarPatologia(this.patologia);
+            Hospital.Estadistica.ActualizarProcedimiento(this.procedimiento);
+        }
+        public void ActulizarEstadisticaCirujano()
+        {
+            cirujano.Estadistica.ActualizarPatologia(this.patologia);
+            cirujano.Estadistica.ActualizarProcedimiento(this.procedimiento); 
+        }
+        public void CargarEnBaseDatos()
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+            accesoDatos.AgregarCirugia(this);
+            accesoDatos.ActualizarEstadisticaCirujano(this.cirujano);
+        }
+        public void RealizarOperacion()
+        {
+            this.operar.Invoke();
+            Thread.Sleep(1000);
+        }
+
     }
 }

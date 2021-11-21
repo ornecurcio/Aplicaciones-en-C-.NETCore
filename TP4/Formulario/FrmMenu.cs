@@ -62,5 +62,11 @@ namespace Formulario
             FrmIngresoDatos ingresoDatos = new FrmIngresoDatos(esMedico);
             ingresoDatos.ShowDialog();
         }
+
+        private void btnQuirofano_Click(object sender, EventArgs e)
+        {
+            FrmQuirofano quirofano = new FrmQuirofano();
+            quirofano.Show(); 
+        }
     }
 }

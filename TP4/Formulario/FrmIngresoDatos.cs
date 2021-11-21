@@ -70,11 +70,11 @@ namespace Formulario
 
         private void FrmIngresoDatos_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("¿Esta seguro desea salir?", "Salir", MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question) == DialogResult.No)
-            {
-                e.Cancel = true;
-            }
+            //if (MessageBox.Show("¿Esta seguro desea salir?", "Salir", MessageBoxButtons.YesNo,
+            //    MessageBoxIcon.Question) == DialogResult.No)
+            //{
+            //    e.Cancel = true;
+            //}
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
