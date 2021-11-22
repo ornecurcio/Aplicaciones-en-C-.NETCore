@@ -163,6 +163,7 @@ namespace Entidades
                     break;
             }
         }
+
         /// <summary>
         /// Actualiza contador de procedimiento 
         /// </summary>
@@ -190,6 +191,108 @@ namespace Entidades
                     this.cantYeso++;
                     break;
             }
+        }
+
+        public EPatologia PatologiaPrevalente()
+        {
+            EPatologia aux; 
+            if(cantColumna>cantMiembroSuperior)
+            {
+                aux = EPatologia.Columna; 
+            }
+            else if(cantMiembroSuperior>cantMiembroInferior)
+            {
+                aux = EPatologia.MiembroSuperior;
+            }
+            else if(cantMiembroInferior>cantPelvis)
+            {
+                aux = EPatologia.MiembroInferior; 
+            }
+            else
+            {
+                aux = EPatologia.Pelvis; 
+            }
+
+            return aux; 
+        }
+        public int CantPatologiaPrevalente()
+        {
+            int aux;
+            if (cantColumna > cantMiembroSuperior)
+            {
+                aux = cantColumna;
+            }
+            else if (cantMiembroSuperior > cantMiembroInferior)
+            {
+                aux = cantMiembroSuperior;
+            }
+            else if (cantMiembroInferior > cantPelvis)
+            {
+                aux = cantMiembroInferior;
+            }
+            else
+            {
+                aux = cantPelvis;
+            }
+            return aux;
+        }
+        public EProcedimiento ProcedimientoPrevalente()
+        {
+            EProcedimiento aux;
+            if (cantArtrodecis > cantOsteodesis)
+            {
+                aux = EProcedimiento.Artrodecis;
+            }
+            else if (cantOsteodesis > cantOsteotomia)
+            {
+                aux = EProcedimiento.Osteodesis;
+            }
+            else if (CantOsteotomia > cantRAFI)
+            {
+                aux = EProcedimiento.Osteotomia;
+            }
+            else if(cantRAFI>cantReduccionCerrada)
+            {
+                aux = EProcedimiento.RAFI;
+            }
+            else if(cantReduccionCerrada>cantYeso)
+            {
+                aux = EProcedimiento.ReduccionCerrada; 
+            }
+            else
+            {
+                aux = EProcedimiento.Yeso; 
+            }
+            return aux;
+        }
+        public int CantProcedimientoPrevalente()
+        {
+            int aux;
+            if (cantArtrodecis > cantOsteodesis)
+            {
+                aux = cantArtrodecis;
+            }
+            else if (cantOsteodesis > cantOsteotomia)
+            {
+                aux = cantOsteodesis;
+            }
+            else if (CantOsteotomia > cantRAFI)
+            {
+                aux = CantOsteotomia;
+            }
+            else if (cantRAFI > cantReduccionCerrada)
+            {
+                aux = cantRAFI;
+            }
+            else if (cantReduccionCerrada > cantYeso)
+            {
+                aux = cantReduccionCerrada;
+            }
+            else
+            {
+                aux = cantYeso;
+            }
+            return aux;
         }
         #endregion
     }

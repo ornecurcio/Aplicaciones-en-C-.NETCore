@@ -44,7 +44,7 @@ namespace Entidades
             operar += paciente.PacienteOperado;
             operar += CirugiaRealizada;
             operar += ActualizarEstadisticaHospital;
-            operar += ActulizarEstadisticaCirujano;
+            //operar += ActulizarEstadisticaCirujano;
             operar += CargarEnBaseDatos;
             
         }
@@ -116,12 +116,13 @@ namespace Entidades
         #endregion
         public override string ToString()
         {
-            return $"Paciente: {paciente.Apellido},{paciente.Nombre} -- Cirujano {cirujano.Apellido} -- Patologia: {patologia}";
+            return $"Paciente: {paciente.Apellido},{paciente.Nombre} -- Cirujano {cirujano.Apellido} -- Patologia: {patologia} -- Procedimiento: {procedimiento}";
         }
         public void CirugiaRealizada()
         {
             this.operado = true;
-            Hospital.CirugiasPendientes.Remove(this); 
+            Hospital.CirugiasPendientes.Remove(this);
+            Hospital.SerializarCirugias(); 
         }
         
         public void ActualizarEstadisticaHospital()
@@ -129,16 +130,11 @@ namespace Entidades
             Hospital.Estadistica.ActualizarPatologia(this.patologia);
             Hospital.Estadistica.ActualizarProcedimiento(this.procedimiento);
         }
-        public void ActulizarEstadisticaCirujano()
-        {
-            cirujano.Estadistica.ActualizarPatologia(this.patologia);
-            cirujano.Estadistica.ActualizarProcedimiento(this.procedimiento); 
-        }
         public void CargarEnBaseDatos()
         {
             AccesoDatos accesoDatos = new AccesoDatos();
             accesoDatos.AgregarCirugia(this);
-            accesoDatos.ActualizarEstadisticaCirujano(this.cirujano);
+            Hospital.CirugiasRealizadas = accesoDatos.ObtenerListaCirugias(); 
         }
         public void RealizarOperacion()
         {

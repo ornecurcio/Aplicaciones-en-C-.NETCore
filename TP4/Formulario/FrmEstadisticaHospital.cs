@@ -20,47 +20,26 @@ namespace Formulario
 
         private void FrmEstadisticaHospital_Load(object sender, EventArgs e)
         {
-            CargarInfoPacientes();
-            CargarInfoCirujanos();
+            this.Text = "Servicio de Ortopedia y Traumatologia"; 
+            this.rchInfoHospital.Text += Hospital.CargarInfoPacientes();
+            this.rchInfoHospital.Text += Hospital.CargarInfoCirujanos();
+            this.rchInfoHospital.Text += Hospital.CargarPatologiaPrevalente();
+            this.rchInfoHospital.Text += Hospital.CargarProcedimientoPrevalente();
+            this.rchInfoHospital.Text += Hospital.PocentajeCirugiasCadaMedico(); 
         }
 
-
-        private void CargarInfoPacientes()
-        {
-            float cantidadPacientesMayoresDeEdad = 0;
-            float porcentaje;
-            foreach (Paciente item in Hospital.Pacientes)
+        private void btnArchivo_Click(object sender, EventArgs e)
+        {try
             {
-                if (item.Edad > 18)
-                    cantidadPacientesMayoresDeEdad++;
+                string ruta = Archivo.GenerarRuta($"{DateTime.Today.ToString("dd-MM-yyyy")} Estadistica de Ortopedia y Traumatologia");
+                Archivo.EscribirNuevoTxt(ruta, this.rchInfoHospital.Text);
+                MessageBox.Show("Archivo generado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
-
-            porcentaje = cantidadPacientesMayoresDeEdad / Hospital.Pacientes.Count;
-
-            this.rchInfoHospital.Text += $"Pacientes mayores de edad representan el {Math.Round(porcentaje,2)} de los pacientes";
-            this.rchInfoHospital.Text += $"(Cantidad de pacientes mayores de edad: {cantidadPacientesMayoresDeEdad} de {Hospital.Pacientes.Count}) \n\n";
-
-        }
-
-        private void CargarInfoCirujanos()
-        {
-            float cantCirujanos = 0;
-            float porcentaje;
-            foreach (Cirujano item in Hospital.Cirujanos)
-            {
-                if (item.Rol == ERol.Ayudante)
-                    cantCirujanos++;
+            catch (Exception ex) 
+            { 
+                ex.MostrarMensajeError(); 
             }
-
-            porcentaje = cantCirujanos / Hospital.Cirujanos.Count;
-
-            this.rchInfoHospital.Text += $"Los ayudantes representan el {Math.Round(porcentaje, 2)} de los medicos";
-            this.rchInfoHospital.Text += $"(Cantidad ayudantes: {cantCirujanos} de {Hospital.Cirujanos.Count}) \n\n";
-
         }
-
-
-
-
     }
 }

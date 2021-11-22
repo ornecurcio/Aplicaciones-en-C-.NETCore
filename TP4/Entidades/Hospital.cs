@@ -186,7 +186,6 @@ namespace Entidades
                 {
                     cirugiasPendientes.Add(aux);
                     SerializarCirugias();
-                    //SerializarCirujanos();
                     return true; 
                 }
                 return false; 
@@ -196,6 +195,7 @@ namespace Entidades
                 throw new Exception("Fallo en cargar cirugia", ex); 
             }
         }
+
         /// <summary>
         /// Agrega un nuevo cirujano a la lista si el mismo no existe 
         /// </summary>
@@ -226,17 +226,6 @@ namespace Entidades
         /// <returns>TRUE si pudo modificarlo</returns>
         public static bool ActualizarPacientePatologia(Paciente aux, EPatologia patologia)
         {
-            //TODO ESTO AGREGA UNA PATOLOGIA CUANDO AGREGO UNA PATOLOGIA AL PACIENTE, VER CAMBIAR EN LA BASE DE DATOS
-            //foreach (Paciente item in Pacientes)
-            //{
-            //    if (aux == item)
-            //    {
-            //        Pacientes.Remove(item);
-            //        Pacientes.Add(aux);
-            //        SerializarPacientes();
-            //        //datos.ModificarPaciente(item); 
-            //    }
-            //}
             if (aux is not null)
             {
                 datos.AgregarPatologiaPaciente(aux, patologia);
@@ -371,6 +360,82 @@ namespace Entidades
                 }
             }
             return cirugiasXPatologiaYCirujano;
+        }
+        public static string CargarInfoPacientes()
+        {
+            float cantidadPacientesMayoresDeEdad = 0;
+            float porcentaje;
+            foreach (Paciente item in Hospital.Pacientes)
+            {
+                if (item.Edad > 18)
+                    cantidadPacientesMayoresDeEdad++;
+            }
+
+            porcentaje = cantidadPacientesMayoresDeEdad / Hospital.Pacientes.Count;
+
+            return $"Pacientes mayores de edad: {Math.Round(porcentaje, 2) * 100}% " +
+                   $"(Cantidad de pacientes mayores de edad: {cantidadPacientesMayoresDeEdad} de {Hospital.Pacientes.Count}) \n\n";
+        }
+        public static string PocentajeCirugiasCadaMedico()
+        {
+            Dictionary<Cirujano, int> contador = new Dictionary<Cirujano, int>();
+
+            foreach (Cirujano cirujano in Hospital.Cirujanos)
+            {
+                int cantidad = 0;
+                foreach (Cirugia item in Hospital.CirugiasRealizadas)
+                {
+                    if (cirujano == item.Cirujano)
+                    {
+                        cantidad++;
+                    }
+                }
+                contador.Add(cirujano, cantidad);
+            }
+
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine($"------------------------Porcentaje de Cirugias por Medico------------------------"); 
+            foreach (KeyValuePair<Cirujano, int> item in contador)
+            {
+                float porcentaje = ((float)item.Value / Hospital.CirugiasRealizadas.Count) * 100;
+                stringBuilder.AppendLine($"{item.Key.ToString()} realizo {Math.Round(porcentaje, 2)}% (Cantidad: {item.Value} de {Hospital.CirugiasRealizadas.Count})");
+            }
+            return stringBuilder.ToString();
+        }
+        public static string CargarInfoCirujanos()
+        {
+            float cantCirujanos = 0;
+            foreach (Cirujano item in Hospital.Cirujanos)
+            {
+                if (item.Rol == ERol.Ayudante)
+                {
+                    cantCirujanos++;
+                }
+            }
+            float porcentaje = cantCirujanos / Hospital.Cirujanos.Count;
+
+            return $"Los ayudantes representan el {Math.Round(porcentaje, 2) * 100}% de los medicos " +
+                   $"(Cantidad ayudantes: {cantCirujanos} de {Hospital.Cirujanos.Count}) \n\n";
+        }
+        public static string CargarPatologiaPrevalente()
+        {
+            EPatologia aux = Hospital.Estadistica.PatologiaPrevalente();
+            int auxCant = Hospital.Estadistica.CantPatologiaPrevalente();
+
+            float porcentaje = (float)auxCant / Hospital.CirugiasRealizadas.Count;
+
+            return $"La patologia mas operada es {aux} con un porcentaje de {Math.Round(porcentaje, 2) * 100}% " +
+                   $"(Cantidad {aux}: {auxCant} de {Hospital.CirugiasRealizadas.Count}) \n\n";
+        }
+        public static string CargarProcedimientoPrevalente()
+        {
+            EProcedimiento aux = Hospital.Estadistica.ProcedimientoPrevalente();
+            int auxCant = Hospital.Estadistica.CantProcedimientoPrevalente();
+
+            float porcentaje = (float)auxCant / Hospital.CirugiasRealizadas.Count;
+
+            return $"El procedimiento mas realizado es {aux} con un porcentaje de {Math.Round(porcentaje, 2) * 100}% " +
+                   $"(Cantidad {aux}: {auxCant} de {Hospital.CirugiasRealizadas.Count}) \n\n";
         }
         #endregion
     }

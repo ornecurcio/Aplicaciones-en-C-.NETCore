@@ -28,7 +28,7 @@ namespace Formulario
         }
         private static void GuardarLogErrores(Exception ex)
         {
-            string ruta = Archivo.GenerarRuta("Log.txt");
+            string ruta = Archivo.GenerarRuta("Errores.txt");
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("Fecha y hora del error:");
             sb.AppendLine(DateTime.Now.ToString());
@@ -36,7 +36,7 @@ namespace Formulario
             sb.AppendLine(ex.Message);
             sb.AppendLine(ex.StackTrace);
             sb.AppendLine("---------------------------------------------------------------------------------------------------------");
-            Archivo.EscribirTxt(ruta, sb.ToString());
+            Archivo.EscribirAgregarTxt(ruta, sb.ToString());
         }
 
     }

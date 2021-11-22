@@ -29,11 +29,12 @@ namespace Formulario
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmQuirofano));
             this.lstPacientes = new System.Windows.Forms.ListBox();
             this.btnRealizarCirugias = new System.Windows.Forms.Button();
             this.btnDetenerQuirofano = new System.Windows.Forms.Button();
             this.btnCerrarQuirofano = new System.Windows.Forms.Button();
-            this.lblPacientes = new System.Windows.Forms.Label();
+            this.lblCirugias = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lstPacientes
@@ -42,16 +43,16 @@ namespace Formulario
             this.lstPacientes.ItemHeight = 15;
             this.lstPacientes.Location = new System.Drawing.Point(25, 44);
             this.lstPacientes.Name = "lstPacientes";
-            this.lstPacientes.Size = new System.Drawing.Size(472, 304);
+            this.lstPacientes.Size = new System.Drawing.Size(636, 409);
             this.lstPacientes.TabIndex = 0;
             // 
             // btnRealizarCirugias
             // 
             this.btnRealizarCirugias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnRealizarCirugias.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnRealizarCirugias.Location = new System.Drawing.Point(535, 44);
+            this.btnRealizarCirugias.Location = new System.Drawing.Point(680, 44);
             this.btnRealizarCirugias.Name = "btnRealizarCirugias";
-            this.btnRealizarCirugias.Size = new System.Drawing.Size(234, 87);
+            this.btnRealizarCirugias.Size = new System.Drawing.Size(234, 108);
             this.btnRealizarCirugias.TabIndex = 1;
             this.btnRealizarCirugias.Text = "Realizar Cirugias";
             this.btnRealizarCirugias.UseVisualStyleBackColor = false;
@@ -61,9 +62,9 @@ namespace Formulario
             // 
             this.btnDetenerQuirofano.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.btnDetenerQuirofano.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnDetenerQuirofano.Location = new System.Drawing.Point(535, 153);
+            this.btnDetenerQuirofano.Location = new System.Drawing.Point(680, 191);
             this.btnDetenerQuirofano.Name = "btnDetenerQuirofano";
-            this.btnDetenerQuirofano.Size = new System.Drawing.Size(234, 90);
+            this.btnDetenerQuirofano.Size = new System.Drawing.Size(234, 109);
             this.btnDetenerQuirofano.TabIndex = 2;
             this.btnDetenerQuirofano.Text = "Detener Quirofano";
             this.btnDetenerQuirofano.UseVisualStyleBackColor = false;
@@ -74,34 +75,36 @@ namespace Formulario
             this.btnCerrarQuirofano.BackColor = System.Drawing.Color.Red;
             this.btnCerrarQuirofano.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCerrarQuirofano.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCerrarQuirofano.Location = new System.Drawing.Point(535, 267);
+            this.btnCerrarQuirofano.Location = new System.Drawing.Point(680, 342);
             this.btnCerrarQuirofano.Name = "btnCerrarQuirofano";
-            this.btnCerrarQuirofano.Size = new System.Drawing.Size(234, 90);
+            this.btnCerrarQuirofano.Size = new System.Drawing.Size(234, 111);
             this.btnCerrarQuirofano.TabIndex = 3;
             this.btnCerrarQuirofano.Text = "Cerrar Quirofano";
             this.btnCerrarQuirofano.UseVisualStyleBackColor = false;
             this.btnCerrarQuirofano.Click += new System.EventHandler(this.btnCerrarQuirofano_Click);
             // 
-            // lblPacientes
+            // lblCirugias
             // 
-            this.lblPacientes.AutoSize = true;
-            this.lblPacientes.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblPacientes.Location = new System.Drawing.Point(25, 9);
-            this.lblPacientes.Name = "lblPacientes";
-            this.lblPacientes.Size = new System.Drawing.Size(109, 24);
-            this.lblPacientes.TabIndex = 4;
-            this.lblPacientes.Text = "Pacientes";
+            this.lblCirugias.AutoSize = true;
+            this.lblCirugias.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCirugias.Location = new System.Drawing.Point(25, 9);
+            this.lblCirugias.Name = "lblCirugias";
+            this.lblCirugias.Size = new System.Drawing.Size(93, 24);
+            this.lblCirugias.TabIndex = 4;
+            this.lblCirugias.Text = "Cirugias";
             // 
             // FrmQuirofano
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 376);
-            this.Controls.Add(this.lblPacientes);
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ClientSize = new System.Drawing.Size(937, 474);
+            this.Controls.Add(this.lblCirugias);
             this.Controls.Add(this.btnCerrarQuirofano);
             this.Controls.Add(this.btnDetenerQuirofano);
             this.Controls.Add(this.btnRealizarCirugias);
             this.Controls.Add(this.lstPacientes);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmQuirofano";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -118,6 +121,6 @@ namespace Formulario
         private System.Windows.Forms.Button btnRealizarCirugias;
         private System.Windows.Forms.Button btnDetenerQuirofano;
         private System.Windows.Forms.Button btnCerrarQuirofano;
-        private System.Windows.Forms.Label lblPacientes;
+        private System.Windows.Forms.Label lblCirugias;
     }
 }

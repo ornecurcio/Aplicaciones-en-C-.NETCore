@@ -30,7 +30,6 @@ namespace Formulario
             {
                 lblPersona.Text = "CIRUJANO";
                 lblRolPatologia.Text = "Rol";
-                //ICargarCmb.CargarCmbEnum<ERol>(cmbRolPatologia,ERol rol);
                 cmbRolPatologia.DataSource = Enum.GetValues(typeof(ERol));
                 esCirujano = true;
             }
@@ -38,43 +37,44 @@ namespace Formulario
             {
                 lblPersona.Text = "PACIENTE";
                 lblRolPatologia.Text = "Patologia";
-                //ICargarCmb.CargarCmbEnum<EPatologia>(cmbRolPatologia, EPatoloiga pat);
                 cmbRolPatologia.DataSource = Enum.GetValues(typeof(EPatologia));
             }
         }
         private void btnOk_Click(object sender, EventArgs e)
         {
-            if(!string.IsNullOrWhiteSpace(txtApellido.Text) && !string.IsNullOrWhiteSpace(txtNombre.Text) 
-                && txtApellido.Text.All(char.IsLetter) && txtNombre.Text.All(char.IsLetter) 
-                && txtDni.Text.All(char.IsDigit) && txtEdad.Text.All(char.IsDigit) && !string.IsNullOrWhiteSpace(cmbRolPatologia.Text))
+            try
             {
-                 if(esCirujano && Enum.TryParse(cmbRolPatologia.Text, out ERol auxR))
-                 {
-                    Hospital.CargarCirujanos(new Cirujano(txtNombre.Text, txtApellido.Text, double.Parse(txtDni.Text), int.Parse(txtEdad.Text),
-                                             auxR, new Estadistica())); 
-                 }
-                 else if(Enum.TryParse(cmbRolPatologia.Text, out EPatologia auxP)) 
-                 {
-                    List<EPatologia> patologias = new List<EPatologia>();
-                    patologias.Add(auxP); 
-                    Hospital.CargarPacientes(new Paciente(txtNombre.Text, txtApellido.Text, double.Parse(txtDni.Text), int.Parse(txtEdad.Text), patologias)); 
-                 }
-                this.Close(); 
+                if (!string.IsNullOrWhiteSpace(txtApellido.Text) && !string.IsNullOrWhiteSpace(txtNombre.Text)
+                    && txtApellido.Text.All(char.IsLetter) && txtNombre.Text.All(char.IsLetter)
+                    && txtDni.Text.All(char.IsDigit) && txtEdad.Text.All(char.IsDigit) && !string.IsNullOrWhiteSpace(cmbRolPatologia.Text))
+                {
+                    if (esCirujano && Enum.TryParse(cmbRolPatologia.Text, out ERol auxR))
+                    {
+                        Hospital.CargarCirujanos(new Cirujano(txtNombre.Text, txtApellido.Text, double.Parse(txtDni.Text), int.Parse(txtEdad.Text),
+                                                 auxR));
+                    }
+                    else if (Enum.TryParse(cmbRolPatologia.Text, out EPatologia auxP))
+                    {
+                        List<EPatologia> patologias = new List<EPatologia>();
+                        patologias.Add(auxP);
+                        Hospital.CargarPacientes(new Paciente(txtNombre.Text, txtApellido.Text, double.Parse(txtDni.Text), int.Parse(txtEdad.Text), patologias));
+                    }
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Chequee datos ingresados", "Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                }
             }
-            else
+            catch(Exception ex)
             {
-                MessageBox.Show("Chequee datos ingresados", "Error", MessageBoxButtons.OK,
-                MessageBoxIcon.Error);
+                ex.MostrarMensajeError(); 
             }
         }
 
         private void FrmIngresoDatos_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //if (MessageBox.Show("¿Esta seguro desea salir?", "Salir", MessageBoxButtons.YesNo,
-            //    MessageBoxIcon.Question) == DialogResult.No)
-            //{
-            //    e.Cancel = true;
-            //}
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

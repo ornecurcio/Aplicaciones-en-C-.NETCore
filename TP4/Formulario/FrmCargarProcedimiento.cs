@@ -55,28 +55,35 @@ namespace Formulario
         //dependiendo de la patologia seleccionada se carga el cmb de procedimiento
         private void cmbPatologia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cmbProcedimiento.Enabled = true;
-            if (cmbPatologia.CanSelect)
+            try
             {
-                switch (cmbPatologia.Text)
+                cmbProcedimiento.Enabled = true;
+                if (cmbPatologia.CanSelect)
                 {
-                    case "Columna":
-                        cmbProcedimiento.Items.Clear(); 
-                        cmbProcedimiento.Items.AddRange(new String[] { "Artrodecis", "Osteotomia", "Yeso" });
-                        break;
-                    case "MiembroSuperior":
-                        cmbProcedimiento.Items.Clear();
-                        cmbProcedimiento.Items.AddRange(new String[] { "RAFI", "Artrodecis", "Osteotomia", "Yeso", "ReduccionCerrada", "Osteodesis" });
-                        break;
-                    case "MiembroInferior":
-                        cmbProcedimiento.Items.Clear();
-                        cmbProcedimiento.Items.AddRange(new String[] { "RAFI", "Artrodecis", "Osteotomia", "Yeso", "ReduccionCerrada", "Osteodesis" });
-                        break;
-                    case "Pelvis":
-                        cmbProcedimiento.Items.Clear();
-                        cmbProcedimiento.Items.AddRange(new String[] { "Artrodecis", "Osteotomia"});
-                        break;
+                    switch (cmbPatologia.Text)
+                    {
+                        case "Columna":
+                            cmbProcedimiento.Items.Clear();
+                            cmbProcedimiento.Items.AddRange(new String[] { "Artrodecis", "Osteotomia", "Yeso" });
+                            break;
+                        case "MiembroSuperior":
+                            cmbProcedimiento.Items.Clear();
+                            cmbProcedimiento.Items.AddRange(new String[] { "RAFI", "Artrodecis", "Osteotomia", "Yeso", "ReduccionCerrada", "Osteodesis" });
+                            break;
+                        case "MiembroInferior":
+                            cmbProcedimiento.Items.Clear();
+                            cmbProcedimiento.Items.AddRange(new String[] { "RAFI", "Artrodecis", "Osteotomia", "Yeso", "ReduccionCerrada", "Osteodesis" });
+                            break;
+                        case "Pelvis":
+                            cmbProcedimiento.Items.Clear();
+                            cmbProcedimiento.Items.AddRange(new String[] { "Artrodecis", "Osteotomia" });
+                            break;
+                    }
                 }
+            }
+            catch(Exception ex)
+            {
+                ex.MostrarMensajeError(); 
             }
         }
         //abre form para ingresar nuevo cirujano
@@ -112,40 +119,43 @@ namespace Formulario
                     cmbPatologia.DataSource = null;
                     cmbPatologia.DataSource = aux.Patologia;
                 }
-                
             }
         }
         //se chequean los datos ingresados y se genera una instancia de una nueva cirugia pendiente
         //se agrega la cirugia a la lista de cirugias del Hospital y actualizan las estadisticas
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (esMedico && cmbApellidoNombre.CanSelect && cmbPatologia.CanSelect
-               && cmbPacientevsCirujano.CanSelect && cmbProcedimiento.CanSelect)
+            try
             {
-                Enum.TryParse(cmbPatologia.Text, out EPatologia auxP);
-                Enum.TryParse(cmbProcedimiento.Text, out EProcedimiento auxPr);
-                //TODO : ARREGLAR ESTADISTICA
-                Cirugia aux = new Cirugia((Paciente)cmbPacientevsCirujano.SelectedItem, DateTime.Now,
-                                  (Cirujano)cmbApellidoNombre.SelectedItem, auxP, auxPr);
-               // ((Cirujano)cmbApellidoNombre.SelectedItem).Estadistica.ActualizarPatologia(auxP);
-               // ((Cirujano)cmbApellidoNombre.SelectedItem).Estadistica.ActualizarProcedimiento(auxPr);
-                Hospital.CargarCirugiaPendiente(aux);
+                if (esMedico && cmbApellidoNombre.CanSelect && cmbPatologia.CanSelect
+                   && cmbPacientevsCirujano.CanSelect && cmbProcedimiento.CanSelect)
+                {
+                    Enum.TryParse(cmbPatologia.Text, out EPatologia auxP);
+                    Enum.TryParse(cmbProcedimiento.Text, out EProcedimiento auxPr);
+                    Cirugia aux = new Cirugia((Paciente)cmbPacientevsCirujano.SelectedItem, DateTime.Now,
+                                              (Cirujano)cmbApellidoNombre.SelectedItem, auxP, auxPr);
+                    Hospital.CargarCirugiaPendiente(aux);
 
-                this.Close();
-            }
-            else if (!esMedico && cmbApellidoNombre.CanSelect && cmbPatologia.CanSelect &&
-                     Enum.TryParse(cmbPatologia.Text, out EPatologia auxP))
-            {
-                Paciente aux = (Paciente)cmbApellidoNombre.SelectedItem;
-                //aux.Patologia.Add(auxP);
-                Hospital.ActualizarPacientePatologia(aux, auxP);
+                    this.Close();
+                }
+                else if (!esMedico && cmbApellidoNombre.CanSelect && cmbPatologia.CanSelect &&
+                         Enum.TryParse(cmbPatologia.Text, out EPatologia auxP))
+                {
+                    Paciente aux = (Paciente)cmbApellidoNombre.SelectedItem;
+                    aux.Patologia.Add(auxP);
+                    Hospital.ActualizarPacientePatologia(aux, auxP);
 
-                this.Close();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione una opcion de cada casilla", "Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                }
             }
-            else
+            catch(Exception ex)
             {
-                MessageBox.Show("Seleccione una opcion de cada casilla", "Error", MessageBoxButtons.OK,
-                MessageBoxIcon.Error);
+                ex.MostrarMensajeError(); 
             }
         }
         /// <summary>

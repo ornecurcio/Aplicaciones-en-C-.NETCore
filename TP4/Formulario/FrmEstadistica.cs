@@ -22,41 +22,11 @@ namespace Formulario
         //el medico, o patologias de los pacientes
         private void FrmEstadistica_Load(object sender, EventArgs e)
         {
-            if (esMedico)
+            if (servicio)
             {
                 this.LoadInicial();
-                CargarCmbLista(cmbTotalCirugias, Hospital.Cirujanos);
-                txtTotalCirugias.Visible = true;
-            }
-            else if (servicio)
-            {
-                this.LoadInicial();
-                cmbTotalCirugias.Visible = false;
                 txtTotalCirugias.Text = Hospital.CirugiasRealizadas.Count.ToString();
                 txtTotalCirugias.Enabled = false;
-            }
-            else
-            {
-                this.LoadPaciente();
-                btnPatologias.Text = "Pacientes por Patologia";
-            }
-        }
-
-        private void lblTotalCirugias_Click(object sender, EventArgs e)
-        {
-            cmbCirugiaXPatologia.Enabled = false;
-            cmbCirugiaXProcedimiento.Enabled = false;
-        }
-        //Si se selecciona un cirujano, se coloca la cantidad de cirugias totales que tiene echas 
-        private void cmbTotalCirugias_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cmbTotalCirugias.CanSelect)
-            {
-                int aux = ((Cirujano)cmbTotalCirugias.SelectedItem).Estadistica.CantColumna +
-                 ((Cirujano)cmbTotalCirugias.SelectedItem).Estadistica.CantMiembroSuperior +
-                 ((Cirujano)cmbTotalCirugias.SelectedItem).Estadistica.CantMiembroInferior +
-                 ((Cirujano)cmbTotalCirugias.SelectedItem).Estadistica.CantPelvis;
-                txtTotalCirugias.Text = aux.ToString();
             }
         }
         //Al cliquear se habilita el cmb para seleccionar patologia
@@ -68,50 +38,39 @@ namespace Formulario
         }
 
         //Al seleccion una patologia se carga la cantidad de cirugias de esa patologia
-        //(totales en el hospital o por cirujano)
+        //(totales en el hospital)
         private void cmbCirugiaXPatologia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            EPatologia aux;
-            if (cmbCirugiaXPatologia.CanSelect &&
-               Enum.TryParse(cmbCirugiaXPatologia.Text, out aux))
+            try
             {
-                cmbCirugiaXProcedimiento.Enabled = false;
-                if (servicio)
+                EPatologia aux;
+                if (cmbCirugiaXPatologia.CanSelect &&
+                   Enum.TryParse(cmbCirugiaXPatologia.Text, out aux))
                 {
-                    switch (aux)
+                    cmbCirugiaXProcedimiento.Enabled = false;
+                    if (servicio)
                     {
-                        case EPatologia.Columna:
-                            txtCirugiaXPatologia.Text = Hospital.Estadistica.CantColumna.ToString();
-                            break;
-                        case EPatologia.MiembroSuperior:
-                            txtCirugiaXPatologia.Text = Hospital.Estadistica.CantMiembroSuperior.ToString();
-                            break;
-                        case EPatologia.MiembroInferior:
-                            txtCirugiaXPatologia.Text = Hospital.Estadistica.CantMiembroInferior.ToString();
-                            break;
-                        case EPatologia.Pelvis:
-                            txtCirugiaXPatologia.Text = Hospital.Estadistica.CantPelvis.ToString();
-                            break;
+                        switch (aux)
+                        {
+                            case EPatologia.Columna:
+                                txtCirugiaXPatologia.Text = Hospital.Estadistica.CantColumna.ToString();
+                                break;
+                            case EPatologia.MiembroSuperior:
+                                txtCirugiaXPatologia.Text = Hospital.Estadistica.CantMiembroSuperior.ToString();
+                                break;
+                            case EPatologia.MiembroInferior:
+                                txtCirugiaXPatologia.Text = Hospital.Estadistica.CantMiembroInferior.ToString();
+                                break;
+                            case EPatologia.Pelvis:
+                                txtCirugiaXPatologia.Text = Hospital.Estadistica.CantPelvis.ToString();
+                                break;
+                        }
                     }
                 }
-                if (esMedico)
-                {
-                    switch (aux)
-                    {
-                        case EPatologia.Columna:
-                            txtCirugiaXPatologia.Text = ((Cirujano)cmbTotalCirugias.SelectedItem).Estadistica.CantColumna.ToString();
-                            break;
-                        case EPatologia.MiembroSuperior:
-                            txtCirugiaXPatologia.Text = ((Cirujano)cmbTotalCirugias.SelectedItem).Estadistica.CantMiembroSuperior.ToString();
-                            break;
-                        case EPatologia.MiembroInferior:
-                            txtCirugiaXPatologia.Text = ((Cirujano)cmbTotalCirugias.SelectedItem).Estadistica.CantMiembroInferior.ToString();
-                            break;
-                        case EPatologia.Pelvis:
-                            txtCirugiaXPatologia.Text = ((Cirujano)cmbTotalCirugias.SelectedItem).Estadistica.CantPelvis.ToString();
-                            break;
-                    }
-                }
+            }
+            catch(Exception ex)
+            {
+                ex.MostrarMensajeError(); 
             }
         }
         //Al clickear se habilita un cmb para elegir procedimiento
@@ -125,121 +84,77 @@ namespace Formulario
         //Al seleccionar un procedimiento se muestra la cantidad de los mismos 
         private void cmbCirugiaXProcedimiento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            EProcedimiento aux;
-            if (cmbCirugiaXProcedimiento.CanSelect &&
-               Enum.TryParse(cmbCirugiaXProcedimiento.Text, out aux))
+            try
             {
-                cmbCirugiaXPatologia.Enabled = false;
-                if (servicio)
+                EProcedimiento aux;
+                if (cmbCirugiaXProcedimiento.CanSelect &&
+                   Enum.TryParse(cmbCirugiaXProcedimiento.Text, out aux))
                 {
-                    switch (aux)
+                    cmbCirugiaXPatologia.Enabled = false;
+                    if (servicio)
                     {
-                        case EProcedimiento.Artrodecis:
-                            txtCirugiaXProcedimiento.Text = Hospital.Estadistica.CantArtrodecis.ToString();
-                            break;
-                        case EProcedimiento.Osteodesis:
-                            txtCirugiaXProcedimiento.Text = Hospital.Estadistica.CantOsteodesis.ToString();
-                            break;
-                        case EProcedimiento.Osteotomia:
-                            txtCirugiaXProcedimiento.Text = Hospital.Estadistica.CantOsteotomia.ToString();
-                            break;
-                        case EProcedimiento.RAFI:
-                            txtCirugiaXProcedimiento.Text = Hospital.Estadistica.CantRAFI.ToString();
-                            break;
-                        case EProcedimiento.ReduccionCerrada:
-                            txtCirugiaXProcedimiento.Text = Hospital.Estadistica.CantReduccionCerrada.ToString();
-                            break;
-                        case EProcedimiento.Yeso:
-                            txtCirugiaXProcedimiento.Text = Hospital.Estadistica.CantYeso.ToString();
-                            break;
-                    }
-                }
-                if (esMedico)
-                {
-                    switch (aux)
-                    {
-                        case EProcedimiento.Artrodecis:
-                            txtCirugiaXProcedimiento.Text = ((Cirujano)cmbTotalCirugias.SelectedItem).Estadistica.CantArtrodecis.ToString();
-                            break;
-                        case EProcedimiento.Osteodesis:
-                            txtCirugiaXProcedimiento.Text = ((Cirujano)cmbTotalCirugias.SelectedItem).Estadistica.CantOsteodesis.ToString();
-                            break;
-                        case EProcedimiento.Osteotomia:
-                            txtCirugiaXProcedimiento.Text = ((Cirujano)cmbTotalCirugias.SelectedItem).Estadistica.CantOsteotomia.ToString();
-                            break;
-                        case EProcedimiento.RAFI:
-                            txtCirugiaXProcedimiento.Text = ((Cirujano)cmbTotalCirugias.SelectedItem).Estadistica.CantRAFI.ToString();
-                            break;
-                        case EProcedimiento.ReduccionCerrada:
-                            txtCirugiaXProcedimiento.Text = ((Cirujano)cmbTotalCirugias.SelectedItem).Estadistica.CantReduccionCerrada.ToString();
-                            break;
-                        case EProcedimiento.Yeso:
-                            txtCirugiaXProcedimiento.Text = ((Cirujano)cmbTotalCirugias.SelectedItem).Estadistica.CantYeso.ToString();
-                            break;
+                        switch (aux)
+                        {
+                            case EProcedimiento.Artrodecis:
+                                txtCirugiaXProcedimiento.Text = Hospital.Estadistica.CantArtrodecis.ToString();
+                                break;
+                            case EProcedimiento.Osteodesis:
+                                txtCirugiaXProcedimiento.Text = Hospital.Estadistica.CantOsteodesis.ToString();
+                                break;
+                            case EProcedimiento.Osteotomia:
+                                txtCirugiaXProcedimiento.Text = Hospital.Estadistica.CantOsteotomia.ToString();
+                                break;
+                            case EProcedimiento.RAFI:
+                                txtCirugiaXProcedimiento.Text = Hospital.Estadistica.CantRAFI.ToString();
+                                break;
+                            case EProcedimiento.ReduccionCerrada:
+                                txtCirugiaXProcedimiento.Text = Hospital.Estadistica.CantReduccionCerrada.ToString();
+                                break;
+                            case EProcedimiento.Yeso:
+                                txtCirugiaXProcedimiento.Text = Hospital.Estadistica.CantYeso.ToString();
+                                break;
+                        }
                     }
 
                 }
+            }
+            catch(Exception ex)
+            {
+                ex.MostrarMensajeError(); 
             }
         }
         //Genera el llamado a un nuevo formulario que mostrara los listados de las cosas
         //dependiendo de si se muestra la estadistica del cirujano o del hospital o los pacientes
         private void btnVer_Click(object sender, EventArgs e)
         {
-            EProcedimiento auxPr;
-            EPatologia auxP;
-            if (servicio && !cmbTotalCirugias.Visible && !cmbCirugiaXPatologia.Enabled && !cmbCirugiaXProcedimiento.Enabled)
+            try
             {
-                FrmMostrarEstadistica mostrarEstadistica = new FrmMostrarEstadistica(servicio);
-                mostrarEstadistica.ShowDialog();
+                EProcedimiento auxPr;
+                EPatologia auxP;
+                if (servicio && !cmbCirugiaXPatologia.Enabled && !cmbCirugiaXProcedimiento.Enabled)
+                {
+                    FrmMostrarEstadistica mostrarEstadistica = new FrmMostrarEstadistica(servicio);
+                    mostrarEstadistica.ShowDialog();
+                }
+                if (servicio && cmbCirugiaXPatologia.CanSelect && !cmbCirugiaXProcedimiento.Enabled
+                   && Enum.TryParse(cmbCirugiaXPatologia.Text, out auxP))
+                {
+                    FrmMostrarEstadistica mostrarEstadistica = new FrmMostrarEstadistica(servicio, auxP);
+                    mostrarEstadistica.ShowDialog();
+                }
+                if (!cmbCirugiaXPatologia.Enabled && cmbCirugiaXProcedimiento.CanSelect
+                  //if(servicio
+                  && Enum.TryParse(cmbCirugiaXProcedimiento.Text, out auxPr))
+                {
+                    FrmMostrarEstadistica mostrarEstadistica = new FrmMostrarEstadistica(servicio, auxPr);
+                    mostrarEstadistica.ShowDialog();
+                }
             }
-            if (servicio && !cmbTotalCirugias.Visible && cmbCirugiaXPatologia.CanSelect && !cmbCirugiaXProcedimiento.Enabled
-               && Enum.TryParse(cmbCirugiaXPatologia.Text, out auxP))
+            catch(Exception ex)
             {
-                FrmMostrarEstadistica mostrarEstadistica = new FrmMostrarEstadistica(servicio, auxP);
-                mostrarEstadistica.ShowDialog();
-            }
-            if (!cmbTotalCirugias.Visible && !cmbCirugiaXPatologia.Enabled && cmbCirugiaXProcedimiento.CanSelect
-              //if(servicio
-              && Enum.TryParse(cmbCirugiaXProcedimiento.Text, out auxPr))
-            {
-                FrmMostrarEstadistica mostrarEstadistica = new FrmMostrarEstadistica(servicio, auxPr);
-                mostrarEstadistica.ShowDialog();
-            }
-            if (cmbTotalCirugias.CanSelect && !cmbCirugiaXPatologia.Enabled && !cmbCirugiaXProcedimiento.Enabled)
-            {
-                FrmMostrarEstadistica mostrarEstadistica = new FrmMostrarEstadistica((Cirujano)cmbTotalCirugias.SelectedItem);
-                mostrarEstadistica.ShowDialog();
-            }
-            if (cmbTotalCirugias.CanSelect && cmbCirugiaXPatologia.CanSelect && Enum.TryParse(cmbCirugiaXPatologia.Text, out auxP))
-            {
-                FrmMostrarEstadistica mostrarEstadistica = new FrmMostrarEstadistica((Cirujano)cmbTotalCirugias.SelectedItem, auxP);
-                mostrarEstadistica.ShowDialog();
-            }
-            if (cmbTotalCirugias.CanSelect && cmbCirugiaXProcedimiento.CanSelect && Enum.TryParse(cmbCirugiaXProcedimiento.Text, out auxPr))
-            {
-                FrmMostrarEstadistica mostrarEstadistica = new FrmMostrarEstadistica((Cirujano)cmbTotalCirugias.SelectedItem, auxPr);
-                mostrarEstadistica.ShowDialog();
-            }
-            if (!esMedico && !servicio && cmbCirugiaXPatologia.CanSelect && Enum.TryParse(cmbCirugiaXPatologia.Text, out auxP))
-            {
-                FrmMostrarEstadistica mostrarEstadistica = new FrmMostrarEstadistica(auxP);
-                mostrarEstadistica.ShowDialog();
+                ex.MostrarMensajeError(); 
             }
         }
-        //Oculta los cmb de cirujanos y de hospital
-        private void LoadPaciente()
-        {
-            cmbCirugiaXPatologia.Visible = true;
-            cmbCirugiaXPatologia.Enabled = false;
-            txtTotalCirugias.Visible = false;
-            txtCirugiaXPatologia.Visible = false;
-            txtCirugiaXProcedimiento.Visible = false;
-            cmbTotalCirugias.Visible = false;
-            lblTotalCirugias.Visible = false;
-            btnProcedimientos.Visible = false;
-            cmbCirugiaXProcedimiento.Visible = false;
-        }
-        //Coloca en Eneble son cmb y txt
         private void LoadInicial()
         {
             cmbCirugiaXPatologia.Enabled = false;

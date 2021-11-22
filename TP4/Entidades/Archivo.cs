@@ -28,7 +28,21 @@ namespace Entidades
             }
         }
 
-        public static void EscribirTxt(string ruta, string data)
+        public static void EscribirNuevoTxt(string ruta, string data)
+        {
+            try
+            {
+                using (StreamWriter streamWriter = new StreamWriter(ruta, false))
+                {
+                    streamWriter.WriteLine(data);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public static void EscribirAgregarTxt(string ruta, string data)
         {
             try
             {

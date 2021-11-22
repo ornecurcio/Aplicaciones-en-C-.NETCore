@@ -10,12 +10,11 @@ namespace Entidades
     {
         #region Atributos
         private ERol rol;
-        private Estadistica estadistica;
 
         #endregion
 
         #region Constructores
-        public Cirujano():this("", "", 0, 0, ERol.Cirujano,new Estadistica())
+        public Cirujano():this("", "", 0, 0, ERol.Cirujano)
         {
         }
         /// <summary>
@@ -26,11 +25,10 @@ namespace Entidades
         /// <param name="dni">dni del cirujano</param>
         /// <param name="rol">rol del cirujano</param>
         /// <param name="estadistica">estadistica propia del cirujano</param>
-        public Cirujano(string nombre, string apellido, double dni, int edad, ERol rol, Estadistica estadistica)
+        public Cirujano(string nombre, string apellido, double dni, int edad, ERol rol)
                        : base(nombre, apellido, dni, edad)
         {
             this.rol = rol;
-            this.estadistica = estadistica;
         }
         #endregion
 
@@ -44,20 +42,6 @@ namespace Entidades
             set
             {
                 this.rol = value;
-            }
-        }
-        public Estadistica Estadistica
-        {
-            get
-            {
-                return this.estadistica; 
-            }
-            set
-            {
-                if(value is not null)
-                {
-                    this.estadistica = value; 
-                }
             }
         }
         #endregion

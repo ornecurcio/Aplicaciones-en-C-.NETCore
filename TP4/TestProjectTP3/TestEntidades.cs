@@ -53,8 +53,8 @@ namespace TestProjectTP3
         public void VerificarIgualdadCirujanos_Ok()
         {
             //Arrange
-            Cirujano c1 = new Cirujano("Ornela", "Curcio", 34707599,31, ERol.Cirujano, new Estadistica());
-            Cirujano c2 = new Cirujano("Ornela", "Curcio", 34707599,31, ERol.Cirujano, new Estadistica());
+            Cirujano c1 = new Cirujano("Ornela", "Curcio", 34707599,31, ERol.Cirujano);
+            Cirujano c2 = new Cirujano("Ornela", "Curcio", 34707599,31, ERol.Cirujano);
 
             //Act
             bool rta = c1 == c2;
@@ -67,8 +67,8 @@ namespace TestProjectTP3
         public void VerificarIgualdadCirujanos_Falla()
         {
             //Arrange
-            Cirujano c1 = new Cirujano("Ornela", "Curcio", 34707599,31, ERol.Cirujano, new Estadistica());
-            Cirujano c2 = new Cirujano("Ornela", "Curcio", 34707599,31, ERol.Ayudante, new Estadistica());
+            Cirujano c1 = new Cirujano("Ornela", "Curcio", 34707599,31, ERol.Cirujano);
+            Cirujano c2 = new Cirujano("Ornela", "Curcio", 34707599,31, ERol.Ayudante);
 
             //Act
             bool rta = c1 == c2;
@@ -96,7 +96,7 @@ namespace TestProjectTP3
             //Arrange
             Cirugia c = new Cirugia(new Paciente("Martin", "Redrado", 14234678,42, new List<EPatologia>()),
                                     System.DateTime.Now,
-                                    new Cirujano("Ornela", "Curcio", 34707599,31, ERol.Cirujano, new Estadistica()),
+                                    new Cirujano("Ornela", "Curcio", 34707599,31, ERol.Cirujano),
                                     EPatologia.Columna, EProcedimiento.Artrodecis);
 
             //Act
@@ -120,7 +120,7 @@ namespace TestProjectTP3
         public void ValidarMetodoCargarCirujano_NodebeAgregarlo()
         {
             //Arrange
-            Cirujano c1 = new Cirujano("Ornela", "Curcio", 34707599,31, ERol.Cirujano, new Estadistica());
+            Cirujano c1 = new Cirujano("Ornela", "Curcio", 34707599,31, ERol.Cirujano);
 
             //Act
             bool rta = Hospital.CargarCirujanos(c1);

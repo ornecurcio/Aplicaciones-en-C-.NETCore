@@ -31,7 +31,6 @@ namespace Formulario
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEstadistica));
             this.lblTotalCirugias = new System.Windows.Forms.Label();
-            this.cmbTotalCirugias = new System.Windows.Forms.ComboBox();
             this.cmbCirugiaXProcedimiento = new System.Windows.Forms.ComboBox();
             this.cmbCirugiaXPatologia = new System.Windows.Forms.ComboBox();
             this.btnVer = new System.Windows.Forms.Button();
@@ -45,39 +44,32 @@ namespace Formulario
             // lblTotalCirugias
             // 
             this.lblTotalCirugias.AutoSize = true;
-            this.lblTotalCirugias.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTotalCirugias.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblTotalCirugias.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblTotalCirugias.Location = new System.Drawing.Point(79, 9);
+            this.lblTotalCirugias.Location = new System.Drawing.Point(51, 9);
             this.lblTotalCirugias.Name = "lblTotalCirugias";
-            this.lblTotalCirugias.Size = new System.Drawing.Size(124, 22);
+            this.lblTotalCirugias.Size = new System.Drawing.Size(179, 32);
             this.lblTotalCirugias.TabIndex = 0;
             this.lblTotalCirugias.Text = "Total Cirugias";
-            this.lblTotalCirugias.Click += new System.EventHandler(this.lblTotalCirugias_Click);
-            // 
-            // cmbTotalCirugias
-            // 
-            this.cmbTotalCirugias.FormattingEnabled = true;
-            this.cmbTotalCirugias.Location = new System.Drawing.Point(30, 41);
-            this.cmbTotalCirugias.Name = "cmbTotalCirugias";
-            this.cmbTotalCirugias.Size = new System.Drawing.Size(215, 23);
-            this.cmbTotalCirugias.TabIndex = 3;
-            this.cmbTotalCirugias.SelectedIndexChanged += new System.EventHandler(this.cmbTotalCirugias_SelectedIndexChanged);
+            
             // 
             // cmbCirugiaXProcedimiento
             // 
+            this.cmbCirugiaXProcedimiento.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbCirugiaXProcedimiento.FormattingEnabled = true;
-            this.cmbCirugiaXProcedimiento.Location = new System.Drawing.Point(30, 332);
+            this.cmbCirugiaXProcedimiento.Location = new System.Drawing.Point(30, 279);
             this.cmbCirugiaXProcedimiento.Name = "cmbCirugiaXProcedimiento";
-            this.cmbCirugiaXProcedimiento.Size = new System.Drawing.Size(215, 23);
+            this.cmbCirugiaXProcedimiento.Size = new System.Drawing.Size(215, 28);
             this.cmbCirugiaXProcedimiento.TabIndex = 4;
             this.cmbCirugiaXProcedimiento.SelectedIndexChanged += new System.EventHandler(this.cmbCirugiaXProcedimiento_SelectedIndexChanged);
             // 
             // cmbCirugiaXPatologia
             // 
+            this.cmbCirugiaXPatologia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbCirugiaXPatologia.FormattingEnabled = true;
-            this.cmbCirugiaXPatologia.Location = new System.Drawing.Point(30, 188);
+            this.cmbCirugiaXPatologia.Location = new System.Drawing.Point(30, 157);
             this.cmbCirugiaXPatologia.Name = "cmbCirugiaXPatologia";
-            this.cmbCirugiaXPatologia.Size = new System.Drawing.Size(215, 23);
+            this.cmbCirugiaXPatologia.Size = new System.Drawing.Size(215, 28);
             this.cmbCirugiaXPatologia.TabIndex = 5;
             this.cmbCirugiaXPatologia.SelectedIndexChanged += new System.EventHandler(this.cmbCirugiaXPatologia_SelectedIndexChanged);
             // 
@@ -85,7 +77,7 @@ namespace Formulario
             // 
             this.btnVer.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnVer.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnVer.Location = new System.Drawing.Point(155, 401);
+            this.btnVer.Location = new System.Drawing.Point(155, 356);
             this.btnVer.Name = "btnVer";
             this.btnVer.Size = new System.Drawing.Size(90, 37);
             this.btnVer.TabIndex = 6;
@@ -95,29 +87,32 @@ namespace Formulario
             // 
             // txtTotalCirugias
             // 
-            this.txtTotalCirugias.Location = new System.Drawing.Point(30, 76);
+            this.txtTotalCirugias.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtTotalCirugias.Location = new System.Drawing.Point(30, 58);
             this.txtTotalCirugias.Name = "txtTotalCirugias";
-            this.txtTotalCirugias.Size = new System.Drawing.Size(215, 23);
+            this.txtTotalCirugias.Size = new System.Drawing.Size(215, 33);
             this.txtTotalCirugias.TabIndex = 7;
             // 
             // txtCirugiaXPatologia
             // 
-            this.txtCirugiaXPatologia.Location = new System.Drawing.Point(30, 217);
+            this.txtCirugiaXPatologia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtCirugiaXPatologia.Location = new System.Drawing.Point(30, 191);
             this.txtCirugiaXPatologia.Name = "txtCirugiaXPatologia";
-            this.txtCirugiaXPatologia.Size = new System.Drawing.Size(215, 23);
+            this.txtCirugiaXPatologia.Size = new System.Drawing.Size(215, 27);
             this.txtCirugiaXPatologia.TabIndex = 8;
             // 
             // txtCirugiaXProcedimiento
             // 
-            this.txtCirugiaXProcedimiento.Location = new System.Drawing.Point(30, 361);
+            this.txtCirugiaXProcedimiento.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtCirugiaXProcedimiento.Location = new System.Drawing.Point(30, 313);
             this.txtCirugiaXProcedimiento.Name = "txtCirugiaXProcedimiento";
-            this.txtCirugiaXProcedimiento.Size = new System.Drawing.Size(215, 23);
+            this.txtCirugiaXProcedimiento.Size = new System.Drawing.Size(215, 27);
             this.txtCirugiaXProcedimiento.TabIndex = 9;
             // 
             // btnPatologias
             // 
             this.btnPatologias.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnPatologias.Location = new System.Drawing.Point(30, 146);
+            this.btnPatologias.Location = new System.Drawing.Point(30, 115);
             this.btnPatologias.Name = "btnPatologias";
             this.btnPatologias.Size = new System.Drawing.Size(215, 36);
             this.btnPatologias.TabIndex = 10;
@@ -128,7 +123,7 @@ namespace Formulario
             // btnProcedimientos
             // 
             this.btnProcedimientos.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnProcedimientos.Location = new System.Drawing.Point(29, 288);
+            this.btnProcedimientos.Location = new System.Drawing.Point(29, 235);
             this.btnProcedimientos.Name = "btnProcedimientos";
             this.btnProcedimientos.Size = new System.Drawing.Size(216, 38);
             this.btnProcedimientos.TabIndex = 11;
@@ -141,7 +136,7 @@ namespace Formulario
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(281, 450);
+            this.ClientSize = new System.Drawing.Size(281, 414);
             this.Controls.Add(this.btnProcedimientos);
             this.Controls.Add(this.btnPatologias);
             this.Controls.Add(this.txtCirugiaXProcedimiento);
@@ -150,7 +145,6 @@ namespace Formulario
             this.Controls.Add(this.btnVer);
             this.Controls.Add(this.cmbCirugiaXPatologia);
             this.Controls.Add(this.cmbCirugiaXProcedimiento);
-            this.Controls.Add(this.cmbTotalCirugias);
             this.Controls.Add(this.lblTotalCirugias);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -166,7 +160,6 @@ namespace Formulario
         #endregion
 
         private System.Windows.Forms.Label lblTotalCirugias;
-        private System.Windows.Forms.ComboBox cmbTotalCirugias;
         private System.Windows.Forms.ComboBox cmbCirugiaXProcedimiento;
         private System.Windows.Forms.ComboBox cmbCirugiaXPatologia;
         private System.Windows.Forms.Button btnVer;

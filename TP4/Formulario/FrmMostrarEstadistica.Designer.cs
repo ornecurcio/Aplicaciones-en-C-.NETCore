@@ -112,7 +112,7 @@ namespace Formulario
             this.MinimizeBox = false;
             this.Name = "FrmMostrarEstadistica";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Estadistica";
+            this.Text = "Listado";
             this.Load += new System.EventHandler(this.FrmMostrarEstadistica_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataEstadistica)).EndInit();
             this.ResumeLayout(false);
