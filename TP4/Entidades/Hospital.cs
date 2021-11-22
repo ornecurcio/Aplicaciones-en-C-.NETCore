@@ -36,24 +36,10 @@ namespace Entidades
                 pacientes = datos.ObtenerListaPacientes();
                 cirujanos = datos.ObtenerListaCirujanos();
                 cirugiasRealizadas = datos.ObtenerListaCirugias();
-                //string ruta = Archivo.GenerarRuta("Pacientes.json");
-                //pacientes = SerializacionAJason.DeserealizarDesdeJson<List<Paciente>>(ruta);
-               
-                //ruta = Archivo.GenerarRuta("Cirujanos.json");
-                //cirujanos = SerializacionAJason.DeserealizarDesdeJson<List<Cirujano>>(ruta);
                 string ruta = Archivo.GenerarRuta("Cirugias.json");
                 cirugiasPendientes = SerializacionAJason.DeserealizarDesdeJson<List<Cirugia>>(ruta);
                 Hospital.ActualizarEstadistica(cirugiasRealizadas);
                 datos.ActualizarEstadisticaHospital(Hospital.Estadistica);
-                //foreach (Paciente item in pacientes)
-                //{
-                //    Random rdn = new Random();
-                //    int numero = rdn.Next(1, 4);
-                //    if (item.Patologia.Count == 0)
-                //    {
-                //        datos.AgregarPatologiaPaciente(item, (EPatologia)Enum.Parse(typeof(EPatologia), numero.ToString()));
-                //    }
-                //}
             }
             catch (Exception ex)
             {
@@ -437,6 +423,17 @@ namespace Entidades
 
             return $"El procedimiento mas realizado es {aux} con un porcentaje de {Math.Round(porcentaje, 2) * 100}% " +
                    $"(Cantidad {aux}: {auxCant} de {Hospital.CirugiasRealizadas.Count}) \n\n";
+        }
+        public static void CargarHarcodeoCirugias()
+        {
+            foreach (Paciente item in Hospital.pacientes)
+            {
+                Random rdn = new Random();
+                int numero = rdn.Next(0, 12);
+                int proc = rdn.Next(1, 6);
+                Cirugia cirugia = new Cirugia(item, DateTime.Now, Hospital.cirujanos[numero], item.Patologia[0], (EProcedimiento)Enum.Parse(typeof(EProcedimiento), proc.ToString()));
+                Hospital.CargarCirugiaPendiente(cirugia);
+            }
         }
         #endregion
     }

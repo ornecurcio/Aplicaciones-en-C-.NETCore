@@ -229,49 +229,6 @@ namespace Entidades
         #endregion
 
         #region Insert
-        public bool ActualizarEstadisticaHospital(Estadistica param)
-        {
-            bool rta = true;
-
-            try
-            {
-                string sql = "DELETE FROM dbo.EstadisticaHospital INSERT INTO dbo.EstadisticaHospital (columna, miembroSuperior, miembroInferior, pelvis, " +
-                    "RAFI, ReduccionCerrada, Osteotomia, Artrodecis, Osteodesis, Yeso) " +
-                    "VALUES(" + param.CantColumna.ToString() + "," + param.CantMiembroSuperior.ToString() + ","+
-                              param.CantMiembroInferior.ToString() + ","+param.CantPelvis.ToString() + "," + 
-                              param.CantRAFI.ToString() + ","+param.CantReduccionCerrada.ToString() + ","+ param.CantOsteotomia.ToString() + "," +
-                              param.CantArtrodecis.ToString() + ","+ param.CantOsteodesis.ToString() + ","+ param.CantYeso.ToString()+ ")";
-
-                comando = new SqlCommand();
-
-                comando.CommandType = CommandType.Text;
-                comando.CommandText = sql;
-                comando.Connection = conexion;
-
-                conexion.Open();
-
-                int filasAfectadas = comando.ExecuteNonQuery();
-
-                if (filasAfectadas == 0)
-                {
-                    rta = false;
-                }
-
-            }
-            catch (Exception)
-            {
-                rta = false;
-            }
-            finally
-            {
-                if (conexion.State == ConnectionState.Open)
-                {
-                    conexion.Close();
-                }
-            }
-
-            return rta;
-        }
         public bool AgregarPaciente(Paciente param)
         {
             bool rta = true;
@@ -479,6 +436,49 @@ namespace Entidades
         #endregion
 
         #region Update
+        public bool ActualizarEstadisticaHospital(Estadistica param)
+        {
+            bool rta = true;
+
+            try
+            {
+                string sql = "DELETE FROM dbo.EstadisticaHospital INSERT INTO dbo.EstadisticaHospital (columna, miembroSuperior, miembroInferior, pelvis, " +
+                    "RAFI, ReduccionCerrada, Osteotomia, Artrodecis, Osteodesis, Yeso) " +
+                    "VALUES(" + param.CantColumna.ToString() + "," + param.CantMiembroSuperior.ToString() + "," +
+                              param.CantMiembroInferior.ToString() + "," + param.CantPelvis.ToString() + "," +
+                              param.CantRAFI.ToString() + "," + param.CantReduccionCerrada.ToString() + "," + param.CantOsteotomia.ToString() + "," +
+                              param.CantArtrodecis.ToString() + "," + param.CantOsteodesis.ToString() + "," + param.CantYeso.ToString() + ")";
+
+                comando = new SqlCommand();
+
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = sql;
+                comando.Connection = conexion;
+
+                conexion.Open();
+
+                int filasAfectadas = comando.ExecuteNonQuery();
+
+                if (filasAfectadas == 0)
+                {
+                    rta = false;
+                }
+
+            }
+            catch (Exception)
+            {
+                rta = false;
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+
+            return rta;
+        }
 
         public bool ModificarCirujano(Cirujano param)
         {
