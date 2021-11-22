@@ -118,3 +118,4 @@ C:\Users\orne_\source\repos\Progra y Labo II\TP4\Formulario\obj\Debug\net5.0-win
 C:\Users\orne_\source\repos\Progra y Labo II\TP4\Formulario\obj\Debug\net5.0-windows\ref\Formulario.dll
 C:\Users\orne_\source\repos\Progra y Labo II\TP4\Formulario\obj\Debug\net5.0-windows\Formulario.pdb
 C:\Users\orne_\source\repos\Progra y Labo II\TP4\Formulario\obj\Debug\net5.0-windows\Formulario.genruntimeconfig.cache
+C:\Users\orne_\source\repos\TpS\TP4\Formulario\obj\Debug\net5.0-windows\Formulario.FrmQuirofano.resources

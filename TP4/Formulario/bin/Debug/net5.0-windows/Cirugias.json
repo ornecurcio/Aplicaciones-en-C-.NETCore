@@ -1,1 +1,233 @@
-[]
+[
+  {
+    "Cirujano": {
+      "Rol": "Cirujano",
+      "Nombre": "Juan Pablo",
+      "Apellido": "Albarracin",
+      "Dni": 14237825,
+      "Edad": 58
+    },
+    "Procedimiento": "Yeso",
+    "Patologia": "MiembroSuperior",
+    "Paciente": {
+      "Patologia": [
+        "MiembroSuperior"
+      ],
+      "Nombre": "Zak",
+      "Apellido": "Yerson",
+      "Dni": 99960781,
+      "Edad": 11
+    },
+    "Fecha": "2021-11-22T11:33:38.4031654-03:00"
+  },
+  {
+    "Cirujano": {
+      "Rol": "Cirujano",
+      "Nombre": "Daniel",
+      "Apellido": "Villena",
+      "Dni": 22963307,
+      "Edad": 42
+    },
+    "Procedimiento": "Osteotomia",
+    "Patologia": "Columna",
+    "Paciente": {
+      "Patologia": [
+        "Columna"
+      ],
+      "Nombre": "Helenelizabeth",
+      "Apellido": "Gillespie",
+      "Dni": 99775766,
+      "Edad": 7
+    },
+    "Fecha": "2021-11-22T11:33:56.5832057-03:00"
+  },
+  {
+    "Cirujano": {
+      "Rol": "Cirujano",
+      "Nombre": "Matias",
+      "Apellido": "Beatti",
+      "Dni": 30234678,
+      "Edad": 40
+    },
+    "Procedimiento": "Artrodecis",
+    "Patologia": "Columna",
+    "Paciente": {
+      "Patologia": [
+        "Columna"
+      ],
+      "Nombre": "Helenelizabeth",
+      "Apellido": "Gillespie",
+      "Dni": 99775766,
+      "Edad": 7
+    },
+    "Fecha": "2021-11-22T11:34:14.1918279-03:00"
+  },
+  {
+    "Cirujano": {
+      "Rol": "Cirujano",
+      "Nombre": "Juan Pablo",
+      "Apellido": "Albarracin",
+      "Dni": 14237825,
+      "Edad": 58
+    },
+    "Procedimiento": "Artrodecis",
+    "Patologia": "Columna",
+    "Paciente": {
+      "Patologia": [
+        "Columna"
+      ],
+      "Nombre": "Sisile",
+      "Apellido": "Lillicrap",
+      "Dni": 98884840,
+      "Edad": 2
+    },
+    "Fecha": "2021-11-22T11:34:28.2235453-03:00"
+  },
+  {
+    "Cirujano": {
+      "Rol": "Cirujano",
+      "Nombre": "Claudio",
+      "Apellido": "Tome",
+      "Dni": 32000879,
+      "Edad": 33
+    },
+    "Procedimiento": "Artrodecis",
+    "Patologia": "MiembroSuperior",
+    "Paciente": {
+      "Patologia": [
+        "MiembroSuperior"
+      ],
+      "Nombre": "Octavio",
+      "Apellido": "Villegas",
+      "Dni": 25524076,
+      "Edad": 58
+    },
+    "Fecha": "2021-11-22T11:34:40.8220492-03:00"
+  },
+  {
+    "Cirujano": {
+      "Rol": "Cirujano",
+      "Nombre": "Juan",
+      "Apellido": "Peralta",
+      "Dni": 32980534,
+      "Edad": 33
+    },
+    "Procedimiento": "Yeso",
+    "Patologia": "MiembroInferior",
+    "Paciente": {
+      "Patologia": [
+        "MiembroInferior"
+      ],
+      "Nombre": "Cassandra",
+      "Apellido": "Wiskar",
+      "Dni": 70518354,
+      "Edad": 5
+    },
+    "Fecha": "2021-11-22T11:34:55.8282266-03:00"
+  },
+  {
+    "Cirujano": {
+      "Rol": "Cirujano",
+      "Nombre": "Lucia",
+      "Apellido": "Guidali",
+      "Dni": 33203789,
+      "Edad": 32
+    },
+    "Procedimiento": "Yeso",
+    "Patologia": "MiembroInferior",
+    "Paciente": {
+      "Patologia": [
+        "MiembroInferior"
+      ],
+      "Nombre": "Loren",
+      "Apellido": "Swyer-Sexey",
+      "Dni": 70370527,
+      "Edad": 43
+    },
+    "Fecha": "2021-11-22T11:35:09.9398503-03:00"
+  },
+  {
+    "Cirujano": {
+      "Rol": "Cirujano",
+      "Nombre": "Juan Pablo",
+      "Apellido": "Albarracin",
+      "Dni": 14237825,
+      "Edad": 58
+    },
+    "Procedimiento": "Osteotomia",
+    "Patologia": "MiembroSuperior",
+    "Paciente": {
+      "Patologia": [
+        "MiembroSuperior"
+      ],
+      "Nombre": "Mitzi",
+      "Apellido": "Guiot",
+      "Dni": 70641100,
+      "Edad": 8
+    },
+    "Fecha": "2021-11-22T11:35:23.4077301-03:00"
+  },
+  {
+    "Cirujano": {
+      "Rol": "Cirujano",
+      "Nombre": "Juan Pablo",
+      "Apellido": "Albarracin",
+      "Dni": 14237825,
+      "Edad": 58
+    },
+    "Procedimiento": "Osteotomia",
+    "Patologia": "MiembroSuperior",
+    "Paciente": {
+      "Patologia": [
+        "MiembroSuperior"
+      ],
+      "Nombre": "Audi",
+      "Apellido": "Dumpleton",
+      "Dni": 81970807,
+      "Edad": 8
+    },
+    "Fecha": "2021-11-22T11:35:38.1340082-03:00"
+  },
+  {
+    "Cirujano": {
+      "Rol": "Cirujano",
+      "Nombre": "Juan Pablo",
+      "Apellido": "Albarracin",
+      "Dni": 14237825,
+      "Edad": 58
+    },
+    "Procedimiento": "RAFI",
+    "Patologia": "MiembroInferior",
+    "Paciente": {
+      "Patologia": [
+        "MiembroInferior"
+      ],
+      "Nombre": "Ursa",
+      "Apellido": "Hazell",
+      "Dni": 98985873,
+      "Edad": 79
+    },
+    "Fecha": "2021-11-22T11:35:56.9527481-03:00"
+  },
+  {
+    "Cirujano": {
+      "Rol": "Cirujano",
+      "Nombre": "Lucia",
+      "Apellido": "Guidali",
+      "Dni": 33203789,
+      "Edad": 32
+    },
+    "Procedimiento": "Artrodecis",
+    "Patologia": "MiembroInferior",
+    "Paciente": {
+      "Patologia": [
+        "MiembroInferior"
+      ],
+      "Nombre": "Cassandra",
+      "Apellido": "Wiskar",
+      "Dni": 70518354,
+      "Edad": 5
+    },
+    "Fecha": "2021-11-22T11:36:20.0254563-03:00"
+  }
+]

@@ -35,24 +35,25 @@ namespace Entidades
 
                 pacientes = datos.ObtenerListaPacientes();
                 cirujanos = datos.ObtenerListaCirujanos();
-                cirugiasRealizadas = datos.ObtenerListaCirugias(); 
+                cirugiasRealizadas = datos.ObtenerListaCirugias();
                 //string ruta = Archivo.GenerarRuta("Pacientes.json");
                 //pacientes = SerializacionAJason.DeserealizarDesdeJson<List<Paciente>>(ruta);
-                //foreach (Paciente item in pacientes)
-                //{
-                //    Random rdn = new Random();
-                //    int numero = rdn.Next(1, 4); 
-                //    if(item.Patologia.Count==0)
-                //    {
-                //        datos.AgregarPatologiaPaciente(item, (EPatologia)Enum.Parse(typeof(EPatologia),numero.ToString()));
-                //    }
-                //}
+               
                 //ruta = Archivo.GenerarRuta("Cirujanos.json");
                 //cirujanos = SerializacionAJason.DeserealizarDesdeJson<List<Cirujano>>(ruta);
                 string ruta = Archivo.GenerarRuta("Cirugias.json");
                 cirugiasPendientes = SerializacionAJason.DeserealizarDesdeJson<List<Cirugia>>(ruta);
                 Hospital.ActualizarEstadistica(cirugiasRealizadas);
-                datos.ActualizarEstadisticaHospital(Hospital.Estadistica); 
+                datos.ActualizarEstadisticaHospital(Hospital.Estadistica);
+                //foreach (Paciente item in pacientes)
+                //{
+                //    Random rdn = new Random();
+                //    int numero = rdn.Next(1, 4);
+                //    if (item.Patologia.Count == 0)
+                //    {
+                //        datos.AgregarPatologiaPaciente(item, (EPatologia)Enum.Parse(typeof(EPatologia), numero.ToString()));
+                //    }
+                //}
             }
             catch (Exception ex)
             {

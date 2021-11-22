@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "moBSKDMONxj0ayVbV8wFRjYFTlj5bQhPDXltwRMoorEE3ko7ideedQg/9YqVPypbVkJ+Pi4c4MiZWfAmfeV6pA==",
+  "dgSpecHash": "+vLk659/zTU1u9oN7aFS3EHsIgWEZ8dDtSBV1SWsKfnrHHsRlqyvD6o3B95dWop02dYqVX6o39QEkRWaMgIZvg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\orne_\\source\\repos\\Progra y Labo II\\TP4\\ConsoleApp1\\ConsolaTP3.csproj",
+  "projectFilePath": "C:\\Users\\orne_\\source\\repos\\TpS\\TP4\\ConsoleApp1\\ConsolaTP3.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\orne_\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\orne_\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
