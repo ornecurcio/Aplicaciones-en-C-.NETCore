@@ -18,7 +18,7 @@ namespace Formulario
             MessageBox.Show(sb.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             try
             {
-                Task tsk = new Task(() => ClaseExtensora.GuardarLogErrores(ex));
+                Task tsk = new Task(() => ClaseExtensora.GuardarErrores(ex));
                 tsk.Start();
             }
             catch (Exception exArchivoLog)
@@ -26,7 +26,7 @@ namespace Formulario
                 MessageBox.Show(exArchivoLog.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private static void GuardarLogErrores(Exception ex)
+        private static void GuardarErrores(Exception ex)
         {
             string ruta = Archivo.GenerarRuta("Errores.txt");
             StringBuilder sb = new StringBuilder();

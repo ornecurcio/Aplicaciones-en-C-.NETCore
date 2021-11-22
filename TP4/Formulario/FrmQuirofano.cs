@@ -29,7 +29,6 @@ namespace Formulario
             lstPacientes.DataSource = Hospital.CirugiasPendientes;
             btnDetenerQuirofano.Enabled = false;
         }
-        //TODO ACTUALIZAR SQL a medida que se opera la gente
         private void btnRealizarCirugias_Click(object sender, EventArgs e)
         {
             try
@@ -68,7 +67,7 @@ namespace Formulario
                     item.RealizarOperacion();
                 }
                 
-                if (this.lstPacientes.InvokeRequired) // DA TRUE CUANDO NO ES DEL HILO PRINCIPAL 
+                if (this.lstPacientes.InvokeRequired)
                 {
                     this.lstPacientes.BeginInvoke((MethodInvoker)delegate ()
                     {

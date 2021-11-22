@@ -128,18 +128,6 @@ namespace TestProjectTP3
             //Assert
             Assert.IsFalse(rta);
         }
-        //[TestMethod]
-        //public void ValidarMetodoActualizarPaciente_DebeDarFalse()
-        //{
-        //    //Arrange
-        //    Paciente p1 = new Paciente("Martin", "Redrado", 14234678,42, new List<EPatologia>());
-
-        //    //Act
-        //    bool rta = Hospital.ActualizarPacientePatologia(p1); 
-
-        //    //Assert
-        //    Assert.IsFalse(rta);
-        //}
         [TestMethod]
         public void ValidarConexionBaseDatos_DebeDarTrue()
         {

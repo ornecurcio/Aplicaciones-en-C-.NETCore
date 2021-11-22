@@ -18,10 +18,4 @@
     <ProjectReference Include="..\Entidades\Entidades.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Update="FrmSubMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-  </ItemGroup>
-
 </Project>

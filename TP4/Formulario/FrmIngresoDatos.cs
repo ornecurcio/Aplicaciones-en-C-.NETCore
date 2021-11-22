@@ -87,7 +87,7 @@ namespace Formulario
             d.DataSource = lista; 
         }
 
-        void ICargarCmb.CargarCmbEnum<T>(ComboBox d, T enu)
+        public void CargarCmbEnum<T>(ComboBox d, T enu) where T: Type
         {
             d.DataSource = Enum.GetValues(typeof(T));
         }

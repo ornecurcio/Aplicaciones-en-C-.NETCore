@@ -44,9 +44,7 @@ namespace Entidades
             operar += paciente.PacienteOperado;
             operar += CirugiaRealizada;
             operar += ActualizarEstadisticaHospital;
-            //operar += ActulizarEstadisticaCirujano;
-            operar += CargarEnBaseDatos;
-            
+            operar += CargarEnBaseDatos;     
         }
         #endregion
         
